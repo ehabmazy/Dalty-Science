@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اكتشف وتعلم | العلوم - الصف الثانى الإعدادى</title>
+<title>اكتشف وتعلم | المادة والطاقة</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -192,6 +192,7 @@
   .yt-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px;}
   @media(max-width:600px){.yt-grid{grid-template-columns:1fr;}}
   .yt-grid .yt-card, .yt-solo{margin-bottom:20px;}
+  .yt-grid .yt-card:last-child:nth-child(odd){grid-column:1/-1;}
 
   .channel-banner{
     display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
@@ -535,9 +536,6 @@
     .ai-fab{right:16px;}
   }
 
-  .lesson-card.soon{opacity:.78;}
-  .lesson-card.soon .lesson-btn{background:var(--line); color:var(--ink-soft); cursor:default;}
-  .unit-meta{font-size:11.5px; color:var(--ink-soft); font-weight:700; margin-bottom:10px;}
   footer{text-align:center; padding:30px 20px; color:var(--ink-soft); font-size:12px;}
 
   /* ===== Analogy hint boxes ===== */
@@ -607,19 +605,57 @@
     font-size:11.5px; font-weight:800; padding:5px 14px; border-radius:99px; margin-bottom:14px;
   }
   .infographic-card svg{display:block; max-width:100%;}
+
+  /* ===== Unit navigation ===== */
+  .unit-nav{max-width:1080px; margin:14px auto 0; padding:0 20px; display:flex; gap:10px;}
+  .unit-tab{
+    flex:1; display:flex; align-items:center; gap:10px; text-align:right;
+    background:var(--paper); border:1.5px solid var(--line); border-radius:16px;
+    padding:10px 14px; color:var(--ink); transition:all .2s ease; font-family:'Tajawal',sans-serif;
+  }
+  .unit-tab:hover{border-color:var(--cyan); transform:translateY(-1px);}
+  .unit-tab .ut-ic{font-size:22px; flex-shrink:0;}
+  .unit-tab .ut-t{display:block; font-size:11px; font-weight:700; color:var(--ink-soft);}
+  .unit-tab .ut-n{display:block; font-size:14px; font-weight:800; font-family:'Cairo',sans-serif; line-height:1.4;}
+  .unit-tab.active{
+    background:linear-gradient(135deg,var(--deep),#146E86); color:#fff; border-color:transparent;
+    box-shadow:0 10px 24px -10px rgba(14,92,122,.6);
+  }
+  .unit-tab.active .ut-t{color:#DCEFF3;}
+  .unit-tab[data-unit="2"].active{background:linear-gradient(135deg,#2E9B6B,#0E5C7A);}
+  @media(max-width:600px){.unit-nav{gap:8px; padding:0 14px;} .unit-tab{padding:8px 10px;} .unit-tab .ut-n{font-size:12.5px;} .unit-tab .ut-ic{font-size:18px;}}
+
+  /* ===== Unit 2 theme (distinct background & palette) ===== */
+  body{transition:background .4s ease;}
+  body.unit-2{
+    --bg:#F2EEF8; --line:#E2D9EE; --deep:#5B3A82; --deep-dark:#3F2760; --cyan:#8E6BB8;
+    --shadow:0 10px 30px -12px rgba(91,58,130,.28);
+    background:
+      radial-gradient(900px 420px at 100% -80px, rgba(46,155,107,.14), transparent 70%),
+      radial-gradient(800px 420px at 0% 30%, rgba(142,107,184,.16), transparent 70%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  body.unit-2 .topbar{background:rgba(242,238,248,.92);}
+  body.unit-2 .hero{background:linear-gradient(160deg,#2E1A4D,#5B3A82 55%,#2E9B6B);}
+  body.unit-2 .hero h2 em{color:#B8F0D2;}
+  body.unit-2 .hero p{color:#E9E0F5;}
+  body.unit-2 .unit-tab:hover{border-color:#8E6BB8;}
+  body.unit-2 .unit-tab[data-unit="2"].active{background:linear-gradient(135deg,#5B3A82,#2E9B6B);}
+
+  /* unit 2 animated hero background (molecules) */
+  .hero #heroCanvas2{display:none; opacity:.95;}
+  body.unit-2 .hero #heroCanvas{display:none;}
+  body.unit-2 .hero #heroCanvas2{display:block;}
+
+  body.unit-2 .sim-link-card{background:linear-gradient(160deg,#5B3A82,#7B4FA0);}
+  body.unit-2 .sim-link-card p{color:#EADFF5;}
 </style>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0E5C7A">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="اكتشف وتعلم">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 </head>
 <body>
 
 <div class="topbar">
-  <div class="brand" onclick="showView('units')">
+  <div class="brand" onclick="showView('home')">
     <div class="brand-mark">
       <svg viewBox="0 0 24 24" fill="none"><path d="M9 2v6.5L4.5 17a2 2 0 0 0 1.8 2.9h11.4a2 2 0 0 0 1.8-2.9L15 8.5V2" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 2h8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="15" r="1.4" fill="#fff"/></svg>
     </div>
@@ -630,47 +666,37 @@
   </div>
   <div class="progress-pill">
     <div class="progress-track"><div class="progress-fill" id="topProgressFill" style="width:0%"></div></div>
-    <span id="topProgressLabel">0 / 8 تقييمات</span>
+    <span id="topProgressLabel">0 / 4 دروس</span>
   </div>
 </div>
 
+<nav class="unit-nav" id="unitNav">
+  <button class="unit-tab active" data-unit="1" onclick="goUnit(1)">
+    <span class="ut-ic">🧊</span>
+    <span><span class="ut-t">الوحدة الأولى</span><span class="ut-n">المادة والطاقة</span></span>
+  </button>
+  <button class="unit-tab" data-unit="2" onclick="goUnit(2)">
+    <span class="ut-ic">⚗️</span>
+    <span><span class="ut-t">الوحدة الثانية</span><span class="ut-n">التفاعلات الكيميائية وكيمياء التغذية</span></span>
+  </button>
+</nav>
+
 <main>
 
-  <!-- ============ UNITS VIEW (landing) ============ -->
-  <div class="lesson-view active" id="view-units">
-    <div class="hero" style="padding:46px 26px 36px;">
-      <div class="hero-inner">
-        <div class="eyebrow">📚 منهج العلوم · الصف الثانى الإعدادى · الفصل الدراسى الأول</div>
-        <h2>اكتشف <em>وتعلم</em></h2>
-        <p>اختر وحدة لتبدأ رحلتك: شروحات وتجارب تفاعلية وفيديوهات وأسئلة تقييم لكل درس فى المنهج.</p>
-      </div>
-    </div>
-    <div class="channel-banner" style="margin-top:20px;">
-      <div>
-        <div class="cb-eyebrow">📺 قناة الأستاذ إيهاب مازى</div>
-        <h3>Discover with Dalty</h3>
-        <p>تابع شرح كل درس بالفيديو خطوة بخطوة مع الأستاذ إيهاب</p>
-      </div>
-      <a href="https://www.youtube.com/channel/UCjKm7H3s_4c1rbEUbnxecjQ" target="_blank" rel="noopener">زيارة القناة ↗</a>
-    </div>
-    <div class="section-label">وحدات المنهج</div>
-    <div class="lesson-grid" id="unitGrid"></div>
-  </div>
-
-  <!-- ============ UNIT 1 VIEW ============ -->
-  <div class="lesson-view" id="view-home">
-    <button class="back-btn" onclick="showView('units')">→ كل الوحدات</button>
+  <!-- ============ HOME VIEW ============ -->
+  <div class="lesson-view active" id="view-home">
     <div class="hero">
       <canvas id="heroCanvas"></canvas>
+      <canvas id="heroCanvas2"></canvas>
       <div class="hero-inner">
-        <div class="eyebrow">🧪 الوحدة الأولى · المادة والطاقة</div>
-        <h2>رحلتك داخل <em>عالم الجسيمات</em></h2>
-        <p>اكتشف كيف تتغيّر حالات المادة، وكيف تنتقل الطاقة والحرارة من حولنا — من خلال تجارب تفاعلية ومحاكاة حيّة للجسيمات.</p>
-        <button class="hero-cta" onclick="showView('lesson1')">
-          ابدأ الدرس الأول
+        <div class="eyebrow" id="heroEyebrow">🧪 الوحدة الأولى · المادة والطاقة</div>
+        <h2 id="heroTitle">رحلتك داخل <em>عالم الجسيمات</em></h2>
+        <p id="heroDesc">اكتشف كيف تتغيّر حالات المادة، وكيف تنتقل الطاقة والحرارة من حولنا — من خلال تجارب تفاعلية ومحاكاة حيّة للجسيمات.</p>
+        <button class="hero-cta" id="heroCta" onclick="showView('lesson1')">
+          <span id="heroCtaTxt">ابدأ الدرس الأول</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="state-toggle-hint">
+        <div class="state-toggle-hint u1-only">
           <span class="state-chip" data-hero-state="solid">🧊 صلبة</span>
           <span class="state-chip" data-hero-state="liquid">💧 سائلة</span>
           <span class="state-chip" data-hero-state="gas">💨 غازية</span>
@@ -679,7 +705,7 @@
       </div>
     </div>
 
-    <div class="channel-banner">
+    <div class="channel-banner u1-only">
       <div>
         <div class="cb-eyebrow">📺 قناة الأستاذ إيهاب مازى</div>
         <h3>Discover with Dalty</h3>
@@ -688,7 +714,7 @@
       <a href="https://www.youtube.com/channel/UCjKm7H3s_4c1rbEUbnxecjQ" target="_blank" rel="noopener">زيارة القناة ↗</a>
     </div>
 
-    <a class="yt-card yt-solo" href="https://www.youtube.com/watch?v=IKVaPzUX8nY" target="_blank" rel="noopener">
+    <a class="yt-card yt-solo u1-only" href="https://www.youtube.com/watch?v=IKVaPzUX8nY" target="_blank" rel="noopener">
       <div class="yt-thumb" style="background-image:url('https://i.ytimg.com/vi/IKVaPzUX8nY/maxresdefault.jpg');">
         <span class="yt-play">▶</span>
         <span class="yt-duration">30:00</span>
@@ -1618,7 +1644,7 @@
 
     <div class="nav-buttons">
       <button class="nav-btn prev" onclick="showView('lesson3')">← الدرس السابق</button>
-      <button class="nav-btn next" onclick="showView('home')">إنهاء الوحدة 🎉</button>
+      <button class="nav-btn next" onclick="showView('lesson5')">الوحدة الثانية 🧪 →</button>
     </div>
   </div>
 
@@ -1653,7 +1679,7 @@
   </div>
 </div>
 
-<footer>صُمم هذا التطبيق التفاعلى استنادًا إلى منهج العلوم – الصف الثانى الإعدادى – الفصل الدراسى الأول</footer>
+<footer>صُمم هذا التطبيق التفاعلى استنادًا إلى منهج العلوم – الصف الثانى الإعدادى – الفصل الدراسى الأول (الوحدة الأولى: المادة والطاقة · الوحدة الثانية: التفاعلات الكيميائية وكيمياء التغذية)</footer>
 
 <script>
 /* ================= STORAGE / PROGRESS ================= */
@@ -1662,17 +1688,16 @@ let progress = {
   lesson1w:null, lesson2w:null, lesson3w:null, lesson4w:null
 };
 
-const STORAGE_KEY = 'dalty-science-progress-v1';
-function loadProgress(){
+async function loadProgress(){
   try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(raw){ progress = Object.assign({}, progress, JSON.parse(raw)); }
-  }catch(e){ /* التخزين غير متاح أو لا يوجد تقدم محفوظ */ }
+    const r = await window.storage.get('science-progress');
+    if(r && r.value){ progress = Object.assign({}, progress, JSON.parse(r.value)); }
+  }catch(e){ /* no saved progress yet */ }
   renderLessonGrid();
   updateTopProgress();
 }
-function saveProgress(){
-  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch(e){}
+async function saveProgress(){
+  try{ await window.storage.set('science-progress', JSON.stringify(progress)); }catch(e){}
 }
 function updateTopProgress(){
   const keys = Object.keys(progress);
@@ -1692,8 +1717,37 @@ function showView(id){
     const slider = document.getElementById('curveSlider');
     updateCurve(slider ? slider.value : 0);
   }
+  if(id!=='home'){ currentUnit = unitOfView(id); }
   currentView = id;
+  updateUnitNav(id);
   updateAiContext();
+}
+
+/* ================= UNITS ================= */
+let currentUnit = 1;
+const UNIT_INFO = {
+  1:{eyebrow:'🧪 الوحدة الأولى · المادة والطاقة', title:'رحلتك داخل <em>عالم الجسيمات</em>', desc:'اكتشف كيف تتغيّر حالات المادة، وكيف تنتقل الطاقة والحرارة من حولنا — من خلال تجارب تفاعلية ومحاكاة حيّة للجسيمات.', cta:'ابدأ الدرس الأول', first:'lesson1', label:'دروس الوحدة الأولى'},
+  2:{eyebrow:'⚗️ الوحدة الثانية · التفاعلات الكيميائية وكيمياء التغذية', title:'اكتشف <em>عالم التفاعلات الكيميائية</em>', desc:'تعرّف على دلائل التفاعل الكيميائى، وتعلّم وزن المعادلات وقانون بقاء الكتلة، ثم اكتشف كيمياء الكربوهيدرات والدهون والبروتينات.', cta:'ابدأ الدرس الخامس', first:'lesson5', label:'دروس الوحدة الثانية'}
+};
+function unitOfView(id){ return ['lesson5','lesson6','lesson7'].includes(id) ? 2 : 1; }
+function applyUnitHome(){
+  const u = UNIT_INFO[currentUnit];
+  const set=(i,h)=>{const e=document.getElementById(i); if(e) e.innerHTML=h;};
+  set('heroEyebrow',u.eyebrow); set('heroTitle',u.title); set('heroDesc',u.desc); set('heroCtaTxt',u.cta);
+  const cta=document.getElementById('heroCta'); if(cta) cta.setAttribute('onclick',"showView('"+u.first+"')");
+  document.querySelectorAll('#view-home .u1-only').forEach(e=>{e.style.display = currentUnit===1 ? '' : 'none';});
+  const lbl=document.querySelector('#view-home .section-label'); if(lbl) lbl.textContent=u.label;
+}
+function updateUnitNav(viewId){
+  const active = viewId==='home' ? currentUnit : unitOfView(viewId);
+  document.querySelectorAll('.unit-tab').forEach(b=>b.classList.toggle('active', +b.dataset.unit===active));
+  document.body.classList.toggle('unit-2', active===2);
+}
+function goUnit(u){
+  currentUnit = u;
+  applyUnitHome();
+  renderLessonGrid();
+  showView('home');
 }
 
 /* ================= LESSON GRID ================= */
@@ -1703,36 +1757,9 @@ const lessonsMeta = [
   {id:'lesson3', num:'03', title:'الطاقة الداخلية ودرجة الحرارة', desc:'النظام، الطاقة الداخلية، والحرارة النوعية.', icon:'⚙️', color:'linear-gradient(135deg,#0A4259,#7B4FA0)'},
   {id:'lesson4', num:'04', title:'طرق انتقال الحرارة', desc:'التوصيل والحمل والإشعاع وتطبيقاتها.', icon:'🔥', color:'linear-gradient(135deg,#C64A19,#E8622C)'},
 ];
-const unitsMeta = [
-  {num:'01', title:'المادة والطاقة', desc:'حالات المادة، تغيّر الحالة، الطاقة الداخلية ودرجة الحرارة، وطرق انتقال الحرارة.', icon:'🧪', color:'linear-gradient(135deg,#0E5C7A,#3FAFC0)', lessons:4, view:'home'},
-  {num:'02', title:'المادة والتفاعلات الكيميائية', desc:'التفاعلات الكيميائية، المعادلة الكيميائية، وكيمياء التغذية.', icon:'⚗️', color:'linear-gradient(135deg,#7B4FA0,#C64A19)', lessons:3, view:null},
-  {num:'03', title:'تدفق الطاقة فى البناء الضوئى والتنفس الخلوى', desc:'عملية البناء الضوئى وعملية التنفس الخلوى.', icon:'🌿', color:'linear-gradient(135deg,#2E9B6B,#146E86)', lessons:2, view:null},
-  {num:'04', title:'العمليات الچيولوچية', desc:'تغيير سطح الأرض، وتكوين المعادن والتربة.', icon:'🌋', color:'linear-gradient(135deg,#C64A19,#E8622C)', lessons:2, view:null},
-];
-function renderUnitGrid(){
-  const grid = document.getElementById('unitGrid');
-  if(!grid) return;
-  const done = Object.keys(progress).filter(k=>progress[k]!==null).length;
-  grid.innerHTML = unitsMeta.map(u=>{
-    const open = !!u.view;
-    const meta = open ? `${u.lessons} دروس · ${done} / 8 تقييمات مكتملة` : `${u.lessons} ${u.lessons===2?'درسان':'دروس'}`;
-    return `<div class="lesson-card ${open?'':'soon'}">
-      <div class="num">${u.num}</div>
-      <div class="lesson-icon" style="background:${u.color};"><span style="font-size:24px;">${u.icon}</span></div>
-      <h3>${u.title}</h3>
-      <div class="unit-meta">${meta}</div>
-      <p>${u.desc}</p>
-      <div class="lesson-foot">
-        ${open ? `<button class="lesson-btn" onclick="showView('${u.view}')">${done?'تابع الوحدة':'ابدأ الوحدة'}</button>`
-               : `<button class="lesson-btn" disabled>⏳ قريبًا</button>`}
-      </div>
-    </div>`;
-  }).join('');
-}
 function renderLessonGrid(){
-  renderUnitGrid();
   const grid = document.getElementById('lessonGrid');
-  grid.innerHTML = lessonsMeta.map(l=>{
+  grid.innerHTML = lessonsMeta.filter(l=>unitOfView(l.id)===currentUnit).map(l=>{
     const p = progress[l.id];
     const pw = progress[l.id+'w'];
     const mainDone = p!==null;
@@ -2540,7 +2567,6 @@ const lessonLabels = {
   lesson4:'الدرس الرابع: طرق انتقال الحرارة',
 };
 const aiChipsByView = {
-  units:['ما محتوى وحدة المادة والطاقة؟','ما هى نظرية الجسيمات؟'],
   home:['ما محتوى هذه الوحدة باختصار؟','ما هى نظرية الجسيمات؟'],
   lesson1:['ما الفرق بين الصلب والسائل والغاز؟','ما هى حالة البلازما؟'],
   lesson2:['ما الفرق بين التبخر والغليان؟','لماذا يعمل القدر الكاتم على توفير الوقود؟'],
@@ -2752,7 +2778,6 @@ function sendAiMessage(){
 
 /* ================= INIT ================= */
 window.addEventListener('load', ()=>{
-  loadProgress();
   initHero();
   renderClassify();
   initRodDots();
@@ -2766,19 +2791,220 @@ window.addEventListener('load', ()=>{
   renderShQuestions();
   renderSortGame();
   updateAiContext();
+  loadProgress();
 });
 </script>
-
-<button id="installBtn" style="display:none;position:fixed;bottom:22px;left:22px;z-index:200;background:#E8622C;color:#fff;border:none;border-radius:14px;padding:12px 18px;font-weight:800;font-size:13px;box-shadow:0 10px 26px -6px rgba(232,98,44,.6);">📲 ثبّت التطبيق</button>
-<script>
-if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
-let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').style.display='block'; });
-document.getElementById('installBtn').addEventListener('click',async()=>{
-  if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice;
-  deferredPrompt=null; document.getElementById('installBtn').style.display='none';
+<script>(function(){
+const U=[
+{id:'lesson5',num:'05',icon:'⚗️',color:'linear-gradient(135deg,#2E9B6B,#0E5C7A)',title:'التفاعلات الكيميائية',desc:'الوحدة 2 · مفهوم التفاعل ودلائل حدوثه.',
+ vids:[['ocb00vM38aM','🎬 اشرح بالفيديو','التفاعلات الكيميائية — الدرس الأول','شرح مفهوم التفاعل الكيميائى والفرق بينه وبين التغير الفيزيائى.'],['OcfdvZITlkk','🎬 اشرح بالفيديو','تابع التفاعل الكيميائى','استكمال شرح التفاعلات الكيميائية بأمثلة وتطبيقات.'],['sjVhX4WMn6w','🎬 اشرح بالفيديو','دلائل التفاعلات الكيميائية','كيف نستدل على حدوث التفاعل: راسب، تغير لون، غاز، ضوء وحرارة.'],['s_rEPNQXJY8','🎬 فيديو إثرائى','الرابطة الأيونية — الجزء الأول من الروابط الكيميائية','تعرّف على الرابطة الأيونية، وهى بداية فهم كسر الروابط وتكوينها فى التفاعل.']],
+ intro:'التغير الكيميائى ينتج عنه مواد جديدة تختلف خواصها عن المواد الأصلية، أما التغير الفيزيائى فلا يغيّر التركيب الكيميائى للمادة.',
+ secs:[
+ ['مفهوم التفاعل الكيميائى','<p>التفاعل الكيميائى هو عملية <strong class="hl">كسر الروابط</strong> بين ذرات جزيئات المتفاعلات، ثم <strong class="hl">تكوين روابط جديدة</strong> بين ذرات جزيئات النواتج.</p><ul><li>مثال: الخل + صودا الخبز ← فوران وتصاعد غاز ثانى أكسيد الكربون.</li><li>احتراق الخشب تغير كيميائى، وانصهار الثلج تغير فيزيائى.</li></ul>'],
+ ['دلائل حدوث التفاعل الكيميائى','<ul><li><strong class="hl2">تكوّن راسب:</strong> NaCl + AgNO₃ ← راسب أبيض من AgCl.</li><li><strong class="hl2">تغير اللون:</strong> لوح خارصين فى CuSO₄ ← يزول اللون الأزرق ويتجمع نحاس بنى محمر.</li><li><strong class="hl2">تصاعد غاز:</strong> Mg + HCl ← فقاعات غاز الهيدروچين.</li><li><strong class="hl2">انبعاث ضوء وحرارة:</strong> احتراق شريط الماغنسيوم ← مسحوق أبيض MgO.</li></ul><p style="font-size:12.5px;color:var(--ink-soft);">⚠️ احتياطات الأمان: قناع واقٍ، ماسك حرارى، لا تلمس المسحوق الساخن، وحذر شديد مع الأحماض.</p>'],
+ ['خواص المواد قبل وبعد التفاعل','<ul><li><strong class="hl2">حرق السكر:</strong> يتحول إلى مصهور بنى، رائحة الكراميل، دخان، وتكون مادة جديدة (الكربون).</li><li><strong class="hl2">الزيت + الصودا الكاوية مع التسخين:</strong> تغير فى القوام وتكون مادة جديدة (الصابون).</li></ul>']],
+ cls:[['صنّف التغير','cls5a',['فيزيائى','كيميائى'],[['ذوبان السكر فى الماء','فيزيائى'],['تحول اللبن إلى زبادى','كيميائى'],['احتراق الشمع','كيميائى'],['انصهار الشمع','فيزيائى'],['صدأ مسمار الحديد','كيميائى'],['تعكر ماء الجير بغاز CO₂','كيميائى']]],
+      ['صل التفاعل بدليله','cls5b',['راسب','تغير لون','غاز','ضوء وحرارة'],[['NaCl + AgNO₃','راسب'],['Zn + CuSO₄','تغير لون'],['Mg + HCl','غاز'],['احتراق Mg فى الهواء','ضوء وحرارة']]]],
+ rev:[['ماذا يدل تضخم البالون عند خلط الخل وصودا الخبز؟','تصاعد غاز CO₂ الناتج عن تفاعل كيميائى، فتكونت مادة جديدة.'],['هل تهشّم زجاجة ماء ممتلئة فى الثلاجة تفاعل كيميائى؟','لا، تغير فيزيائى: الماء يتجمد ويتمدد دون تكوّن مواد جديدة.']],
+ flip:[['تفاعل الخل مع صودا الخبز تغير كيميائى.','لأنه تكوّنت مادة جديدة (غاز CO₂) وصاحبه فوران.'],['احتراق الشمع كيميائى بينما انصهاره فيزيائى.','الاحتراق يكوّن نواتج جديدة، أما الانصهار فتغير فى الحالة فقط دون تغير التركيب.'],['يتكون راسب عند إضافة AgNO₃ إلى NaCl.','لتكوّن كلوريد الفضة AgCl الذى لا يذوب فى الماء.'],['يُمسك شريط الماغنسيوم بماسك ويُستخدم قناع واقٍ.','لتجنب الحروق ولحماية العين من الضوء المبهر.']],
+ q:[['أى مما يلى تغير كيميائى؟',['تسامى اليود','تحول الفحم إلى رماد','انصهار الجليد','تسخين ساق حديد'],1],['التفاعل الكيميائى هو:',['كسر روابط المتفاعلات وتكوين روابط جديدة فى النواتج','تغير فى الحالة فقط','خلط مواد دون تغير','تبخر السائل'],0],['إضافة AgNO₃ إلى NaCl يدل على التفاعل من تكوّن:',['غاز','راسب أبيض','ضوء','حرارة فقط'],1],['يتكون الصابون من تفاعل:',['الزيت مع محلول هيدروكسيد الصوديوم','الزيت مع HCl','الزيت مع AgNO₃','الزيت مع الماء'],0],['الغاز المتصاعد عند تفاعل الخل مع صودا الخبز:',['الهيدروچين','الأكسچين','ثانى أكسيد الكربون','النيتروچين'],2]],
+ w:[['كل التفاعلات الكيميائية مصحوبة بما يلى، عدا:',['كسر روابط المتفاعلات','تكوين روابط فى النواتج','تكوين مواد جديدة','انطلاق حرارة'],3],['يُستدل على احتراق السكر من تكوّن:',['مادة صلبة (كربون) وتصاعد دخان','راسب أبيض','محلول أخضر','مسحوق أبيض وضوء مبهر'],0],['أى التفاعلات مصحوب بتصاعد غاز: (1) حرق Mg (2) Mg + HCl (3) H₂SO₄ + صودا الخبز؟',['(1) فقط','(2) فقط','(1) و(3)','(2) و(3)'],3],['عند وضع لوح خارصين فى محلول كبريتات النحاس:',['يزول اللون الأزرق ويترسب نحاس بنى محمر','يتكون راسب أبيض','يتصاعد غاز','لا يحدث شىء'],0]]},
+{id:'lesson6',num:'06',icon:'⚖️',color:'linear-gradient(135deg,#146E86,#7B4FA0)',title:'المعادلة الكيميائية',desc:'الوحدة 2 · الرموز، قانون بقاء الكتلة ووزن المعادلة.',
+ vids:[['BHw4_0gPSog','🎬 اشرح بالفيديو','المعادلة الكيميائية وقانون بقاء الكتلة','كتابة المعادلة الكيميائية وفهم قانون بقاء الكتلة.'],['7DCCY2Z-JTg','🎬 اشرح بالفيديو','وزن المعادلات — قانون بقاء الكتلة','الجزء الأول من شرح وزن المعادلات الكيميائية.'],['oUqt_YnEvM4','🎬 اشرح بالفيديو','الجزء الثانى — وزن المعادلات الكيميائية','استكمال وزن المعادلات بأمثلة أكثر وتدريبات.']],
+ solo:[['O-7jU2bLa4E','🎬 فيديو مراجعة شاملة','مراجعة التفاعلات الكيميائية','مراجعة على دروس التفاعلات الكيميائية والمعادلة، مناسبة قبل الاختبار.']],
+ sims:[['balance-equation','⚖️','تدريب على وزن المعادلات الكيميائية','غيّر المعاملات أمام المركبات وتحقق من الوزن، وشاهد جدول عدد ذرات كل عنصر قبل التفاعل وبعده بتمثيل بصرى للذرات.']],
+ intro:'المعادلة الكيميائية تمثيل رمزى للتفاعل، وتُوزن لتحقق قانون بقاء الكتلة: عدد ذرات كل عنصر متساوٍ فى الطرفين.',
+ secs:[
+ ['المعادلة الرمزية','<p>المتفاعلات على اليسار والنواتج على اليمين يربطهما سهم.</p><ul><li><span class="mono">(s)</span> صلب/راسب &nbsp; <span class="mono">(l)</span> سائل &nbsp; <span class="mono">(g)</span> غاز &nbsp; <span class="mono">(aq)</span> محلول مائى</li><li><span class="mono">Δ</span> تسخين &nbsp; <span class="mono">cat</span> عامل حفاز &nbsp; <span class="mono">dil</span> حمض مخفف &nbsp; <span class="mono">conc</span> حمض مركز</li></ul>'],
+ ['قانون بقاء الكتلة','<p>مجموع كتل المواد الداخلة فى التفاعل <strong class="hl">=</strong> مجموع كتل المواد الناتجة. لا تفنى الذرات ولا تُستحدث من العدم، بل يُعاد ترتيبها. (صاغه العالم <strong class="hl2">لافوازييه</strong>)</p>'],
+ ['خطوات وزن المعادلة','<ul><li>1) اكتب الصيغ الصحيحة.</li><li>2) احسب عدد ذرات كل عنصر فى الطرفين.</li><li>3) عدّل <strong class="hl">المعاملات</strong> فقط (لا تغيّر الأعداد التحتية).</li><li>4) تحقق من التساوى وأن النسبة أبسط ما يمكن.</li></ul>']],
+ bal:1,
+ cls:[],
+ rev:[['اكتب معادلة: بيكربونات الصوديوم الصلبة + HCl مخفف','NaHCO₃(s) + HCl(aq) ← NaCl(aq) + H₂O(l) + CO₂(g)']],
+ flip:[['يجب وزن المعادلة الكيميائية.','لتحقيق قانون بقاء الكتلة: عدد ذرات كل عنصر فى المتفاعلات = عدده فى النواتج.'],['لا تُغيَّر الأعداد التحتية عند الوزن.','لأن تغييرها يغيّر هوية المادة (مثل H₂O إلى H₂O₂)، بينما المعاملات تغيّر الكمية فقط.'],['لم تتغير الكتلة عند تفاعل CaCl₂ مع Na₂SO₄ فى دورق مغلق.','لأن الكتلة محفوظة: كتلة المتفاعلات = كتلة النواتج.'],['المعادلة الرمزية أفضل من اللفظية.','لأنها توضح أعداد الجزيئات والذرات الداخلة فى التفاعل.']],
+ q:[['قانون بقاء الكتلة ينص على أن:',['مجموع كتل المتفاعلات = مجموع كتل النواتج','النواتج أثقل دائمًا','النواتج أخف دائمًا','الكتلة تتغير'],0],['فى N₂ + 3H₂ ← 2NH₃ معامل النشادر:',['1','2','3','6'],1],['الرمز (aq) يدل على:',['صلب','سائل','محلول مائى','غاز'],2],['أى معادلة موزونة؟',['Mg + O₂ ← MgO','2Mg + O₂ ← 2MgO','Mg + 2O₂ ← 2MgO','2Mg + 2O₂ ← MgO'],1],['الرمز Δ فوق السهم يعنى:',['عامل حفاز','حمض مخفف','التسخين','حمض مركز'],2]],
+ w:[['أول من صاغ قانون بقاء الكتلة:',['براون','لافوازييه','فيجنر','ڤان هيلمونت'],1],['الأعداد التحتية فى الصيغة تمثل:',['عدد الجزيئات','عدد ذرات العنصر فى الجزىء الواحد','الحالة الفيزيائية','شروط التفاعل'],1],['فى 2H₂ + O₂ ← 2H₂O عدد ذرات الأكسچين فى النواتج:',['1','2','3','4'],1],['عند وزن المعادلة نغيّر:',['المعاملات','الأعداد التحتية','الصيغ','الرموز'],0]]},
+{id:'lesson7',num:'07',icon:'🍎',color:'linear-gradient(135deg,#C64A19,#7B4FA0)',title:'كيمياء التغذية',desc:'الوحدة 2 · الكربوهيدرات والدهون والبروتينات.',
+ solo:[['GO2JBMefn-4','🎬 اشرح بالفيديو','كيمياء التغذية','شرح الكربوهيدرات والدهون والبروتينات وطرق الكشف عنها.']],
+ sims:[['glucose','🧪','الكشف عن الجلوكوز بكاشف بندكت','اختر تركيز الجلوكوز وأضف كاشف بندكت وسخّن الخليط، ولاحظ تدرج اللون من الأزرق حتى الأحمر.']],
+ intro:'تدرس كيمياء التغذية المواد الغذائية الأساسية: الكربوهيدرات والدهون والبروتينات، وكيف نكشف عنها معمليًا.',
+ secs:[
+ ['الكربوهيدرات','<p>مركبات عضوية من الكربون والهيدروچين والأكسچين (خبز، أرز، بطاطس، فاكهة).</p><ul><li><strong class="hl2">أحادية:</strong> جلوكوز، فركتوز.</li><li><strong class="hl2">محدودة (2–10 وحدات):</strong> سكروز (جلوكوز + فركتوز)، مالتوز.</li><li><strong class="hl2">عديدة:</strong> النشا، السليلوز.</li></ul><p>فوائدها: مصدر للطاقة، دعم الدماغ، السليلوز فى جدر الخلايا النباتية، وصناعة الورق وكبسولات الدواء.</p>'],
+ ['الدهون','<p>من نفس عناصر الكربوهيدرات، لكنها تمد الجسم بـ<strong class="hl">ضعفى</strong> الطاقة. مصادرها: الزبد والبيض والمكسرات والزيوت. الزائد من الكربوهيدرات يُخزَّن جليكوچين أو دهونًا. ترسب الكوليسترول يسد الشرايين.</p>'],
+ ['البروتينات','<p>وحداتها الأساسية <strong class="hl2">الأحماض الأمينية</strong> (C وH وO وN وغالبًا P). تبنى العضلات وتصلح الخلايا، وتكوّن الإنزيمات (عوامل حفز) والأجسام المضادة. مصادرها حيوانية أو نباتية (بقوليات، مكسرات، صويا).</p>'],
+ ['الكشف عن المواد الغذائية','<ul><li><strong class="hl2">بندكت + تسخين:</strong> للجلوكوز، يتدرج الأزرق ← أخضر ← برتقالى ← أحمر بزيادة التركيز.</li><li><strong class="hl2">اليود:</strong> للنشا، من البنى المصفر إلى أزرق قاتم.</li><li><strong class="hl2">سودان 4:</strong> للدهون، لون أحمر برتقالى.</li><li><strong class="hl2">بيوريت:</strong> للبروتين، من الأزرق إلى البنفسجى.</li></ul>']],
+ cls:[['أى كاشف/نتيجة تدل على أى مادة؟','cls7a',['جلوكوز','نشا','دهون','بروتين'],[['اليود يتحول إلى أزرق قاتم','نشا'],['لون أحمر برتقالى على سطح المخلوط (سودان 4)','دهون'],['بيوريت يتحول من الأزرق إلى البنفسجى','بروتين'],['بندكت مع التسخين يتدرج حتى الأحمر','جلوكوز']]]],
+ rev:[['كيف يستفيد من يشك فى إصابته بالسكرى من اختبار بندكت؟','يختبر عينة (مثل البول أو الدم) ببندكت مع التسخين؛ تغير اللون نحو الأخضر/البرتقالى/الأحمر يدل على وجود جلوكوز، ثم يراجع الطبيب.']],
+ flip:[['يُنصح بتقليل السكر والدقيق الأبيض.','للاعتماد على الحبوب الكاملة وتجنب زيادة الكربوهيدرات المخزنة دهونًا.'],['الدهون تمد الجسم بطاقة أكبر من الكربوهيدرات.','لأنها تعطى ضعفى كمية الطاقة.'],['البروتين ضرورى لنمو الجسم.','لأنه يبنى العضلات ويصلح الخلايا ويكوّن الإنزيمات والأجسام المضادة.'],['الإفراط فى المكملات ذات الأحماض الأمينية خطر.','لأنه يسبب مخاطر جسيمة للكلى والكبد.']],
+ q:[['لون محلول بيوريت مع البروتين:',['أحمر','بنفسجى','أخضر','أصفر'],1],['اليود مع النشا يعطى لونًا:',['أزرق قاتم','أحمر','أخضر','بدون تغير'],0],['الوحدات البنائية للبروتين:',['سكريات أحادية','أحماض دهنية','أحماض أمينية','نشا'],2],['الدهون تمد الجسم بطاقة تعادل:',['نصف الكربوهيدرات','ضعفى الكربوهيدرات','ثلاثة أمثالها','نفسها'],1],['يتكون السكروز من:',['جلوكوز + فركتوز','جلوكوزين','جلوكوز + جلوكوز','نشا + سليلوز'],0]],
+ w:[['عينة: يود أزرق قاتم، بيوريت أزرق، سودان برتقالى محمر. محتوياتها:',['نشا ودهون','نشا وبروتين','بروتين ودهون','الثلاثة'],0],['الإنزيمات هى:',['بروتينات تعمل كعوامل حفز','كربوهيدرات','دهون','سكريات'],0],['النشا من الكربوهيدرات:',['الأحادية','المحدودة','العديدة','الثنائية فقط'],2],['ترسب الكوليسترول فى الشرايين يؤدى إلى:',['انسدادها ومخاطر القلب','زيادة الطاقة','نمو العضلات','هضم النشا'],0]]}
+];
+// register
+U.forEach(l=>lessonsMeta.push({id:l.id,num:l.num,title:l.title,desc:l.desc,icon:l.icon,color:l.color}));
+U.forEach(l=>{progress[l.id]=null;progress[l.id+'w']=null;quizzes[l.id.slice(6)]=l.q.map(x=>({q:x[0],opts:x[1],correct:x[2]}));weeklyQuizzes[l.id.slice(6)]=l.w.map(x=>({q:x[0],opts:x[1],correct:x[2]}));reasonCards[l.id.slice(6)]=l.flip.map(x=>({q:x[0],a:x[1]}));lessonLabels[l.id]='الدرس '+l.num+': '+l.title;aiChipsByView[l.id]=['اشرح لى '+l.title,'ما أهم ما يجب حفظه فى هذا الدرس؟'];});
+knowledgeBase.push(
+{kw:['التفاعل الكيميائي','ما هو التفاعل الكيميائي'],a:'التفاعل الكيميائى هو كسر الروابط بين ذرات جزيئات المتفاعلات وتكوين روابط جديدة بين ذرات النواتج، فتتكون مواد جديدة تختلف خواصها عن الأصلية.'},
+{kw:['دلائل حدوث التفاعل','دليل التفاعل الكيميائي'],a:'دلائل التفاعل الكيميائى: تكوّن راسب، تغير اللون، تصاعد غاز، انبعاث ضوء وحرارة.'},
+{kw:['الفرق بين التغير الفيزيائي والكيميائي','تغير فيزيائي','تغير كيميائي'],a:'التغير الفيزيائى يغيّر الحالة أو الشكل دون تغير التركيب (كانصهار الثلج)، أما الكيميائى فينتج مواد جديدة (كاحتراق الخشب وصدأ الحديد).'},
+{kw:['قانون بقاء الكتلة','بقاء المادة','لافوازييه'],a:'ينص قانون بقاء الكتلة على أن مجموع كتل المتفاعلات يساوى مجموع كتل النواتج؛ فالذرات لا تفنى ولا تستحدث بل يعاد ترتيبها. صاغه لافوازييه.'},
+{kw:['وزن المعادلة','كيف اوزن المعادلة','المعادلة الموزونة'],a:'خطوات الوزن: اكتب الصيغ الصحيحة، احسب ذرات كل عنصر فى الطرفين، عدّل المعاملات فقط (لا الأعداد التحتية) حتى تتساوى، ثم تحقق. مثال: N₂ + 3H₂ ← 2NH₃.'},
+{kw:['الكربوهيدرات'],a:'الكربوهيدرات مركبات عضوية من C وH وO، وتنقسم إلى أحادية (جلوكوز)، ومحدودة (سكروز)، وعديدة (نشا وسليلوز). هى مصدر للطاقة.'},
+{kw:['الدهون'],a:'الدهون مركبات عضوية من نفس عناصر الكربوهيدرات لكنها تمد الجسم بضعفى الطاقة. ترسب الكوليسترول يسد الشرايين.'},
+{kw:['البروتينات','الاحماض الامينية'],a:'البروتينات تتكون من أحماض أمينية (C وH وO وN)، وتبنى العضلات وتكوّن الإنزيمات والأجسام المضادة.'},
+{kw:['الكشف عن الجلوكوز','محلول بندكت','محلول يود','سودان 4','محلول بيوريت','كواشف'],a:'بندكت (مع التسخين) للجلوكوز: أزرق ← أخضر ← برتقالى ← أحمر. اليود للنشا: أزرق قاتم. سودان 4 للدهون: أحمر برتقالى. بيوريت للبروتين: بنفسجى.'}
+);
+// builders
+const main=document.querySelector('main');
+const sec=(h,b)=>`<div class="card"><h3><span class="dot"></span> ${h}</h3>${b}</div>`;
+U.forEach((l,i)=>{
+ const n=l.id.slice(6),prev=i?U[i-1].id:'lesson4',next=i<2?U[i+1].id:'home';
+ let h=`<div class="lesson-view" id="view-${l.id}"><button class="back-btn" onclick="showView('home')">→ رجوع للدروس</button><div class="lesson-banner" style="background:${l.color};"><div class="tag">الوحدة الثانية · الدرس ${l.num}</div><h2>${l.icon} ${l.title}</h2><p>${l.intro}</p></div>`;
+ const yc=(v,c)=>`<a class="yt-card${c}" href="https://www.youtube.com/watch?v=${v[0]}" target="_blank" rel="noopener"><div class="yt-thumb" style="background-image:url('https://i.ytimg.com/vi/${v[0]}/maxresdefault.jpg'),url('https://i.ytimg.com/vi/${v[0]}/hqdefault.jpg');"><span class="yt-play">▶</span></div><div class="yt-info"><span class="yt-tag">${v[1]}</span><h4>${v[2]}</h4><p>${v[3]}</p></div></a>`;
+ if(l.vids)h+=`<div class="yt-grid">${l.vids.map(v=>yc(v,'')).join('')}</div>`;
+ if(l.solo)h+=l.solo.map(v=>yc(v,' yt-solo')).join('');
+ l.secs.forEach(s=>h+=sec(s[0],s[1]));
+ if(l.sims)h+=`<div class="card"><span class="sim-section-tag">🌐 معامل افتراضية من موقع القناة</span><h3><span class="dot"></span> جرّب المحاكاة على STEMulation</h3><div class="sim-link-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">${l.sims.map(m=>`<a class="sim-link-card" href="https://ehab-mazy.github.io/science-dalty/experiments/${m[0]}/index.html" target="_blank" rel="noopener"><span class="sim-ic">${m[1]}</span><h4>${m[2]}</h4><p>${m[3]}</p><span class="sim-cta">افتح المحاكاة ↗</span></a>`).join('')}</div></div>`;
+ if(l.bal)h+=`<div class="card lab-card"><span class="lab-tag">🔬 معمل تفاعلى</span><h3><span class="dot"></span> زِن المعادلة بنفسك</h3><select class="sh-select" id="balSel" onchange="balInit()"></select><div id="balBox" style="margin-top:14px;direction:ltr;text-align:center;"></div><div id="balTbl"></div><div class="match-status" id="balSt"></div></div>`;
+ l.cls.forEach(c=>h+=`<div class="card lab-card"><span class="lab-tag">🔬 نشاط تصنيف</span><h3><span class="dot"></span> ${c[0]}</h3><div class="classify-grid" id="${c[1]}"></div></div>`);
+ h+=`<div class="card lab-card"><span class="lab-tag">📘 قيّم فهمك</span>`+l.rev.map(r=>`<div class="reveal-q"><p>🤔 ${r[0]}</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">${r[1]}</div></div>`).join('')+`</div>`;
+ h+=sec('علّل لما يأتي',`<div class="flip-grid" id="flipGrid-${n}"></div>`);
+ h+=`<div class="card quiz-card" id="quizCard-${n}"></div><div class="card quiz-card"><span class="weekly-badge">📋 من أسئلة تقييم الكتاب</span><div id="quizCard-${n}w"></div></div>`;
+ h+=`<div class="nav-buttons"><button class="nav-btn prev" onclick="showView('${prev}')">← الدرس السابق</button><button class="nav-btn next" onclick="showView('${next}')">${next==='home'?'إنهاء الوحدة 🎉':'الدرس التالى →'}</button></div></div>`;
+ main.insertAdjacentHTML('beforeend',h);
 });
-window.addEventListener('appinstalled',()=>{ document.getElementById('installBtn').style.display='none'; });
+// classify
+window.clsReg={};
+function rc(id,opts,data){clsReg[id]={opts,data};document.getElementById(id).innerHTML=data.map((d,i)=>`<div class="classify-card"><h4>${d[0]}</h4><div class="classify-opts" id="${id}-${i}">${opts.map(o=>`<button class="classify-opt" onclick="cls2('${id}',${i},'${o}')">${o}</button>`).join('')}</div></div>`).join('');}
+window.cls2=(id,i,o)=>{const c=clsReg[id].data[i][1];document.querySelectorAll(`#${id}-${i} .classify-opt`).forEach(b=>{b.disabled=true;if(b.textContent===c)b.classList.add('correct');else if(b.textContent===o)b.classList.add('wrong');});};
+// balancer
+const P=[
+ ['N₂ + H₂ ← NH₃',[['N₂',{N:2}],['H₂',{H:2}]],[['NH₃',{N:1,H:3}]]],
+ ['CH₄ + O₂ ← CO₂ + H₂O',[['CH₄',{C:1,H:4}],['O₂',{O:2}]],[['CO₂',{C:1,O:2}],['H₂O',{H:2,O:1}]]],
+ ['Mg + O₂ ← MgO',[['Mg',{Mg:1}],['O₂',{O:2}]],[['MgO',{Mg:1,O:1}]]],
+ ['Al + O₂ ← Al₂O₃',[['Al',{Al:1}],['O₂',{O:2}]],[['Al₂O₃',{Al:2,O:3}]]]];
+let bp=0,bc=[];
+window.balInit=()=>{bp=+document.getElementById('balSel').value;bc=P[bp][1].concat(P[bp][2]).map(()=>1);balDraw();};
+window.balSet=(i,d)=>{bc[i]=Math.max(1,Math.min(9,bc[i]+d));balDraw();};
+function balDraw(){const R=P[bp][1],Q=P[bp][2],all=R.concat(Q);
+ const t=(s,o)=>s.map((x,k)=>{const i=o+k;return `<span style="display:inline-flex;align-items:center;gap:3px;margin:3px;"><button class="reveal-btn" onclick="balSet(${i},-1)">−</button><b>${bc[i]}</b><button class="reveal-btn" onclick="balSet(${i},1)">+</button> ${x[0]}</span>`}).join(' + ');
+ document.getElementById('balBox').innerHTML=t(R,0)+' ⟶ '+t(Q,R.length);
+ const els=[...new Set(all.flatMap(x=>Object.keys(x[1])))];let ok=true,rows='';
+ els.forEach(e=>{const a=R.reduce((s,x,k)=>s+(x[1][e]||0)*bc[k],0),b=Q.reduce((s,x,k)=>s+(x[1][e]||0)*bc[R.length+k],0);if(a!==b)ok=false;rows+=`<tr><td style="padding:6px;border:1px solid var(--line);text-align:center;">${e}</td><td style="padding:6px;border:1px solid var(--line);text-align:center;">${a}</td><td style="padding:6px;border:1px solid var(--line);text-align:center;">${b}</td><td style="padding:6px;border:1px solid var(--line);text-align:center;">${a===b?'✅':'❌'}</td></tr>`;});
+ document.getElementById('balTbl').innerHTML=`<table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;"><tr style="background:var(--bg);"><td style="padding:6px;border:1px solid var(--line);text-align:center;">العنصر</td><td style="padding:6px;border:1px solid var(--line);text-align:center;">المتفاعلات</td><td style="padding:6px;border:1px solid var(--line);text-align:center;">النواتج</td><td></td></tr>${rows}</table>`;
+ document.getElementById('balSt').textContent=ok?'🎉 المعادلة موزونة! قانون بقاء الكتلة متحقق':'عدّل المعاملات حتى تتساوى الذرات';}
+document.getElementById('balSel').innerHTML=P.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');
+window.addEventListener('load',()=>{
+ U.forEach(l=>{const n=l.id.slice(6);renderQuiz(n,quizzes[n],{progressKey:l.id,title:'اختبر فهمك'});renderQuiz(n+'w',weeklyQuizzes[n],{progressKey:l.id+'w',title:'أسئلة من تقييم الكتاب'});renderFlipCards(n);l.cls.forEach(c=>rc(c[1],c[2],c[3]));});
+ balInit();renderLessonGrid();updateTopProgress();
+});
+})();
+</script>
+
+<script>
+/* ===== Unit 2 hero: molecules colliding and reacting ===== */
+(function(){
+  const cv=document.getElementById('heroCanvas2'); if(!cv) return;
+  const ctx=cv.getContext('2d');
+  const C={H:[236,246,255],O:[255,120,95],C:[190,205,215],N:[120,160,255]};
+  const T={
+    H2:[[-9,0,4.5,'H',1],[9,0,4.5,'H',1],[0,0,3,'H',0]],
+    O2:[[-9,0,7,'O',1],[9,0,7,'O',1],[0,0,3,'O',0]],
+    H2O:[[0,-3,7,'O',1],[-11,7,4.5,'H',1],[11,7,4.5,'H',1]],
+    CO2:[[-17,0,7,'O',1],[0,0,7,'C',1],[17,0,7,'O',1]],
+    NH3:[[0,-2,7,'N',1],[-11,8,4.5,'H',1],[11,8,4.5,'H',1]]
+  };
+  const names=Object.keys(T);
+  let W=0,H=0,dpr=1,mols=[],flashes=[],bubbles=[];
+  function fit(){
+    const r=cv.getBoundingClientRect(); if(!r.width) return false;
+    dpr=window.devicePixelRatio||1;
+    const w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);
+    if(w!==W||h!==H){ W=cv.width=w; H=cv.height=h; init(); }
+    return true;
+  }
+  function mkAtoms(type){
+    return T[type].map(a=>({ox:a[0],oy:a[1],r:a[2],col:C[a[3]].slice(),al:a[4]}));
+  }
+  function init(){
+    const n=Math.max(10,Math.round(W/dpr/70));
+    mols=[];bubbles=[];flashes=[];
+    for(let i=0;i<n;i++){
+      const type=names[Math.floor(Math.random()*names.length)];
+      mols.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.9*dpr,vy:(Math.random()-.5)*.9*dpr,
+        ang:Math.random()*6.28,spin:(Math.random()-.5)*.02,type,atoms:mkAtoms(type),cool:0});
+    }
+    for(let i=0;i<14;i++) bubbles.push({x:Math.random()*W,y:Math.random()*H,r:(2+Math.random()*6)*dpr,v:(.15+Math.random()*.35)*dpr,ph:Math.random()*6.28});
+  }
+  function retarget(m,type){
+    m.type=type; m.tgt=T[type].map(a=>({ox:a[0],oy:a[1],r:a[2],col:C[a[3]],al:a[4]}));
+  }
+  function lerp(a,b,k){return a+(b-a)*k;}
+  function step(){
+    for(const m of mols){
+      m.x+=m.vx; m.y+=m.vy; m.ang+=m.spin; if(m.cool>0) m.cool--;
+      const pad=40*dpr;
+      if(m.x<-pad) m.x=W+pad; if(m.x>W+pad) m.x=-pad;
+      if(m.y<-pad) m.y=H+pad; if(m.y>H+pad) m.y=-pad;
+      if(m.tgt){
+        m.atoms.forEach((a,i)=>{const t=m.tgt[i];
+          a.ox=lerp(a.ox,t.ox,.08);a.oy=lerp(a.oy,t.oy,.08);a.r=lerp(a.r,t.r,.08);a.al=lerp(a.al,t.al,.08);
+          for(let k=0;k<3;k++)a.col[k]=lerp(a.col[k],t.col[k],.08);});
+      }
+    }
+    for(let i=0;i<mols.length;i++)for(let j=i+1;j<mols.length;j++){
+      const a=mols[i],b=mols[j]; if(a.cool||b.cool) continue;
+      const dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+      if(d<34*dpr){
+        flashes.push({x:(a.x+b.x)/2,y:(a.y+b.y)/2,t:0});
+        let ta,tb; do{ta=names[Math.floor(Math.random()*names.length)];}while(ta===a.type);
+        do{tb=names[Math.floor(Math.random()*names.length)];}while(tb===b.type);
+        retarget(a,ta);retarget(b,tb);
+        a.cool=b.cool=120;
+        const nx=dx/(d||1),ny=dy/(d||1),sp=.9*dpr;
+        a.vx=nx*sp;a.vy=ny*sp;b.vx=-nx*sp;b.vy=-ny*sp;
+      }
+    }
+    for(const b of bubbles){b.y-=b.v; b.x+=Math.sin(b.ph+=.02)*.3*dpr; if(b.y<-20*dpr){b.y=H+20*dpr;b.x=Math.random()*W;}}
+    for(const f of flashes) f.t++;
+    flashes=flashes.filter(f=>f.t<40);
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const b of bubbles){
+      ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,6.283);
+      ctx.strokeStyle='rgba(184,240,210,.35)';ctx.lineWidth=1.2*dpr;ctx.stroke();
+      ctx.fillStyle='rgba(255,255,255,.06)';ctx.fill();
+    }
+    for(const m of mols){
+      const s=dpr*1.15,ca=Math.cos(m.ang),sa=Math.sin(m.ang);
+      const P=m.atoms.map(a=>({x:m.x+(a.ox*ca-a.oy*sa)*s,y:m.y+(a.ox*sa+a.oy*ca)*s,r:a.r*s,col:a.col,al:a.al}));
+      ctx.lineCap='round';
+      for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){
+        const al=Math.min(P[i].al,P[j].al); if(al<.05) continue;
+        if(Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y)>26*s) continue;
+        ctx.strokeStyle='rgba(255,255,255,'+(.5*al)+')';ctx.lineWidth=2.4*dpr;
+        ctx.beginPath();ctx.moveTo(P[i].x,P[i].y);ctx.lineTo(P[j].x,P[j].y);ctx.stroke();
+      }
+      for(const p of P){ if(p.al<.05) continue;
+        const c=p.col.map(Math.round);
+        ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.5,p.r),0,6.283);
+        ctx.fillStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+(.9*p.al)+')';ctx.fill();
+      }
+    }
+    for(const f of flashes){
+      const k=f.t/40;
+      ctx.beginPath();ctx.arc(f.x,f.y,(8+k*34)*dpr,0,6.283);
+      ctx.strokeStyle='rgba(255,226,150,'+(1-k)*.9+')';ctx.lineWidth=2.5*dpr*(1-k)+.5;ctx.stroke();
+      ctx.beginPath();ctx.arc(f.x,f.y,(4+k*10)*dpr,0,6.283);
+      ctx.fillStyle='rgba(255,240,200,'+(1-k)*.6+')';ctx.fill();
+    }
+  }
+  function loop(){
+    if(document.body.classList.contains('unit-2') && !document.hidden && fit()){ step(); draw(); }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
 </script>
 </body>
 </html>
