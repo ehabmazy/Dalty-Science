@@ -1767,9 +1767,10 @@
             <span class="gm-rule">❤️ 3 محاولات</span><span class="gm-rule">🔥 توالى الإجابات الصحيحة = نقاط مضاعفة</span><span class="gm-rule">💡 تلميح بعملة 🪙</span>
           </div>
           <button class="gm-btn" onclick="gmStart()">▶ ابدأ المهمة</button>
+          <div style="margin-top:12px"><button class="gm-btn alt" id="gmHuntBtn" style="display:none;background:#2E9B6B" onclick="gmHunt()">🎯 صيد الأخطاء</button></div>
           <div style="margin-top:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
             <button class="gm-btn alt" id="gmMuteBtn" onclick="gmToggleSound()">🔊 الصوت: يعمل</button>
-            <span class="gm-chip" id="gmBest">🏆 أفضل نتيجة: 0</span><span class="gm-chip" id="gmSeen">🗺️ 0</span>
+            <span class="gm-chip" id="gmBest">🏆 أفضل نتيجة: 0</span><span class="gm-chip" id="gmSeen">🗺️ 0</span><span class="gm-chip" id="gmFixed">🎖️ 0</span>
           </div>
         </div>
       </div>
@@ -1797,6 +1798,7 @@
           <p id="gmFinalSub" style="font-size:13px;color:#E4DDF7"></p>
           <div class="gm-weak" id="gmWeak"></div>
           <button class="gm-btn" onclick="gmStart()">🔁 العب مرة أخرى</button>
+          <div style="margin-top:12px"><button class="gm-btn alt" id="gmHuntBtn2" style="display:none;background:#2E9B6B" onclick="gmHunt()">🎯 صيد الأخطاء</button></div>
           <div style="margin-top:12px"><button class="gm-btn alt" onclick="showView('home')">الرئيسية</button></div>
         </div>
       </div>
@@ -3315,6 +3317,61 @@ const Q=[
 {e:'🚿',c:'الاتزان الحرارى',q:'تريد ماءً دافئًا للاستحمام؛ عندك ماء ساخن 70°C وبارد 25°C. ماذا يحدث عند خلطهما؟',o:['تستقر الحرارة عند قيمة بين الدرجتين','تظل كل كمية على درجتها','تصبح 95°C','تصبح 25°C دائمًا'],w:'تنتقل الحرارة من الأسخن للأبرد حتى يتساوى الاثنان عند درجة تقع بينهما، وهذا هو الاتزان الحرارى.'},
 {e:'🔩',c:'التوصيل الحرارى',q:'فى غرفة واحدة لمست مقبضًا معدنيًا وآخر خشبيًا فشعرت أن المعدن أبرد. ما التفسير؟',o:['المعدن يسحب الحرارة من يدك أسرع','المعدن أبرد فعلًا','الخشب أسخن فعلًا','يدك تخدعك دائمًا بلا سبب'],w:'درجة حرارتهما واحدة، لكن المعدن موصل جيد فينقل الحرارة من يدك بسرعة فتشعر ببرودة أكبر.'},
 {e:'💧',c:'الماء والحرارة النوعية',q:'لماذا يدخل الماء بنسبة كبيرة فى تركيب جسم الإنسان؟',o:['لارتفاع حرارته النوعية فيساعد على ثبات حرارة الجسم','لأنه رخيص','لأنه ينقل الحرارة بسرعة كبيرة','لأنه شفاف فقط'],w:'الماء بطىء الاكتساب والفقد للحرارة لارتفاع حرارته النوعية، فيحافظ على درجة حرارة الجسم مستقرة.'}
+];const X=[
+'زيادة اللهب لا ترفع درجة الغليان؛ الذى يرفعها هو زيادة الضغط فوق الماء.',
+'التوصيل الجيد مفيد لجسم المقلاة، أما المقبض فيجب أن يكون عازلًا حتى لا تحترق اليد.',
+'العزل بمادة واحدة لا يكفى؛ الترمس يمنع التوصيل والحمل والإشعاع معًا.',
+'التكويم يقلل المساحة المعرضة للهواء فيبطئ التبخر، والجو البارد الرطب يبطئه أكثر.',
+'المعدن موصل جيد فيسرّع دخول الحرارة إلى المبنى بدل أن يمنعها.',
+'الحرارة النوعية المنخفضة تعنى أن المادة تسخن بسرعة، فلا تصلح لامتصاص حرارة المحرك.',
+'غير المعزول يسمح بدخول الحرارة إليه، والمفتوح تخرج منه المادة أيضًا.',
+'الهواء الساخن يرتفع لأعلى، فالمدفأة العالية تدفئ منطقة السقف فقط.',
+'الأسطح اللامعة تعكس الإشعاع بدل أن تمتصه، فلا تصلح لتسخين الأنابيب.',
+'الوعاء الضيق العميق يقلل مساحة السطح فيقل التبخر والتبريد.',
+'غياب التهوية يرفع الرطوبة حول الجسم فيقل تبخر العرق ويزداد الضيق.',
+'الماء النقى يتجمد عند 0°C، أما الملح فيخفض درجة التجمد فينصهر الجليد.',
+'السخان يرفع الحرارة فقط ولا ينقى الهواء من الجراثيم.',
+'الكتلة الأكبر تحتاج طاقة أكبر لترتفع نفس الدرجة، فتسخن أبطأ.',
+'الحرارة النوعية المنخفضة تعنى أن المادة تسخن وتبرد بسرعة، وليس العكس.',
+'الحرارة تنتقل من الأسخن إلى الأبرد دائمًا وليس العكس.',
+'لا توجد طاقة اسمها «برودة» تنتقل؛ الذى ينتقل هو الحرارة فقط.',
+'جسيمات الغاز لا تسكن أبدًا بل تتحرك دائمًا بسرعة وعشوائيًا.',
+'جسيمات الغاز لا تتغير فى حجمها، بل تتقارب المسافات بينها عند الضغط.',
+'الصعوبة سببها قوة التجاذب بين الجسيمات، لا تباعدها.',
+'الحرارة تزيد حركة الجسيمات فتسرّع الذوبان ولا تبطئه.',
+'معظم مادة الكون ليست غازًا عاديًا؛ الشمس والنجوم من البلازما.',
+'الثلج العادى ينصهر إلى ماء فيبلل، أما الثلج الجاف فيتسامى مباشرةً إلى غاز.',
+'الصقيع ليس ثلجًا منصهرًا؛ بخار الماء تحول إلى صلب مباشرةً (ترسيب).',
+'الزجاج لا ينفذ منه الماء؛ بخار الماء الموجود فى الهواء هو الذى يتكاثف.',
+'الطاقة الزائدة أثناء الغليان تحول السائل إلى بخار ولا ترفع الحرارة.',
+'ثبات القراءة لا يعنى توقف اكتساب الطاقة، بل أنها تُستخدم فى تغيير الحالة.',
+'اليابس يسخن أسرع من الماء لأن حرارته النوعية أقل، وليس العكس.',
+'الطائر لا يستمد قوته من الإشعاع بل من تيارات الهواء الدافئ الصاعدة.',
+'الماء الساخن يرتفع لأنه أقل كثافة، ولا يهبط إلى القاع.',
+'الكاميرا العادية تحتاج ضوءًا مرئيًا، أما الثرموجراف فيرصد الأشعة تحت الحمراء.',
+'الخشب عازل فلا ينقل الحرارة بسرعة، أما المعدن فهو الذى يجب الحذر منه.',
+'العوازل تحبس الحرارة داخل الهاتف بدل إخراجها منه.',
+'الأسطح الداكنة تمتص الإشعاع الحرارى فتزيد الخطر على رجل الإطفاء.',
+'الألوان الداكنة تمتص الإشعاع الشمسى فتزيد الشعور بالحر.',
+'كلما قل الضغط الجوى قلّت درجة الغليان، وليس العكس.',
+'درجة الحرارة متوسط لطاقة الحركة وليست مجموعًا؛ فالأكبر كتلة له طاقة داخلية أكبر.',
+'الأقل فى الحرارة النوعية يسخن أسرع، والثلج حرارته النوعية أقل من الماء.',
+'الحرارة النوعية الكبيرة تعنى بطء السخونة (كالماء)، والصغيرة تعنى سرعتها (كالنحاس).',
+'مادة الترمومتر يجب أن تتمدد بانتظام وتوصل الحرارة، لا أن تعزلها.',
+'النظام المغلق يتبادل الطاقة مع المحيط ولا يتبادل المادة.',
+'النظام المفتوح يتبادل الطاقة والمادة معًا (يفقد بخارًا وحرارة).',
+'تغير الحالة تغير فيزيائى؛ لا يكوّن مواد جديدة ولا يفكك الجزيئات.',
+'فى الجو البارد يفقد البخار طاقة فيتكاثف، ولا يتبخر أكثر.',
+'الوعاء المغلق البارد الرطب يبطئ التبخر، والتبخر السريع يحتاج مساحة سطح كبيرة وهواءً جافًا ساخنًا.',
+'الوزن لا يعنى العزل؛ الهواء المحبوس رديء التوصيل هو العازل.',
+'اللون والوزن لا يثبتان النقاء، أما الثوابت كدرجة الغليان فتثبته.',
+'الشوائب ترفع درجة غليان المحلول ولا تخفضها.',
+'الارتفاع عن سطح البحر يقلل الضغط فتقل درجة الغليان عن 100°C.',
+'الحركة العشوائية سببها تصادم جسيمات الوسط بالحبيبات، لا مغناطيس ولا جاذبية.',
+'المواد الصلبة لا تنساب فليست موائع؛ الموائع هى السوائل والغازات.',
+'الحرارة تنتقل حتى يتساوى الجسمان فتستقر الدرجة بين القيمتين.',
+'درجتا الحرارة متساويتان؛ الفرق فى سرعة سحب المعدن للحرارة من يدك.',
+'الماء بطىء التسخين والتبريد، وهذا ما يحفظ ثبات درجة حرارة الجسم.'
 ];
 const TIME=25, ROUNDS=10;
 let ac=null, sndOn=true, mus=null, G={}, tm=null;
@@ -3341,8 +3398,17 @@ function pickRound(){ const all=Q.map((q,i)=>i), seen=seenGet(); let un=shuffle(
   if(un.length<ROUNDS){ seenSet([]); un=un.concat(shuffle(all.filter(i=>!un.includes(i)))); }
   const out=[],tags=new Set(); un.forEach(i=>{ if(out.length<ROUNDS&&!tags.has(Q[i].c)){out.push(i);tags.add(Q[i].c);} });
   un.forEach(i=>{ if(out.length<ROUNDS&&!out.includes(i))out.push(i); });
-  return shuffle(out).map(i=>Object.assign({id:i},Q[i])); }
-function info(){ $('gmBank').textContent='🧩 '+ROUNDS+' مشكلات من بنك '+Q.length+' موقفًا'; $('gmSeen').textContent='🗺️ جربت '+Math.min(seenGet().length,Q.length)+' من '+Q.length; }
+  return shuffle(out).map(i=>Object.assign({id:i,x:X[i]},Q[i])); }
+function wrongGet(){ try{return JSON.parse(localStorage.getItem('gm-wrong')||'{}');}catch(e){return {};} }
+function wrongSet(w){ try{localStorage.setItem('gm-wrong',JSON.stringify(w));}catch(e){} }
+function fixedGet(){ try{return +localStorage.getItem('gm-fixed')||0;}catch(e){return 0;} }
+function fixedSet(n){ try{localStorage.setItem('gm-fixed',n);}catch(e){} }
+function track(q,ok){ const w=wrongGet(); let t='';
+  if(ok){ if(w[q.id]!==undefined&&!G.hinted){ w[q.id]++; if(w[q.id]>=2){ delete w[q.id]; G.fixed++; fixedSet(fixedGet()+1); t='<div style="background:#E2F8EC;border-radius:10px;padding:8px 10px;margin:8px 0">🎖️ <b>أتقنت هذا المفهوم!</b> أصبته مرتين متتاليتين وخرج من قائمة أخطائك.</div>'; } else t='<div style="background:#E8F3FF;border-radius:10px;padding:8px 10px;margin:8px 0">🔁 سبق أن أخطأت فى هذا السؤال. أصبه مرة أخرى لتتقنه!</div>'; wrongSet(w);} }
+  else { w[q.id]=0; wrongSet(w); } return t; }
+window.gmHunt=function(){ const ids=shuffle(Object.keys(wrongGet()).map(Number).filter(i=>i<Q.length)).slice(0,ROUNDS); if(!ids.length)return; A(); sfx.click();
+  G={list:ids.map(i=>Object.assign({id:i,x:X[i]},Q[i])),i:0,score:0,lives:3,coins:2,combo:0,ok:0,miss:[],locked:false,hunt:true,fixed:0}; screen('gmPlay'); musicStart(); next(); };
+function info(){ $('gmBank').textContent='🧩 '+ROUNDS+' مشكلات من بنك '+Q.length+' موقفًا'; $('gmSeen').textContent='🗺️ جربت '+Math.min(seenGet().length,Q.length)+' من '+Q.length; const nw=Object.keys(wrongGet()).filter(i=>i<Q.length).length; $('gmFixed').textContent='🎖️ أتقنت '+fixedGet(); ['gmHuntBtn','gmHuntBtn2'].forEach(id=>{const b=$(id); if(b){b.style.display=nw?'inline-block':'none'; b.textContent='🎯 صيد الأخطاء ('+nw+')';}}); }
 window.gmToggleSound=function(){ sndOn=!sndOn; $('gmMuteBtn').textContent=sndOn?'🔊 الصوت: يعمل':'🔇 الصوت: متوقف'; if(sndOn){A();sfx.click();} };
 
 /* confetti */
@@ -3361,7 +3427,7 @@ function bestSet(v){ try{localStorage.setItem('gm-best',v);}catch(e){} }
 function shuffle(a){ return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
 function hud(){ $('gmLives').textContent='❤️'.repeat(G.lives)+'🖤'.repeat(3-G.lives); $('gmProg').textContent=(G.i+1)+'/'+G.list.length;
   $('gmCombo').textContent='🔥 ×'+Math.min(1+Math.floor(G.combo/2),4); $('gmCoins').textContent='🪙 '+G.coins; $('gmScore').textContent='⭐ '+G.score; $('gmHintBtn').disabled=G.coins<1||G.locked; }
-window.gmStart=function(){ A(); sfx.click(); G={list:pickRound(),i:0,score:0,lives:3,coins:2,combo:0,ok:0,miss:[],locked:false}; screen('gmPlay'); musicStart(); next(); };
+window.gmStart=function(){ A(); sfx.click(); G={list:pickRound(),i:0,score:0,lives:3,coins:2,combo:0,ok:0,miss:[],locked:false,hunt:false,fixed:0}; screen('gmPlay'); musicStart(); next(); };
 function next(){ const q=G.list[G.i]; const sn=seenGet(); if(!sn.includes(q.id)){sn.push(q.id);seenSet(sn);} G.locked=false; G.hinted=false;
   G.opts=shuffle(q.o.map((t,k)=>({t,ok:k===0}))); $('gmScene').textContent=q.e; $('gmTag').textContent='🎯 '+q.c; $('gmStory').textContent=q.q;
   $('gmOpts').innerHTML=G.opts.map((o,k)=>`<button class="gm-opt" onclick="gmPick(${k})">${o.t}</button>`).join('');
@@ -3373,22 +3439,22 @@ window.gmHint=function(){ if(G.locked||G.coins<1||G.hinted)return; G.coins--; G.
 window.gmPick=function(k){ if(G.locked)return; clearInterval(tm); answer(k); };
 function answer(k){ G.locked=true; const q=G.list[G.i], btns=[...document.querySelectorAll('#gmOpts .gm-opt')], stage=$('gmStage');
   btns.forEach((b,i)=>{ b.disabled=true; if(G.opts[i].ok)b.classList.add('ok'); else if(i===k)b.classList.add('no'); });
-  const right=k>=0&&G.opts[k].ok; let msg;
-  if(right){ G.ok++; G.combo++; const mult=Math.min(1+Math.floor(G.combo/2),4); const gain=Math.round((100+G.t*4)*mult)*(G.hinted?.7:1); G.score+=Math.round(gain);
+  const right=k>=0&&G.opts[k].ok; let msg,extra='';
+  if(right){ G.ok++; G.combo++; extra=track(q,true); const mult=Math.min(1+Math.floor(G.combo/2),4); const gain=Math.round((100+G.t*4)*mult)*(G.hinted?.7:1)*(G.hunt?1.5:1); G.score+=Math.round(gain);
     if(G.combo%3===0){G.coins++;sfx.coin();} sfx.ok(); burst(60,GOOD); stage.classList.remove('gm-flash-no'); void stage.offsetWidth; stage.classList.add('gm-flash-ok');
     msg=`<b>✅ أحسنت! +${Math.round(gain)} نقطة</b> ${mult>1?'🔥 مضاعف ×'+mult:''}<br>`;
-  } else { G.lives--; G.combo=0; G.miss.push(q.c); sfx.bad(); stage.classList.remove('gm-flash-ok'); void stage.offsetWidth; stage.classList.add('gm-flash-no'); $('gmScene').classList.add('gm-shake'); setTimeout(()=>$('gmScene').classList.remove('gm-shake'),800);
+  } else { track(q,false); if(k>=0&&q.x) extra='<div style="background:#FFF4E0;border-radius:10px;padding:8px 10px;margin:8px 0">🧠 <b>تصحيح الفكرة الخاطئة:</b> '+q.x+'</div>'; G.lives--; G.combo=0; G.miss.push(q.c); sfx.bad(); stage.classList.remove('gm-flash-ok'); void stage.offsetWidth; stage.classList.add('gm-flash-no'); $('gmScene').classList.add('gm-shake'); setTimeout(()=>$('gmScene').classList.remove('gm-shake'),800);
     msg=`<b>${k<0?'⏰ انتهى الوقت!':'❌ ليس هذا الحل الأنسب.'}</b><br>`; }
-  $('gmWhy').innerHTML=msg+'💡 '+q.w+`<div style="text-align:center;margin-top:10px"><button class="gm-btn" style="font-size:14px;padding:10px 24px" onclick="gmNext()">${(G.lives<=0||G.i>=G.list.length-1)?'عرض النتيجة 🏁':'المشكلة التالية ➜'}</button></div>`;
+  $('gmWhy').innerHTML=msg+extra+'💡 '+q.w+`<div style="text-align:center;margin-top:10px"><button class="gm-btn" style="font-size:14px;padding:10px 24px" onclick="gmNext()">${(G.lives<=0||G.i>=G.list.length-1)?'عرض النتيجة 🏁':'المشكلة التالية ➜'}</button></div>`;
   $('gmWhy').classList.add('show'); hud(); setTimeout(()=>$('gmWhy').scrollIntoView({behavior:'smooth',block:'nearest'}),150); }
 window.gmNext=function(){ sfx.click(); if(G.lives<=0||G.i>=G.list.length-1){ finish(); } else { G.i++; next(); } };
 window.gmQuit=function(){ clearInterval(tm); finish(true); };
 function finish(quit){ clearInterval(tm); musicStop(); screen('gmEnd'); const tot=G.list.length, pct=G.ok/tot, won=G.lives>0&&!quit;
   let r=pct>=.9?['👑','عبقرى الحلول']:pct>=.7?['🏆','مهندس محترف']:pct>=.4?['🛠️','مهندس صاعد']:['🌱','مبتدئ واعد'];
   $('gmRank').textContent=r[0]; $('gmRankName').textContent=r[1]; $('gmFinal').textContent=G.score;
-  const best=bestGet(); const nb=G.score>best; if(nb)bestSet(G.score); $('gmBest').textContent='🏆 أفضل نتيجة: '+Math.max(best,G.score);
+  const best=bestGet(); const nb=!G.hunt&&G.score>best; if(nb)bestSet(G.score); $('gmBest').textContent='🏆 أفضل نتيجة: '+Math.max(best,nb?G.score:best);
   $('gmFinalSub').textContent=`حللت ${G.ok} من ${G.i+(G.locked?1:0)} مشكلة ${nb&&G.score>0?'• 🎉 رقم قياسى جديد!':''}${G.lives<=0?' • نفدت محاولاتك':''}`;
-  const uniq=[...new Set(G.miss)]; $('gmWeak').innerHTML=uniq.length?'📌 <b>راجع هذه المفاهيم:</b><br>• '+uniq.join('<br>• '):'🌟 لم تخطئ فى أى مفهوم، أداء مبهر!';
+  if(G.fixed) $('gmFinalSub').textContent+=' • 🎖️ أتقنت '+G.fixed+(G.fixed>2?' مفاهيم':' مفهومًا'); const uniq=[...new Set(G.miss)]; $('gmWeak').innerHTML=uniq.length?'📌 <b>راجع هذه المفاهيم:</b><br>• '+uniq.join('<br>• '):'🌟 لم تخطئ فى أى مفهوم، أداء مبهر!';
   info(); if(won&&pct>=.4){sfx.win();burst(160,GOOD);} else sfx.lose(); }
 /* إيقاف الموسيقى عند مغادرة اللعبة */
 const _sv=window.showView; window.showView=function(id){ if(id!=='game'){clearInterval(tm);musicStop();} _sv(id); if(id==='game'){ $('gmBest').textContent='🏆 أفضل نتيجة: '+bestGet(); info(); screen('gmStart'); } };
