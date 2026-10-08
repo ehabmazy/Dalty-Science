@@ -626,6 +626,53 @@
     font-size:11.5px; font-weight:800; padding:5px 14px; border-radius:99px; margin-bottom:14px;
   }
   .infographic-card svg{display:block; max-width:100%;}
+/* ===== GAME ===== */
+.game-banner{display:flex;align-items:center;gap:16px;margin:18px 0;padding:20px 22px;border-radius:22px;cursor:pointer;color:#fff;position:relative;overflow:hidden;background:linear-gradient(120deg,#7B4FA0,#E8622C);box-shadow:var(--shadow);transition:transform .2s}
+.game-banner:hover{transform:translateY(-3px)}
+.game-banner .gb-ic{font-size:44px;animation:gmFloat 2.4s ease-in-out infinite}
+.game-banner h3{color:#fff;font-size:18px;margin-bottom:4px}
+.game-banner p{margin:0;font-size:12.5px;color:#FFEBDD;line-height:1.7}
+.game-banner .gb-cta{margin-right:auto;background:#fff;color:#7B4FA0;font-weight:800;font-size:13px;padding:10px 18px;border-radius:12px;white-space:nowrap}
+@keyframes gmFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+.gm-stage{position:relative;border-radius:24px;overflow:hidden;padding:22px 18px 26px;color:#fff;min-height:520px;background:linear-gradient(160deg,#1B1446,#3A1F6E 50%,#0E5C7A);box-shadow:var(--shadow);margin-top:8px}
+.gm-stage::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(255,217,160,.18),transparent 40%),radial-gradient(circle at 85% 80%,rgba(63,175,192,.25),transparent 45%);pointer-events:none}
+.gm-stage>*{position:relative;z-index:2}
+#gmFx{position:absolute!important;inset:0;width:100%;height:100%;pointer-events:none;z-index:9!important}
+.gm-screen{display:none}.gm-screen.on{display:block;animation:fadeUp .45s ease}
+.gm-title{text-align:center}
+.gm-title .big{font-size:70px;animation:gmFloat 2.6s ease-in-out infinite}
+.gm-title h2{font-size:clamp(24px,5vw,34px);margin:6px 0;color:#FFD9A0}
+.gm-title p{max-width:480px;margin:8px auto;font-size:13.5px;line-height:1.95;color:#E4DDF7}
+.gm-rules{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0}
+.gm-rule{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:10px 14px;font-size:12px;font-weight:700}
+.gm-btn{background:var(--flame);color:#fff;border:none;border-radius:14px;padding:14px 32px;font-size:16px;font-weight:800;box-shadow:0 10px 24px -6px rgba(232,98,44,.7);transition:transform .15s}
+.gm-btn:hover{transform:scale(1.05)}.gm-btn.alt{background:rgba(255,255,255,.16);box-shadow:none;font-size:13px;padding:10px 18px}
+.gm-hud{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.gm-chip{background:rgba(255,255,255,.14);border-radius:99px;padding:6px 13px;font-size:12.5px;font-weight:800;font-family:'JetBrains Mono','Cairo',monospace}
+.gm-timer{height:10px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden;margin-bottom:14px}
+.gm-timer>div{height:100%;width:100%;background:linear-gradient(90deg,#2E9B6B,#FFD54F,#D64545);background-size:300% 100%;transition:width .1s linear}
+.gm-scene{text-align:center;font-size:76px;line-height:1.1;margin:4px 0;animation:gmFloat 3s ease-in-out infinite}
+.gm-tag{display:inline-block;background:rgba(255,213,79,.2);color:#FFD54F;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:800;margin-bottom:6px}
+.gm-story{background:rgba(255,255,255,.1);border-radius:16px;padding:14px 16px;font-size:14.5px;line-height:1.95;font-weight:600;margin-bottom:12px;text-align:center}
+.gm-opts{display:grid;gap:9px}
+.gm-opt{text-align:right;background:rgba(255,255,255,.95);color:var(--ink);border:2.5px solid transparent;border-radius:14px;padding:12px 14px;font-size:13.5px;font-weight:700;line-height:1.7;transition:transform .12s,background .2s}
+.gm-opt:hover:not(:disabled){transform:translateX(-4px);border-color:#FFD54F}
+.gm-opt.ok{background:#CFF5E1;border-color:#2E9B6B;color:#14663F}
+.gm-opt.no{background:#FFD9D9;border-color:#D64545;color:#9A2020}
+.gm-opt.gone{opacity:.22;pointer-events:none}
+.gm-tools{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.gm-why{display:none;margin-top:12px;background:rgba(255,255,255,.96);color:var(--ink);border-radius:16px;padding:14px 16px;font-size:13px;line-height:1.95}
+.gm-why.show{display:block;animation:fadeUp .35s ease}
+.gm-why b{color:var(--deep-dark)}
+.gm-shake{animation:shakeX .35s 2}
+.gm-flash-ok{animation:gmOk .6s}.gm-flash-no{animation:gmNo .5s}
+@keyframes gmOk{0%{box-shadow:inset 0 0 0 0 rgba(46,155,107,0)}40%{box-shadow:inset 0 0 90px 10px rgba(46,155,107,.5)}100%{box-shadow:inset 0 0 0 0 rgba(46,155,107,0)}}
+@keyframes gmNo{0%{box-shadow:inset 0 0 0 0 rgba(214,69,69,0)}40%{box-shadow:inset 0 0 90px 10px rgba(214,69,69,.5)}100%{box-shadow:inset 0 0 0 0 rgba(214,69,69,0)}}
+.gm-end{text-align:center}
+.gm-end .rank{font-size:64px}
+.gm-end .sc{font-size:46px;font-weight:900;color:#FFD54F;font-family:'JetBrains Mono',monospace}
+.gm-weak{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;margin:14px auto;max-width:460px;font-size:12.5px;line-height:1.9;text-align:right}
+@media(max-width:480px){.game-banner{flex-wrap:wrap}.game-banner .gb-cta{margin:0}}
 </style>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0E5C7A">
@@ -718,6 +765,12 @@
         <p>فيديو شامل يلخّص رحلة الجسيم بين حالات المادة المختلفة، مثالى قبل البدء أو للمراجعة النهائية.</p>
       </div>
     </a>
+
+    <div class="game-banner" onclick="showView('game')">
+      <span class="gb-ic">🎮</span>
+      <div><h3>لعبة: مهندس الحلول الذكية</h3><p>حلّ مشكلات حياتية حقيقية بما تعلمته فى الوحدة الأولى واجمع النقاط والألقاب!</p></div>
+      <span class="gb-cta">العب الآن ▶</span>
+    </div>
 
     <div class="section-label">دروس الوحدة</div>
     <div class="lesson-grid" id="lessonGrid">
@@ -1697,6 +1750,57 @@
     </div>
     <div class="section-label">دروس الوحدة الثانية</div>
     <div class="lesson-grid" id="lessonGrid2"></div>
+  </div>
+
+  <!-- ============ GAME VIEW ============ -->
+  <div class="lesson-view" id="view-game">
+    <button class="back-btn" onclick="showView('home')">→ رجوع للرئيسية</button>
+    <div class="gm-stage" id="gmStage">
+      <canvas id="gmFx"></canvas>
+      <div class="gm-screen on" id="gmStart">
+        <div class="gm-title">
+          <div class="big">🛠️</div>
+          <h2>مهندس الحلول الذكية</h2>
+          <p>مدينتك الصغيرة تواجه مشكلات حياتية حقيقية! استخدم ما تعلمته عن حالات المادة والحرارة لاختيار أفضل حل لكل موقف قبل أن ينتهى الوقت.</p>
+          <div class="gm-rules">
+            <span class="gm-rule">🧩 10 مشكلات عشوائية</span><span class="gm-rule">⏱️ 25 ثانية لكل مشكلة</span>
+            <span class="gm-rule">❤️ 3 محاولات</span><span class="gm-rule">🔥 توالى الإجابات الصحيحة = نقاط مضاعفة</span><span class="gm-rule">💡 تلميح بعملة 🪙</span>
+          </div>
+          <button class="gm-btn" onclick="gmStart()">▶ ابدأ المهمة</button>
+          <div style="margin-top:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+            <button class="gm-btn alt" id="gmMuteBtn" onclick="gmToggleSound()">🔊 الصوت: يعمل</button>
+            <span class="gm-chip" id="gmBest">🏆 أفضل نتيجة: 0</span>
+          </div>
+        </div>
+      </div>
+      <div class="gm-screen" id="gmPlay">
+        <div class="gm-hud">
+          <span class="gm-chip" id="gmLives">❤️❤️❤️</span>
+          <span class="gm-chip" id="gmProg">1/10</span>
+          <span class="gm-chip" id="gmCombo">🔥 ×1</span>
+          <span class="gm-chip" id="gmCoins">🪙 2</span>
+          <span class="gm-chip" id="gmScore">⭐ 0</span>
+        </div>
+        <div class="gm-timer"><div id="gmTimerBar"></div></div>
+        <div style="text-align:center"><span class="gm-tag" id="gmTag"></span></div>
+        <div class="gm-scene" id="gmScene">🏔️</div>
+        <div class="gm-story" id="gmStory"></div>
+        <div class="gm-opts" id="gmOpts"></div>
+        <div class="gm-tools"><button class="gm-btn alt" id="gmHintBtn" onclick="gmHint()">💡 تلميح (🪙1)</button><button class="gm-btn alt" onclick="gmQuit()">إنهاء</button></div>
+        <div class="gm-why" id="gmWhy"></div>
+      </div>
+      <div class="gm-screen" id="gmEnd">
+        <div class="gm-end">
+          <div class="rank" id="gmRank">🏅</div>
+          <h2 id="gmRankName" style="color:#FFD9A0;margin:4px 0">مهندس</h2>
+          <div class="sc" id="gmFinal">0</div>
+          <p id="gmFinalSub" style="font-size:13px;color:#E4DDF7"></p>
+          <div class="gm-weak" id="gmWeak"></div>
+          <button class="gm-btn" onclick="gmStart()">🔁 العب مرة أخرى</button>
+          <div style="margin-top:12px"><button class="gm-btn alt" onclick="showView('home')">الرئيسية</button></div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </main>
@@ -3151,6 +3255,97 @@ document.getElementById('installBtn').addEventListener('click',async()=>{
   deferredPrompt=null; document.getElementById('installBtn').style.display='none';
 });
 window.addEventListener('appinstalled',()=>{ document.getElementById('installBtn').style.display='none'; });
+</script>
+<script>
+/* ================= GAME: مهندس الحلول الذكية ================= */
+(function(){
+// الإجابة الصحيحة دائمًا أول خيار فى البيانات، ويتم خلط الترتيب عند العرض
+const Q=[
+{e:'🏔️',c:'الضغط الجوى ودرجة الغليان',q:'أنت فى رحلة تخييم على قمة جبل عالٍ. الماء يغلى بسرعة لكن المكرونة لا تنضج جيدًا! ما الحل؟',o:['استخدام قدر كاتم (حلة ضغط)','زيادة قوة اللهب فقط','إضافة ثلج للقدر','فتح الغطاء تمامًا'],w:'على الجبل يقل الضغط الجوى فيغلى الماء عند أقل من 100°C. القدر الكاتم يحتبس البخار فيرتفع الضغط الداخلى وترتفع درجة الغليان فينضج الطعام أسرع.'},
+{e:'🍳',c:'التوصيل والعزل الحرارى',q:'مهندس يصمم مقلاة جديدة، ويريد ألا تحرق اليد عند الإمساك بها. ممّ يصنع المقبض؟',o:['خشب أو بلاستيك (عازل)','نحاس (موصل ممتاز)','ألومنيوم رقيق','حديد مثل جسم المقلاة'],w:'الخشب والبلاستيك رديئا التوصيل للحرارة (توصيليتهما الحرارية منخفضة) فيبقى المقبض باردًا، بينما المعادن تنقل الحرارة بسرعة إلى يدك.'},
+{e:'🧉',c:'طرق انتقال الحرارة الثلاث',q:'تريد حافظة تبقى الشاى ساخنًا 10 ساعات. أى تصميم يقاوم التوصيل والحمل والإشعاع معًا؟',o:['جدار مزدوج مفرَّغ بطلاء فضى عاكس','علبة معدنية رقيقة','كوب زجاجى مفتوح','وعاء بلاستيك شفاف فقط'],w:'الفراغ بين الجدارين يمنع التوصيل والحمل (لا توجد مادة)، والطلاء الفضى اللامع يعكس الإشعاع الحرارى. هكذا يعمل الترمس!'},
+{e:'👕',c:'العوامل المؤثرة فى التبخر',q:'غسلت ملابسك وتريدها أن تجف بأسرع ما يمكن. ماذا تفعل؟',o:['تنشرها مفرودة فى مكان مشمس وفيه هواء','تكومها فوق بعضها فى غرفة مغلقة','تضعها فى مكان بارد رطب','تطويها وهى مبللة'],w:'التبخر يزداد بارتفاع الحرارة وزيادة مساحة السطح المعرضة للهواء وسرعة التيارات الهوائية وقلة الرطوبة.'},
+{e:'🏠',c:'العزل الحرارى للمبانى',q:'بيت صيفه شديد الحرارة وفواتير التكييف مرتفعة. ما أفضل حل عند البناء؟',o:['وضع ألواح إستيرين عازلة بين الطوب','بناء الحوائط من معدن رقيق','ترك الحوائط بلا عزل','طلاء الجدران بلون أسود'],w:'المواد العازلة كالإستيرين تقلل انتقال الحرارة بالتوصيل من الخارج للداخل، فيقل التغير السريع فى درجة حرارة المبنى وتقل تكلفة التكييف.'},
+{e:'🚗',c:'الحرارة النوعية للماء',q:'محرك سيارة يسخن بشدة ويتلف. أى سائل تضعه فى الردياتير لتبريده بكفاءة؟',o:['الماء (حرارته النوعية عالية)','الزئبق (حرارته النوعية 140)','النحاس المصهور','لا شىء فهو يتبرد وحده'],w:'الماء حرارته النوعية مرتفعة (4180 J/kg°C) فيمتص كمية كبيرة من الطاقة دون ارتفاع كبير فى درجة حرارته، فيحمى المحرك.'},
+{e:'🍦',c:'الأنظمة (مفتوح - مغلق - معزول)',q:'ذاهب فى رحلة طويلة وتريد حفظ الآيس كريم متجمدًا. ما أنسب نظام؟',o:['حافظة محكمة معزولة (نظام معزول)','كيس مفتوح (نظام مفتوح)','طبق مكشوف تحت الشمس','علبة معدنية رقيقة بلا عزل'],w:'النظام المعزول لا يتبادل الطاقة ولا المادة مع الوسط المحيط، فلا تدخل الحرارة إليه ولا ينصهر الآيس كريم بسهولة.'},
+{e:'🔥',c:'الحمل الحرارى',q:'غرفة باردة وعندك مدفأة واحدة. أين تضعها لتدفئة الغرفة كلها بأفضل شكل؟',o:['على الأرض','قرب السقف','داخل دولاب مغلق','فى الشرفة الخارجية'],w:'الهواء الدافئ أقل كثافة فيرتفع، ويهبط البارد ليحل محله فتتكون تيارات حمل توزع الدفء. لذلك الأفضل وضع المدفأة أسفل الغرفة.'},
+{e:'☀️',c:'الإشعاع الحرارى',q:'تصمم سخانًا شمسيًا لبيتك. بأى لون تطلى الأنابيب لتمتص أكبر قدر من حرارة الشمس؟',o:['الأسود المعتم','الأبيض اللامع','الفضى المرآوى','الأصفر الفاتح'],w:'الأسطح المعتمة القاتمة أفضل امتصاصًا للإشعاع الحرارى (الأشعة تحت الحمراء) من الأسطح اللامعة الفاتحة التى تعكسه.'},
+{e:'🥤',c:'التبخر ومساحة السطح',q:'شاى ساخن جدًا ويجب أن تشربه بعد دقيقة. كيف تبرده أسرع؟',o:['تصبه فى طبق واسع','تغطيه بإحكام','تضعه فى كوب ضيق وعميق','تضيف مزيدًا من الشاى الساخن'],w:'زيادة مساحة السطح تزيد عدد الجزيئات التى تتحرر منه فيزداد التبخر، والتبخر يسحب طاقة حرارية فيبرد السائل أسرع.'},
+{e:'🥵',c:'الرطوبة والتبخر',q:'الجو حار ورطب جدًا وتشعر بالضيق لأن عرقك لا يجف. ما الذى يساعد جسمك على التبريد؟',o:['تشغيل مروحة وتقليل الرطوبة','إغلاق النوافذ والستائر بلا تهوية','شرب مشروب ساخن فقط','الجلوس فى مكان بلا هواء'],w:'الرطوبة العالية تقلل تبخر العرق فيقل تبريد الجسم. المروحة تزيح بخار الماء من حول جلدك فيزداد معدل التبخر وتشعر بالانتعاش.'},
+{e:'❄️',c:'نقاء المادة ودرجة التجمد',q:'الطريق تغطيه طبقة جليد فى الشتاء. ماذا ترش عليه لإذابتها حتى فى حرارة تحت الصفر؟',o:['ملح الطعام','ماء نقى','رمل ناعم فقط','ثلج مجروش'],w:'الشوائب والمواد المذابة تخفض درجة تجمد الماء عن 0°C، فيبقى الماء المالح سائلًا عند درجات أقل وينصهر الجليد.'},
+{e:'🌬️',c:'البلازما وجودة الهواء',q:'غرفة مغلقة هواؤها ملوث بالجراثيم والروائح. أى تقنية حديثة تنقى الهواء؟',o:['تكييف البلازما','سخان كهربى','مصباح عادى','ستارة سميكة'],w:'فى تكييف البلازما يحول مجال كهربى عال الغاز إلى أيونات وإلكترونات، وأيونات الغاز المشحونة تفكك الجراثيم والملوثات.'},
+{e:'☕',c:'الكتلة والتغير فى درجة الحرارة',q:'تريد كوب شاى ساخنًا بسرعة على لهب واحد. أيهما تسخن؟',o:['كمية الماء اللازمة للكوب فقط','لترًا كاملًا ثم تصب كوبًا','أكبر قدر موجود فى المطبخ','لا فرق إطلاقًا'],w:'عند اكتساب نفس الطاقة تتوزع على عدد أقل من الجسيمات فيزيد متوسط طاقة حركتها وترتفع الحرارة بمقدار أكبر. الكتلة الأقل تسخن أسرع.'},
+{e:'🏜️',c:'الحرارة النوعية',q:'مصمم مدينة يسأل: لماذا يشتد حر الرمال نهارًا وتبرد سريعًا ليلًا بعكس الماء؟ أى تفسير صحيح؟',o:['للرمل حرارة نوعية منخفضة','للرمل حرارة نوعية أعلى من الماء','الماء لا يمتص الحرارة إطلاقًا','الرمل عازل تمامًا'],w:'الحرارة النوعية المنخفضة تجعل الرمل يسخن ويبرد بسرعة، بينما حرارة الماء النوعية العالية تجعله بطيئًا فى التسخين والتبريد (وهذا سبب نسيم البحر).'}
+];
+const TIME=25, ROUNDS=10;
+let ac=null, sndOn=true, mus=null, G={}, tm=null;
+const $=id=>document.getElementById(id);
+function A(){ if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){return null;}} if(ac.state==='suspended')ac.resume(); return ac; }
+function tone(f,d,type,v,t0){ if(!sndOn)return; const a=A(); if(!a)return; const o=a.createOscillator(),g=a.createGain(),t=a.currentTime+(t0||0);
+  o.type=type||'sine'; o.frequency.value=f; g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(v||.15,t+.02); g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+d+.05); }
+const sfx={
+  click:()=>tone(660,.07,'square',.06),
+  ok:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.16,'triangle',.18,i*.07)),
+  bad:()=>{tone(200,.3,'sawtooth',.13);tone(140,.35,'sawtooth',.13,.13)},
+  tick:()=>tone(900,.05,'square',.05),
+  coin:()=>{tone(988,.08,'square',.08);tone(1319,.18,'square',.08,.08)},
+  win:()=>[523,659,784,659,784,1047,1319].forEach((f,i)=>tone(f,.22,'triangle',.18,i*.11)),
+  lose:()=>[392,349,311,262].forEach((f,i)=>tone(f,.28,'sawtooth',.1,i*.18))
+};
+function musicStart(){ musicStop(); const sc=[392,440,523,587,659,784]; let n=0;
+  mus=setInterval(()=>{ if(!sndOn)return; const f=sc[Math.floor(Math.random()*sc.length)]; tone(f/2,.5,'sine',.035); if(n%4===0)tone(sc[0]/4,.9,'triangle',.05); n++; },420); }
+function musicStop(){ if(mus){clearInterval(mus);mus=null;} }
+window.gmToggleSound=function(){ sndOn=!sndOn; $('gmMuteBtn').textContent=sndOn?'🔊 الصوت: يعمل':'🔇 الصوت: متوقف'; if(sndOn){A();sfx.click();} };
+
+/* confetti */
+const fx=$('gmFx'), fc=fx.getContext('2d'); let parts=[], fxRun=false;
+function fxSize(){ fx.width=fx.clientWidth; fx.height=fx.clientHeight; }
+function burst(n,colors){ fxSize(); for(let i=0;i<n;i++) parts.push({x:fx.width/2,y:fx.height*.45,vx:(Math.random()-.5)*12,vy:-Math.random()*11-3,r:Math.random()*5+3,c:colors[i%colors.length],l:70+Math.random()*30});
+  if(!fxRun){fxRun=true;requestAnimationFrame(loop);} }
+function loop(){ fc.clearRect(0,0,fx.width,fx.height); parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.l--;fc.globalAlpha=Math.max(0,p.l/60);fc.fillStyle=p.c;fc.fillRect(p.x,p.y,p.r,p.r*1.6);});
+  parts=parts.filter(p=>p.l>0); fc.globalAlpha=1; if(parts.length)requestAnimationFrame(loop); else fxRun=false; }
+const GOOD=['#FFD54F','#E8622C','#3FAFC0','#2E9B6B','#fff','#C79BFF'];
+
+/* game flow */
+function screen(id){ ['gmStart','gmPlay','gmEnd'].forEach(s=>$(s).classList.toggle('on',s===id)); }
+function bestGet(){ try{return +localStorage.getItem('gm-best')||0;}catch(e){return 0;} }
+function bestSet(v){ try{localStorage.setItem('gm-best',v);}catch(e){} }
+function shuffle(a){ return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
+function hud(){ $('gmLives').textContent='❤️'.repeat(G.lives)+'🖤'.repeat(3-G.lives); $('gmProg').textContent=(G.i+1)+'/'+G.list.length;
+  $('gmCombo').textContent='🔥 ×'+Math.min(1+Math.floor(G.combo/2),4); $('gmCoins').textContent='🪙 '+G.coins; $('gmScore').textContent='⭐ '+G.score; $('gmHintBtn').disabled=G.coins<1||G.locked; }
+window.gmStart=function(){ A(); sfx.click(); G={list:shuffle(Q).slice(0,ROUNDS),i:0,score:0,lives:3,coins:2,combo:0,ok:0,miss:[],locked:false}; screen('gmPlay'); musicStart(); next(); };
+function next(){ const q=G.list[G.i]; G.locked=false; G.hinted=false;
+  G.opts=shuffle(q.o.map((t,k)=>({t,ok:k===0}))); $('gmScene').textContent=q.e; $('gmTag').textContent='🎯 '+q.c; $('gmStory').textContent=q.q;
+  $('gmOpts').innerHTML=G.opts.map((o,k)=>`<button class="gm-opt" onclick="gmPick(${k})">${o.t}</button>`).join('');
+  $('gmWhy').classList.remove('show'); $('gmWhy').innerHTML=''; G.t=TIME; hud(); tick(); clearInterval(tm);
+  tm=setInterval(()=>{ G.t-=.1; tick(); if(G.t<=5.05&&Math.abs(G.t%1)<.06)sfx.tick(); if(G.t<=0){clearInterval(tm);answer(-1);} },100); }
+function tick(){ const p=Math.max(0,G.t/TIME*100); const b=$('gmTimerBar'); b.style.width=p+'%'; b.style.backgroundPosition=(100-p)+'% 0'; }
+window.gmHint=function(){ if(G.locked||G.coins<1||G.hinted)return; G.coins--; G.hinted=true; sfx.coin();
+  const btns=[...document.querySelectorAll('#gmOpts .gm-opt')]; shuffle(btns.map((b,k)=>k).filter(k=>!G.opts[k].ok)).slice(0,2).forEach(k=>btns[k].classList.add('gone')); hud(); };
+window.gmPick=function(k){ if(G.locked)return; clearInterval(tm); answer(k); };
+function answer(k){ G.locked=true; const q=G.list[G.i], btns=[...document.querySelectorAll('#gmOpts .gm-opt')], stage=$('gmStage');
+  btns.forEach((b,i)=>{ b.disabled=true; if(G.opts[i].ok)b.classList.add('ok'); else if(i===k)b.classList.add('no'); });
+  const right=k>=0&&G.opts[k].ok; let msg;
+  if(right){ G.ok++; G.combo++; const mult=Math.min(1+Math.floor(G.combo/2),4); const gain=Math.round((100+G.t*4)*mult)*(G.hinted?.7:1); G.score+=Math.round(gain);
+    if(G.combo%3===0){G.coins++;sfx.coin();} sfx.ok(); burst(60,GOOD); stage.classList.remove('gm-flash-no'); void stage.offsetWidth; stage.classList.add('gm-flash-ok');
+    msg=`<b>✅ أحسنت! +${Math.round(gain)} نقطة</b> ${mult>1?'🔥 مضاعف ×'+mult:''}<br>`;
+  } else { G.lives--; G.combo=0; G.miss.push(q.c); sfx.bad(); stage.classList.remove('gm-flash-ok'); void stage.offsetWidth; stage.classList.add('gm-flash-no'); $('gmScene').classList.add('gm-shake'); setTimeout(()=>$('gmScene').classList.remove('gm-shake'),800);
+    msg=`<b>${k<0?'⏰ انتهى الوقت!':'❌ ليس هذا الحل الأنسب.'}</b><br>`; }
+  $('gmWhy').innerHTML=msg+'💡 '+q.w+`<div style="text-align:center;margin-top:10px"><button class="gm-btn" style="font-size:14px;padding:10px 24px" onclick="gmNext()">${(G.lives<=0||G.i>=G.list.length-1)?'عرض النتيجة 🏁':'المشكلة التالية ➜'}</button></div>`;
+  $('gmWhy').classList.add('show'); hud(); setTimeout(()=>$('gmWhy').scrollIntoView({behavior:'smooth',block:'nearest'}),150); }
+window.gmNext=function(){ sfx.click(); if(G.lives<=0||G.i>=G.list.length-1){ finish(); } else { G.i++; next(); } };
+window.gmQuit=function(){ clearInterval(tm); finish(true); };
+function finish(quit){ clearInterval(tm); musicStop(); screen('gmEnd'); const tot=G.list.length, pct=G.ok/tot, won=G.lives>0&&!quit;
+  let r=pct>=.9?['👑','عبقرى الحلول']:pct>=.7?['🏆','مهندس محترف']:pct>=.4?['🛠️','مهندس صاعد']:['🌱','مبتدئ واعد'];
+  $('gmRank').textContent=r[0]; $('gmRankName').textContent=r[1]; $('gmFinal').textContent=G.score;
+  const best=bestGet(); const nb=G.score>best; if(nb)bestSet(G.score); $('gmBest').textContent='🏆 أفضل نتيجة: '+Math.max(best,G.score);
+  $('gmFinalSub').textContent=`حللت ${G.ok} من ${G.i+(G.locked?1:0)} مشكلة ${nb&&G.score>0?'• 🎉 رقم قياسى جديد!':''}${G.lives<=0?' • نفدت محاولاتك':''}`;
+  const uniq=[...new Set(G.miss)]; $('gmWeak').innerHTML=uniq.length?'📌 <b>راجع هذه المفاهيم:</b><br>• '+uniq.join('<br>• '):'🌟 لم تخطئ فى أى مفهوم، أداء مبهر!';
+  if(won&&pct>=.4){sfx.win();burst(160,GOOD);} else sfx.lose(); }
+/* إيقاف الموسيقى عند مغادرة اللعبة */
+const _sv=window.showView; window.showView=function(id){ if(id!=='game'){clearInterval(tm);musicStop();} _sv(id); if(id==='game'){ $('gmBest').textContent='🏆 أفضل نتيجة: '+bestGet(); screen('gmStart'); } };
+})();
 </script>
 </body>
 </html>
