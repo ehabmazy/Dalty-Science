@@ -385,29 +385,45 @@
 
   /* Quiz */
   .quiz-card{border:2px solid var(--deep); background:linear-gradient(180deg,#F3FAFB,#fff);}
-  .qz-item{margin-bottom:20px; padding-bottom:18px; border-bottom:1px dashed var(--line);}
-  .qz-item:last-of-type{border-bottom:none;}
-  .qz-q{font-size:14.5px; font-weight:700; margin-bottom:12px; color:var(--ink);}
-  .qz-opts{display:flex; flex-direction:column; gap:8px;}
-  .qz-opt{
-    text-align:right; padding:11px 14px; border-radius:11px; border:1.5px solid var(--line); background:#fff;
-    font-size:13.5px; color:var(--ink); font-weight:500;
-  }
-  .qz-opt.selected{border-color:var(--deep); background:#EAF6F9;}
-  .qz-opt.correct{border-color:var(--green); background:#E9FAF1; color:var(--green); font-weight:700;}
-  .qz-opt.wrong{border-color:var(--red); background:#FDECEC; color:var(--red); font-weight:700;}
-  .qz-opt:disabled{cursor:default;}
-  .qz-submit{
-    width:100%; padding:14px; background:var(--flame); color:#fff; border:none; border-radius:13px;
-    font-weight:800; font-size:15px; margin-top:6px;
-  }
-  .qz-submit:disabled{opacity:.5;}
-  .qz-result{
-    text-align:center; padding:20px; border-radius:16px; margin-top:8px; display:none;
-  }
-  .qz-result.show{display:block; animation:fadeUp .5s ease;}
-  .qz-result .score{font-size:38px; font-weight:900; font-family:'JetBrains Mono',monospace;}
-  .qz-result p{font-size:13px; margin-top:6px;}
+  /* Quiz (game-style) */
+  .qg-stage{position:relative;border-radius:20px;overflow:hidden;padding:20px 16px 22px;color:#fff;background:linear-gradient(160deg,#1B1446,#3A1F6E 50%,#0E5C7A);box-shadow:var(--shadow)}
+  .qg-stage::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(255,217,160,.18),transparent 40%),radial-gradient(circle at 85% 80%,rgba(63,175,192,.25),transparent 45%);pointer-events:none}
+  .qg-stage>*{position:relative;z-index:2}
+  .qg-stage>.qg-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+  .qg-center{text-align:center;animation:fadeUp .4s ease}
+  .qg-big{font-size:58px;animation:gmFloat 2.6s ease-in-out infinite}
+  .qg-h{font-size:22px;margin:6px 0;color:#FFD9A0}
+  .qg-rules,.qg-meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0}
+  .qg-rule{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:8px 12px;font-size:12px;font-weight:700}
+  .qg-btn{background:var(--flame);color:#fff;border:none;border-radius:13px;padding:12px 28px;font-size:15px;font-weight:800;box-shadow:0 10px 24px -6px rgba(232,98,44,.7);transition:transform .15s}
+  .qg-btn:hover:not(:disabled){transform:scale(1.04)}
+  .qg-btn.alt{background:rgba(255,255,255,.16);box-shadow:none;font-size:13px;padding:9px 16px}
+  .qg-btn.alt.hunt{background:#2E9B6B}
+  .qg-btn:disabled{opacity:.45;cursor:default}
+  .qg-hud{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .qg-chip{background:rgba(255,255,255,.14);border-radius:99px;padding:6px 13px;font-size:12.5px;font-weight:800;font-family:'JetBrains Mono','Cairo',monospace}
+  .qg-timer{height:10px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden;margin-bottom:14px}
+  .qg-timer>div{height:100%;width:100%;background:linear-gradient(90deg,#2E9B6B,#FFD54F,#D64545);background-size:300% 100%;transition:width .1s linear}
+  .qg-tag{display:inline-block;background:rgba(255,213,79,.2);color:#FFD54F;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:800;margin-bottom:8px}
+  .qg-story{background:rgba(255,255,255,.1);border-radius:16px;padding:14px 16px;font-size:14.5px;line-height:1.95;font-weight:600;margin-bottom:12px;text-align:center}
+  .qg-opts{display:grid;gap:9px}
+  .qg-opt{text-align:right;background:rgba(255,255,255,.95);color:var(--ink);border:2.5px solid transparent;border-radius:14px;padding:12px 14px;font-size:13.5px;font-weight:700;line-height:1.7;transition:transform .12s,background .2s}
+  .qg-opt:hover:not(:disabled){transform:translateX(-4px);border-color:#FFD54F}
+  .qg-opt.ok{background:#CFF5E1;border-color:#2E9B6B;color:#14663F}
+  .qg-opt.no{background:#FFD9D9;border-color:#D64545;color:#9A2020}
+  .qg-opt.gone{opacity:.22;pointer-events:none}
+  .qg-opt:disabled{cursor:default}
+  .qg-tools{display:flex;justify-content:center;gap:10px;margin-top:12px}
+  .qg-why{display:none;margin-top:12px;background:rgba(255,255,255,.96);color:var(--ink);border-radius:16px;padding:14px 16px;font-size:13px;line-height:1.95}
+  .qg-why.show{display:block;animation:fadeUp .35s ease}
+  .qg-why b{color:var(--deep-dark)}
+  .qg-note{border-radius:10px;padding:8px 10px;margin:8px 0}
+  .qg-note.good{background:#E2F8EC}.qg-note.info{background:#E8F3FF}
+  .qg-shake{animation:shakeX .35s 2}
+  .qg-flash-ok{animation:gmOk .6s}.qg-flash-no{animation:gmNo .5s}
+  .qg-final{font-size:44px;font-weight:900;font-family:'JetBrains Mono',monospace}
+  .qg-sub{font-size:13px;color:#E4DDF7;line-height:1.9;margin-top:6px}
+  .qg-weak{background:rgba(255,255,255,.12);border-radius:14px;padding:12px;margin:14px auto;max-width:460px;font-size:12.5px;line-height:1.9;text-align:right}
   .nav-buttons{display:flex; justify-content:space-between; margin-top:26px; gap:10px;}
   .nav-btn{
     padding:13px 22px; border-radius:12px; border:none; font-weight:800; font-size:13.5px;
@@ -1360,30 +1376,30 @@
   <line x1="200" y1="180" x2="520" y2="180" stroke="#DCE6E8" stroke-width="1.5"/>
   <text x="360" y="205" text-anchor="middle" font-size="13" font-weight="800" fill="#0A4259">الحرارة النوعية (J/kg&#176;C) — كلما قلّت، سخنت المادة أسرع</text>
 
-  <text x="128" y="230" text-anchor="end" font-size="10" fill="#122A33">ماء</text>
+  <text x="128" y="230" direction="ltr" text-anchor="end" font-size="13" font-weight="700" fill="#122A33">ماء</text>
   <rect x="134" y="220" width="500" height="14" rx="6" fill="#DCE6E8"/>
   <rect x="134" y="220" width="500" height="14" rx="6" fill="#3FAFC0"/>
-  <text x="642" y="231" font-size="9" fill="#4C6570">4180</text>
+  <text x="642" y="232" direction="ltr" font-size="12" font-weight="700" fill="#122A33">4180</text>
 
-  <text x="128" y="252" text-anchor="end" font-size="10" fill="#122A33">زيت</text>
+  <text x="128" y="252" direction="ltr" text-anchor="end" font-size="13" font-weight="700" fill="#122A33">زيت</text>
   <rect x="134" y="242" width="500" height="14" rx="6" fill="#DCE6E8"/>
   <rect x="134" y="242" width="240" height="14" rx="6" fill="#E8A93F"/>
-  <text x="382" y="253" font-size="9" fill="#4C6570">2000</text>
+  <text x="382" y="254" direction="ltr" font-size="12" font-weight="700" fill="#122A33">2000</text>
 
-  <text x="128" y="274" text-anchor="end" font-size="10" fill="#122A33">ألومنيوم</text>
+  <text x="128" y="274" direction="ltr" text-anchor="end" font-size="13" font-weight="700" fill="#122A33">ألومنيوم</text>
   <rect x="134" y="264" width="500" height="14" rx="6" fill="#DCE6E8"/>
   <rect x="134" y="264" width="108" height="14" rx="6" fill="#8FA3AA"/>
-  <text x="250" y="275" font-size="9" fill="#4C6570">900</text>
+  <text x="250" y="276" direction="ltr" font-size="12" font-weight="700" fill="#122A33">900</text>
 
-  <text x="128" y="296" text-anchor="end" font-size="10" fill="#122A33">حديد</text>
+  <text x="128" y="296" direction="ltr" text-anchor="end" font-size="13" font-weight="700" fill="#122A33">حديد</text>
   <rect x="134" y="286" width="500" height="14" rx="6" fill="#DCE6E8"/>
   <rect x="134" y="286" width="54" height="14" rx="6" fill="#6E4A2E"/>
-  <text x="196" y="297" font-size="9" fill="#4C6570">450</text>
+  <text x="196" y="298" direction="ltr" font-size="12" font-weight="700" fill="#122A33">450</text>
 
-  <text x="128" y="318" text-anchor="end" font-size="10" fill="#122A33">نحاس</text>
+  <text x="128" y="318" direction="ltr" text-anchor="end" font-size="13" font-weight="700" fill="#122A33">نحاس</text>
   <rect x="134" y="308" width="500" height="14" rx="6" fill="#DCE6E8"/>
   <rect x="134" y="308" width="46" height="14" rx="6" fill="#E8622C"/>
-  <text x="188" y="319" font-size="9" fill="#4C6570">385</text>
+  <text x="188" y="320" direction="ltr" font-size="12" font-weight="700" fill="#122A33">385</text>
 </svg>
     </div>
 
@@ -1520,7 +1536,7 @@
       <p style="font-size:12.5px; color:var(--ink-soft); margin-bottom:6px;">يوضح الجدول التالى قيم الحرارة النوعية (J/kg°C) لثلاث مواد. أجب عن الأسئلة بالضغط على الحرف الصحيح:</p>
       <table style="width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:13px;">
         <tr style="background:var(--bg);"><td style="padding:8px; border:1px solid var(--line); font-weight:800;">المادة</td><td style="padding:8px; border:1px solid var(--line); text-align:center; font-weight:800;">X (حديد)</td><td style="padding:8px; border:1px solid var(--line); text-align:center; font-weight:800;">Y (ألومنيوم)</td><td style="padding:8px; border:1px solid var(--line); text-align:center; font-weight:800;">Z (زيت)</td></tr>
-        <tr><td style="padding:8px; border:1px solid var(--line); font-weight:700;">الحرارة النوعية</td><td style="padding:8px; border:1px solid var(--line); text-align:center;" class="mono">450</td><td style="padding:8px; border:1px solid var(--line); text-align:center;" class="mono">900</td><td style="padding:8px; border:1px solid var(--line); text-align:center;" class="mono">2000</td></tr>
+        <tr><td style="padding:8px; border:1px solid var(--line); font-weight:700;">الحرارة النوعية</td><td style="padding:8px; border:1px solid var(--line); text-align:center;"><span class="mono">450</span></td><td style="padding:8px; border:1px solid var(--line); text-align:center;"><span class="mono">900</span></td><td style="padding:8px; border:1px solid var(--line); text-align:center;"><span class="mono">2000</span></td></tr>
       </table>
       <div id="shqWrap"></div>
     </div>
@@ -2518,6 +2534,7 @@ function initRadiation(){
 }
 
 /* ================= QUIZ ENGINE (generic) ================= */
+const BOIL_TBL = '<table style="width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:12.5px;font-weight:600"><tr style="background:var(--bg)"><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;font-weight:800;background:#EAF6F9">المكان</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center;font-weight:800;background:#EAF6F9">الارتفاع عن سطح البحر</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center;font-weight:800;background:#EAF6F9">درجة غليان الماء</td></tr><tr><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff">البحر الميت</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">427 م تحت سطح البحر</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">101.4°C</td></tr><tr><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff">سطح البحر</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">0 م</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">100°C</td></tr><tr><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff">لاباز</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">3640 م</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">87.71°C</td></tr><tr><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff">كلمنجارو</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">5859 م</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">80.33°C</td></tr><tr><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff">إيفرست</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">8848 م</td><td style="padding:6px;border:1px solid #C9DDE2;color:#0A2A33;background:#fff;text-align:center">69.94°C</td></tr></table>';
 const quizzes = {
   1:[
     {q:'أى حالات المادة تتميز بثبات كل من الشكل والحجم معًا؟', opts:['الحالة الصلبة','الحالة السائلة','الحالة الغازية','حالة البلازما'], correct:0},
@@ -2600,10 +2617,10 @@ const weeklyQuizzes = {
     {q:'عند سطح البحر (الضغط الجوى المعتاد) يغلى الماء النقى عند درجة:', opts:['100°C', '80°C', '70°C', '120°C'], correct:0},
     {q:'كلما زاد الضغط الجوى فإن درجة غليان الماء:', opts:['تقل', 'لا تتغير', 'تنعدم', 'تزداد'], correct:3},
     {q:'عند زيادة تركيز محلول ملح فى الماء فإن درجة غليانه ودرجة تجمده على الترتيب:', opts:['تنخفض درجة الغليان وترتفع درجة التجمد', 'ترتفعان معًا', 'ترتفع درجة الغليان وتنخفض درجة التجمد', 'لا تتغيران'], correct:2},
-    {q:'من الجدول: أقل درجة غليان للماء بين الأماكن التالية تكون على قمة:', opts:['كلمنجارو (5859 م) وتساوى 100°C', 'إيفرست (8848 م) وتساوى 69.94°C', 'لاباز (3640 م) وتساوى 101.4°C', 'البحر الميت وتساوى 69.94°C'], correct:1},
-    {q:'من الجدول: يغلى الماء عند أعلى درجة حرارة (101.4°C) فى:', opts:['البحر الميت (427 م تحت سطح البحر)', 'قمة إيفرست', 'لاباز', 'كلمنجارو'], correct:0},
-    {q:'درجة غليان الماء فى مدينة لاباز (3640 م فوق سطح البحر) هى الأقرب إلى:', opts:['101.4°C', '69.94°C', '100°C', '87.71°C'], correct:3},
-    {q:'درجة غليان الماء فوق قمة جبل كلمنجارو (5859 م) هى الأقرب إلى:', opts:['100.1°C', '99.96°C', '80.33°C', '87.71°C'], correct:2},
+    {q:'يوضح الجدول التالى درجة غليان الماء فى أماكن مختلفة:'+BOIL_TBL+'من الجدول: أقل درجة غليان للماء بين الأماكن المذكورة تكون على قمة:', opts:['كلمنجارو (5859 م) وتساوى 100°C', 'إيفرست (8848 م) وتساوى 69.94°C', 'لاباز (3640 م) وتساوى 101.4°C', 'البحر الميت وتساوى 69.94°C'], correct:1},
+    {q:'يوضح الجدول التالى درجة غليان الماء فى أماكن مختلفة:'+BOIL_TBL+'من الجدول: يغلى الماء عند أعلى درجة حرارة (101.4°C) فى:', opts:['البحر الميت (427 م تحت سطح البحر)', 'قمة إيفرست', 'لاباز', 'كلمنجارو'], correct:0},
+    {q:'اعتمادًا على الجدول التالى:'+BOIL_TBL+'درجة غليان الماء فى مدينة لاباز (3640 م فوق سطح البحر) هى الأقرب إلى:', opts:['101.4°C', '69.94°C', '100°C', '87.71°C'], correct:3},
+    {q:'اعتمادًا على الجدول التالى:'+BOIL_TBL+'درجة غليان الماء فوق قمة جبل كلمنجارو (5859 م) هى الأقرب إلى:', opts:['100.1°C', '99.96°C', '80.33°C', '87.71°C'], correct:2},
     {q:'أى عوامل التالية لا يزيد من معدل التبخر؟', opts:['ارتفاع درجة الحرارة', 'زيادة نسبة الرطوبة فى الهواء', 'زيادة مساحة سطح السائل', 'زيادة سرعة الهواء المار على السائل'], correct:1},
     {q:'يتبخر الماء من الإناء بسرعة أكبر عند رفع درجة حرارة الموقد لأن:', opts:['طاقة حركة جسيمات الماء تزداد فيتغلب عدد أكبر منها على قوى التجاذب', 'جسيمات الماء تتجمد', 'قوى التجاذب بين الجسيمات تزداد', 'حجم الإناء يقل'], correct:0},
     {q:'تجف الملابس فى فصل الصيف أسرع من فصل الشتاء بسبب:', opts:['انخفاض درجة الحرارة', 'زيادة الرطوبة', 'قلة الشمس', 'ارتفاع درجة الحرارة فيزداد معدل التبخر'], correct:3},
@@ -2639,13 +2656,13 @@ const weeklyQuizzes = {
     {q:'إناءان متماثلان بهما كميتان مختلفتان من الماء سُخّنا بنفس اللهب لنفس المدة؛ يسجل درجة حرارة أعلى الإناء الذى به:', opts:['كمية الماء الأقل', 'كمية الماء الأكبر', 'كلاهما بنفس الدرجة', 'لا يمكن التحديد أبدًا'], correct:0},
     {q:'كمية الطاقة الحرارية اللازمة لرفع درجة حرارة 1 كجم من المادة بمقدار 1°C تُسمّى:', opts:['الطاقة الداخلية', 'درجة الحرارة', 'النظام المغلق', 'الحرارة النوعية'], correct:3},
     {q:'إذا كانت الحرارة النوعية للمواد X وY وZ هى 450 و900 و2000 J/kg.°C على الترتيب، فإن المادة التى تحتاج أقل كمية حرارة لرفع درجة حرارة 1 كجم منها 1°C هى:', opts:['المادة Y', 'المادة Z', 'المادة X', 'جميعها تحتاج نفس الكمية'], correct:2},
-    {q:'بنفس البيانات السابقة، المادة التى تحتاج أكبر كمية حرارة لرفع درجة حرارة 1 كجم منها 1°C هى:', opts:['المادة X', 'المادة Z', 'المادة Y', 'جميعها تحتاج نفس الكمية'], correct:1},
-    {q:'بنفس البيانات، المادة التى تحتاج أطول فترة زمنية لتكتسب نفس كمية الحرارة حتى ترتفع درجة حرارتها 1°C هى:', opts:['المادة Z', 'المادة X', 'المادة Y', 'لا يوجد فرق'], correct:0},
-    {q:'بنفس البيانات، المادة التى تحتاج أقصر فترة زمنية لترتفع درجة حرارتها 1°C هى:', opts:['المادة Y', 'المادة Z', 'لا يوجد فرق', 'المادة X'], correct:3},
+    {q:'إذا كانت الحرارة النوعية للمواد X وY وZ هى 450 و900 و2000 J/kg.°C على الترتيب، فإن المادة التى تحتاج أكبر كمية حرارة لرفع درجة حرارة 1 كجم منها 1°C هى:', opts:['المادة X', 'المادة Z', 'المادة Y', 'جميعها تحتاج نفس الكمية'], correct:1},
+    {q:'إذا كانت الحرارة النوعية للمواد X وY وZ هى 450 و900 و2000 J/kg.°C على الترتيب، فإن المادة التى تحتاج أطول فترة زمنية لتكتسب نفس كمية الحرارة حتى ترتفع درجة حرارتها 1°C هى:', opts:['المادة Z', 'المادة X', 'المادة Y', 'لا يوجد فرق'], correct:0},
+    {q:'إذا كانت الحرارة النوعية للمواد X وY وZ هى 450 و900 و2000 J/kg.°C على الترتيب، فإن المادة التى تحتاج أقصر فترة زمنية لترتفع درجة حرارتها 1°C هى:', opts:['المادة Y', 'المادة Z', 'لا يوجد فرق', 'المادة X'], correct:3},
     {q:'يُستخدم الماء فى تبريد كثير من الأنظمة (مثل مبرّد السيارة) لأن:', opts:['حرارته النوعية منخفضة', 'لا يتبخر', 'حرارته النوعية مرتفعة فيمتص كمية كبيرة من الطاقة دون ارتفاع كبير فى درجة حرارته', 'لونه شفاف'], correct:2},
     {q:'ثبات درجة حرارة ماء النهر نسبيًا لا يعنى أنه لا يمتص طاقة حرارية، بل يرجع إلى:', opts:['انخفاض حرارته النوعية', 'ارتفاع حرارته النوعية', 'عدم وجود جسيمات فيه', 'ثبات كتلته فقط'], correct:1},
     {q:'كتلتان متساويتان من الرمل والماء تعرضتا لأشعة الشمس نفس المدة؛ تكون درجة حرارة الرمل:', opts:['أعلى لأن حرارته النوعية أقل من الماء', 'أقل لأن حرارته النوعية أكبر', 'مساوية دائمًا للماء', 'ثابتة لا ترتفع'], correct:0},
-    {q:'فى تجربة غليان ثلاثة أوعية بها كميات مختلفة من الماء، يكون الوعاء الذى يحتاج أطول زمن حتى يغلى هو الذى يحتوى على:', opts:['أقل كمية من الماء', 'أى كمية بنفس الزمن', 'لا يغلى مطلقًا', 'أكبر كمية من الماء'], correct:3},
+    {q:'عند تسخين ثلاثة أوعية متماثلة بها كميات مختلفة من الماء على نفس المصدر الحرارى، يكون الوعاء الذى يحتاج أطول زمن حتى يغلى هو الذى يحتوى على:', opts:['أقل كمية من الماء', 'أى كمية بنفس الزمن', 'لا يغلى مطلقًا', 'أكبر كمية من الماء'], correct:3},
     {q:'الفرق بين الطاقة الداخلية ودرجة الحرارة أن الطاقة الداخلية:', opts:['مقياس لمتوسط طاقة الحركة فقط', 'هى نفسها درجة الحرارة', 'مجموع طاقتى الحركة والوضع لكل الجسيمات، بينما درجة الحرارة مقياس لمتوسط طاقة الحركة', 'تُقاس بالترمومتر مباشرة'], correct:2},
     {q:'درجة حرارة النظام تمثل مقدار:', opts:['كتلة النظام', 'سخونة النظام أو برودته', 'حجم النظام', 'عدد جسيماته فقط'], correct:1},
     {q:'أى جزء من الكون يكون موضعًا للدراسة وملاحظة تغير الطاقة والمادة به يُسمّى:', opts:['النظام', 'الوسط المحيط', 'الطاقة الداخلية', 'الحرارة النوعية'], correct:0},
@@ -2689,86 +2706,314 @@ const weeklyQuizzes = {
   ],
 };
 
-const quizRegistry = {}; // key -> {qs, progressKey}
+/* ================= QUIZ ENGINE (game-style: نقاط • كومبو • مؤقّت • تلميح • صيد الأخطاء) ================= */
+const QZ_TIME = 30;                 // ثوانى كل سؤال
+const quizRegistry = {};            // key -> {qs, progressKey, title}
+const quizState = {};               // key -> حالة الجولة الحالية
+let qzRun = null;                   // الجولة النشطة (واحدة فى كل مرة)
+let qzSnd = true, qzAc = null;
+try{ qzSnd = localStorage.getItem('qz-snd') !== '0'; }catch(e){}
+
+/* ---------- تخزين آمن ---------- */
+function qzLoad(name, def){ try{ const v = JSON.parse(localStorage.getItem(name)); return (v===null||v===undefined)?def:v; }catch(e){ return def; } }
+function qzSave(name, v){ try{ localStorage.setItem(name, JSON.stringify(v)); }catch(e){} }
+function qzBest(key){ return +(qzLoad('qz-best',{})[key]||0); }
+function qzSetBest(key, v){ const b = qzLoad('qz-best',{}); b[key] = v; qzSave('qz-best', b); }
+function qzWrongAll(){ const w = qzLoad('qz-wrong',{}); return (w && typeof w==='object') ? w : {}; }
+function qzWrongList(key){
+  const w = qzWrongAll(), n = quizRegistry[key] ? quizRegistry[key].qs.length : 0;
+  return Object.keys(w).filter(id=>id.startsWith(key+':')).map(id=>+id.split(':')[1]).filter(i=>i>=0 && i<n);
+}
+function qzFixedCount(){ return +qzLoad('qz-fixed',0) || 0; }
+
+/* ---------- صوت ---------- */
+function qzAudio(){
+  if(!qzAc){ try{ qzAc = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ return null; } }
+  if(qzAc.state==='suspended') qzAc.resume();
+  return qzAc;
+}
+function qzTone(f, d, type, v, t0){
+  if(!qzSnd) return;
+  try{
+    const a = qzAudio(); if(!a) return;
+    const o = a.createOscillator(), g = a.createGain(), t = a.currentTime + (t0||0);
+    o.type = type||'sine'; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(v||.15,t+.02); g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+    o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+d+.05);
+  }catch(e){}
+}
+const qzSfx = {
+  click:()=>qzTone(660,.07,'square',.06),
+  ok:()=>[523,659,784,1047].forEach((f,i)=>qzTone(f,.16,'triangle',.18,i*.07)),
+  bad:()=>{ qzTone(200,.3,'sawtooth',.13); qzTone(140,.35,'sawtooth',.13,.13); },
+  tick:()=>qzTone(900,.05,'square',.05),
+  coin:()=>{ qzTone(988,.08,'square',.08); qzTone(1319,.18,'square',.08,.08); },
+  win:()=>[523,659,784,659,784,1047,1319].forEach((f,i)=>qzTone(f,.22,'triangle',.18,i*.11)),
+  lose:()=>[392,349,311,262].forEach((f,i)=>qzTone(f,.28,'sawtooth',.1,i*.18))
+};
+function qzToggleSound(key){
+  qzSnd = !qzSnd; try{ localStorage.setItem('qz-snd', qzSnd?'1':'0'); }catch(e){}
+  if(qzSnd) qzSfx.click();
+  const b = document.getElementById('qgMute-'+key); if(b) b.textContent = qzSnd ? '🔊 الصوت: يعمل' : '🔇 الصوت: متوقف';
+}
+
+/* ---------- قصاصات ملوّنة ---------- */
+const QZ_COLORS = ['#FFD54F','#E8622C','#3FAFC0','#2E9B6B','#fff','#C79BFF'];
+const qzFx = {};   // key -> {parts, run}
+function qzBurst(key, n){
+  const cv = document.getElementById('qgFx-'+key); if(!cv) return;
+  const st = qzFx[key] = qzFx[key] || {parts:[], run:false};
+  cv.width = cv.clientWidth; cv.height = cv.clientHeight;
+  for(let i=0;i<n;i++) st.parts.push({x:cv.width/2,y:cv.height*.45,vx:(Math.random()-.5)*12,vy:-Math.random()*11-3,r:Math.random()*5+3,c:QZ_COLORS[i%QZ_COLORS.length],l:70+Math.random()*30});
+  if(!st.run){
+    st.run = true;
+    const c = cv.getContext('2d');
+    const loop = ()=>{
+      c.clearRect(0,0,cv.width,cv.height);
+      st.parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; p.vy+=.35; p.l--; c.globalAlpha=Math.max(0,p.l/60); c.fillStyle=p.c; c.fillRect(p.x,p.y,p.r,p.r*1.6); });
+      st.parts = st.parts.filter(p=>p.l>0); c.globalAlpha = 1;
+      if(st.parts.length) requestAnimationFrame(loop); else st.run = false;
+    };
+    requestAnimationFrame(loop);
+  }
+}
+
+function qzShuffle(a){ return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
+function qzEl(id){ return document.getElementById(id); }
+function qzBody(key){ return qzEl('qgBody-'+key); }
+function qzStripText(s){ const d = document.createElement('div'); d.innerHTML = s; return (d.textContent||'').trim(); }
+
+/* ---------- بناء البطاقة ---------- */
 function renderQuiz(key, qs, opts){
   opts = opts || {};
-  quizRegistry[key] = {qs, progressKey: opts.progressKey || null};
-  const card = document.getElementById('quizCard-'+key);
+  quizRegistry[key] = {qs, progressKey: opts.progressKey || null, title: opts.title || 'اختبر فهمك'};
+  const card = qzEl('quizCard-'+key);
   if(!card) return;
+  if(qzRun && qzRun.key===key) qzRun = null;
+  card.innerHTML = `<h3><span class="dot"></span> ${quizRegistry[key].title}</h3>
+    <div class="qg-stage"><canvas class="qg-fx" id="qgFx-${key}"></canvas><div id="qgBody-${key}"></div></div>`;
   const saved = opts.progressKey ? progress[opts.progressKey] : null;
-  let html = `<h3><span class="dot"></span> ${opts.title || 'اختبر فهمك'}</h3>`;
-  qs.forEach((item,qi)=>{
-    html += `<div class="qz-item">
-      <div class="qz-q">${qi+1}. ${item.q}</div>
-      <div class="qz-opts" id="qz-${key}-${qi}">
-        ${item.opts.map((o,oi)=>`<button class="qz-opt" onclick="selectOpt('${key}',${qi},${oi})">${o}</button>`).join('')}
-      </div>
-    </div>`;
-  });
-  html += `<button class="qz-submit" id="qzSubmit-${key}" onclick="submitQuiz('${key}')" disabled>أرسل الإجابات</button>
-    <div class="qz-result" id="qzResult-${key}"></div>`;
-  card.innerHTML = html;
-
-  quizState[key] = new Array(qs.length).fill(null);
-
-  if(saved){
-    finalizeQuizUI(key, saved.answers);
-  }
+  if(saved && saved.answers){
+    const miss = []; qs.forEach((it,i)=>{ if(saved.answers[i]!==it.correct) miss.push(i); });
+    qzShowEnd(key, {score:saved.score, total:saved.total, pts:saved.pts, miss, saved:true});
+  } else qzShowStart(key);
 }
-const quizState = {};
-function selectOpt(key, qi, oi){
-  if(document.getElementById('qzResult-'+key).classList.contains('show')) return;
-  quizState[key][qi] = oi;
-  const opts = document.querySelectorAll(`#qz-${key}-${qi} .qz-opt`);
-  opts.forEach((o,i)=>o.classList.toggle('selected', i===oi));
-  const allAnswered = quizState[key].every(v=>v!==null);
-  document.getElementById('qzSubmit-'+key).disabled = !allAnswered;
-}
-function submitQuiz(key){
-  const {qs, progressKey} = quizRegistry[key];
-  let score = 0;
-  qs.forEach((item,qi)=>{
-    const opts = document.querySelectorAll(`#qz-${key}-${qi} .qz-opt`);
-    const chosen = quizState[key][qi];
-    opts.forEach((o,oi)=>{
-      o.disabled = true;
-      if(oi===item.correct) o.classList.add('correct');
-      else if(oi===chosen) o.classList.add('wrong');
-    });
-    if(chosen===item.correct) score++;
-  });
-  const resEl = document.getElementById('qzResult-'+key);
-  const pct = Math.round(score/qs.length*100);
-  const msg = pct>=80?'أداء رائع! 🌟': pct>=50?'جيد، استمر فى المراجعة 💪':'راجع الدرس مرة أخرى 📖';
-  resEl.innerHTML = `<div class="score" style="color:${pct>=50?'var(--green)':'var(--red)'}">${score}/${qs.length}</div><p>${msg}</p>`;
-  resEl.classList.add('show');
-  document.getElementById('qzSubmit-'+key).style.display='none';
 
-  if(progressKey){
-    progress[progressKey] = {score, total:qs.length, answers:quizState[key].slice()};
-    saveProgress();
-    renderLessonGrid();
-    updateTopProgress();
-  }
+/* ---------- شاشة البداية ---------- */
+function qzShowStart(key){
+  const {qs} = quizRegistry[key], nw = qzWrongList(key).length, best = qzBest(key);
+  qzBody(key).innerHTML = `<div class="qg-center">
+    <div class="qg-big">🧪</div>
+    <h4 class="qg-h">جاهز للتحدّى؟</h4>
+    <div class="qg-rules">
+      <span class="qg-rule">🧩 ${qs.length} ${qs.length>10?'سؤالًا':'أسئلة'}</span>
+      <span class="qg-rule">⏱️ ${QZ_TIME} ثانية لكل سؤال</span>
+      <span class="qg-rule">🔥 توالى الإجابات الصحيحة = نقاط مضاعفة</span>
+      <span class="qg-rule">💡 تلميح بعملة 🪙</span>
+    </div>
+    <button class="qg-btn" onclick="qzStart('${key}')">▶ ابدأ الاختبار</button>
+    <div style="margin-top:10px"><button class="qg-btn alt hunt" id="qgHunt-${key}" style="display:${nw?'inline-block':'none'}" onclick="qzHunt('${key}')">🎯 صيد الأخطاء (${nw})</button></div>
+    <div class="qg-meta">
+      <button class="qg-btn alt" id="qgMute-${key}" onclick="qzToggleSound('${key}')">${qzSnd?'🔊 الصوت: يعمل':'🔇 الصوت: متوقف'}</button>
+      <span class="qg-chip">🏆 أفضل نتيجة: ${best}</span>
+      <span class="qg-chip">🎖️ أتقنت ${qzFixedCount()}</span>
+    </div></div>`;
 }
-function finalizeQuizUI(key, answers){
+
+/* ---------- بدء جولة ---------- */
+function qzNewRun(key, indices, hunt){
+  if(qzRun && qzRun.key!==key && !qzRun.done){ const old = qzRun.key; qzRun = null; qzShowStart(old); } // تخلّى عن جولة أخرى
   const {qs} = quizRegistry[key];
-  qs.forEach((item,qi)=>{
-    const opts = document.querySelectorAll(`#qz-${key}-${qi} .qz-opt`);
-    opts.forEach((o,oi)=>{
-      o.disabled = true;
-      if(oi===item.correct) o.classList.add('correct');
-      else if(oi===answers[qi]) o.classList.add('wrong');
-    });
-  });
-  quizState[key] = answers.slice();
-  const score = answers.filter((a,i)=>a===qs[i].correct).length;
-  const resEl = document.getElementById('qzResult-'+key);
-  const pct = Math.round(score/qs.length*100);
-  const msg = pct>=80?'أداء رائع! 🌟': pct>=50?'جيد، استمر فى المراجعة 💪':'راجع الدرس مرة أخرى 📖';
-  resEl.innerHTML = `<div class="score" style="color:${pct>=50?'var(--green)':'var(--red)'}">${score}/${qs.length}</div><p>${msg}</p>`;
-  resEl.classList.add('show');
-  document.getElementById('qzSubmit-'+key).style.display='none';
+  qzRun = {
+    key, hunt: !!hunt, done:false,
+    list: indices.slice(), p:0, pts:0, combo:0, coins:2, ok:0, fixed:0,
+    answers: new Array(qs.length).fill(-1), asked: new Set(), miss:[],
+    locked:false, hinted:false, t:QZ_TIME, view:null
+  };
+  quizState[key] = qzRun;
+  qzSfx.click();
+  qzNext();
+}
+function qzStart(key){
+  try{ qzNewRun(key, quizRegistry[key].qs.map((_,i)=>i), false); }catch(e){ console.error(e); qzShowStart(key); }
+}
+function qzHunt(key){
+  const ids = qzShuffle(qzWrongList(key));
+  if(!ids.length){ qzShowStart(key); return; }
+  try{ qzNewRun(key, ids, true); }catch(e){ console.error(e); qzShowStart(key); }
+}
+
+/* ---------- عرض سؤال ---------- */
+function qzHud(){
+  const R = qzRun; if(!R) return;
+  const k = R.key, set = (id,t)=>{ const e = qzEl(id+'-'+k); if(e) e.textContent = t; };
+  set('qgProg', (R.p+1)+'/'+R.list.length);
+  set('qgCombo', '🔥 ×'+Math.min(1+Math.floor(R.combo/2),4));
+  set('qgCoins', '🪙 '+R.coins);
+  set('qgScore', '⭐ '+R.pts);
+  const hb = qzEl('qgHintBtn-'+k); if(hb) hb.disabled = R.coins<1 || R.locked || R.hinted || R.view.opts.length<3;
+}
+function qzNext(){
+  const R = qzRun; if(!R) return;
+  const key = R.key, qi = R.list[R.p], item = quizRegistry[key].qs[qi];
+  const order = item.opts.map((t,k)=>({t, orig:k}));
+  const view = (item.opts.length>2) ? qzShuffle(order) : order;   // صح/خطأ تبقى بترتيبها
+  R.view = {qi, opts:view}; R.locked = false; R.hinted = false; R.t = QZ_TIME;
+  qzBody(key).innerHTML = `
+    <div class="qg-hud">
+      <span class="qg-chip" id="qgProg-${key}"></span>
+      <span class="qg-chip" id="qgCombo-${key}"></span>
+      <span class="qg-chip" id="qgCoins-${key}"></span>
+      <span class="qg-chip" id="qgScore-${key}"></span>
+    </div>
+    <div class="qg-timer"><div id="qgTimerBar-${key}"></div></div>
+    <div style="text-align:center"><span class="qg-tag">${R.hunt?'🎯 صيد الأخطاء':'🧠 سؤال '+(qi+1)}</span></div>
+    <div class="qg-story">${item.q}</div>
+    <div class="qg-opts" id="qgOpts-${key}">
+      ${view.map((o,k)=>`<button class="qg-opt" onclick="qzPick('${key}',${k})">${o.t}</button>`).join('')}
+    </div>
+    <div class="qg-tools">
+      <button class="qg-btn alt" id="qgHintBtn-${key}" onclick="qzHint('${key}')">💡 تلميح (🪙1)</button>
+      <button class="qg-btn alt" onclick="qzQuit('${key}')">إنهاء</button>
+    </div>
+    <div class="qg-why" id="qgWhy-${key}"></div>`;
+  qzHud(); qzTick(true);
+}
+function qzTick(force){
+  const R = qzRun; if(!R || R.done) return;
+  const bar = qzEl('qgTimerBar-'+R.key); if(!bar) return;
+  if(!force){
+    if(R.locked) return;
+    const card = qzEl('quizCard-'+R.key);
+    if(!card || !card.offsetParent || document.hidden) return;   // يتوقف المؤقّت إذا غادر الطالب الصفحة
+    R.t -= .1;
+    if(R.t<=5.05 && Math.abs(R.t%1)<.06) qzSfx.tick();
+  }
+  const p = Math.max(0, R.t/QZ_TIME*100);
+  bar.style.width = p+'%'; bar.style.backgroundPosition = (100-p)+'% 0';
+  if(!force && R.t<=0) qzAnswer(-1);
+}
+setInterval(()=>{ try{ qzTick(false); }catch(e){} }, 100);
+
+function qzHint(key){
+  const R = qzRun; if(!R || R.key!==key || R.locked || R.coins<1 || R.hinted || R.view.opts.length<3) return;
+  R.coins--; R.hinted = true; qzSfx.coin();
+  const item = quizRegistry[key].qs[R.view.qi];
+  const btns = [...document.querySelectorAll('#qgOpts-'+key+' .qg-opt')];
+  const wrongIdx = R.view.opts.map((o,k)=>k).filter(k=>R.view.opts[k].orig!==item.correct);
+  qzShuffle(wrongIdx).slice(0,2).forEach(k=>btns[k].classList.add('gone'));
+  qzHud();
+}
+function qzPick(key, k){ const R = qzRun; if(!R || R.key!==key || R.locked) return; qzAnswer(k); }
+
+/* ---------- تتبّع الأخطاء (صيد الأخطاء) ---------- */
+function qzTrack(key, qi, ok, hinted){
+  const w = qzWrongAll(), id = key+':'+qi; let note = '';
+  if(ok){
+    if(w[id]!==undefined && !hinted){
+      w[id]++;
+      if(w[id]>=2){
+        delete w[id]; qzRun.fixed++; qzSave('qz-fixed', qzFixedCount()+1);
+        note = '<div class="qg-note good">🎖️ <b>أتقنت هذا السؤال!</b> أصبته مرتين متتاليتين وخرج من قائمة أخطائك.</div>';
+      } else note = '<div class="qg-note info">🔁 سبق أن أخطأت فى هذا السؤال. أصبه مرة أخرى لتتقنه!</div>';
+      qzSave('qz-wrong', w);
+    }
+  } else { w[id] = 0; qzSave('qz-wrong', w); }
+  return note;
+}
+
+/* ---------- تصحيح الإجابة ---------- */
+function qzAnswer(k){
+  const R = qzRun; if(!R || R.locked) return;
+  R.locked = true;
+  const key = R.key, qi = R.view.qi, item = quizRegistry[key].qs[qi];
+  const btns = [...document.querySelectorAll('#qgOpts-'+key+' .qg-opt')];
+  const chosen = k>=0 ? R.view.opts[k].orig : -1;
+  const right = chosen===item.correct;
+  btns.forEach((b,i)=>{ b.disabled = true; if(R.view.opts[i].orig===item.correct) b.classList.add('ok'); else if(i===k) b.classList.add('no'); });
+  R.answers[qi] = chosen; R.asked.add(qi);
+  const stage = qzBody(key).parentNode;
+  let msg = '', extra = '';
+  if(right){
+    R.ok++; R.combo++;
+    extra = qzTrack(key, qi, true, R.hinted);
+    const mult = Math.min(1+Math.floor(R.combo/2),4);
+    const gain = Math.round(Math.round((100+R.t*4)*mult)*(R.hinted?.7:1)*(R.hunt?1.5:1));
+    R.pts += gain;
+    if(R.combo%3===0){ R.coins++; qzSfx.coin(); }
+    qzSfx.ok(); qzBurst(key,60);
+    stage.classList.remove('qg-flash-no'); void stage.offsetWidth; stage.classList.add('qg-flash-ok');
+    msg = `<b>✅ أحسنت! +${gain} نقطة</b> ${mult>1?'🔥 مضاعف ×'+mult:''}`;
+  } else {
+    qzTrack(key, qi, false, R.hinted);
+    R.combo = 0; R.miss.push(qi);
+    qzSfx.bad();
+    stage.classList.remove('qg-flash-ok'); void stage.offsetWidth; stage.classList.add('qg-flash-no');
+    const st = stage.querySelector('.qg-story'); if(st){ st.classList.add('qg-shake'); setTimeout(()=>st.classList.remove('qg-shake'),800); }
+    msg = `<b>${k<0?'⏰ انتهى الوقت!':'❌ إجابة غير صحيحة.'}</b><br>الإجابة الصحيحة: <b>«${item.opts[item.correct]}»</b>`;
+  }
+  const last = R.p>=R.list.length-1;
+  const why = qzEl('qgWhy-'+key);
+  why.innerHTML = msg + extra + `<div style="text-align:center;margin-top:10px"><button class="qg-btn" style="font-size:14px;padding:10px 24px" onclick="qzGo('${key}')">${last?'عرض النتيجة 🏁':'السؤال التالى ➜'}</button></div>`;
+  why.classList.add('show'); qzHud();
+  setTimeout(()=>{ try{ why.scrollIntoView({behavior:'smooth',block:'nearest'}); }catch(e){} },150);
+}
+function qzGo(key){
+  const R = qzRun; if(!R || R.key!==key) return;
+  qzSfx.click();
+  if(R.p>=R.list.length-1) qzFinish(false); else { R.p++; qzNext(); }
+}
+function qzQuit(key){ const R = qzRun; if(!R || R.key!==key) return; qzFinish(true); }
+
+/* ---------- النهاية وحفظ التقدّم ---------- */
+function qzFinish(quit){
+  const R = qzRun; if(!R) return;
+  R.done = true;
+  const key = R.key, reg = quizRegistry[key], qs = reg.qs;
+  const answered = R.list.filter(i=>R.asked.has(i)).length;
+  const complete = !R.hunt && !quit && answered===qs.length;
+  const score = qs.reduce((n,it,i)=>n+(R.answers[i]===it.correct?1:0),0);
+  const summary = {score: R.hunt? R.ok : score, total: R.hunt? R.list.length : qs.length, pts:R.pts, miss:R.miss.slice(), hunt:R.hunt, quit:!!quit, fixed:R.fixed, answered};
+  if(complete && reg.progressKey){
+    const prev = progress[reg.progressKey];
+    if(!prev || score>prev.score || (score===prev.score && R.pts>(prev.pts||0))){
+      progress[reg.progressKey] = {score, total:qs.length, answers:R.answers.slice(), pts:R.pts};
+      saveProgress();
+    }
+    renderLessonGrid(); updateTopProgress();
+  }
+  const prevBest = qzBest(key);
+  if(!R.hunt && R.pts>prevBest){ qzSetBest(key, R.pts); summary.newBest = R.pts>0; }
+  qzShowEnd(key, summary);
+  const pct = summary.total ? summary.score/summary.total : 0;
+  if(!quit && pct>=.4){ qzSfx.win(); qzBurst(key,160); } else qzSfx.lose();
+}
+function qzRank(pct){
+  return pct>=.9 ? ['👑','عبقرى العلوم'] : pct>=.7 ? ['🏆','متفوّق'] : pct>=.4 ? ['🔬','عالم صاعد'] : ['🌱','مبتدئ واعد'];
+}
+function qzShowEnd(key, s){
+  const {qs} = quizRegistry[key];
+  const pct = s.total ? s.score/s.total : 0, r = qzRank(pct), nw = qzWrongList(key).length;
+  const msg = pct>=.8 ? 'أداء رائع! 🌟' : pct>=.5 ? 'جيد، استمر فى المراجعة 💪' : 'راجع الدرس مرة أخرى 📖';
+  const best = qzBest(key);
+  const weak = (s.miss||[]).map(i=>{ const t = qzStripText(qs[i].q); return t.length>70 ? t.slice(0,70)+'…' : t; });
+  let sub = `أجبت صحيحًا عن ${s.score} من ${s.total} ${s.hunt?'من أسئلة الصيد':''}`;
+  if(s.pts!==undefined && s.pts!==null) sub += ` • ⭐ ${s.pts} نقطة`;
+  if(s.newBest) sub += ' • 🎉 رقم قياسى جديد!';
+  if(s.fixed) sub += ` • 🎖️ أتقنت ${s.fixed} ${s.fixed>2?'أسئلة':'سؤالًا'}`;
+  if(s.quit) sub += ' • أنهيت الاختبار مبكرًا (لم يُحفظ التقدّم)';
+  if(s.saved) sub += ' • نتيجتك المحفوظة';
+  qzBody(key).innerHTML = `<div class="qg-center">
+    <div class="qg-big">${r[0]}</div>
+    <h4 class="qg-h">${r[1]}</h4>
+    <div class="qg-final" style="color:${pct>=.5?'#7DE0AC':'#FF9C9C'}">${s.score}/${s.total}</div>
+    <p class="qg-sub">${sub}</p>
+    <p class="qg-sub" style="margin-top:4px">${msg}</p>
+    <div class="qg-weak">${weak.length?'📌 <b>راجع هذه الأسئلة:</b><br>• '+weak.join('<br>• '):'🌟 لم تخطئ فى أى سؤال، أداء مبهر!'}</div>
+    <button class="qg-btn" onclick="qzStart('${key}')">🔁 أعد المحاولة</button>
+    <div style="margin-top:10px"><button class="qg-btn alt hunt" style="display:${nw?'inline-block':'none'}" onclick="qzHunt('${key}')">🎯 صيد الأخطاء (${nw})</button></div>
+    <div class="qg-meta"><span class="qg-chip">🏆 أفضل نتيجة: ${best}</span><span class="qg-chip">🎖️ أتقنت ${qzFixedCount()}</span></div>
+  </div>`;
 }
 
 /* ================= FLIP CARDS (علّل لما يأتي) ================= */
@@ -3830,11 +4075,20 @@ function gT(q){const c=q.c,l=q.l;if(/بلازما/.test(c))return 'a4';if(/ان�
  if(l===2){if(/ثبات الحرارة/.test(c))return 'b1';if(/تسامى|ترسيب|تكاثف|فيزيائى|دورة/.test(c))return 'b3';if(/تبخر|رطوبة/.test(c))return 'b4';return 'b2';}
  if(/نظام|الأنظمة/.test(c))return 'c1';if(/كتلة|ثلج/.test(c))return 'c4';if(/الطاقة|درجة الحرارة/.test(c))return 'c2';return 'c3';}
 function aw(t,l,ans){return 'الإجابة الصحيحة: «'+ans+'». محور «'+TOP[t][0]+'» — راجع الدرس '+l+'.';}
+/* تصنيف تلقائى لأى سؤال ليس له محور فى الجداول QT/WT/CT (حتى لا يتعطل المركز عند إضافة أسئلة جديدة) */
+function tpc(n,txt){txt=String(txt||'');const R=(re)=>re.test(txt);
+ if(n===1){if(R(/بلازما|أيون|تأيّن|تأين/))return 'a4';if(R(/انتشار|براونية|عشوائي|برمنجنات|دخان|تذوب|الانتشار/))return 'a3';if(R(/تجاذب|جسيم|المسافات البينية|نظرية|تنزلق|تهتز/))return 'a2';return 'a1';}
+ if(n===2){if(R(/ثابتة|ثبات|منحنى/))return 'b1';if(R(/تبخر|التبخر|رطوبة|تجف|تيارات|القهوة/))return 'b4';if(R(/تسامى|التسامى|ترسيب|تساقط|تكاثف|التكثف|تكثف|عكس|تكتسب|تفقد|يلامس|الثلج الجاف|الصلبة إلى الغازية|الغازية إلى صلبة/))return 'b3';return 'b2';}
+ if(R(/الطاقة الداخلية|درجة الحرارة هى|تُقاس|تسخين مادة|متوسط طاقة|درجة حرارة النظام|الفرق بين/))return 'c2';
+ if(R(/نظام|مفتوح|مغلق|معزول|الترمس|الثيرموس|الكون/))return 'c1';
+ if(R(/النوعية|المادة X|المادة Y|المادة Z|تبريد|النهر|الرمل|رمل/))return 'c3';
+ if(R(/كتلة|كميتان|كميات|أوعية|الوعاء|إناءان/))return 'c4';
+ return 'c2';}
 function build(){const B=[];
  [1,2,3].forEach(n=>{
-  (window.quizzes||quizzes)[n].forEach((x,i)=>{const t=QT[n][i];B.push({id:'q'+n+'_'+i,k:'mcq',l:n,t,s:'اختر الإجابة',src:'الكتاب',q:x.q,o:x.opts,a:x.correct,w:aw(t,n,x.opts[x.correct])});});
-  (window.weeklyQuizzes||weeklyQuizzes)[n].forEach((x,i)=>{const t=WT[n][i];B.push({id:'w'+n+'_'+i,k:'mcq',l:n,t,s:'اختر الإجابة',src:'التقويمات',q:x.q,o:x.opts,a:x.correct,w:aw(t,n,x.opts[x.correct])});});
-  (window.reasonCards||reasonCards)[n].forEach((x,i)=>{B.push({id:'c'+n+'_'+i,k:'card',l:n,t:CT[n][i],s:'علّل',src:'الكتاب',q:x.q,w:x.a});});
+  (window.quizzes||quizzes)[n].forEach((x,i)=>{const t=QT[n][i]||tpc(n,x.q);B.push({id:'q'+n+'_'+i,k:'mcq',l:n,t,s:'اختر الإجابة',src:'الكتاب',q:x.q,o:x.opts,a:x.correct,w:aw(t,n,x.opts[x.correct])});});
+  (window.weeklyQuizzes||weeklyQuizzes)[n].forEach((x,i)=>{const t=WT[n][i]||tpc(n,x.q);B.push({id:'w'+n+'_'+i,k:'mcq',l:n,t,s:'اختر الإجابة',src:'التقويمات',q:x.q,o:x.opts,a:x.correct,w:aw(t,n,x.opts[x.correct])});});
+  (window.reasonCards||reasonCards)[n].forEach((x,i)=>{B.push({id:'c'+n+'_'+i,k:'card',l:n,t:CT[n][i]||tpc(n,x.q),s:'علّل',src:'الكتاب',q:x.q,w:x.a});});
  });
  const U=unit1Questions;
  U.a.slice(0,15).forEach((x,i)=>{const t=UA[i];B.push({id:'ua'+i,k:'mcq',l:TOP[t][1],t,s:'اختر الإجابة',src:'التقويمات',q:x[0],o:x[1],a:x[2],w:aw(t,TOP[t][1],x[1][x[2]])});});
