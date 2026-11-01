@@ -771,6 +771,55 @@
 .rv-wl{background:var(--bg);border-radius:12px;padding:10px 12px;margin-top:8px;font-size:12.5px;line-height:1.9}
   .lesson-reset{display:block;margin:10px auto 0;background:none;border:1px dashed var(--line);color:var(--ink-soft);border-radius:10px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
   .lesson-reset:hover{color:var(--red);border-color:var(--red);}
+.ch-tw{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}
+.ch-t{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
+.ch-t th{background:var(--deep);color:#fff;padding:9px 8px;font-family:'Cairo';font-size:13px}
+.ch-t td{padding:8px;text-align:center;border-top:1px solid var(--line);font-weight:700}
+.ch-t tr:nth-child(even) td{background:var(--bg)}
+.ch-t .mono{color:var(--deep-dark);font-size:15px}
+.ch-t.hide .sec:not(.rev){filter:blur(7px);cursor:pointer}
+.ch-chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.ch-chip{padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:#fff;font-weight:800;font-size:12.5px;color:var(--ink-soft)}
+.ch-chip.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.ch-rule{background:var(--bg);border-right:4px solid var(--green);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:2;margin:12px 0}
+.ch-pick{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.ch-pick select{flex:1;min-width:130px;padding:10px;border-radius:10px;border:1.5px solid var(--line);font-family:'Tajawal';font-weight:700;font-size:13px;background:#fff}
+.ch-btn{background:var(--deep);color:#fff;border:none;border-radius:12px;padding:11px 20px;font-weight:800;font-size:13.5px}
+.ch-btn.alt{background:#fff;color:var(--deep);border:1.5px solid var(--deep)}
+.ch-step{background:var(--bg);border-radius:12px;padding:11px 14px;margin-bottom:8px;font-size:13.5px;line-height:1.9;animation:fadeUp .4s}
+.ch-step .mono{font-size:19px;font-weight:800;color:var(--deep-dark)}
+.ch-step sup{color:var(--flame-dark);font-weight:800}
+.ch-ions{display:flex;flex-wrap:wrap;gap:6px;min-height:46px;margin:10px 0;align-items:center;justify-content:center}
+.ch-ion{font-style:normal;font-family:'JetBrains Mono';font-weight:800;font-size:13px;padding:9px 12px;border-radius:99px;color:#fff;animation:fadeUp .3s}
+.ch-ion.p{background:var(--flame)}.ch-ion.n{background:var(--deep)}
+.ch-ctl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.ch-ctl div{background:var(--bg);border-radius:12px;padding:8px 12px;text-align:center;font-size:12px;font-weight:800}
+.ch-ctl button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--deep);background:#fff;color:var(--deep);font-size:18px;font-weight:800;margin:0 6px}
+.ch-meter{text-align:center;font-weight:800;border-radius:12px;padding:10px;font-size:13.5px;background:var(--bg)}
+.ch-meter.ok{background:#DDF5E8;color:#1D7A52}.ch-meter.no{background:#FDE8E8;color:var(--red)}
+.ch-res{text-align:center;font-size:26px;font-weight:900;margin:10px 0}
+.ch-hub{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ch-mode{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:16px 10px;text-align:center;font-weight:800;font-size:13px;color:var(--ink)}
+.ch-mode:hover{border-color:var(--deep);transform:translateY(-2px)}
+.ch-mode span{font-size:30px;display:block;margin-bottom:4px}.ch-mode small{display:block;color:var(--ink-soft);font-weight:600;font-size:11px;margin-top:4px}
+.ch-top{display:flex;justify-content:space-between;font-weight:800;font-size:13px;color:var(--deep-dark);margin-bottom:8px}
+.ch-bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:14px}.ch-bar i{display:block;height:100%;background:var(--green);transition:width .3s}
+.ch-q{font-size:16px;font-weight:800;line-height:1.9;margin-bottom:12px;text-align:center}
+.ch-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px}@media(max-width:480px){.ch-opts{grid-template-columns:1fr}}
+.ch-o{background:#fff;border:2px solid var(--line);border-radius:14px;padding:13px 8px;font-weight:800;font-size:14px;color:var(--ink)}
+.ch-o.ok{background:#DDF5E8;border-color:var(--green)}.ch-o.bad{background:#FDE8E8;border-color:var(--red)}
+.ch-why{margin-top:12px;background:var(--bg);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.9;display:none}
+.ch-in{width:100%;padding:13px;border-radius:12px;border:2px solid var(--line);font-family:'JetBrains Mono';font-size:18px;text-align:center;direction:ltr}
+.ch-cols{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.ch-tile{background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 6px;font-weight:800;font-size:13.5px;text-align:center;min-height:50px;color:var(--ink)}
+.ch-tile.sel{border-color:var(--flame);background:#FFF1E8}.ch-tile.done{background:#DDF5E8;border-color:var(--green);opacity:.6;pointer-events:none}
+.ch-tile.shk{animation:chShk .35s}@keyframes chShk{25%{transform:translateX(6px)}75%{transform:translateX(-6px)}}
+.ch-mem{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}@media(min-width:600px){.ch-mem{grid-template-columns:repeat(4,1fr)}}
+.ch-mem .ch-tile{min-height:64px;font-size:15px}.ch-mem .ch-tile.cv{background:var(--deep);color:var(--deep);border-color:var(--deep)}
+.ch-fc{background:linear-gradient(135deg,#5B3A82,#2E9B6B);color:#fff;border-radius:20px;padding:34px 16px;text-align:center;font-size:22px;font-weight:900;min-height:150px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;cursor:pointer}
+.ch-fc .mono{font-size:30px}
+.ch-end{text-align:center}.ch-end .sc{font-size:46px;font-weight:900;color:var(--deep-dark);font-family:'JetBrains Mono'}
+.game-banner.chb{background:linear-gradient(120deg,#2E9B6B,#5B3A82)}
 </style>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0E5C7A">
@@ -1884,6 +1933,11 @@
       <div><h3>لعبة: كيميائى المستقبل</h3><p>تحدّ شامل للوحدة الثانية: التفاعلات والمعادلات وكيمياء التغذية</p></div>
       <span class="gb-cta">العب الآن ▶</span>
     </div>
+    <div class="game-banner chb" onclick="showView('chem')">
+  <span class="gb-ic">🔤</span>
+  <div><h3>مراجعة الرموز والتكافؤات وتكوين المركبات</h3><p>جداول العناصر والمجموعات الذرية + مركز تدريبات متنوع للحفظ وبناء الصيغ</p></div>
+  <span class="gb-cta">ابدأ المراجعة ▶</span>
+</div>
     <div class="section-label">دروس الوحدة الثانية</div>
     <div class="lesson-grid" id="lessonGrid2"></div>
   </div>
@@ -1947,6 +2001,24 @@
     </div>
   </div>
 
+  <!-- ============ CHEM REVIEW VIEW ============ -->
+  <div class="lesson-view" id="view-chem">
+    <button class="back-btn" onclick="showView('unit2')">→ رجوع للوحدة الثانية</button>
+    <div class="lesson-banner" style="background:linear-gradient(135deg,#5B3A82,#2E9B6B)">
+      <div class="tag">⚗️ الوحدة الثانية · مراجعة أساسية قبل التفاعلات</div>
+      <h2>الرموز والتكافؤات وتكوين المركبات</h2>
+      <p>لا يمكنك كتابة معادلة كيميائية قبل أن تتقن الرموز والتكافؤات. راجع الجداول، تعلّم طريقتين لتكوين المركب، ثم تدرّب.</p>
+      <button class="hero-cta" onclick="showView('chemtrain')">🎯 مركز التدريبات</button>
+    </div>
+    <div id="chRoot"></div>
+  </div>
+  <div class="lesson-view" id="view-chemtrain">
+    <button class="back-btn" onclick="showView('chem')">→ رجوع للمراجعة</button>
+    <div class="card"><h3><span class="dot"></span>🎯 مركز تدريبات الرموز والتكافؤات</h3>
+      <div class="ch-chips" id="chK"></div>
+      <div class="ch-hub" id="chHub"></div></div>
+    <div class="card" id="chStage" style="display:none"></div>
+  </div>
 </main>
 
 <!-- ============ AI ASSISTANT ============ -->
@@ -2018,7 +2090,7 @@ function showView(id){
     const slider = document.getElementById('curveSlider');
     updateCurve(slider ? slider.value : 0);
   }
-  document.body.classList.toggle('unit-2', ['unit2','lesson5','lesson6','lesson7'].includes(id));
+  document.body.classList.toggle('unit-2', ['unit2','lesson5','lesson6','lesson7','chem','chemtrain'].includes(id));
   currentView = id;
   updateAiContext();
 }
@@ -4229,6 +4301,133 @@ const _sv=window.showView;window.showView=function(id){if(id!=='review'){clearIn
 window.RV={cur:()=>cur,ses:()=>ses,build:()=>{load();build();return BANK;},tstats:()=>tstats(),ready:()=>ready(tstats()),TOP};
 })();
 
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id),SB='₀₁₂₃₄₅₆₇₈₉';
+const fm=s=>String(s).replace(/\d/g,d=>SB[d]),sb=n=>n>1?fm(n):'',mono=s=>'<span class="mono">'+s+'</span>';
+const R=a=>a[Math.floor(Math.random()*a.length)],sh=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
+const gcd=(a,b)=>b?gcd(b,a%b):a,lcm=(a,b)=>a*b/gcd(a,b),vt=v=>v[0]==0?'صفر':v.join(' ، ');
+const EL=[['H','هيدروجين',[1],'n'],['He','هيليوم',[0],'n'],['Li','ليثيوم',[1],'m'],['Be','بيريليوم',[2],'m'],['B','بورون',[3],'n'],['C','كربون',[4,2],'n'],['N','نيتروجين',[3,5],'n'],['O','أكسجين',[2],'n'],['F','فلور',[1],'n'],['Ne','نيون',[0],'n'],['Na','صوديوم',[1],'m'],['Mg','ماغنسيوم',[2],'m'],['Al','ألومنيوم',[3],'m'],['Si','سيليكون',[4],'n'],['P','فوسفور',[3,5],'n'],['S','كبريت',[2,4,6],'n'],['Cl','كلور',[1],'n'],['Ar','أرجون',[0],'n'],['K','بوتاسيوم',[1],'m'],['Ca','كالسيوم',[2],'m'],['Cr','كروم',[3,2,6],'m'],['Mn','منجنيز',[2,4,7],'m'],['Fe','حديد',[2,3],'m'],['Co','كوبالت',[2],'m'],['Ni','نيكل',[2],'m'],['Cu','نحاس',[2,1],'m'],['Zn','خارصين (زنك)',[2],'m'],['Br','بروم',[1],'n'],['Ag','فضة',[1],'m'],['Sn','قصدير',[2,4],'m'],['I','يود',[1],'n'],['Ba','باريوم',[2],'m'],['Au','ذهب',[1,3],'m'],['Hg','زئبق',[2,1],'m'],['Pb','رصاص',[2,4],'m']];
+const RD=[['NH4','أمونيوم',1,'+'],['OH','هيدروكسيد',1,'-'],['NO3','نترات',1,'-'],['NO2','نيتريت',1,'-'],['HCO3','بيكربونات',1,'-'],['HSO4','بيكبريتات',1,'-'],['CH3COO','أسيتات',1,'-'],['ClO3','كلورات',1,'-'],['MnO4','برمنجنات',1,'-'],['CO3','كربونات',2,'-'],['SO4','كبريتات',2,'-'],['SO3','كبريتيت',2,'-'],['CrO4','كرومات',2,'-'],['Cr2O7','ثنائى كرومات',2,'-'],['PO4','فوسفات',3,'-']];
+const AC=[['HCl','هيدروكلوريك'],['HBr','هيدروبروميك'],['HI','هيدرويوديك'],['H2S','هيدروكبريتيك'],['HNO3','نيتريك'],['HNO2','نيتروز'],['H2SO4','كبريتيك'],['H2SO3','كبريتوز'],['H2CO3','كربونيك'],['H3PO4','فوسفوريك'],['CH3COOH','أسيتيك (الخل)']];
+const BS=[['NaOH','الصوديوم',1],['KOH','البوتاسيوم',1],['Ca(OH)2','الكالسيوم',1],['Ba(OH)2','الباريوم',1],['NH4OH','الأمونيوم',1],['Mg(OH)2','الماغنسيوم',0],['Al(OH)3','الألومنيوم',0],['Zn(OH)2','الخارصين',0],['Cu(OH)2','النحاس II',0],['Fe(OH)2','الحديد II',0],['Fe(OH)3','الحديد III',0]];
+const CT=[['Na','صوديوم',1],['K','بوتاسيوم',1],['Ag','فضة',1],['NH4','أمونيوم',1,1],['Mg','ماغنسيوم',2],['Ca','كالسيوم',2],['Ba','باريوم',2],['Zn','خارصين',2],['Cu','نحاس II',2],['Fe','حديد II',2],['Pb','رصاص II',2],['Al','ألومنيوم',3],['Fe','حديد III',3]];
+const AN=[['Cl','كلوريد',1],['Br','بروميد',1],['I','يوديد',1],['F','فلوريد',1],['O','أكسيد',2],['S','كبريتيد',2]].concat(RD.filter(r=>r[3]=='-').map(r=>[r[0],r[1],r[2],1]));
+const part=(x,n,r)=>(r&&n>1?'('+fm(x)+')':fm(x))+sb(n);
+const cnt=(c,a)=>{const l=lcm(c[2],a[2]);return[l/c[2],l/a[2]]};
+const frm=(c,a,n1,n2)=>{if(n1==null)[n1,n2]=cnt(c,a);return part(c[0],n1,c[3])+part(a[0],n2,a[3])};
+const nm=(c,a)=>a[1]+' ال'+c[1];
+const sup=(x,n,s)=>fm(x)+'<sup>'+(n>1?n:'')+s+'</sup>';
+const norm=s=>String(s).replace(/<[^>]+>/g,'').replace(/\s/g,'').replace(/[₀-₉]/g,d=>SB.indexOf(d));
+const BEST=(()=>{try{return JSON.parse(localStorage.getItem('chBest'))||{}}catch(e){return{}}})();
+const saveB=(k,v)=>{if(v>(BEST[k]||0)){BEST[k]=v;try{localStorage.setItem('chBest',JSON.stringify(BEST))}catch(e){}}};
+
+/* ===== review page ===== */
+const tw=(h,rows,c)=>'<div class="ch-tw"><table class="ch-t '+(c||'')+'"><tr>'+h.map(x=>'<th>'+x+'</th>').join('')+'</tr>'+rows+'</table></div>';
+const opts=(a)=>a.map((x,i)=>'<option value="'+i+'">'+x+'</option>').join('');
+function review(){
+$('chRoot').innerHTML=`
+<div class="card"><h3><span class="dot"></span>🔬 جدول العناصر: الرمز والتكافؤ</h3>
+<div class="ch-chips" id="chF">${[['all','الكل'],['m','فلزات'],['n','لا فلزات'],['v','تكافؤ متغير']].map((x,i)=>`<button class="ch-chip ${i?'':'on'}" data-f="${x[0]}">${x[1]}</button>`).join('')}<button class="ch-chip" id="chHide">🙈 وضع الحفظ</button></div>
+<div id="chHint" class="ch-rule" style="display:none">اضغط على أى رمز أو تكافؤ مموّه لتكشفه بعد أن تحاول تذكّره.</div>
+${tw(['العنصر','الرمز','التكافؤ'],EL.map(e=>`<tr data-g="${e[3]}" data-v="${e[2].length>1?1:0}"><td>${e[1]}</td><td class="sec">${mono(e[0])}</td><td class="sec">${vt(e[2])}</td></tr>`).join(''),'el')}
+<div class="ch-rule">🔑 الفلزات تكوّن أيونات <b>موجبة</b> (Na⁺) ، واللافلزات غالبًا <b>سالبة</b> (Cl⁻) ، والغازات النبيلة تكافؤها <b>صفر</b>. العناصر ذات التكافؤ المتغير تُكتب بالرقم الرومانى: حديد II وحديد III.</div></div>
+<div class="card"><h3><span class="dot"></span>🧱 المجموعات الذرية (الجذور)</h3>
+<p>مجموعة ذرات ترتبط معًا وتتصرف كوحدة واحدة بشحنة وتكافؤ ثابتين. إذا تكرّرت فى الصيغة وضعناها بين قوسين: Ca(OH)₂</p>
+${tw(['الاسم','الصيغة والشحنة','التكافؤ'],RD.map(r=>`<tr><td>${r[1]}</td><td class="sec">${mono(sup(r[0],r[2],r[3]=='+'?'+':'−'))}</td><td class="sec">${r[2]}</td></tr>`).join(''),'rd')}
+<div style="margin-top:10px"><button class="ch-btn alt" id="chHide2">🙈 وضع الحفظ للجدول</button></div></div>
+<div class="card"><h3><span class="dot"></span>⚖️ الطريقة الأولى: التبادل (الصليب)</h3>
+<div class="ch-pick"><select id="aC">${opts(CT.map(c=>c[1]+' ('+c[2]+'+)'))}</select><select id="aA">${opts(AN.map(a=>a[1]+' ('+a[2]+'−)'))}</select></div>
+<div id="aOut"></div><button class="ch-btn" id="aNext">الخطوة التالية ▶</button></div>
+<div class="card"><h3><span class="dot"></span>🧲 الطريقة الثانية: موازنة الشحنات</h3>
+<p>أضف أيونات حتى يتساوى مجموع الشحنات الموجبة مع السالبة، فيصبح المركب متعادلًا.</p>
+<div class="ch-pick"><select id="bC">${opts(CT.map(c=>c[1]+' ('+c[2]+'+)'))}</select><select id="bA">${opts(AN.map(a=>a[1]+' ('+a[2]+'−)'))}</select></div><div id="bOut"></div></div>
+<div class="card"><h3><span class="dot"></span>🧪 الأحماض والقلويات</h3>
+<div class="ch-rule">🍋 <b>الحمض</b> = هيدروجين H + جذر حمضى (أو لافلز). 🧼 <b>القاعدة</b> = فلز + مجموعة الهيدروكسيد OH. و<b>القلوى</b> قاعدة تذوب فى الماء.</div>
+${tw(['الحمض','الصيغة'],AC.map(a=>`<tr><td>حمض ${a[1]}</td><td class="sec">${mono(fm(a[0]))}</td></tr>`).join(''),'ac')}
+<div style="height:12px"></div>
+${tw(['المركب','الصيغة','النوع'],BS.map(b=>`<tr><td>هيدروكسيد ${b[1]}</td><td class="sec">${mono(fm(b[0]))}</td><td>${b[2]?'قلوى (ذائب)':'قاعدة غير ذائبة'}</td></tr>`).join(''),'bs')}</div>
+<div style="text-align:center;margin:10px 0 30px"><button class="hero-cta" onclick="showView('chemtrain')">🎯 هيّا نتدرّب</button></div>`;
+document.querySelectorAll('#chF .ch-chip[data-f]').forEach(b=>b.onclick=()=>{document.querySelectorAll('#chF .ch-chip[data-f]').forEach(x=>x.classList.toggle('on',x==b));const f=b.dataset.f;document.querySelectorAll('.ch-t.el tr[data-g]').forEach(r=>r.style.display=(f=='all'||r.dataset.g==f||(f=='v'&&r.dataset.v==1))?'':'none')});
+const hide=(btn,sel)=>{btn.onclick=()=>{const t=document.querySelectorAll(sel),on=!t[0].classList.contains('hide');t.forEach(x=>{x.classList.toggle('hide',on);x.querySelectorAll('.rev').forEach(y=>y.classList.remove('rev'))});btn.classList.toggle('on',on);$('chHint').style.display=on?'':'none'}};
+hide($('chHide'),'.ch-t.el');hide($('chHide2'),'.ch-t.rd,.ch-t.ac');
+$('chRoot').onclick=e=>{const s=e.target.closest('.sec');if(s)s.classList.add('rev')};
+let aS=0;const drawA=()=>{const c=CT[$('aC').value],a=AN[$('aA').value],g=gcd(c[2],a[2]),n1=a[2],n2=c[2],P=(x,n,r)=>r&&n>1?'('+fm(x)+')':fm(x);
+const st=[`<b>١) اكتب الرمز وتكافؤه:</b> ${mono(sup(c[0],c[2],'')+' &nbsp; '+sup(a[0],a[2],''))}`,
+`<b>٢) بدّل التكافؤين:</b> تكافؤ الأول يصبح عدد ذرات الثانى والعكس: ${mono(part(c[0],n1,c[3])+part(a[0],n2,a[3]))}`,
+g>1?`<b>٣) اختصر</b> على القاسم المشترك ${g}: الأعداد ${n1} و${n2} ← ${n1/g} و${n2/g}`:`<b>٣) الاختصار:</b> لا يوجد قاسم مشترك، فلا نختصر.`,
+`<b>٤) الصيغة النهائية:</b> ${mono(frm(c,a))} &nbsp;←&nbsp; <b>${nm(c,a)}</b>`];
+$('aOut').innerHTML=st.slice(0,aS+1).map(x=>'<div class="ch-step">'+x+'</div>').join('');$('aNext').textContent=aS>=3?'🔄 ابدأ من جديد':'الخطوة التالية ▶'};
+$('aNext').onclick=()=>{aS=aS>=3?0:aS+1;drawA()};['aC','aA'].forEach(i=>$(i).onchange=()=>{aS=0;drawA()});drawA();
+const setB=()=>cbox('bOut',CT[$('bC').value],AN[$('bA').value],true);['bC','bA'].forEach(i=>$(i).onchange=setB);setB();
+}
+
+/* ===== charge-balance widget ===== */
+const ST={};
+function cbox(id,c,a,meter){ST[id]={c,a,n1:1,n2:1,meter};drawC(id)}
+function drawC(id){const s=ST[id],c=s.c,a=s.a,P=s.n1*c[2],N=s.n2*a[2],ok=P==N,min=ok&&gcd(s.n1,s.n2)==1;
+const ion=(f,ch,sg,k)=>'<i class="ch-ion '+k+'">'+sup(f,ch,sg)+'</i>';
+$(id).innerHTML=`<div class="ch-ions">${ion(c[0],c[2],'+','p').repeat(s.n1)}${ion(a[0],a[2],'−','n').repeat(s.n2)}</div>
+<div class="ch-ctl"><div>${mono(sup(c[0],c[2],'+'))}<br><button data-i="${id}" data-w="n1" data-d="-1">−</button>${s.n1}<button data-i="${id}" data-w="n1" data-d="1">+</button></div><div>${mono(sup(a[0],a[2],'−'))}<br><button data-i="${id}" data-w="n2" data-d="-1">−</button>${s.n2}<button data-i="${id}" data-w="n2" data-d="1">+</button></div></div>
+${s.meter?`<div class="ch-meter ${ok?'ok':'no'}">موجب: +${P} &nbsp;|&nbsp; سالب: −${N} &nbsp;${ok?(min?'✓ متعادل':'✓ متعادل لكن اختصر العددين'):'✗ غير متعادل'}</div>`:''}
+<div class="ch-res">${mono(frm(c,a,s.n1,s.n2))}</div>`}
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-w]');if(!b)return;const s=ST[b.dataset.i];s[b.dataset.w]=Math.max(1,Math.min(9,s[b.dataset.w]+ +b.dataset.d));drawC(b.dataset.i)});
+
+/* ===== generators ===== */
+const mk=(q,ok,bad,why)=>{const o=[ok];bad.forEach(x=>{if(!o.includes(x))o.push(x)});const w=sh(o.slice(0,4));return{q,o:w,a:w.indexOf(ok),why}};
+const okc=(c,a)=>!((a[0]=='O'&&c[3])||(a[0]=='I'&&['نحاس II','حديد III'].includes(c[1]))||(a[0]=='OH'&&c[0]=='Ag')||(['HCO3','HSO4'].includes(a[0])&&!['Na','K','Ca','Mg','Ba','NH4'].includes(c[0]))||(a[0]=='CO3'&&(c[0]=='Al'||c[1]=='حديد III')));
+const rc=(f)=>{let c,a;do{c=R(CT);a=R(f?AN.filter(f):AN)}while(!okc(c,a));return[c,a]};
+const whyF=(c,a)=>`نبدّل التكافؤين (${c[2]} و${a[2]}) ثم نختصر ← ${mono(frm(c,a))}`;
+const G={
+sym:()=>{const e=R(EL);return mk(`ما رمز عنصر <b>${e[1]}</b>؟`,mono(e[0]),sh(EL.filter(x=>x!=e)).slice(0,4).map(x=>mono(x[0])),`رمز ${e[1]} هو ${e[0]}`)},
+name:()=>{const e=R(EL);return mk(`ما اسم العنصر الذى رمزه ${mono(e[0])}؟`,e[1],sh(EL.filter(x=>x!=e)).slice(0,4).map(x=>x[1]),`${e[0]} = ${e[1]}`)},
+val:()=>{const e=R(EL.filter(x=>x[2].length==1));return mk(`ما تكافؤ <b>${e[1]}</b> (${mono(e[0])})؟`,vt(e[2]),['صفر','1','2','3','4'],`تكافؤ ${e[1]} = ${vt(e[2])}`)},
+rad:()=>{const r=R(RD),k=Math.floor(Math.random()*3);return k==0?mk(`ما صيغة جذر <b>${r[1]}</b>؟`,mono(fm(r[0])),sh(RD.filter(x=>x!=r)).slice(0,4).map(x=>mono(fm(x[0]))),`${r[1]} = ${fm(r[0])}`):k==1?mk(`ما اسم الجذر ${mono(fm(r[0]))}؟`,r[1],sh(RD.filter(x=>x!=r)).slice(0,4).map(x=>x[1]),`${fm(r[0])} = ${r[1]}`):mk(`ما تكافؤ جذر <b>${r[1]}</b> (${mono(fm(r[0]))})؟`,String(r[2]),['1','2','3','4'],`تكافؤ ${r[1]} = ${r[2]}`)},
+form:()=>{const[c,a]=rc(),[n1,n2]=cnt(c,a),ok=frm(c,a);return mk(`ما صيغة <b>${nm(c,a)}</b>؟`,mono(ok),sh([frm(c,a,n2,n1),frm(c,a,1,1),frm(c,a,n1+1,n2),frm(c,a,n1,n2+1),frm(c,a,n1*2,n2*2)]).map(mono),whyF(c,a))},
+nameOf:()=>{const[c,a]=rc();return mk(`ما اسم المركب ${mono(frm(c,a))}؟`,nm(c,a),sh([nm(c,R(AN)),nm(R(CT),a),nm(R(CT),R(AN)),nm(R(CT),R(AN))]),`${mono(frm(c,a))} = ${nm(c,a)}`)}, 
+err:()=>{const s=[];while(s.length<3){const[c,a]=rc(),f=frm(c,a);if(!s.some(x=>x[0]==f))s.push([f,c,a])}const[c,a]=rc(),[n1,n2]=cnt(c,a),w=R([frm(c,a,n2,n1),frm(c,a,n1+1,n2),frm(c,a,n1*2,n2*2),frm(c,a,1,1)]);if(w==frm(c,a)||s.some(x=>x[0]==w))return G.err();return mk('أى الصيغ التالية <b>خاطئة</b>؟',mono(w),s.map(x=>mono(x[0])),`الصيغة الصحيحة لـ ${nm(c,a)} هى ${mono(frm(c,a))}`)},
+type:()=>{const k=R(['ac','bs','sa','ox']);let f,t;if(k=='ac'){f=R(AC)[0];t='حمض'}else if(k=='bs'){f=R(BS)[0];t='قاعدة'}else{const[c,a]=rc(x=>k=='ox'?x[0]=='O':!['O','OH'].includes(x[0]));f=frm(c,a);t=k=='ox'?'أكسيد فلز':'ملح'}return mk(`ما نوع المادة ${mono(fm(f))}؟`,t,['حمض','قاعدة','ملح','أكسيد فلز'],`الحمض يبدأ بـ H، والقاعدة تنتهى بـ OH، والأكسيد به O مع فلز، والملح فلز + جذر حمضى.`)},
+acid:()=>{const a=R(AC);return mk(`ما صيغة <b>حمض ${a[1]}</b>؟`,mono(fm(a[0])),sh(AC.filter(x=>x!=a)).slice(0,4).map(x=>mono(fm(x[0]))),`حمض ${a[1]} = ${fm(a[0])}`)}};
+G.mix=()=>R([G.sym,G.name,G.val,G.rad,G.form,G.nameOf,G.type,G.acid,G.err])();
+const KG={el:()=>R([G.sym,G.name,G.val])(),rad:G.rad,comp:()=>R([G.form,G.nameOf,G.err,G.type,G.acid])(),all:G.mix};
+
+/* ===== engines ===== */
+const stage=h=>{$('chStage').style.display='block';$('chStage').innerHTML=h;$('chStage').scrollIntoView({behavior:'smooth'})};
+const bk='<button class="ch-btn alt" onclick="chHome()">↩ التدريبات</button>';
+function quiz(title,gen,n,key){let i=0,sc=0,bad=[];const next=()=>{if(i>=n){saveB(key,sc);return stage(`<div class="ch-end"><div style="font-size:48px">${sc>=n*.9?'🏆':sc>=n*.6?'👏':'💪'}</div><div class="sc">${sc}/${n}</div><p>${sc>=n*.9?'ممتاز! أنت متمكّن':sc>=n*.6?'جيد جدًا، راجع أخطاءك':'راجع الجداول ثم أعد المحاولة'}</p>${bad.length?'<div class="ch-rule" style="text-align:right"><b>راجع:</b><br>'+bad.map(b=>'• '+b.q+' ← '+b.o[b.a]).join('<br>')+'</div>':''}<button class="ch-btn" id="chAg">🔁 أعد</button> ${bk}</div>`),$('chAg').onclick=()=>quiz(title,gen,n,key);}
+const q=gen();i++;stage(`<div class="ch-top"><span>${title}</span><span>${i}/${n}</span><span>⭐ ${sc}</span></div><div class="ch-bar"><i style="width:${(i-1)/n*100}%"></i></div><div class="ch-q">${q.q}</div><div class="ch-opts">${q.o.map((o,k)=>`<button class="ch-o" data-k="${k}">${o}</button>`).join('')}</div><div class="ch-why" id="chW"></div>`);
+const bs=document.querySelectorAll('#chStage .ch-o');bs.forEach(b=>b.onclick=()=>{const k=+b.dataset.k;bs.forEach((x,j)=>{x.disabled=true;if(j==q.a)x.classList.add('ok')});if(k==q.a)sc++;else{b.classList.add('bad');bad.push(q)}$('chW').style.display='block';$('chW').innerHTML=(k==q.a?'✅ أحسنت! ':'❌ ')+q.why+'<div style="margin-top:8px"><button class="ch-btn" id="chNx">'+(i>=n?'النتيجة':'التالى ▶')+'</button></div>';$('chNx').onclick=next})};next()}
+function typing(K){const n=10;let i=0,sc=0;const items=()=>{const k=K=='el'?'e':K=='rad'?'r':K=='comp'?'c':R(['e','r','c']);if(k=='e'){const e=R(EL.filter(x=>x[2].length>0));return['اكتب رمز عنصر <b>'+e[1]+'</b>',e[0]]}if(k=='r'){const r=R(RD);return['اكتب صيغة جذر <b>'+r[1]+'</b>',r[0]]}const[c,a]=rc();return['اكتب صيغة <b>'+nm(c,a)+'</b>',frm(c,a)]};
+const next=()=>{if(i>=n){saveB('type',sc);return stage(`<div class="ch-end"><div class="sc">${sc}/${n}</div><p>اكتب الأرقام عادية مثل Al2(SO4)3</p><button class="ch-btn" id="chAg">🔁 أعد</button> ${bk}</div>`),$('chAg').onclick=()=>typing(K)}
+const[q,a]=items();i++;stage(`<div class="ch-top"><span>✍️ اكتب الإجابة</span><span>${i}/${n}</span><span>⭐ ${sc}</span></div><div class="ch-bar"><i style="width:${(i-1)/n*100}%"></i></div><div class="ch-q">${q}</div><input class="ch-in" id="chI" autocomplete="off" autocapitalize="off" placeholder="مثال: Na2SO4"><div style="text-align:center;margin-top:12px"><button class="ch-btn" id="chOk">تحقق ✓</button></div><div class="ch-why" id="chW"></div>`);
+const go=()=>{const ok=norm($('chI').value)==norm(a);if(ok)sc++;$('chI').disabled=true;$('chOk').outerHTML='';$('chW').style.display='block';$('chW').innerHTML=(ok?'✅ صحيح! ':'❌ الإجابة الصحيحة: ')+mono(fm(a))+'<div style="margin-top:8px"><button class="ch-btn" id="chNx">التالى ▶</button></div>';$('chNx').onclick=next};
+$('chOk').onclick=go;$('chI').onkeydown=e=>{if(e.key=='Enter'&&!$('chI').disabled)go()};$('chI').focus()};next()}
+function pairs(K,mem){const ks={el:['el','val'],rad:['rad','radc'],comp:['comp'],all:['el','val','rad','radc','comp']}[K].filter(k=>!mem||['el','rad','comp'].includes(k)),k=R(ks.length?ks:['el']);let p=[];
+if(k=='el')p=sh(EL).slice(0,6).map(e=>[mono(e[0]),e[1]]);else if(k=='val')p=sh(EL.filter(e=>e[2].length==1)).slice(0,6).map(e=>[e[1]+' '+mono(e[0]),vt(e[2])]);else if(k=='rad')p=sh(RD).slice(0,6).map(r=>[mono(fm(r[0])),r[1]]);else if(k=='radc')p=sh(RD).slice(0,6).map(r=>[mono(fm(r[0])),String(r[2])]);else{const s={};while(p.length<6){const[c,a]=rc(),f=frm(c,a);if(!s[f]){s[f]=1;p.push([mono(f),nm(c,a)])}}}return p}
+function match(K){const p=pairs(K),L=sh(p.map((x,i)=>[x[0],i])),Rr=sh(p.map((x,i)=>[x[1],i]));let sel=null,done=0,err=0;
+stage(`<div class="ch-top"><span>🔗 صِل كل عنصر بما يناسبه</span><span id="chE">أخطاء: 0</span></div><div class="ch-cols"><div>${L.map((x,i)=>`<div class="ch-tile" data-s="l" data-i="${i}">${x[0]}</div>`).join('<div style="height:8px"></div>')}</div><div>${Rr.map((x,i)=>`<div class="ch-tile" data-s="r" data-i="${i}">${x[0]}</div>`).join('<div style="height:8px"></div>')}</div></div><div id="chM" style="margin-top:14px;text-align:center">${bk}</div>`);
+document.querySelectorAll('#chStage .ch-tile').forEach(t=>t.onclick=()=>{if(t.dataset.s=='l'){document.querySelectorAll('.ch-tile[data-s=l]').forEach(x=>x.classList.remove('sel'));t.classList.add('sel');sel=t;return}if(!sel)return;const a=L[sel.dataset.i],b=Rr[t.dataset.i];if(p[a[1]][1]==b[0]){sel.classList.add('done');t.classList.add('done');sel.classList.remove('sel');sel=null;if(++done==6){saveB('match',Math.max(0,60-err*10));$('chM').innerHTML='<div class="ch-res">🎉 أحسنت! أخطاؤك: '+err+'</div><button class="ch-btn" onclick="chGo(\'match\')">🔁 أعد</button> '+bk}}else{err++;$('chE').textContent='أخطاء: '+err;t.classList.add('shk');setTimeout(()=>t.classList.remove('shk'),400)}})}
+function memory(K){const p=pairs(K,1),cards=sh(p.flatMap((x,i)=>[[x[0],i],[x[1],i]]));let f=[],ok=0,mv=0;
+stage(`<div class="ch-top"><span>🧠 لعبة الذاكرة: اعثر على الأزواج</span><span id="chE">محاولات: 0</span></div><div class="ch-mem">${cards.map((c,i)=>`<div class="ch-tile cv" data-i="${i}">${c[0]}</div>`).join('')}</div><div id="chM" style="margin-top:14px;text-align:center">${bk}</div>`);
+document.querySelectorAll('#chStage .ch-tile').forEach(t=>t.onclick=()=>{if(f.length>1||!t.classList.contains('cv'))return;t.classList.remove('cv');f.push(t);if(f.length==2){mv++;$('chE').textContent='محاولات: '+mv;const[a,b]=f.map(x=>cards[x.dataset.i]);if(a[1]==b[1]&&f[0]!=f[1]){f.forEach(x=>x.classList.add('done'));f=[];if(++ok==6){saveB('mem',Math.max(0,100-mv*5));$('chM').innerHTML='<div class="ch-res">🎉 أنهيتها فى '+mv+' محاولة</div><button class="ch-btn" onclick="chGo(\'mem\')">🔁 أعد</button> '+bk}}else setTimeout(()=>{f.forEach(x=>x.classList.add('cv'));f=[]},800)}})}
+function flash(K){const d=sh(K=='el'||K=='all'?EL.map(e=>[e[1],mono(e[0])+'<small style="font-size:14px">التكافؤ: '+vt(e[2])+'</small>']):[]).concat(sh(K=='rad'||K=='all'?RD.map(r=>[r[1],mono(sup(r[0],r[2],r[3]=='+'?'+':'−'))+'<small style="font-size:14px">التكافؤ: '+r[2]+'</small>']):[])).concat(K=='comp'?sh(AC).map(a=>['حمض '+a[1],mono(fm(a[0]))]).concat(sh(BS).map(b=>['هيدروكسيد '+b[1],mono(fm(b[0]))])):[]);let q=K=='all'?sh(d):d,fl=false,tot=q.length,kn=0;
+const draw=()=>{if(!q.length){return stage(`<div class="ch-end"><div style="font-size:48px">🎓</div><div class="sc">${tot}/${tot}</div><p>أنهيت كل البطاقات!</p><button class="ch-btn" onclick="chGo('flash')">🔁 أعد</button> ${bk}</div>`)}
+stage(`<div class="ch-top"><span>🃏 بطاقات الحفظ</span><span>متبقى ${q.length}</span></div><div class="ch-bar"><i style="width:${kn/tot*100}%"></i></div><div class="ch-fc" id="chFc">${fl?q[0][1]:q[0][0]}</div><p style="text-align:center;font-size:12px;color:var(--ink-soft)">اضغط على البطاقة لقلبها</p><div style="display:flex;gap:10px;justify-content:center"><button class="ch-btn" id="chY">✓ عرفتها</button><button class="ch-btn alt" id="chN">✗ ما زلت أحتاج</button></div><div style="text-align:center;margin-top:12px">${bk}</div>`);
+$('chFc').onclick=()=>{fl=!fl;draw()};$('chY').onclick=()=>{q.shift();kn++;fl=false;draw()};$('chN').onclick=()=>{q.push(q.shift());fl=false;draw()}};draw()}
+function build(){const n=8;let i=0,sc=0;const next=()=>{if(i>=n){saveB('build',sc);return stage(`<div class="ch-end"><div style="font-size:48px">🏗️</div><div class="sc">${sc}/${n}</div><p>مهندس صيغ ممتاز!</p><button class="ch-btn" id="chAg">🔁 أعد</button> ${bk}</div>`),$('chAg').onclick=build}
+const[c,a]=rc(),meter=i%2==0;i++;stage(`<div class="ch-top"><span>🧩 ابنِ المركب</span><span>${i}/${n}</span><span>⭐ ${sc}</span></div><div class="ch-bar"><i style="width:${(i-1)/n*100}%"></i></div><div class="ch-q">كوّن <b>${nm(c,a)}</b><br><small style="font-size:12px;color:var(--ink-soft)">${meter?'استعن بميزان الشحنات':'بدون ميزان! بدّل التكافؤين: '+mono(sup(c[0],c[2],'+')+' '+sup(a[0],a[2],'−'))}</small></div><div id="chB"></div><div style="text-align:center"><button class="ch-btn" id="chOk">تحقق ✓</button></div><div class="ch-why" id="chW"></div>`);cbox('chB',c,a,meter);
+$('chOk').onclick=()=>{const s=ST.chB,[x,y]=cnt(c,a),ok=s.n1==x&&s.n2==y;if(ok)sc++;$('chOk').outerHTML='';$('chW').style.display='block';$('chW').innerHTML=(ok?'✅ صحيح! ':'❌ ')+whyF(c,a)+'<div style="margin-top:8px"><button class="ch-btn" id="chNx">التالى ▶</button></div>';$('chNx').onclick=next}};next()}
+let K='all';const KN=[['all','🌐 الكل'],['el','🔬 العناصر'],['rad','🧱 الجذور'],['comp','🧪 المركبات']];
+const MODES=[['flash','🃏','بطاقات الحفظ','اقلب وراجع',()=>flash(K)],['quick','⚡','تحدى سريع','10 أسئلة اختيار',()=>quiz('⚡ تحدى سريع',KG[K],10,'quick')],['type','✍️','اكتب الإجابة','تذكّر واكتب',()=>typing(K)],['match','🔗','التوصيل','صِل الأزواج',()=>match(K)],['mem','🧠','الذاكرة','اعثر على الأزواج',()=>memory(K)],['build','🧩','ابنِ المركب','بالطريقتين',build],['err','🕵️','اكتشف الخطأ','صيغة واحدة خاطئة',()=>quiz('🕵️ اكتشف الخطأ',G.err,10,'err')],['acid','🍋','أحماض وقواعد','صيغ وتصنيف',()=>quiz('🍋 أحماض وقواعد',()=>R([G.acid,G.type])(),10,'acid')],['exam','🏁','اختبار شامل','20 سؤالًا متنوعًا',()=>quiz('🏁 اختبار شامل',G.mix,20,'exam')]];
+function hub(){$('chStage').style.display='none';$('chK').innerHTML='<span style="font-size:12px;font-weight:800;align-self:center">المجال:</span>'+KN.map(k=>`<button class="ch-chip ${k[0]==K?'on':''}" data-k="${k[0]}">${k[1]}</button>`).join('');
+$('chHub').innerHTML=MODES.map(m=>`<button class="ch-mode" data-m="${m[0]}"><span>${m[1]}</span>${m[2]}<small>${m[3]}${BEST[m[0]]?' · 🏆'+BEST[m[0]]:''}</small></button>`).join('');
+$('chK').onclick=e=>{const b=e.target.closest('[data-k]');if(b){K=b.dataset.k;hub()}};$('chHub').onclick=e=>{const b=e.target.closest('[data-m]');if(b)MODES.find(m=>m[0]==b.dataset.m)[4]()}}
+window.chHome=()=>{hub();window.scrollTo({top:0,behavior:'smooth'})};window.chGo=m=>MODES.find(x=>x[0]==m)[4]();
+const _sv=window.showView;window.showView=function(id){_sv(id);if(id=='chem'||id=='chemtrain')document.body.classList.add('unit-2');if(id=='chemtrain')hub()};
+try{aiChipsByView.chem=aiChipsByView.chemtrain=['كيف أكوّن الصيغة الكيميائية؟','ما الجذور الشائعة؟','ما الفرق بين الحمض والقلوى؟']}catch(e){}
+review();
+})();
 </script>
 </body>
 </html>
