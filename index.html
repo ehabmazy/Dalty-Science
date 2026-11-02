@@ -570,6 +570,45 @@
   .hero #heroCanvas2{opacity:.95;}
   body.unit-2 .sim-link-card{background:linear-gradient(160deg,#5B3A82,#7B4FA0);}
   body.unit-2 .sim-link-card p{color:#EADFF5;}
+  /* ===== Unit 3 theme ===== */
+  body.unit-3{
+    --bg:#EDF6F0; --line:#D2E6DA; --deep:#1F7A4D; --deep-dark:#14573A; --cyan:#4DB88A;
+    --shadow:0 10px 30px -12px rgba(31,122,77,.28);
+    background:
+      radial-gradient(900px 420px at 100% -80px, rgba(227,169,43,.16), transparent 70%),
+      radial-gradient(800px 420px at 0% 30%, rgba(77,184,138,.16), transparent 70%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  body.unit-3 .topbar{background:rgba(237,246,240,.92);}
+  body.unit-3 .hero{background:linear-gradient(160deg,#0B3B2A,#1F7A4D 58%,#C99A1E);}
+  body.unit-3 .hero h2 em{color:#FFE9A6;}
+  body.unit-3 .hero p{color:#E3F5EA;}
+  .hero #heroCanvas3{opacity:.95;}
+  .u3-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
+  .u3-btn{border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;border-radius:10px;font-weight:800;font-size:12.5px;font-family:'Tajawal',sans-serif;cursor:pointer;transition:.15s;}
+  .u3-btn.on{background:var(--deep);color:#fff;border-color:var(--deep);}
+  .u3-res{margin-top:10px;padding:12px 14px;border-radius:12px;background:var(--bg);font-size:13px;line-height:1.9;border:1px solid var(--line);}
+  .u3-svg{width:100%;height:auto;display:block;background:#fff;border-radius:14px;border:1px solid var(--line);margin-top:8px;}
+  input[type=range].u3-range{width:100%;accent-color:var(--deep);margin-top:10px;}
+  .u3-dots{display:flex;gap:6px;margin:10px 0;}
+  .u3-dots span{flex:1;height:6px;border-radius:4px;background:var(--line);}
+  .u3-dots span.on{background:var(--deep);} .u3-dots span.done{background:var(--cyan);}
+  .u3-step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:var(--bg);border:1px solid var(--line);min-height:120px;}
+  .u3-step-ic{font-size:38px;flex-shrink:0;}
+  .u3-step h4{font-size:15px;margin:6px 0 4px;color:var(--deep-dark);} .u3-step p{font-size:13px;line-height:1.8;}
+  .u3-chip{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:800;color:var(--deep-dark);}
+  /* ===== Unit 4 theme ===== */
+  body.unit-4{
+    --bg:#F8F0E8; --line:#EAD8C6; --deep:#B4531A; --deep-dark:#7A3510; --cyan:#E8622C;
+    --shadow:0 10px 30px -12px rgba(180,83,26,.3);
+    background:radial-gradient(900px 420px at 100% -80px, rgba(107,63,160,.14), transparent 70%),radial-gradient(800px 420px at 0% 30%, rgba(232,98,44,.14), transparent 70%),var(--bg);
+    background-attachment:fixed;
+  }
+  body.unit-4 .topbar{background:rgba(248,240,232,.92);}
+  body.unit-4 .hero{background:linear-gradient(160deg,#2A1236,#7A3510 55%,#E8622C);}
+  body.unit-4 .hero h2 em{color:#FFD9A0;}
+  body.unit-4 .hero p{color:#FBE9DA;}
   .lesson-card.soon{opacity:.78;}
   .lesson-card.soon .lesson-btn{background:var(--line); color:var(--ink-soft); cursor:default;}
   .unit-meta{font-size:11.5px; color:var(--ink-soft); font-weight:700; margin-bottom:10px;}
@@ -828,6 +867,25 @@
 <meta name="apple-mobile-web-app-title" content="اكتشف وتعلم">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<style>
+.gx-q{background:#fff;border:1px solid #e3e8ee;border-radius:16px;padding:16px;margin-bottom:14px}
+.gx-top{display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:12px;font-weight:800}
+.gx-lv{color:#fff;border-radius:20px;padding:3px 10px}
+.gx-n{color:#667}
+.gx-t{font-size:15px;font-weight:700;line-height:1.9;margin-bottom:10px}
+.gx-opt{display:block;width:100%;text-align:right;background:#f5f8fa;border:2px solid transparent;border-radius:12px;padding:11px 12px;margin:6px 0;font:inherit;font-size:14px;cursor:pointer}
+.gx-opt.ok{background:#e4f6ec;border-color:#2E9B6B}.gx-opt.no{background:#fdeaea;border-color:#d64545}
+.gx-opt:disabled{cursor:default}
+.gx-btn{border:none;border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;margin:6px 6px 0 0;background:#0E5C7A;color:#fff}
+.gx-btn.alt{background:#FFF1CC;color:#7a5200}.gx-btn.g{background:#2E9B6B}.gx-btn.r{background:#d64545}
+.gx-hint{display:none;background:#FFF8E1;border-right:4px solid #E8A21C;border-radius:10px;padding:10px 12px;margin-top:8px;font-size:13.5px;line-height:1.9}
+.gx-ans{display:none;background:#EEF7F1;border-right:4px solid #2E9B6B;border-radius:10px;padding:10px 12px;margin-top:8px;font-size:13.5px;line-height:1.9}
+.gx-ans b{color:#0B5E3A}
+.gx-bar{position:sticky;top:56px;z-index:5;background:#fffffff2;border-radius:12px;padding:8px 12px;margin-bottom:12px;font-size:13px;font-weight:800;box-shadow:0 4px 14px -8px #0004;display:flex;justify-content:space-between;gap:8px}
+.gx-res{text-align:center;padding:18px}
+.gx-res .sc{font-size:34px;font-weight:900}
+.gx-row{display:flex;justify-content:space-between;background:#f5f8fa;border-radius:10px;padding:8px 12px;margin:6px 0;font-size:13.5px;font-weight:700}
+</style>
 </head>
 <body>
 
@@ -1942,6 +2000,151 @@
     <div class="lesson-grid" id="lessonGrid2"></div>
   </div>
 
+  <!-- ============ UNIT 3 VIEW ============ -->
+  <div class="lesson-view" id="view-unit3">
+    <button class="back-btn" onclick="showView('units')">→ كل الوحدات</button>
+    <div class="hero">
+      <canvas id="heroCanvas3"></canvas>
+      <div class="hero-inner">
+        <div class="eyebrow">🌿 الوحدة الثالثة · تدفق الطاقة فى عمليتى البناء الضوئى والتنفس الخلوى</div>
+        <h2>رحلة الطاقة <em>من الشمس إلى الخلية</em></h2>
+        <p>اكتشف كيف تحوّل النباتات ضوء الشمس إلى طاقة كيميائية فى الجلوكوز داخل البلاستيدات، وكيف تحرّر الخلايا هذه الطاقة فى الميتوكوندريا على هيئة ATP.</p>
+        <button class="hero-cta" onclick="showView('lesson8')">
+          ابدأ الدرس الثامن
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="game-banner" onclick="gmOpen('u3')">
+      <span class="gb-ic">🎮</span>
+      <div><h3>لعبة: مهندس الطاقة الحيوية</h3><p>تحدّ شامل للوحدة الثالثة: البناء الضوئى والتنفس الخلوى وتدفق الطاقة</p></div>
+      <span class="gb-cta">العب الآن ▶</span>
+    </div>
+    <div class="section-label">دروس الوحدة الثالثة</div>
+    <div class="lesson-grid" id="lessonGrid3"></div>
+    <div class="lesson-card" style="margin-top:18px;">
+      <div class="num">📝</div>
+      <div class="lesson-icon" style="background:linear-gradient(135deg,#2E9B6B,#146E86);"><span style="font-size:24px;">📝</span></div>
+      <h3>اختبارات الوحدة الثالثة</h3>
+      <p>بنك أسئلة شامل على درسى البناء الضوئى والتنفس الخلوى: اختيار من متعدد، صح وخطأ، مصطلحات علمية، وأسئلة مقالية مع إجابات نموذجية.</p>
+      <div class="lesson-foot">
+        <button class="lesson-btn" onclick="showView('unitq3')">ابدأ الاختبارات</button>
+        <span class="badge-done" id="uq3Badge"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 4 VIEW ============ -->
+  <div class="lesson-view" id="view-unit4">
+    <button class="back-btn" onclick="showView('units')">→ كل الوحدات</button>
+    <div class="hero">
+      <canvas id="heroCanvas4"></canvas>
+      <div class="hero-inner">
+        <div class="eyebrow">🌋 الوحدة الرابعة · العمليات الچيولوچية</div>
+        <h2>كوكب يتغيّر <em>تحت أقدامنا</em></h2>
+        <p>اكتشف كيف تتحرك صفائح الأرض فتصنع الجبال والزلازل والبراكين، وكيف تتكون المعادن والتربة، ولماذا يجب الحفاظ على الموارد غير المتجددة.</p>
+        <button class="hero-cta" onclick="showView('lesson10')">
+          ابدأ الدرس العاشر
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="game-banner" onclick="gmOpen('u4')">
+      <span class="gb-ic">🎮</span>
+      <div><h3>لعبة: خبير الچيولوچيا</h3><p>تحدّ شامل للوحدة الرابعة: الصفائح والزلازل والبراكين والمعادن والتربة</p></div>
+      <span class="gb-cta">العب الآن ▶</span>
+    </div>
+    <div class="section-label">دروس الوحدة الرابعة</div>
+    <div class="lesson-grid" id="lessonGrid4"></div>
+    <div class="lesson-card" style="margin-top:18px;">
+      <div class="num">📝</div>
+      <div class="lesson-icon" style="background:linear-gradient(135deg,#C64A19,#E8622C);"><span style="font-size:24px;">📝</span></div>
+      <h3>اختبارات الوحدة الرابعة</h3>
+      <p>بنك أسئلة شامل على درسى تغيير سطح الأرض وتكوين المعادن والتربة: اختيار من متعدد، صح وخطأ، مصطلحات علمية، وأسئلة مقالية مع إجابات نموذجية.</p>
+      <div class="lesson-foot">
+        <button class="lesson-btn" onclick="showView('unitq4')">ابدأ الاختبارات</button>
+        <span class="badge-done" id="uq4Badge"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 3 QUESTIONS VIEW ============ -->
+  <div class="lesson-view" id="view-unitq3">
+    <button class="back-btn" onclick="showView('unit3')">→ رجوع للوحدة الثالثة</button>
+    <div class="lesson-banner" style="background:linear-gradient(135deg,#0B3B2A,#1F7A4D 58%,#C99A1E);">
+      <div class="tag">الوحدة الثالثة · تدفق الطاقة فى عمليتى البناء الضوئى والتنفس الخلوى</div>
+      <h2>📝 اختبارات الوحدة</h2>
+      <p>راجع الدرسين معًا: البناء الضوئى والتنفس الخلوى. أسئلة متنوعة مأخوذة من فكرة كراسة الأداءات والتقييمات وبعضها معاد صياغته لتثبيت المعلومة.</p>
+    </div>
+    <div class="card quiz-card" id="quizCard-u3qa"></div>
+    <div class="card quiz-card" id="quizCard-u3qb"></div>
+    <div class="card quiz-card" id="quizCard-u3qc"></div>
+    <div class="card lab-card">
+      <span class="lab-tag">✍️ أسئلة مقالية</span>
+      <h3><span class="dot"></span> فكّر فى إجابتك أولًا ثم اعرض الإجابة النموذجية</h3>
+      <div class="reveal-q"><p>1) قارن بين التفاعلات الضوئية والتفاعلات اللاضوئية فى البناء الضوئى (المكان – المتطلبات – الناتج).</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans"><b>التفاعلات الضوئية:</b> تتم على أغشية الأقراص فى الجرانا، وتحتاج إلى الضوء والكلوروفيل والماء، وينتج عنها أكسجين (من تحلل الماء) وهيدروجين وجزيئات ATP.<br><b>التفاعلات اللاضوئية:</b> تتم فى الستروما ولا تعتمد مباشرة على الضوء، يتحد فيها الهيدروجين مع ثانى أكسيد الكربون بوجود ATP والإنزيمات لتكوين سكر الجلوكوز.</div></div>
+      <div class="reveal-q"><p>2) اكتب المعادلتين الرمزيتين الموزونتين للبناء الضوئى والتنفس الخلوى.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">البناء الضوئى: 6CO₂ + 6H₂O ← (ضوء، كلوروفيل) ← C₆H₁₂O₆ + 6O₂<br>التنفس الخلوى: C₆H₁₂O₆ + 6O₂ ← 6CO₂ + 6H₂O + طاقة (ATP)</div></div>
+      <div class="reveal-q"><p>3) علّل: تبدو أوراق النبات خضراء.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">لأن الكلوروفيل يمتص الضوء الأحمر والأزرق ويعكس الضوء الأخضر الذى تراه أعيننا.</div></div>
+      <div class="reveal-q"><p>4) وضّح كيف تستدل على وجود النشا فى ورقة مبرقشة بعد تعريضها للضوء.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">نغلى الورقة فى الماء لكسر جدران الخلايا، ثم نسخنها فى الإيثانول لإزالة الكلوروفيل، ثم نضيف محلول اليود، فيتحول لونه إلى أزرق داكن فى المناطق الخضراء المعرضة للضوء فقط، ولا يتغير فى المناطق البيضاء لعدم وجود كلوروفيل.</div></div>
+      <div class="reveal-q"><p>5) قارن بين المرحلتين الأولى والثانية للتنفس الخلوى (المكان – الحاجة للأكسجين – الناتج).</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans"><b>الأولى:</b> فى السيتوبلازم، بدون أكسجين، تنتج جزيئين من حمض البيروفيك وقدرًا قليلًا من ATP.<br><b>الثانية:</b> فى الميتوكوندريا، بوجود الأكسجين، وتشمل دورة كربس (طاقة محدودة وCO₂) وسلسلة نقل الإلكترون (كمية كبيرة من ATP وماء).</div></div>
+      <div class="reveal-q"><p>6) علّل: يزداد عدد الميتوكوندريا فى خلايا الكبد والعضلات.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">لأن هذه الخلايا تحتاج إلى كمية كبيرة من الطاقة (ATP) لنشاطها، والميتوكوندريا هى محطات إنتاج الطاقة فى الخلية.</div></div>
+      <div class="reveal-q"><p>7) ماذا يحدث عند: (أ) إزالة الجرانا من البلاستيدات الخضراء؟ (ب) اختفاء الأعراف من الغشاء الداخلى للميتوكوندريا؟</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">(أ) تتوقف التفاعلات الضوئية لعدم وجود الكلوروفيل وأغشية الأقراص، فلا ينتج ATP ولا أكسجين.<br>(ب) تقل المساحة المتاحة لتفاعلات سلسلة نقل الإلكترون فتقل كمية ATP الناتجة.</div></div>
+      <div class="reveal-q"><p>8) وضّح تركيب جزىء ATP ودوره، وكيف يتحول ADP إلى ATP؟</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">يتركب من أدنين وسكر ريبوز و3 مجموعات فوسفات، وهو الصورة التى تنطلق بها الطاقة لتستخدمها الخلية فى عملياتها الحيوية. يتحول ADP إلى ATP بإضافة مجموعة فوسفات (بعد اكتساب الطاقة)، وعند فقد مجموعة فوسفات يعود ADP وتنطلق الطاقة.</div></div>
+      <div class="reveal-q"><p>9) اقترح حلًا لمشكلة نقص الأراضى الزراعية معتمدًا على فهمك للبناء الضوئى.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">الزراعة العمودية: تقنية تحاكى ظروف البناء الضوئى داخل مبان متعددة الطوابق باستخدام الإضاءة الصناعية والمغذيات المائية، فتوفر مساحة وماء وتنتج غذاء على مدار العام.</div></div>
+      <div class="reveal-q"><p>10) علّل: ترتبط جزيئات سكر الجلوكوز الناتج من التفاعلات اللاضوئية فى سلاسل طويلة مكونة حبيبات النشا.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">لأن الجلوكوز يذوب فى الماء فيصعب تخزينه بكميات كبيرة، أما النشا فغير ذائب فيمكن للنبات تخزينه فى أجزائه لاستخدامه عند الحاجة.</div></div>
+      <div class="reveal-q"><p>11) فسّر ما يحدث فى تجربة النواقيس الثلاثة: (1) ماء جير رائق (2) أزرق الميثيلين (3) جير صودى.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">(1) يتعكر ماء الجير دليل على أن النبات يخرج CO₂ فى التنفس الخلوى.<br>(2) يزول لون أزرق الميثيلين دليل على استهلاك النبات للأكسجين.<br>(3) يمتص الجير الصودى CO₂ من الوسط المحيط حتى لا يتداخل مع نتيجة التجربة.</div></div>
+      <div class="reveal-q"><p>12) علّل: تظهر بتلات الأزهار ملونة، وتظهر أوراق النبات خضراء.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">البتلات ملونة لاحتوائها على بلاستيدات ملونة، والأوراق خضراء لاحتوائها على بلاستيدات خضراء بها الكلوروفيل.</div></div>
+      <div class="reveal-q"><p>13) ما أهمية الكلوروفيل فى عملية البناء الضوئى؟ وحدد وظيفة كل من الجرانا والستروما والغشاء المزدوج.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">الكلوروفيل يمتص طاقة الضوء فيصبح نشطًا ويستخدم طاقته فى تحليل الماء وتكوين ATP.<br>الجرانا: تتم فيها التفاعلات الضوئية. الستروما: تحتوى إنزيمات التفاعلات اللاضوئية وتتم فيها. الغشاء المزدوج: يحيط بالبلاستيدة ويحميها وينظم مرور المواد.</div></div>
+      <div class="reveal-q"><p>14) أى الشكلين يمثل عملية بناء وأيهما يمثل هدمًا؟ مع التعليل والمثال.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">البناء: تتحد جزيئات صغيرة لتكوين جزىء كبير مع استهلاك طاقة (مثل البناء الضوئى وبناء البروتينات من أحماض أمينية).<br>الهدم: يتحلل جزىء كبير إلى جزيئات صغيرة مع انطلاق طاقة (مثل التنفس الخلوى وهدم الجليكوجين إلى جلوكوز).</div></div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn prev" onclick="showView('unit3')">← الوحدة الثالثة</button>
+      <button class="nav-btn next" onclick="showView('unit4')">الوحدة الرابعة 🌋 →</button>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 4 QUESTIONS VIEW ============ -->
+  <div class="lesson-view" id="view-unitq4">
+    <button class="back-btn" onclick="showView('unit4')">→ رجوع للوحدة الرابعة</button>
+    <div class="lesson-banner" style="background:linear-gradient(135deg,#2A1236,#7A3510 55%,#E8622C);">
+      <div class="tag">الوحدة الرابعة · العمليات الچيولوچية</div>
+      <h2>📝 اختبارات الوحدة</h2>
+      <p>راجع الدرسين معًا: تغيير سطح الأرض وتكوين المعادن والتربة. أسئلة متنوعة مأخوذة من فكرة كراسة الأداءات والتقييمات وبعضها معاد صياغته لتثبيت المعلومة.</p>
+    </div>
+    <div class="card quiz-card" id="quizCard-u4qa"></div>
+    <div class="card quiz-card" id="quizCard-u4qb"></div>
+    <div class="card quiz-card" id="quizCard-u4qc"></div>
+    <div class="card lab-card">
+      <span class="lab-tag">✍️ أسئلة مقالية</span>
+      <h3><span class="dot"></span> فكّر فى إجابتك أولًا ثم اعرض الإجابة النموذجية</h3>
+      <div class="reveal-q"><p>1) قارن بين أنواع حركة الصفائح التكتونية الثلاثة (شكل الحركة – النتيجة – مثال).</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans"><b>التباعدية:</b> تتباعد الصفيحتان فيتكون صدع وتصعد الماجما (مثال: نشأة البحر الأحمر).<br><b>التقاربية:</b> تتقارب صفيحتان وتغوص المحيطية تحت القارية فتتكون سلاسل جبلية وبراكين وزلازل.<br><b>التحويلية:</b> تنزلق صفيحتان جنبًا إلى جنب فى اتجاهين متضادين فتحدث زلازل (مثال: صدع سان أندرياس).</div></div>
+      <div class="reveal-q"><p>2) اشرح ما المقصود بالانجراف القارى.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">فرضية قدمها العالم الألمانى ألفريد فجنر عام 1912، افترض فيها أن الأرض كانت قبل نحو 200 مليون سنة قارة واحدة تسمى بانجيا، ثم أخذت فى الانفصال بمرور الزمن، وقبل 135 مليون سنة بدأت قارتا أمريكا الجنوبية وأفريقيا فى الانفصال، حتى أصبح شكل القارات كما هو الآن.</div></div>
+      <div class="reveal-q"><p>3) اذكر فروض نظرية الصفائح التكتونية.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">1) الغلاف الصخرى (قشرة وجزء من الوشاح العلوى) مقسم إلى قطع.<br>2) يتكون من صفائح صلبة مختلفة الشكل والحجم.<br>3) تنقسم إلى صفائح محيطية وصفائح قارية.<br>4) تتحرك حركة بطيئة مستمرة نتيجة حركة تيارات فى الوشاح العلوى.</div></div>
+      <div class="reveal-q"><p>4) قارن بين الزلازل والبراكين (التعريف – النتائج).</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans"><b>الزلازل:</b> هزات أرضية طبيعية سريعة ومتتالية للقشرة الأرضية، تسبب انهيارات وانزلاقات أرضية وظهور أو غمر بعض اليابسة وتسونامى.<br><b>البراكين:</b> فتحات فى القشرة تخرج منها الصخور المنصهرة والغازات، تكوّن جبالًا وسهولًا وهضابًا وتغير مسار الأنهار، وتنشر الرماد البركانى فى البيئة.</div></div>
+      <div class="reveal-q"><p>5) علّل: تعمل البراكين على تغيير مظاهر سطح الأرض.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">لأن المواد المنصهرة التى تندفع منها تتصلد وتتراكم فتكوّن جبالًا وسهولًا وهضابًا، وقد تغطى بحيرات أو تغير مسار الأنهار.</div></div>
+      <div class="reveal-q"><p>6) علّل: حدوث تسونامى فى السواحل.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">بسبب حدوث زلزال قوى فى قاع البحر أو المحيط يحرك كميات ضخمة من الماء فتتولد موجات عملاقة تضرب السواحل.</div></div>
+      <div class="reveal-q"><p>7) علّل: لا يُعد الأوبال معدنًا بالرغم من أن له بريقًا.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">لأنه لا يتميز بنظام بللورى منتظم، أى ليس له ترتيب بللورى للذرات، والمعدن يجب أن يكون صلبًا طبيعيًا غير عضوى ذا نظام بللورى وتركيب كيميائى محدد.</div></div>
+      <div class="reveal-q"><p>8) وضّح كيف تتكون المعادن.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">تنشأ المعادن من عدة مصادر منها: تصلد (تجمد) الصهير (الماجما) وتبلر المحاليل الحارة، وكذلك تبلر المحاليل المشبعة عند تبخر الماء.</div></div>
+      <div class="reveal-q"><p>9) قارن بين التربة المنقولة والتربة المحلية (طريقة التكوين – التركيب الكيميائى).</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans"><b>المنقولة:</b> تنقلها المياه أو الرياح من مكان تكونها إلى مكان آخر (مثل تربة دلتا النيل) فتختلف فى تركيبها عن الصخور التى تعلوها.<br><b>المحلية:</b> تتكون من التجوية البطيئة للصخور فى نفس مكانها فيشبه تركيبها تركيب الصخور الأصلية.</div></div>
+      <div class="reveal-q"><p>10) اقترح بعض الحلول للعمل على استدامة الموارد غير المتجددة والحد من استنزافها.</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">ترشيد الاستهلاك، إعادة تدوير المعادن، الاعتماد على مصادر الطاقة المتجددة كالشمس والرياح، وتشجيع الأبحاث عن بدائل، والتوعية بأهمية الحفاظ عليها.</div></div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn prev" onclick="showView('unit4')">← الوحدة الرابعة</button>
+      <button class="nav-btn next" onclick="showView('units')">كل الوحدات 🏠 →</button>
+    </div>
+  </div>
+
+  <!-- ============ GENERAL EXAMS VIEW ============ -->
+  <div class="lesson-view" id="view-general">
+    <button class="back-btn" onclick="genBack()">→ رجوع</button>
+    <div class="lesson-banner" style="background:linear-gradient(135deg,#0E5C7A,#7B4FA0 55%,#E8622C);">
+      <div class="tag">الفصل الدراسى الأول · الوحدات من الأولى إلى الرابعة</div>
+      <h2>🏆 الاختبارات العامة</h2>
+      <p>اختبارات شاملة بمستويات متدرجة: أساسى ومتوسط، وحوالى 30% منها أسئلة «متفوق» للارتقاء بمستواك. فى كل سؤال زر <b>تلميح</b> يقودك لطريقة الحل، وإجابات نموذجية بالمصطلحات العلمية.</p>
+    </div>
+    <div id="genRoot"></div>
+  </div>
+
   <!-- ============ REVIEW VIEW ============ -->
   <div class="lesson-view" id="view-review">
     <button class="back-btn" onclick="showView('home')">→ رجوع للوحدة الأولى</button>
@@ -2057,7 +2260,9 @@
 let progress = {
   lesson1:null, lesson2:null, lesson3:null, lesson4:null,
   lesson1w:null, lesson2w:null, lesson3w:null, lesson4w:null,
-  u1qa:null, u1qb:null, u1qc:null
+  u1qa:null, u1qb:null, u1qc:null,
+  u3qa:null, u3qb:null, u3qc:null,
+  u4qa:null, u4qb:null, u4qc:null
 };
 
 const STORAGE_KEY = 'dalty-science-progress-v1';
@@ -2091,7 +2296,10 @@ function showView(id){
     updateCurve(slider ? slider.value : 0);
   }
   document.body.classList.toggle('unit-2', ['unit2','lesson5','lesson6','lesson7','chem','chemtrain'].includes(id));
+  document.body.classList.toggle('unit-3', ['unit3','lesson8','lesson9','unitq3'].includes(id));
+  document.body.classList.toggle('unit-4', ['unit4','lesson10','lesson11','unitq4'].includes(id));
   currentView = id;
+  if(id==='general' && window.genHome) genHome();
   updateAiContext();
 }
 
@@ -2105,8 +2313,9 @@ const lessonsMeta = [
 const unitsMeta = [
   {num:'01', title:'المادة والطاقة', desc:'حالات المادة، تغيّر الحالة، الطاقة الداخلية ودرجة الحرارة، وطرق انتقال الحرارة.', icon:'🧪', color:'linear-gradient(135deg,#0E5C7A,#3FAFC0)', lessons:4, view:'home', keys:['lesson1','lesson2','lesson3','lesson4'], extra:['u1qa','u1qb','u1qc']},
   {num:'02', title:'المادة والتفاعلات الكيميائية', desc:'التفاعلات الكيميائية، المعادلة الكيميائية، وكيمياء التغذية.', icon:'⚗️', color:'linear-gradient(135deg,#5B3A82,#2E9B6B)', lessons:3, view:'unit2', keys:['lesson5','lesson6','lesson7']},
-  {num:'03', title:'تدفق الطاقة فى البناء الضوئى والتنفس الخلوى', desc:'عملية البناء الضوئى وعملية التنفس الخلوى.', icon:'🌿', color:'linear-gradient(135deg,#2E9B6B,#146E86)', lessons:2, view:null},
-  {num:'04', title:'العمليات الچيولوچية', desc:'تغيير سطح الأرض، وتكوين المعادن والتربة.', icon:'🌋', color:'linear-gradient(135deg,#C64A19,#E8622C)', lessons:2, view:null},
+  {num:'03', title:'تدفق الطاقة فى البناء الضوئى والتنفس الخلوى', desc:'عملية البناء الضوئى وعملية التنفس الخلوى.', icon:'🌿', color:'linear-gradient(135deg,#2E9B6B,#146E86)', lessons:2, view:'unit3', keys:['lesson8','lesson9'], extra:['u3qa','u3qb','u3qc']},
+  {num:'04', title:'العمليات الچيولوچية', desc:'تغيير سطح الأرض، وتكوين المعادن والتربة.', icon:'🌋', color:'linear-gradient(135deg,#C64A19,#E8622C)', lessons:2, view:'unit4', keys:['lesson10','lesson11'], extra:['u4qa','u4qb','u4qc']},
+  {num:'★', title:'الاختبارات العامة', desc:'ثلاثة اختبارات شاملة بمستويات متدرجة، واختبار رابع للتفكير العليا (بعض أسئلته من خارج المنهج)، مع تلميحات وإجابات نموذجية بالمصطلحات.', icon:'🏆', color:'linear-gradient(135deg,#0E5C7A,#E8622C)', lessons:4, view:'general', keys:[], general:true},
 ];
 function renderUnitGrid(){
   const grid = document.getElementById('unitGrid');
@@ -2116,7 +2325,7 @@ function renderUnitGrid(){
     const ex = u.extra||[];
     const total = open ? u.keys.length*2 + ex.length : 0;
     const done = open ? u.keys.reduce((n,k)=>n+(progress[k]!==null?1:0)+(progress[k+'w']!==null?1:0),0) + ex.filter(k=>progress[k]!==null).length : 0;
-    const meta = open ? `${u.lessons} دروس · ${done} / ${total} تقييمات مكتملة` : `${u.lessons} ${u.lessons===2?'درسان':'دروس'}`;
+    const meta = u.general ? `${u.lessons} اختبارات · ${genDoneCount()} / ${u.lessons} مكتملة` : open ? `${u.lessons} دروس · ${done} / ${total} تقييمات مكتملة` : `${u.lessons} ${u.lessons===2?'درسان':'دروس'}`;
     return `<div class="lesson-card ${open?'':'soon'}">
       <div class="num">${u.num}</div>
       <div class="lesson-icon" style="background:${u.color};"><span style="font-size:24px;">${u.icon}</span></div>
@@ -2124,7 +2333,7 @@ function renderUnitGrid(){
       <div class="unit-meta">${meta}</div>
       <p>${u.desc}</p>
       <div class="lesson-foot">
-        ${open ? `<button class="lesson-btn" onclick="showView('${u.view}')">${done?'تابع الوحدة':'ابدأ الوحدة'}</button>`
+        ${open ? `<button class="lesson-btn" onclick="showView('${u.view}')">${u.general?'ابدأ الاختبارات':(done?'تابع الوحدة':'ابدأ الوحدة')}</button>`
                : `<button class="lesson-btn" disabled>⏳ قريبًا</button>`}
       </div>
     </div>`;
@@ -2171,8 +2380,11 @@ function renderLessonGrid(){
   }).join('');
   };
   renderInto('lessonGrid',isU1);
-  renderInto('lessonGrid2',l=>!isU1(l));
+  renderInto('lessonGrid2',l=>['lesson5','lesson6','lesson7'].includes(l.id));
+  renderInto('lessonGrid3',l=>['lesson8','lesson9'].includes(l.id));
+  renderInto('lessonGrid4',l=>['lesson10','lesson11'].includes(l.id));
   if(window.updateUq1Badge) updateUq1Badge();
+  if(window.updateUqBadge){ updateUqBadge(3); updateUqBadge(4); }
 }
 
 /* ================= PARTICLE SIM ENGINE ================= */
@@ -3538,7 +3750,7 @@ window.addEventListener('load', ()=>{
 <script>(function(){
 const U=[
 {id:'lesson5',num:'05',icon:'⚗️',color:'linear-gradient(135deg,#2E9B6B,#0E5C7A)',title:'التفاعلات الكيميائية',desc:'الوحدة 2 · مفهوم التفاعل ودلائل حدوثه.',
- vids:[['ocb00vM38aM','🎬 اشرح بالفيديو','التفاعلات الكيميائية — الدرس الأول','شرح مفهوم التفاعل الكيميائى والفرق بينه وبين التغير الفيزيائى.'],['OcfdvZITlkk','🎬 اشرح بالفيديو','تابع التفاعل الكيميائى','استكمال شرح التفاعلات الكيميائية بأمثلة وتطبيقات.'],['sjVhX4WMn6w','🎬 اشرح بالفيديو','دلائل التفاعلات الكيميائية','كيف نستدل على حدوث التفاعل: راسب، تغير لون، غاز، ضوء وحرارة.'],['s_rEPNQXJY8','🎬 فيديو إثرائى','الرابطة الأيونية — الجزء الأول من الروابط الكيميائية','تعرّف على الرابطة الأيونية، وهى بداية فهم كسر الروابط وتكوينها فى التفاعل.']],
+ vids:[['ocb00vM38aM','🎬 اشرح بالفيديو','التفاعلات الكيميائية — الدرس الأول','شرح مفهوم التفاعل الكيميائى والفرق بينه وبين التغير الفيزيائى.'],['OcfdvZITlkk','🎬 اشرح بالفيديو','تابع التفاعل الكيميائى','استكمال شرح التفاعلات الكيميائية بأمثلة وتطبيقات.'],['sjVhX4WMn6w','🎬 اشرح بالفيديو','دلائل التفاعلات الكيميائية','كيف نستدل على حدوث التفاعل: راسب، تغير لون، غاز، ضوء وحرارة.'],['s_rEPNQXJY8','🎬 فيديو إثرائى','الرابطة الأيونية — الجزء الأول من الروابط الكيميائية','تعرّف على الرابطة الأيونية، وهى بداية فهم كسر الروابط وتكوينها فى التفاعل.'],['IPUxNLxZ0lk','🎬 فيديو إثرائى','التغيرات الحرارية عند تفاعل الجبس مع الماء','تجربة توضح الطاقة الحرارية المصاحبة للتفاعل الكيميائى: تفاعل الجبس مع الماء وارتفاع درجة الحرارة (تفاعل طارد للحرارة).']],
  intro:'التغير الكيميائى ينتج عنه مواد جديدة تختلف خواصها عن المواد الأصلية، أما التغير الفيزيائى فلا يغيّر التركيب الكيميائى للمادة.',
  secs:[
  ['مفهوم التفاعل الكيميائى','<p>التفاعل الكيميائى هو عملية <strong class="hl">كسر الروابط</strong> بين ذرات جزيئات المتفاعلات، ثم <strong class="hl">تكوين روابط جديدة</strong> بين ذرات جزيئات النواتج.</p><ul><li>مثال: الخل + صودا الخبز ← فوران وتصاعد غاز ثانى أكسيد الكربون.</li><li>احتراق الخشب تغير كيميائى، وانصهار الثلج تغير فيزيائى.</li></ul>'],
@@ -3748,6 +3960,463 @@ window.addEventListener('load',()=>{
 })();
 </script>
 <script>
+/* ===== الوحدة الثالثة: تدفق الطاقة فى عمليتى البناء الضوئى والتنفس الخلوى (الدرسان 8 و 9) ===== */
+(function(){
+const TB='style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;"';
+const TD='style="padding:7px;border:1px solid var(--line);text-align:center;"';
+const TH='style="padding:7px;border:1px solid var(--line);text-align:center;background:var(--bg);font-weight:800;"';
+const U3=[
+{id:'lesson8',num:'08',icon:'🌿',color:'linear-gradient(135deg,#1F7A4D,#C99A1E)',title:'عملية البناء الضوئى',desc:'الوحدة 3 · البلاستيدة الخضراء، امتصاص الكلوروفيل للضوء، المرحلتان الضوئية واللاضوئية، والعوامل المؤثرة.',
+ vids:[['qd9lzYfPg_Q','🎬 اشرح بالفيديو','تدفق الطاقة فى عملية البناء الضوئى','شرح تدفق الطاقة فى البناء الضوئى داخل البلاستيدة الخضراء مع الأستاذ إيهاب.']],
+ intro:'فى البناء الضوئى تحوّل النباتات الطاقة الضوئية إلى طاقة كيميائية مختزنة فى سكر الجلوكوز، وذلك داخل البلاستيدات الخضراء.',
+ secs:[
+ ['تجربة ڤان هيلمونت',`<p>اعتقد معظم العلماء حتى القرن السابع عشر أن النباتات تحصل على غذائها من التربة، إلى أن أجرى العالم البلچيكى <strong class="hl2">ڤان هيلمونت</strong> تجربته:</p><ul><li>زرع شتلة صفصاف كتلتها <strong class="hl">2.2 kg</strong> فى وعاء به تربة جافة كتلتها <strong class="hl">90 kg</strong>.</li><li>رواها بالماء فقط لمدة <strong class="hl">5 سنوات</strong> دون إضافة أى مواد أخرى.</li><li>بعد 5 سنوات أصبحت كتلة الشجرة <strong class="hl">75 kg</strong> (زيادة 72.8 kg)، بينما لم تنقص كتلة التربة سوى <strong class="hl">55 g</strong>.</li></ul><p><strong class="hl2">الاستنتاج:</strong> نمو الشجرة لا يعتمد بشكل أساسى على امتصاص الغذاء من التربة؛ والنقص الطفيف يرجع إلى امتصاص كميات ضئيلة من عناصرها، أما <strong class="hl">الماء</strong> فهو العنصر الأساسى فى نمو الشجرة.</p><p>وأوضحت الأبحاث فيما بعد أن النباتات تستخدم أيضًا <strong class="hl">ثانى أكسيد الكربون</strong> و<strong class="hl">ضوء الشمس</strong> لصنع غذائها فى عملية البناء الضوئى.</p><p style="font-size:12.5px;color:var(--ink-soft);">💡 تراكم معرفى: ينتقل الماء والأملاح المعدنية من الجذور إلى باقى النبات عن طريق <strong>أوعية الخشب</strong>، وينتقل الغذاء من الأوراق إلى باقى الأجزاء عن طريق <strong>أوعية اللحاء</strong>.</p>`],
+ ['البلاستيدات الخضراء',`<p>عضيات خلوية تشبه <strong class="hl">حبة العدس</strong>، توجد فى خلايا الأجزاء الخضراء من النباتات (خاصة الأوراق والسيقان العشبية كالملوخية) وفى الطحالب الخضراء، وفيها تتم عملية البناء الضوئى.</p><ul><li><strong class="hl2">غشاء مزدوج:</strong> يسمح بانتقال المواد من البلاستيدة وإليها.</li><li><strong class="hl2">الستروما (الحشوة):</strong> أرضية البلاستيدة، تحتوى معظم الإنزيمات اللازمة للتفاعلات <strong>اللاضوئية</strong>.</li><li><strong class="hl2">الجرانا:</strong> وحدات بنائية تسمى <strong>الأقراص</strong> (يصل عددها إلى 15 قرصًا أو أكثر) وتتم فيها التفاعلات <strong>الضوئية</strong>. تتصل حواف بعض الأقراص بحواف أقراص جرانا مجاورة بأغشية رقيقة فتزداد مساحة سطح الأقراص المعرضة للضوء.</li><li>تحتوى أغشية الأقراص على عدة أصباغ منها <strong class="hl">الكلوروفيل</strong> الأخضر.</li></ul><p><strong class="hl2">أنواع البلاستيدات:</strong> خضراء (كالأوراق)، <strong>ملونة</strong> (فى بعض الثمار كالبرقوق وبتلات الأزهار)، <strong>عديمة اللون</strong> (فى البطاطا والبطاطس).</p>`],
+ ['امتصاص الضوء بواسطة الكلوروفيل',`<p>يتكون الضوء الأبيض من سبعة ألوان (الأحمر، البرتقالى، الأصفر، الأخضر، الأزرق، النيلى، البنفسجى). وعند تمرير الضوء الملون خلال محلول الكلوروفيل الأخضر الشفاف يتضح أنه:</p><ul><li><strong class="hl">ينفذ</strong> الضوء الأخضر فقط.</li><li><strong class="hl">يمتص</strong> كلًّا من الضوء <strong>الأحمر</strong> و<strong>الأزرق</strong>، وتُستخدم طاقتهما فى التفاعلات الضوئية فى الجرانا لتحويل الطاقة الضوئية إلى <strong>طاقة كيميائية</strong> مختزنة فى سكر الجلوكوز.</li></ul><p>ويظهر الجسم بلون الضوء الذى يعكسه ويمتص باقى الألوان، لذا تبدو الأوراق <strong class="hl2">خضراء</strong>.</p>`],
+ ['آلية حدوث عملية البناء الضوئى',`<p>تتم العملية على مرحلتين:</p><p><strong class="hl2">أولًا: التفاعلات الضوئية</strong> (على أغشية الأقراص فى الجرانا، وتعتمد على وجود الضوء):</p><ul><li>يمتص الكلوروفيل طاقة الضوء الأزرق والأحمر فيصبح <strong>كلوروفيل نشط (مثار)</strong>.</li><li>يُستخدم جزء من طاقته فى <strong>تحليل الماء</strong>: <span class="mono">2H₂O ⟶ 2H₂ + O₂</span>، وينتقل الأكسچين إلى الهواء الجوى كناتج ثانوى.</li><li>يُستخدم الجزء المتبقى فى تحويل <span class="mono">ADP</span> (أدينوسين ثنائى الفوسفات) إلى <span class="mono">ATP</span> (أدينوسين ثلاثى الفوسفات) بإضافة مجموعة فوسفات <span class="mono">P</span>، ويُستخدم ATP فى المرحلة اللاضوئية.</li></ul><p><strong class="hl2">ثانيًا: التفاعلات اللاضوئية</strong> (فى الستروما، ولا تحتاج الضوء مباشرة):</p><ul><li>ينتقل الهيدروچين من أغشية الأقراص إلى الستروما.</li><li>يتحد الهيدروچين مع ثانى أكسيد الكربون الممتص من الهواء، فى وجود ATP والإنزيمات، لتكوين <strong>سكر الجلوكوز</strong> <span class="mono">C₆H₁₂O₆</span>.</li></ul><p style="font-size:12.5px;color:var(--ink-soft);">🧠 الإنزيمات جزيئات بروتين تعمل كعوامل حفز، تزيد معدل التفاعلات اللاضوئية دون درجات الحرارة المرتفعة اللازمة فى معامل الأبحاث.</p>`],
+ ['معادلة البناء الضوئى وتخزين الجلوكوز',`<p style="text-align:center;direction:ltr;font-size:15px;"><span class="mono">6CO₂ + 6H₂O ⟶ C₆H₁₂O₆ + 6O₂</span><br><span style="font-size:11px;color:var(--ink-soft);">(ضوء الشمس + كلوروفيل)</span></p><table ${TB}><tr><td ${TH}>العنصر</td><td ${TH}>فى المتفاعلات</td><td ${TH}>فى النواتج</td></tr><tr><td ${TD}>C</td><td ${TD}>6</td><td ${TD}>6</td></tr><tr><td ${TD}>H</td><td ${TD}>12</td><td ${TD}>12</td></tr><tr><td ${TD}>O</td><td ${TD}>18</td><td ${TD}>18</td></tr></table><p>النبات <strong>يعيد ترتيب (تجميع) الذرات</strong> التى حصل عليها من جزيئات بسيطة، فتتحقق المعادلة الموزونة وقانون بقاء الكتلة.</p><p>يذوب الجلوكوز فى الماء، لذا ترتبط جزيئات عديدة منه فى سلاسل طويلة مكونة حبيبات <strong class="hl">نشا</strong> شحيحة الذوبان فى الماء البارد، فتُخزَّن فى الأوراق والجذور والسيقان بكفاءة عالية (كأوراق القلقاس وجذور البطاطا وسيقان البطاطس).</p>`],
+ ['تكوين النشا فى الورقة (نشاط الورقة المبرقشة)',`<ul><li>1) تُؤخذ ورقة مبرقشة سبق تعرضها للضوء وتوضع دقيقتين فى ماء يغلى <strong>لكسر جدران الخلايا</strong>.</li><li>2) تُسخَّن فى الإيثانول داخل حمام مائى حتى <strong>يزول الكلوروفيل</strong> الأخضر، حتى لا يعيق لونه وضوح لون اليود.</li><li>3) تُغسل بالماء لتصبح طرية، ثم تُضاف قطرات محلول اليود.</li></ul><p><strong class="hl2">النتيجة:</strong> يتحول لون اليود إلى <strong class="hl">الأزرق الداكن</strong> فى المناطق الخضراء فقط، فيدل ذلك على أهمية <strong>الكلوروفيل</strong> فى تكوين النشا. وإذا غُطى جزء من الورقة بشريط معتم قبل التجربة فلا يتغير لون اليود فيه، فيدل ذلك على أهمية <strong>الضوء</strong>.</p>`],
+ ['العوامل المؤثرة فى معدل البناء الضوئى',`<ul><li><strong class="hl2">درجة الحرارة:</strong> للمعدل قيمة مثلى (النقطة X فى الشكل البيانى بكتابك عند نحو 20°C)، ويقل المعدل عند زيادة الحرارة عنها.</li><li><strong class="hl2">تركيز ثانى أكسيد الكربون:</strong> يزداد المعدل بزيادة التركيز حتى قيمة مثلى (النقطة Y) ثم يثبت.</li><li><strong class="hl2">شدة الاستضاءة:</strong> يزداد المعدل بزيادتها حتى قيمة مثلى (النقطة Z) ثم يثبت.</li><li>وتؤثر أيضًا عوامل أخرى كالماء والأملاح المعدنية والرياح.</li></ul><p style="font-size:12.5px;color:var(--ink-soft);">جرّب المعمل التفاعلى أعلاه لتغيّر كل عامل وتشاهد أثره على المعدل.</p>`],
+ ['🏙️ تطبيق تكنولوچى: الزراعة العمودية',`<p>تقنية حديثة فى المدن المتقدمة تحاكى الظروف المناسبة للزراعة لإتمام عملية البناء الضوئى، لإنتاج الخضروات والفاكهة فى مبان متعددة الطوابق باستخدام الإضاءة الصناعية والمغذيات المائية، لتوفير حل مستدام لمشكلة نقص الأراضى الزراعية الصالحة.</p><p style="font-size:12.5px;color:var(--ink-soft);">💬 قضية للمناقشة: دور الزراعة العمودية فى مواجهة تحديات الأمن الغذائى.</p>`]
+ ],
+ steps:{key:'ph',title:'🎞️ رحلة الطاقة داخل البلاستيدة الخضراء',items:[
+  ['☀️','الجرانا (الأقراص)','الكلوروفيل يمتص الضوء','يمتص الكلوروفيل طاقة الضوء الأحمر والأزرق فيصبح كلوروفيل نشط (مثار).'],
+  ['💧','الجرانا (الأقراص)','تحليل الماء','جزء من طاقة الكلوروفيل النشط يحلل الماء: 2H₂O ← 2H₂ + O₂. ينتقل الأكسچين إلى الهواء كناتج ثانوى.'],
+  ['🔋','الجرانا (الأقراص)','تكوين ATP','الجزء المتبقى من الطاقة يحوّل ADP + P إلى ATP لاستخدامه فى المرحلة اللاضوئية.'],
+  ['➡️','الانتقال إلى الستروما','انتقال الهيدروچين','ينتقل الهيدروچين المحمول على أحد المركبات من أغشية الأقراص إلى الستروما.'],
+  ['🍬','الستروما (الحشوة)','تكوين الجلوكوز','يتحد الهيدروچين مع ثانى أكسيد الكربون بوجود ATP والإنزيمات فيتكون سكر الجلوكوز C₆H₁₂O₆.'],
+  ['🥔','الأوراق والجذور والسيقان','تخزين النشا','ترتبط جزيئات الجلوكوز فى سلاسل طويلة مكونة حبيبات نشا شحيحة الذوبان فتخزن بكفاءة.']]},
+ labs:['absorb','factors'],
+ cls:[['فى أى مرحلة يحدث هذا؟','cls8a',['ضوئية','لاضوئية'],[['تحليل الماء إلى أكسچين وهيدروچين','ضوئية'],['تكوين سكر الجلوكوز','لاضوئية'],['تحويل ADP إلى ATP','ضوئية'],['تتم فى الستروما','لاضوئية'],['تتم على أغشية الأقراص فى الجرانا','ضوئية'],['اتحاد الهيدروچين مع ثانى أكسيد الكربون','لاضوئية'],['امتصاص الكلوروفيل لطاقة الضوء','ضوئية']]],
+      ['نوع البلاستيدة','cls8b',['خضراء','ملونة','عديمة اللون'],[['أوراق الملوخية','خضراء'],['ثمرة البرقوق','ملونة'],['بتلات الأزهار','ملونة'],['درنة البطاطس','عديمة اللون'],['جذور البطاطا','عديمة اللون'],['ساق عشبية خضراء','خضراء']]],
+      ['مادة داخلة أم ناتجة فى البناء الضوئى؟','cls8c',['داخلة','ناتجة'],[['ثانى أكسيد الكربون','داخلة'],['الماء','داخلة'],['سكر الجلوكوز','ناتجة'],['الأكسچين','ناتجة'],['الضوء','داخلة']]]],
+ rev:[
+  ['زادت كتلة شجرة ڤان هيلمونت من 2.2 إلى 75 kg بينما نقصت التربة 55 g فقط. ماذا تستنتج؟','الشجرة لا تعتمد أساسًا على غذاء التربة، فالزيادة (72.8 kg) جاءت من الماء وثانى أكسيد الكربون وضوء الشمس.'],
+  ['تمتص الأجسام الملونة بعض ألوان الطيف وتعكس لونها. وضّح لماذا تظهر أوراق النبات خضراء.','لأن الكلوروفيل يمتص الضوء الأحمر والأزرق ويعكس (ينفذ) الضوء الأخضر، فتظهر الأوراق بلونه.'],
+  ['من الشكل (11): وضّح أوجه التشابه والاختلاف بين جزىء ADP وجزىء ATP.','التشابه: كلاهما يتكون من الأدنين وسكر الريبوز (أدينوسين). الاختلاف: ADP به مجموعتا فوسفات، وATP به ثلاث مجموعات فوسفات ويتكون بإضافة مجموعة فوسفات إلى ADP بطاقة الكلوروفيل النشط.'],
+  ['كيف تؤثر قلة الضوء على التفاعلات الضوئية واللاضوئية؟ وما تأثير ذلك على نمو النبات؟','تقل التفاعلات الضوئية (يقل تحليل الماء وتكوين ATP والهيدروچين)، فيقل ما يصل للتفاعلات اللاضوئية فيقل تكوين الجلوكوز، فيبطؤ نمو النبات.'],
+  ['هل يتأثر وجود النشا فى ورقة إذا غُطى جزء منها بشريط يحجب الضوء قبل التجربة؟','نعم، لا يتكون نشا فى الجزء المغطى فلا يتحول لون اليود فيه إلى الأزرق الداكن، لأن الضوء ضرورى للبناء الضوئى.']],
+ flip:[
+  ['يُخزَّن الجلوكوز فى أجزاء النبات على هيئة حبيبات نشا.','لأن الجلوكوز يذوب فى الماء، فترتبط جزيئاته فى سلاسل طويلة مكونة نشا شحيح الذوبان فى الماء البارد، فيخزن فى الأوراق والجذور والسيقان بكفاءة عالية.'],
+  ['يُزال الكلوروفيل من الورقة بالإيثانول قبل إضافة محلول اليود.','حتى لا يعيق لونه الأخضر وضوح اللون الأزرق الداكن الذى يتكون عند وجود النشا.'],
+  ['تُغلى الورقة فى الماء دقيقتين قبل استخلاص الكلوروفيل.','لكسر جدران الخلايا.'],
+  ['لا يتلون الجزء المغطى بشريط معتم من الورقة بالأزرق الداكن.','لأن الضوء ضرورى لعملية البناء الضوئى، فلا يتكون جلوكوز ولا نشا فى الجزء المحجوب عنه الضوء.'],
+  ['تتصل حواف الأقراص فى الجرانا بأغشية رقيقة.','لتزداد مساحة سطح الأقراص المعرضة للضوء فيزداد امتصاصه.'],
+  ['تبدو ثمار البرقوق وبتلات الأزهار بألوان غير خضراء.','لاحتوائها على بلاستيدات ملونة بدلًا من البلاستيدات الخضراء.'],
+  ['تظهر أوراق النبات خضراء اللون.','لأن الكلوروفيل يمتص الضوء الأحمر والأزرق ويعكس الأخضر.']],
+ q:[
+  ['بعد ري شتلة صفصاف بالماء فقط 5 سنوات زادت كتلتها كثيرًا ولم تنقص التربة إلا 55 g. توصل ڤان هيلمونت إلى أن:',['الماء عنصر أساسى فى نمو الشجرة','التربة هى المصدر الرئيسى لغذاء الشجرة','الشجرة لا تحتاج أى مواد','الهواء هو العامل الوحيد'],0],
+  ['تتم عملية البناء الضوئى داخل:',['الميتوكوندريا','البلاستيدات الخضراء','النواة','الفجوة العصارية'],1],
+  ['الصبغة التى تمتص طاقة الضوء فى أغشية الأقراص هى:',['الكلوروفيل','الإنزيم','ATP','النشا'],0],
+  ['ينفذ محلول الكلوروفيل من الضوء الملون:',['الأحمر','الأزرق','الأخضر','الأحمر والأزرق معًا'],2],
+  ['مصدر الأكسچين الناتج فى البناء الضوئى هو:',['ثانى أكسيد الكربون','تحليل الماء','تحلل الجلوكوز','الإنزيمات'],1]],
+ w:[
+  ['أوضحت تجربة ڤان هيلمونت أهمية العامل (X) فى عملية نمو النبات. ما العامل (X)؟',['التربة','الماء','ثانى أكسيد الكربون','ضوء الشمس'],1],
+  ['أى العوامل التالية لا يُعد من العوامل المؤثرة فى معدل البناء الضوئى كما درست؟',['شدة الاستضاءة','درجة الحرارة','تركيز غاز الأكسچين فى الجو','تركيز غاز ثانى أكسيد الكربون'],2],
+  ['تمثل عملية البناء الضوئى بالمعادلة الموزونة: X + 6CO₂ ← Y + 6O₂ . أى مما يلى يعبر عن كل من X وY؟',['X : 6H₂O ، Y : 6C₆H₁₂O₆','X : 6C₆H₁₂O₆ ، Y : 6H₂O','X : 6H₂O ، Y : C₆H₁₂O₆','X : C₆H₁₂O₆ ، Y : 6H₂O'],2],
+  ['الإنزيمات عبارة عن:',['بروتينات ودهون فقط','بروتينات تعمل كعوامل حفز','دهون فقط','دهون تعمل كعوامل حفز'],1],
+  ['تتركب (X) من الوحدات البنائية (Y) التى تُجرى على أغشيتها تفاعلات (Z). أى مما يلى صحيح؟',['X الجرانا ، Y الأقراص ، Z ضوئية','X الجرانا ، Y الأقراص ، Z لاضوئية','X الستروما ، Y الحشوة ، Z ضوئية','X الستروما ، Y الحشوة ، Z لاضوئية'],0],
+  ['ورقة نبات ملونة باللونين الأخضر والأحمر غُطى جزء منها بشريط أسود وعُرضت للضوء ثم نُزع منها الكلوروفيل وأُضيف اليود. أى الأجزاء يتلون بالأزرق الداكن؟',['الجزء الأخضر المعرض للضوء','الجزء الأحمر المعرض للضوء','الجزء الأخضر المغطى بالشريط','كل أجزاء الورقة'],0],
+  ['يُخزَّن الجلوكوز فى أجزاء النبات على هيئة حبيبات نشا لأن النشا:',['يذوب بسهولة فى العصارة النباتية','شحيح الذوبان فى الماء البارد ويخزن بكفاءة عالية','أسرع فى إنتاج الطاقة','يمتص الضوء'],1]]
+},
+{id:'lesson9',num:'09',icon:'🔋',color:'linear-gradient(135deg,#C99A1E,#1F7A4D)',title:'عملية التنفس الخلوى',desc:'الوحدة 3 · التبادل الغازى، الميتوكوندريا، مرحلتا التنفس الخلوى، وعمليات البناء والهدم.',
+ vids:[['kqM3jx4SELU','🎬 اشرح بالفيديو','عملية التنفس الخلوى','شرح التنفس الخلوى وكيف تحرر الخلايا الطاقة من الجلوكوز داخل الميتوكوندريا مع الأستاذ إيهاب.']],
+ intro:'التنفس الخلوى عملية هدم لجزيئات الغذاء داخل الخلايا الحية فى وجود الأكسچين، تنتج الماء وثانى أكسيد الكربون وكمية من الطاقة فى صورة جزيئات ATP.',
+ secs:[
+ ['التبادل الغازى والتنفس الخلوى',`<p>يحدث <strong class="hl">تبادل للغازات</strong> فى عملية التنفس: يحصل الكائن الحى على الأكسچين من الهواء الجوى ويتخلص من ثانى أكسيد الكربون. أما <strong class="hl2">التنفس الخلوى</strong> فهو العملية التى يتم فيها إنتاج الطاقة داخل الخلايا.</p><table ${TB}><tr><td ${TH}>وجه المقارنة</td><td ${TH}>التبادل الغازى</td><td ${TH}>التنفس الخلوى</td></tr><tr><td ${TD}>مكان الحدوث</td><td ${TD}>بين الكائن الحى والبيئة</td><td ${TD}>داخل الخلايا (معظمه فى الميتوكوندريا)</td></tr><tr><td ${TD}>ما يحدث</td><td ${TD}>دخول O₂ وخروج CO₂</td><td ${TD}>هدم الجلوكوز وإنتاج الطاقة (ATP)</td></tr></table><ul><li>النباتات لا تمتلك جهازًا تنفسيًا متخصصًا، لكنها تحصل على الأكسچين من الهواء الجوى عبر فتحات طبيعية فى الأوراق تسمى <strong class="hl">الثغور</strong>.</li><li><strong>التنفس</strong> يحدث نهارًا وليلًا فى النبات (يدخل O₂ ويخرج CO₂)، أما <strong>البناء الضوئى</strong> فيحدث نهارًا فقط لتوافر الضوء.</li><li>يُستدل على <strong>استهلاك الأكسچين</strong> من زوال لون أزرق الميثيلين، وعلى <strong>تكوّن CO₂</strong> من تعكر ماء الجير الرائق.</li><li>الجير الصودى ومحلول هيدروكسيد الصوديوم يمتصان غاز CO₂ من الوسط المحيط.</li></ul>`],
+ ['الميتوكوندريا',`<p>عضيات متخصصة تشبه <strong class="hl">حبة الفاصوليا</strong>، توجد فى معظم الخلايا وتعمل كمحطات لإنتاج الطاقة من المواد الغذائية.</p><ul><li><strong class="hl2">غشاء خارجى مستوٍ:</strong> يحمى مكونات الميتوكوندريا وينظم دخول وخروج المواد.</li><li><strong class="hl2">غشاء داخلى متعرج:</strong> يشكل ثنيات تسمى <strong>الأعراف</strong> تزيد مساحة السطح الداخلى فتسمح بإنتاج مزيد من الطاقة.</li><li><strong class="hl2">الحشوة:</strong> سائل داخل الغشاء الداخلى به الإنزيمات المستخدمة فى تحفيز التفاعلات.</li></ul><p>ويزداد عدد الميتوكوندريا فى الخلايا التى تحتاج قدرًا كبيرًا من الطاقة كخلايا الكبد والعضلات.</p>`],
+ ['آلية حدوث التنفس الخلوى',`<p>تتم العملية على مرحلتين:</p><p><strong class="hl2">المرحلة الأولى (فى السيتوبلازم وفى غياب الأكسچين):</strong> يتحلل كل جزىء جلوكوز فى وجود الماء، خلال سلسلة تفاعلات، إلى <strong>2 جزىء حمض بيروفيك</strong> مع تكوّن طاقة محدودة فى صورة ATP، ثم ينتقل حمض البيروفيك إلى الميتوكوندريا.</p><p><strong class="hl2">المرحلة الثانية (فى الميتوكوندريا وفى وجود الأكسچين)</strong> ويتم فيها نوعان من التفاعلات:</p><ul><li><strong>تفاعلات دورة كربس:</strong> يُهدم حمض البيروفيك لإنتاج طاقة محدودة (ATP) وغاز <strong>ثانى أكسيد الكربون</strong> الذى ينتقل إلى الهواء الجوى.</li><li><strong>تفاعلات سلسلة نقل الإلكترون:</strong> على الغشاء الداخلى، تشارك فيها الإلكترونات الناتجة من دورة كربس، لتكوين <strong>كمية كبيرة من ATP</strong> و<strong>الماء</strong>.</li></ul>`],
+ ['معادلة التنفس الخلوى',`<p style="text-align:center;direction:ltr;font-size:15px;"><span class="mono">C₆H₁₂O₆ + 6O₂ ⟶ 6CO₂ + 6H₂O + طاقة (ATP)</span></p><p>الجلوكوز (الذى صنعه البناء الضوئى أو أخذه الكائن من غذائه) يُهدم فى الخلايا فتُعاد ترتيب ذراته لتكوين جزيئات أصغر (ماء وثانى أكسيد الكربون) مع انطلاق الطاقة، فتحقق المعادلة قانون بقاء المادة.</p>`],
+ ['الطاقة وعمليات التمثيل الغذائى (الأيض)',`<p>تحتاج الكائنات الحية إلى الطاقة للقيام بجميع العمليات الحيوية (كالنمو والحركة)، ويتم ذلك من خلال تفاعلات كيميائية تحدث فى الخلايا تتضمن عمليات بناء وعمليات هدم تُعرف بالتمثيل الغذائى (الأيض).</p><table ${TB}><tr><td ${TH}></td><td ${TH}>عمليات البناء</td><td ${TH}>عمليات الهدم</td></tr><tr><td ${TD}>الطاقة</td><td ${TD}>تُستهلك فيها طاقة ATP</td><td ${TD}>تنطلق فيها طاقة ATP</td></tr><tr><td ${TD}>ما يحدث</td><td ${TD}>بناء جزىء كبير معقد من جزيئات صغيرة</td><td ${TD}>هدم جزىء كبير إلى جزيئات أبسط</td></tr><tr><td ${TD}>أمثلة</td><td ${TD}>تكوين الچليكوچين من الجلوكوز، والبروتينات من الأحماض الأمينية، وATP من ADP</td><td ${TD}>هدم الجلوكوز فى التنفس الخلوى، وهدم البروتين والچليكوچين فى الهضم</td></tr></table><p style="font-size:12.5px;color:var(--ink-soft);">🔎 هدم المواد الغذائية يتضمن كسر روابط وتكوين روابط جديدة، لذا يصاحبه تكوّن نواتج جديدة وانطلاق طاقة.</p>`],
+ ['🏋️ تطبيق تكنولوچى: جهاز محلل معدل الأيض',`<p>يوفر الجهاز بيانات دقيقة عن معدل الأيض أثناء الراحة، تساعد فى التخطيط الفعال للنظام الغذائى والتمارين الرياضية لإدارة وزن الجسم بشكل أكثر نجاحًا واستدامة.</p><p style="font-size:12.5px;color:var(--ink-soft);">💬 قضية للمناقشة: أثر الأنظمة الغذائية القاسية على عمليات الأيض.</p>`]
+ ],
+ steps:{key:'rs',title:'🎞️ رحلة جزىء الجلوكوز داخل الخلية',items:[
+  ['🍬','السيتوبلازم','المرحلة الأولى بلا أكسچين','يتحلل جزىء الجلوكوز فى وجود الماء إلى 2 جزىء حمض بيروفيك مع طاقة محدودة (ATP).'],
+  ['🚚','الانتقال إلى الميتوكوندريا','دخول حمض البيروفيك','ينتقل حمض البيروفيك عبر الغشاء إلى الميتوكوندريا حيث يوجد الأكسچين.'],
+  ['🔄','حشوة الميتوكوندريا','دورة كربس','يُهدم حمض البيروفيك فتنتج طاقة محدودة (ATP) وغاز CO₂ ينتقل إلى الهواء الجوى.'],
+  ['⚡','الغشاء الداخلى (الأعراف)','سلسلة نقل الإلكترون','تشارك الإلكترونات الناتجة من دورة كربس لتكوين كمية كبيرة من ATP وجزيئات الماء.'],
+  ['🌍','النواتج النهائية','الماء وCO₂ وطاقة ATP','يستخدم الكائن الحى طاقة ATP فى عملياته الحيوية، ويتخلص من CO₂ فى الهواء الجوى.']]},
+ labs:['jars'],
+ cls:[['بناء أم هدم؟','cls9a',['بناء','هدم'],[['التئام الجروح','بناء'],['تحويل الأحماض الأمينية إلى بروتينات','بناء'],['التنفس الخلوى','هدم'],['تحويل الدهون إلى طاقة','هدم'],['تكوين الچليكوچين من الجلوكوز','بناء'],['هضم البروتين','هدم'],['تكوين ATP من ADP','بناء']]],
+      ['أين تحدث الخطوة؟','cls9b',['السيتوبلازم','الحشوة','الغشاء الداخلى'],[['تحلل الجلوكوز إلى حمض بيروفيك','السيتوبلازم'],['دورة كربس','الحشوة'],['سلسلة نقل الإلكترون','الغشاء الداخلى'],['تكوين الماء وكمية كبيرة من ATP','الغشاء الداخلى']]],
+      ['بناء ضوئى أم تنفس خلوى؟','cls9c',['بناء ضوئى','تنفس خلوى'],[['يحتاج إلى الضوء','بناء ضوئى'],['يحدث فى الميتوكوندريا','تنفس خلوى'],['يحدث فى البلاستيدات الخضراء','بناء ضوئى'],['ينتج الجلوكوز','بناء ضوئى'],['يستهلك الجلوكوز','تنفس خلوى'],['يحدث ليلًا ونهارًا','تنفس خلوى'],['يستهلك CO₂','بناء ضوئى'],['يطلق CO₂ إلى الهواء','تنفس خلوى']]]],
+ rev:[
+  ['قارن بين مرحلة التفاعلات الضوئية فى البناء الضوئى والتفاعلات فى التنفس الخلوى من حيث موضع الحدوث والناتج المنتقل إلى الهواء.','الضوئية: على أغشية الأقراص فى جرانا البلاستيدة، والناتج المنتقل للهواء الأكسچين. التنفس الخلوى (دورة كربس وسلسلة نقل الإلكترون): فى الميتوكوندريا، والناتج المنتقل للهواء ثانى أكسيد الكربون.'],
+  ['لماذا تكون عملية كسر الروابط فى جزيئات الجلوكوز مصحوبة بامتصاص طاقة، بينما تكون عملية هدم الجلوكوز مصحوبة بانطلاق طاقة؟','كسر الروابط يحتاج إلى طاقة تُمتص، أما فى هدم الجلوكوز فتتكون روابط جديدة فى النواتج (CO₂ وماء) فتنطلق طاقة أكبر، فتكون المحصلة انطلاق طاقة (ATP).'],
+  ['اكتب المعادلة الرمزية الموزونة للتنفس الخلوى.','C₆H₁₂O₆ + 6O₂ ← 6CO₂ + 6H₂O + طاقة (ATP).'],
+  ['تنبأ: هل يمكن حدوث بناء ضوئى فى ناقوس به جير صودى؟ فسّر.','لا (أو يتوقف)، لأن الجير الصودى يمتص CO₂ وهو من مواد البناء الضوئى.'],
+  ['ما التغير المحتمل ملاحظته عند نقص نسبة الأكسچين وزيادة نسبة CO₂ فى الناقوس؟','يزول لون أزرق الميثيلين ويتعكر ماء الجير.']],
+ flip:[
+  ['وجود ثنيات فى الغشاء الداخلى للميتوكوندريا.','لزيادة مساحة السطح الداخلى للميتوكوندريا مما يسمح بإنتاج المزيد من الطاقة.'],
+  ['تتم معظم عمليات التنفس الخلوى فى الميتوكوندريا.','لأنها محطات إنتاج الطاقة: تحتوى حشوتها على الإنزيمات، وعلى غشائها الداخلى تتم سلسلة نقل الإلكترون التى تنتج كمية كبيرة من ATP.'],
+  ['زيادة عدد الميتوكوندريا فى خلايا العضلات.','لأن العضلات تحتاج إلى قدر كبير من الطاقة.'],
+  ['يزول لون أزرق الميثيلين ليلًا فى ناقوس به نبات.','لأن النبات يستهلك الأكسچين فى التنفس دون أن ينتج أكسچين بالبناء الضوئى فى الظلام.'],
+  ['يتعكر ماء الجير ليلًا بجوار النبات.','لأن النبات يتنفس فيطلق غاز ثانى أكسيد الكربون الذى يعكّر ماء الجير.'],
+  ['لا يحدث بناء ضوئى فى ناقوس به جير صودى.','لأن الجير الصودى يمتص ثانى أكسيد الكربون اللازم لعملية البناء الضوئى.'],
+  ['يحصل النبات على الأكسچين رغم أنه لا يمتلك جهازًا تنفسيًا.','عبر فتحات طبيعية فى الأوراق تسمى الثغور.']],
+ q:[
+  ['التنفس الخلوى عملية:',['بناء تستهلك الطاقة','هدم لجزيئات الغذاء مع انطلاق طاقة','تحدث فى الضوء فقط','تحدث فى النباتات فقط'],1],
+  ['تحدث معظم عمليات التنفس الخلوى داخل:',['البلاستيدات الخضراء','الميتوكوندريا','النواة','جدار الخلية'],1],
+  ['المرحلة الأولى من التنفس الخلوى تتم فى:',['السيتوبلازم فى غياب الأكسچين','الميتوكوندريا فى وجود الأكسچين','الجرانا','الستروما'],0],
+  ['يتحلل جزىء الجلوكوز فى المرحلة الأولى إلى:',['جزىء واحد من حمض البيروفيك','جزيئين من حمض البيروفيك','ثلاثة جزيئات ماء','ستة جزيئات CO₂'],1],
+  ['تتكون كمية كبيرة من ATP والماء فى:',['السيتوبلازم','دورة كربس فقط','سلسلة نقل الإلكترون','الستروما'],2]],
+ w:[
+  ['أى مما يلى يُعد صحيحًا بالنسبة لعملية التنفس؟',['تحدث نهارًا وليلًا فى جميع الخلايا','تحدث نهارًا وليلًا فى خلايا الأجزاء الخضراء فقط','تحدث ليلًا فقط فى جميع الخلايا','تحدث ليلًا فقط فى خلايا الأجزاء الخضراء'],0],
+  ['تحتوى الميتوكوندريا على:',['غشاء خارجى متعرج','غشاء داخلى مستوٍ','حشوة سائلة تسمى الأعراف','حشوة تحتوى على إنزيمات'],3],
+  ['تتشابه البلاستيدات الخضراء مع الميتوكوندريا فى وجود:',['إنزيمات فى الحشوة','الأعراف','صفائح غشائية','الجرانا'],0],
+  ['فى أى الحالات التالية يحدث البناء الضوئى والتنفس فى نفس الوقت؟',['نبات مائى فى أنبوبة مغطاة بغطاء أسود','قوقع فقط فى ماء','نبات مائى فى ماء معرض للضوء','ماء فقط بلا كائنات'],2],
+  ['البناء الضوئى عملية (X) والتنفس الخلوى عملية (Y). أى مما يلى صحيح؟',['X : هدم ، Y : بناء','X : بناء ، Y : بناء','X : بناء ، Y : هدم','X : هدم ، Y : هدم'],2],
+  ['أنبوبتان بهما نبات مائى وأزرق الميثيلين: الأولى مغطاة بغطاء أسود والثانية معرضة لضوء الشمس. بعد ساعات يزول اللون الأزرق فى:',['الأنبوبة المغطاة فقط','الأنبوبة المعرضة للضوء فقط','الأنبوبتين','لا يزول فى أيهما'],0],
+  ['أى مما يلى يُعد من عمليات الهدم؟',['تكوين البروتينات من الأحماض الأمينية','التئام الجروح','هدم الجلوكوز فى التنفس الخلوى','تكوين ATP من ADP'],2]]
+}];
+
+/* ---------- تسجيل الدروس ---------- */
+U3.forEach(l=>lessonsMeta.push({id:l.id,num:l.num,title:l.title,desc:l.desc,icon:l.icon,color:l.color}));
+U3.forEach(l=>{const n=l.id.slice(6);progress[l.id]=null;progress[l.id+'w']=null;
+ quizzes[n]=l.q.map(x=>({q:x[0],opts:x[1],correct:x[2]}));weeklyQuizzes[n]=l.w.map(x=>({q:x[0],opts:x[1],correct:x[2]}));
+ reasonCards[n]=l.flip.map(x=>({q:x[0],a:x[1]}));lessonLabels[l.id]='الدرس '+l.num+': '+l.title;
+ aiChipsByView[l.id]=['اشرح لى '+l.title,'ما أهم ما يجب حفظه فى هذا الدرس؟'];});
+lessonLabels.unit3='الوحدة الثالثة: تدفق الطاقة';
+aiChipsByView.unit3=['ما الفرق بين البناء الضوئى والتنفس الخلوى؟','ما العلاقة بين الطاقة والجلوكوز؟'];
+knowledgeBase.push(
+{kw:['البناء الضوئى','عملية البناء الضوئى','التمثيل الضوئى'],a:'البناء الضوئى عملية تحول فيها النباتات الطاقة الضوئية إلى طاقة كيميائية مختزنة فى سكر الجلوكوز داخل البلاستيدات الخضراء: 6CO₂ + 6H₂O ← C₆H₁₂O₆ + 6O₂ فى وجود الضوء والكلوروفيل. تتم على مرحلتين: ضوئية (الجرانا) ولاضوئية (الستروما).'},
+{kw:['تجربة ڤان هيلمونت','فان هيلمونت','هيلمونت','شتلة الصفصاف'],a:'زرع هيلمونت شتلة صفصاف (2.2 kg) فى تربة جافة (90 kg) وسقاها بالماء 5 سنوات، فصارت كتلتها 75 kg ونقصت التربة 55 g فقط. استنتج أن نمو الشجرة لا يعتمد أساسًا على غذاء التربة، وأن الماء عنصر أساسى فى نموها. وأوضحت الأبحاث لاحقًا استخدام CO₂ وضوء الشمس.'},
+{kw:['البلاستيدات الخضراء','تركيب البلاستيدة','الجرانا','الستروما'],a:'البلاستيدة الخضراء عضية تشبه حبة العدس، تتركب من غشاء مزدوج، والستروما (الحشوة) وفيها إنزيمات التفاعلات اللاضوئية، والجرانا وهى أقراص متراصة تتم فيها التفاعلات الضوئية وبأغشيتها الكلوروفيل.'},
+{kw:['الكلوروفيل','لماذا الاوراق خضراء','امتصاص الضوء'],a:'الكلوروفيل صبغة خضراء فى أغشية الأقراص تمتص الضوء الأحمر والأزرق وتعكس الأخضر، لذلك تبدو الأوراق خضراء. تُستخدم طاقة الضوء الممتص فى التفاعلات الضوئية.'},
+{kw:['التفاعلات الضوئية','المرحلة الضوئية'],a:'التفاعلات الضوئية تتم على أغشية الأقراص فى الجرانا: يمتص الكلوروفيل الضوء فيصبح نشطًا، فيحلل الماء إلى أكسچين وهيدروچين (ينتقل الأكسچين للهواء)، ويحول ADP إلى ATP.'},
+{kw:['التفاعلات اللاضوئية','المرحلة اللاضوئية'],a:'التفاعلات اللاضوئية تتم فى الستروما: يتحد الهيدروچين مع ثانى أكسيد الكربون بوجود ATP والإنزيمات لتكوين سكر الجلوكوز.'},
+{kw:['ATP','ADP','أدينوسين','جزىء الطاقة'],a:'ATP أدينوسين ثلاثى الفوسفات (أدنين + سكر ريبوز + 3 مجموعات فوسفات) يتكون من ADP بإضافة مجموعة فوسفات، وهو الصورة التى تنطلق بها الطاقة ويستخدمها الكائن الحى فى عملياته الحيوية.'},
+{kw:['العوامل المؤثرة على البناء الضوئى','عوامل البناء الضوئى'],a:'يتأثر معدل البناء الضوئى بدرجة الحرارة (قيمة مثلى ثم يقل)، وتركيز CO₂ وشدة الاستضاءة (يزداد المعدل ثم يثبت عند قيمة مثلى)، وكذلك الماء والأملاح المعدنية والرياح.'},
+{kw:['اختبار النشا فى الورقة','الورقة المبرقشة'],a:'تُغلى الورقة لكسر جدران الخلايا، ثم تُسخن فى الإيثانول لإزالة الكلوروفيل، ثم يُضاف اليود فيتحول إلى أزرق داكن فى المناطق الخضراء المعرضة للضوء فقط.'},
+{kw:['الزراعة العمودية'],a:'الزراعة العمودية تقنية تحاكى ظروف البناء الضوئى داخل مبان متعددة الطوابق بالإضاءة الصناعية والمغذيات المائية، لتوفير حل مستدام لنقص الأراضى الزراعية.'},
+{kw:['التنفس الخلوى','عملية التنفس الخلوى'],a:'التنفس الخلوى هدم لجزيئات الغذاء (كالجلوكوز) داخل الخلايا بوجود الأكسچين: C₆H₁₂O₆ + 6O₂ ← 6CO₂ + 6H₂O + طاقة (ATP)، ويتم معظمه فى الميتوكوندريا.'},
+{kw:['الميتوكوندريا','الأعراف','تركيب الميتوكوندريا'],a:'الميتوكوندريا عضية تشبه حبة الفاصوليا وتعمل كمحطة لإنتاج الطاقة: غشاء خارجى مستوٍ، وغشاء داخلى متعرج يكوّن الأعراف لزيادة المساحة، وحشوة بها إنزيمات.'},
+{kw:['مراحل التنفس الخلوى','دورة كربس','سلسلة نقل الالكترون','حمض البيروفيك'],a:'المرحلة الأولى فى السيتوبلازم بلا أكسچين: الجلوكوز ← 2 حمض بيروفيك + قليل ATP. المرحلة الثانية فى الميتوكوندريا بوجود الأكسچين: دورة كربس (طاقة محدودة + CO₂) ثم سلسلة نقل الإلكترون (كمية كبيرة من ATP + ماء).'},
+{kw:['الفرق بين البناء الضوئى والتنفس الخلوى','البناء الضوئى والتنفس'],a:'البناء الضوئى عملية بناء تحدث فى البلاستيدات الخضراء فى وجود الضوء وتستهلك CO₂ والماء وتنتج الجلوكوز والأكسچين. التنفس الخلوى عملية هدم تحدث ليلًا ونهارًا فى الميتوكوندريا وتستهلك الجلوكوز والأكسچين وتنتج CO₂ والماء وطاقة ATP.'},
+{kw:['التبادل الغازى','الثغور'],a:'التبادل الغازى هو حصول الكائن الحى على الأكسچين وتخلصه من CO₂. النباتات تحصل على الأكسچين عبر فتحات الأوراق (الثغور) وليس لها جهاز تنفسى متخصص.'},
+{kw:['الأيض','التمثيل الغذائى','عمليات البناء','عمليات الهدم','البناء والهدم'],a:'الأيض مجموع عمليات البناء والهدم فى الخلايا. البناء يستهلك طاقة ATP لبناء جزىء كبير من جزيئات صغيرة (كالبروتينات)، والهدم تنطلق فيه طاقة ATP من هدم جزىء كبير (كالجلوكوز).'}
+);
+
+/* ---------- بناء صفحات الدروس ---------- */
+const main=document.querySelector('main');
+const sec=(h,b)=>`<div class="card"><h3><span class="dot"></span> ${h}</h3>${b}</div>`;
+const LAB={
+absorb:`<div class="card lab-card"><span class="lab-tag">🔬 معمل تفاعلى</span><h3><span class="dot"></span> لماذا الأوراق خضراء؟ جرّب الشفافيات الملونة</h3><p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">ضع شفافية ملونة بين المصباح وأنبوبة محلول الكلوروفيل، ولاحظ هل يمر الضوء الملون خلال المحلول.</p><div class="u3-row"><button class="u3-btn" data-c="red" onclick="u3Abs('red',this)">🟥 شفافية حمراء</button><button class="u3-btn" data-c="blue" onclick="u3Abs('blue',this)">🟦 شفافية زرقاء</button><button class="u3-btn" data-c="green" onclick="u3Abs('green',this)">🟩 شفافية خضراء</button></div><svg class="u3-svg" viewBox="0 0 400 150"><circle cx="38" cy="75" r="20" fill="#FFD54F"/><g stroke="#FFD54F" stroke-width="3" stroke-linecap="round"><path d="M38 40v-8M38 118v8M5 75h-8M71 75h8M15 52l-6-6M61 98l6 6M15 98l-6 6M61 52l6-6"/></g><text x="38" y="145" text-anchor="middle" font-size="10" fill="#4C6570">مصباح</text><rect x="62" y="66" width="68" height="18" fill="#fff" stroke="#E0E6E8"/><rect id="u3AbsF" x="130" y="38" width="10" height="74" rx="3" fill="#ccc" opacity=".2"/><text x="135" y="132" text-anchor="middle" font-size="10" fill="#4C6570">شفافية</text><rect id="u3AbsB" x="140" y="66" width="110" height="18" fill="#fff" opacity="0"/><rect x="250" y="34" width="60" height="82" rx="10" fill="#2E9B6B" opacity=".85" stroke="#14573A" stroke-width="2"/><text x="280" y="132" text-anchor="middle" font-size="10" fill="#4C6570">محلول الكلوروفيل</text><rect id="u3AbsC" x="310" y="66" width="85" height="18" fill="#2EB872" opacity="0"/></svg><div class="u3-res" id="u3AbsRes">اختر لون الشفافية لترى ماذا يحدث للضوء.</div></div>`,
+factors:`<div class="card lab-card"><span class="lab-tag">🔬 معمل تفاعلى</span><h3><span class="dot"></span> العوامل المؤثرة فى معدل البناء الضوئى</h3><p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">اختر العامل ثم حرّك المؤشر وشاهد أثره على المعدل (مع ثبات باقى العوامل).</p><div class="u3-row"><button class="u3-btn on" data-f="temp" onclick="u3Fac('temp')">🌡️ درجة الحرارة</button><button class="u3-btn" data-f="co2" onclick="u3Fac('co2')">💨 تركيز CO₂</button><button class="u3-btn" data-f="light" onclick="u3Fac('light')">💡 شدة الاستضاءة</button></div><svg class="u3-svg" id="u3FacSvg" viewBox="0 0 360 200"></svg><input type="range" dir="ltr" class="u3-range" id="u3FacRange" oninput="u3FacDraw()"><div class="u3-res" id="u3FacOut"></div></div>`,
+jars:`<div class="card lab-card"><span class="lab-tag">🔬 معمل تفاعلى</span><h3><span class="dot"></span> تجربة النواقيس: هل يتنفس النبات ليلًا؟</h3><p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">كل ناقوس يغطى نباتًا بجوار مادة كاشفة. اختر الناقوس ووقت التجربة، <strong>تنبأ بالنتيجة</strong> ثم اضغط «اعرض النتيجة».</p><div class="u3-row" id="u3JarPick"><button class="u3-btn" data-j="1" onclick="u3JarSet('j',1)">1 · ماء الجير الرائق</button><button class="u3-btn" data-j="2" onclick="u3JarSet('j',2)">2 · أزرق الميثيلين</button><button class="u3-btn" data-j="3" onclick="u3JarSet('j',3)">3 · الجير الصودى</button></div><div class="u3-row"><button class="u3-btn" data-t="day" onclick="u3JarSet('t','day')">☀️ نهارًا (بوجود الضوء)</button><button class="u3-btn" data-t="night" onclick="u3JarSet('t','night')">🌙 ليلًا (بدون ضوء)</button></div><svg class="u3-svg" viewBox="0 0 300 180"><rect id="u3JarBg" x="0" y="0" width="300" height="180" fill="#EAF4EE"/><text id="u3JarSky" x="262" y="34" font-size="28" text-anchor="middle">❔</text><path d="M60 150V78Q60 22 150 22T240 78V150Z" fill="rgba(255,255,255,.35)" stroke="#4C6570" stroke-width="3"/><line x1="40" y1="150" x2="260" y2="150" stroke="#4C6570" stroke-width="4"/><text x="105" y="142" font-size="52" text-anchor="middle">🪴</text><rect id="u3JarCup" x="160" y="118" width="46" height="32" rx="5" fill="#fff" stroke="#4C6570" stroke-width="2"/><text id="u3JarLab" x="183" y="112" font-size="10" text-anchor="middle" fill="#122A33"></text></svg><div class="u3-row"><button class="u3-btn" style="background:var(--deep);color:#fff;" onclick="u3JarGo()">🔍 اعرض النتيجة</button></div><div class="u3-res" id="u3JarRes">اختر الناقوس ووقت التجربة، ثم تنبأ قبل عرض النتيجة.</div></div>`
+};
+const stepsCard=(s)=>`<div class="card lab-card"><span class="lab-tag">🎞️ خطوة بخطوة</span><h3><span class="dot"></span> ${s.title}</h3><div class="u3-dots" id="u3d-${s.key}"></div><div class="u3-step" id="u3s-${s.key}"></div><div class="u3-row" style="justify-content:space-between;"><button class="u3-btn" onclick="u3Step('${s.key}',-1)">→ السابق</button><button class="u3-btn" onclick="u3Step('${s.key}',1)">التالى ←</button></div></div>`;
+U3.forEach((l,i)=>{
+ const n=l.id.slice(6),prev=i?U3[i-1].id:'unit3',next=i<U3.length-1?U3[i+1].id:'unit3';
+ let h=`<div class="lesson-view" id="view-${l.id}"><button class="back-btn" onclick="showView('unit3')">→ رجوع للدروس</button><div class="lesson-banner" style="background:${l.color};"><div class="tag">الوحدة الثالثة · الدرس ${l.num}</div><h2>${l.icon} ${l.title}</h2><p>${l.intro}</p></div>`;
+ const yc=(v,c)=>`<a class="yt-card${c}" href="https://www.youtube.com/watch?v=${v[0]}" target="_blank" rel="noopener"><div class="yt-thumb" style="background-image:url('https://i.ytimg.com/vi/${v[0]}/maxresdefault.jpg'),url('https://i.ytimg.com/vi/${v[0]}/hqdefault.jpg');"><span class="yt-play">▶</span></div><div class="yt-info"><span class="yt-tag">${v[1]}</span><h4>${v[2]}</h4><p>${v[3]}</p></div></a>`;
+ if(l.vids)h+=l.vids.length>1?`<div class="yt-grid">${l.vids.map(v=>yc(v,'')).join('')}</div>`:yc(l.vids[0],' yt-solo');
+ h+=stepsCard(l.steps);
+ l.labs.forEach(k=>h+=LAB[k]);
+ l.secs.forEach(s=>h+=sec(s[0],s[1]));
+ l.cls.forEach(c=>h+=`<div class="card lab-card"><span class="lab-tag">🔬 نشاط تصنيف</span><h3><span class="dot"></span> ${c[0]}</h3><div class="classify-grid" id="${c[1]}"></div></div>`);
+ h+=`<div class="card lab-card"><span class="lab-tag">📘 قيّم فهمك</span>`+l.rev.map(r=>`<div class="reveal-q"><p>🤔 ${r[0]}</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">${r[1]}</div></div>`).join('')+`</div>`;
+ h+=sec('علّل لما يأتى',`<div class="flip-grid" id="flipGrid-${n}"></div>`);
+ h+=`<div class="card quiz-card" id="quizCard-${n}"></div><div class="card quiz-card"><span class="weekly-badge">📋 أسئلة تقييم الدرس من الكتاب المدرسى</span><div id="quizCard-${n}w"></div></div>`;
+ h+=`<div class="game-banner" onclick="gmOpen('${l.id}')"><span class="gb-ic">🎮</span><div><h3>تحدّى هذا الدرس</h3><p>مشكلات حياتية تغطى كل أفكار الدرس مع جولة «صيد الأخطاء»</p></div><span class="gb-cta">العب الآن ▶</span></div><div class="nav-buttons"><button class="nav-btn prev" onclick="showView('${i?prev:'unit3'}')">${i?'← الدرس السابق':'الوحدة الثالثة'}</button><button class="nav-btn next" onclick="showView('${next}')">${next==='unit3'?'إنهاء الوحدة 🎉':'الدرس التالى →'}</button></div></div>`;
+ main.insertAdjacentHTML('beforeend',h);
+});
+
+/* ---------- نشاط التصنيف ---------- */
+window.clsReg=window.clsReg||{};
+function rc(id,opts,data){clsReg[id]={opts,data};document.getElementById(id).innerHTML=data.map((d,i)=>`<div class="classify-card"><h4>${d[0]}</h4><div class="classify-opts" id="${id}-${i}">${opts.map(o=>`<button class="classify-opt" onclick="cls2('${id}',${i},'${o}')">${o}</button>`).join('')}</div></div>`).join('');}
+
+/* ---------- خطوة بخطوة ---------- */
+const STEPS={};U3.forEach(l=>STEPS[l.steps.key]={i:0,items:l.steps.items});
+function stepDraw(k){const s=STEPS[k],it=s.items[s.i];
+ document.getElementById('u3d-'+k).innerHTML=s.items.map((_,j)=>`<span class="${j===s.i?'on':(j<s.i?'done':'')}"></span>`).join('');
+ document.getElementById('u3s-'+k).innerHTML=`<div class="u3-step-ic">${it[0]}</div><div><span class="u3-chip">📍 ${it[1]}</span><h4>${s.i+1}. ${it[2]}</h4><p>${it[3]}</p></div>`;}
+window.u3Step=(k,d)=>{const s=STEPS[k];s.i=Math.max(0,Math.min(s.items.length-1,s.i+d));stepDraw(k);};
+
+/* ---------- معمل الكلوروفيل ---------- */
+window.u3Abs=(c,btn)=>{
+ document.querySelectorAll('.u3-btn[data-c]').forEach(b=>b.classList.toggle('on',b===btn));
+ const col={red:'#E53935',blue:'#1E6BE0',green:'#2EB872'}[c],pass=c==='green',nm={red:'الأحمر',blue:'الأزرق',green:'الأخضر'}[c];
+ const set=(id,a)=>{const e=document.getElementById(id);Object.keys(a).forEach(k=>e.setAttribute(k,a[k]));};
+ set('u3AbsF',{fill:col,opacity:.85});set('u3AbsB',{fill:col,opacity:1});set('u3AbsC',{fill:col,opacity:pass?1:0});
+ document.getElementById('u3AbsRes').innerHTML=pass?`✅ <b>ينفذ الضوء ${nm}</b> خلال محلول الكلوروفيل لأن الكلوروفيل <b>لا يمتصه</b> بل يعكسه، ولذلك تظهر الأوراق خضراء.`:`⛔ <b>لا ينفذ الضوء ${nm}</b> لأن الكلوروفيل <b>يمتصه</b>، وتُستخدم طاقته فى التفاعلات الضوئية بالجرانا لتحويل الطاقة الضوئية إلى طاقة كيميائية.`;
+};
+
+/* ---------- معمل العوامل ---------- */
+const sm=x=>x*x*(3-2*x);
+const FAC={
+ temp:{t:'درجة الحرارة',pt:'X',min:0,max:50,step:1,val:10,opt:20,u:'°C',ax:'درجة الحرارة (°C)',f:v=>v<=20?0.12+0.88*Math.pow(Math.sin(Math.PI*v/40),1.5):(v<40?0.5*(1+Math.cos(Math.PI*(v-20)/20)):0)},
+ co2:{t:'تركيز CO₂',pt:'Y',min:0,max:0.2,step:0.005,val:0.03,opt:0.1,u:'%',ax:'تركيز CO₂ (%)',f:v=>v<0.1?sm(v/0.1):1},
+ light:{t:'شدة الاستضاءة',pt:'Z',min:0,max:100,step:1,val:20,opt:60,u:' وحدة',ax:'شدة الاستضاءة (وحدات نسبية)',f:v=>v<60?(1-Math.exp(-v/18))/(1-Math.exp(-60/18)):1}
+};
+let facK='temp';
+window.u3Fac=k=>{facK=k;document.querySelectorAll('.u3-btn[data-f]').forEach(b=>b.classList.toggle('on',b.dataset.f===k));const F=FAC[k],r=document.getElementById('u3FacRange');r.min=F.min;r.max=F.max;r.step=F.step;r.value=F.val;u3FacDraw();};
+window.u3FacDraw=()=>{
+ const F=FAC[facK],v=+document.getElementById('u3FacRange').value,X0=40,X1=340,Y0=170,Y1=20;
+ const px=x=>X0+(x-F.min)/(F.max-F.min)*(X1-X0),py=y=>Y0-y*(Y0-Y1);
+ let d='';for(let i=0;i<=80;i++){const x=F.min+(F.max-F.min)*i/80;d+=(i?'L':'M')+px(x).toFixed(1)+' '+py(F.f(x)).toFixed(1);}
+ const y=F.f(v);
+ document.getElementById('u3FacSvg').innerHTML=`<line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="#4C6570" stroke-width="2"/><line x1="${X0}" y1="${Y0}" x2="${X0}" y2="${Y1-6}" stroke="#4C6570" stroke-width="2"/><line x1="${px(F.opt)}" y1="${Y0}" x2="${px(F.opt)}" y2="${Y1}" stroke="#1F7A4D" stroke-dasharray="4 4"/><text x="${px(F.opt)}" y="${Y1-6}" font-size="13" font-weight="800" fill="#1F7A4D" text-anchor="middle">${F.pt}</text><path d="${d}" fill="none" stroke="#E8622C" stroke-width="3"/><line x1="${px(v)}" y1="${Y0}" x2="${px(v)}" y2="${py(y)}" stroke="#7B4FA0" stroke-dasharray="3 3"/><circle cx="${px(v)}" cy="${py(y)}" r="7" fill="#7B4FA0" stroke="#fff" stroke-width="2"/><text x="${(X0+X1)/2}" y="192" font-size="11" text-anchor="middle" fill="#4C6570">${F.ax}</text><text x="14" y="95" font-size="11" fill="#4C6570" transform="rotate(-90 14 95)" text-anchor="middle">معدل البناء الضوئى</text>`;
+ const pct=Math.round(y*100),vv=facK==='co2'?v.toFixed(3):v;
+ let msg;
+ if(facK==='temp'){msg=v<F.opt?'📈 المعدل يزداد كلما اقتربت درجة الحرارة من القيمة المثلى.':(v===F.opt?'🎯 هذه هى القيمة المثلى (X): أعلى معدل للبناء الضوئى.':(y<.03?'📉 المعدل يقترب من الصفر.':'📉 المعدل يقل بعد تجاوز القيمة المثلى.'));}
+ else{msg=v<F.opt?'📈 المعدل يزداد بزيادة هذا العامل.':'🎯 وصل المعدل إلى قيمته القصوى ('+F.pt+') وثبت: زيادة العامل لم تعد ترفعه لأن عوامل أخرى أصبحت هى المحددة.';}
+ document.getElementById('u3FacOut').innerHTML=`<b>${F.t}:</b> ${vv}${F.u} &nbsp;|&nbsp; <b>المعدل:</b> ${pct}% من الأقصى<div style="height:10px;background:#DCE6E8;border-radius:6px;margin:8px 0;overflow:hidden;"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#C99A1E,#1F7A4D);"></div></div>${msg}`;
+};
+
+/* ---------- معمل النواقيس ---------- */
+const JR={
+ '1|night':{cup:'#EDEDED',lab:'ماء الجير',sky:'🌙',bg:'#1E2A44',t:'⚪ <b>يتعكر ماء الجير</b> لأن النبات يتنفس ليلًا فيُطلق غاز CO₂ ولا يحدث بناء ضوئى لغياب الضوء. (دليل على حدوث التنفس ليلًا)'},
+ '1|day':{cup:'#D9ECFA',lab:'ماء الجير',sky:'☀️',bg:'#FFF6D6',t:'💧 <b>يظل ماء الجير رائقًا (أو يقل تعكره كثيرًا)</b> لأن CO₂ الناتج من التنفس يُستهلك فى البناء الضوئى نهارًا.'},
+ '2|night':{cup:'#F4FAFF',lab:'أزرق الميثيلين',sky:'🌙',bg:'#1E2A44',t:'⚪ <b>يزول اللون الأزرق</b> لأن النبات يستهلك الأكسچين فى التنفس ولا ينتج أكسچين بالبناء الضوئى فى الظلام.'},
+ '2|day':{cup:'#2B6FDB',lab:'أزرق الميثيلين',sky:'☀️',bg:'#FFF6D6',t:'🔵 <b>يبقى اللون أزرق</b> لأن البناء الضوئى يُطلق أكسچينًا يعوّض ما يستهلكه التنفس.'},
+ '3|night':{cup:'#EFE9D8',lab:'جير صودى',sky:'🌙',bg:'#1E2A44',t:'🧴 يستمر التنفس، والجير الصودى <b>يمتص غاز CO₂</b> الناتج من التنفس ولا يتجمع فى الناقوس.'},
+ '3|day':{cup:'#EFE9D8',lab:'جير صودى',sky:'☀️',bg:'#FFF6D6',t:'🚫 <b>لا يحدث بناء ضوئى</b> (أو يتوقف) رغم وجود الضوء لأن الجير الصودى يمتص غاز CO₂ اللازم للعملية، بينما يستمر التنفس.'}
+};
+const JS={j:0,t:''};
+window.u3JarSet=(a,v)=>{JS[a]=v;document.querySelectorAll('.u3-btn[data-'+a+']').forEach(b=>b.classList.toggle('on',String(b.dataset[a])===String(v)));
+ if(a==='t'){document.getElementById('u3JarBg').setAttribute('fill',v==='night'?'#1E2A44':'#FFF6D6');document.getElementById('u3JarSky').textContent=v==='night'?'🌙':'☀️';}
+ document.getElementById('u3JarRes').textContent='تنبأ بالنتيجة ثم اضغط «اعرض النتيجة».';};
+window.u3JarGo=()=>{if(!JS.j||!JS.t){document.getElementById('u3JarRes').textContent='اختر الناقوس ووقت التجربة أولًا.';return;}
+ const r=JR[JS.j+'|'+JS.t];document.getElementById('u3JarCup').setAttribute('fill',r.cup);document.getElementById('u3JarLab').textContent=r.lab;document.getElementById('u3JarRes').innerHTML=r.t;};
+
+window.addEventListener('load',()=>{
+ U3.forEach(l=>{const n=l.id.slice(6);renderQuiz(n,quizzes[n],{progressKey:l.id,title:'اختبر فهمك'});renderQuiz(n+'w',weeklyQuizzes[n],{progressKey:l.id+'w',title:'أسئلة تقييم الدرس من الكتاب المدرسى'});renderFlipCards(n);l.cls.forEach(c=>rc(c[1],c[2],c[3]));stepDraw(l.steps.key);});
+ u3Fac('temp');renderLessonGrid();updateTopProgress();
+});
+})();
+</script>
+<script>
+/* ===== هيرو الوحدة 3: ضوء الشمس وجزيئات CO₂ وH₂O وO₂ ===== */
+(function(){
+ const cv=document.getElementById('heroCanvas3'); if(!cv) return;
+ const ctx=cv.getContext('2d');
+ const C={H:[236,246,255],O:[255,120,95],C:[190,205,215]};
+ const T={H2O:[[0,-3,7,'O',1],[-11,7,4.5,'H',1],[11,7,4.5,'H',1]],CO2:[[-17,0,7,'O',1],[0,0,7,'C',1],[17,0,7,'O',1]],O2:[[-9,0,7,'O',1],[9,0,7,'O',1],[0,0,3,'O',0]]};
+ const names=Object.keys(T);let W=0,H=0,dpr=1,mols=[],ph=[],fl=[];
+ function fit(){const r=cv.getBoundingClientRect();if(!r.width)return false;dpr=window.devicePixelRatio||1;const w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);if(w!==W||h!==H){W=cv.width=w;H=cv.height=h;init();}return true;}
+ const mk=t=>T[t].map(a=>({ox:a[0],oy:a[1],r:a[2],col:C[a[3]],al:a[4]}));
+ function init(){mols=[];ph=[];fl=[];const n=Math.max(9,Math.round(W/dpr/80));
+  for(let i=0;i<n;i++){const t=names[i%names.length];mols.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.8*dpr,vy:(Math.random()-.5)*.8*dpr,ang:Math.random()*6.28,spin:(Math.random()-.5)*.02,type:t,atoms:mk(t),cool:0});}
+  for(let i=0;i<26;i++)ph.push({x:Math.random()*W,y:Math.random()*H,v:(.8+Math.random()*1.2)*dpr,l:(10+Math.random()*16)*dpr});}
+ function step(){
+  for(const m of mols){m.x+=m.vx;m.y+=m.vy;m.ang+=m.spin;if(m.cool>0)m.cool--;const p=40*dpr;if(m.x<-p)m.x=W+p;if(m.x>W+p)m.x=-p;if(m.y<-p)m.y=H+p;if(m.y>H+p)m.y=-p;}
+  for(let i=0;i<mols.length;i++)for(let j=i+1;j<mols.length;j++){const a=mols[i],b=mols[j];if(a.cool||b.cool)continue;if(Math.hypot(a.x-b.x,a.y-b.y)<34*dpr){fl.push({x:(a.x+b.x)/2,y:(a.y+b.y)/2,t:0});[a,b].forEach(m=>{let t;do{t=names[Math.floor(Math.random()*names.length)];}while(t===m.type);m.type=t;m.atoms=mk(t);m.cool=140;m.vx=-m.vx;m.vy=-m.vy;});}}
+  for(const p of ph){p.x-=p.v*.6;p.y+=p.v;if(p.y>H+20||p.x<-20){p.x=Math.random()*W+W*.3;p.y=-20*dpr;}}
+  fl.forEach(f=>f.t++);fl=fl.filter(f=>f.t<40);}
+ function draw(){ctx.clearRect(0,0,W,H);
+  ctx.strokeStyle='rgba(255,226,120,.55)';ctx.lineCap='round';ctx.lineWidth=2*dpr;
+  for(const p of ph){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x+p.l*.6,p.y-p.l);ctx.stroke();}
+  for(const m of mols){const s=dpr*1.15,ca=Math.cos(m.ang),sa=Math.sin(m.ang);
+   const P=m.atoms.map(a=>({x:m.x+(a.ox*ca-a.oy*sa)*s,y:m.y+(a.ox*sa+a.oy*ca)*s,r:a.r*s,col:a.col,al:a.al}));
+   for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){if(Math.min(P[i].al,P[j].al)<.05||Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y)>26*s)continue;ctx.strokeStyle='rgba(255,255,255,.5)';ctx.lineWidth=2.4*dpr;ctx.beginPath();ctx.moveTo(P[i].x,P[i].y);ctx.lineTo(P[j].x,P[j].y);ctx.stroke();}
+   for(const p of P){if(p.al<.05)continue;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fillStyle='rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+',.9)';ctx.fill();}}
+  for(const f of fl){const k=f.t/40;ctx.beginPath();ctx.arc(f.x,f.y,(8+k*34)*dpr,0,6.283);ctx.strokeStyle='rgba(255,226,150,'+(1-k)*.9+')';ctx.lineWidth=2.5*dpr*(1-k)+.5;ctx.stroke();}}
+ function loop(){if(document.getElementById('view-unit3').classList.contains('active')&&!document.hidden&&fit()){step();draw();}requestAnimationFrame(loop);}
+ requestAnimationFrame(loop);
+})();
+</script>
+<script>
+/* ===== الوحدة الرابعة: العمليات الچيولوچية (الدرسان 10 و 11) ===== */
+(function(){
+const TB='style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;"';
+const TD='style="padding:7px;border:1px solid var(--line);text-align:center;"';
+const TH='style="padding:7px;border:1px solid var(--line);text-align:center;background:var(--bg);font-weight:800;"';
+const U4=[
+{id:'lesson10',num:'10',icon:'🌋',color:'linear-gradient(135deg,#B4531A,#6B3FA0)',title:'تغيير سطح الأرض',desc:'الوحدة 4 · الانجراف القارى، الصفائح التكتونية وأنواع حركتها، ودور الزلازل والبراكين والنيازك.',
+ vids:[['Ut6_yMEgjJU','🎬 اشرح بالفيديو','الانجراف القارى ونظرية الصفائح التكتونية','شرح فكرة الانجراف القارى وكيف تتحرك صفائح الأرض فتغيّر شكل سطحها مع الأستاذ إيهاب.'],['EeKutHTielY','🎬 اشرح بالفيديو','الزلازل والبراكين','شرح كيف تحدث الزلازل والبراكين وعلاقتهما بحركة الصفائح التكتونية مع الأستاذ إيهاب.']],
+ intro:'تغيّرت تضاريس سطح الأرض على مدار ملايين السنين بفعل عمليات چيولوچية متعددة. فكيف فسّر العلماء هذه التغيرات؟',
+ secs:[
+ ['فرضية الانجراف القارى',`<p>فى عام <strong class="hl">1912</strong> قدّم العالم الألمانى <strong class="hl2">ألفريد فيجنر</strong> فرضيته المعروفة بالانجراف القارى، وافترض فيها أن الأرض كانت قبل <strong>200 مليون سنة</strong> قارة واحدة ضخمة أسماها <strong class="hl">بانجايا</strong>، ثم أخذت فى الانجراف بمرور الزمن.</p><p>وقبل <strong>135 مليون سنة</strong> بدأت قارتا أفريقيا وأمريكا الجنوبية فى الانفصال عن بعضهما، وبمرور الوقت أصبح شكل القارات كما نراه الآن.</p><p>لكن فيجنر لم يتمكن من تفسير <strong>كيفية تحرك القارات</strong>، حتى ظهرت <strong class="hl2">نظرية الصفائح التكتونية</strong> التى تُعد التطور الحديث لفرضيته. ومن الأدلة على اتصال القارتين قديمًا وجود بقايا كائنات قديمة متماثلة فى صخور الجانب الغربى لأفريقيا والجانب الشرقى لأمريكا الجنوبية.</p>`],
+ ['نظرية الصفائح التكتونية',`<ul><li>الغلاف الصخرى للأرض (<strong>الليثوسفير</strong>) يتكون من القشرة الأرضية (الجزء الصلب) وجزء من الوشاح العلوى، وهو مقسم إلى <strong>قشرة محيطية</strong> (يعلوها مياه) و<strong>قشرة قارية</strong> (يعلوها يابس).</li><li>تتكون القشرتان من <strong>صفائح صلبة</strong> مختلفة الشكل والحجم تُعرف بالصفائح التكتونية.</li><li><strong>صفائح محيطية:</strong> قشرة محيطية رقيقة مرتفعة الكثافة + جزء من الوشاح العلوى. <strong>صفائح قارية:</strong> قشرة قارية سميكة + جزء من الوشاح العلوى.</li><li>تتحرك الصفائح حركة <strong>بطيئة مستمرة غير ملحوظة</strong> فوق طبقة من الصخور المنصهرة (الصهارة أو الماجما) تسمى <strong class="hl">الأسثينوسفير</strong>، نتيجة حركة <strong>تيارات الحمل</strong> فى طبقة الوشاح العلوى.</li></ul>`],
+ ['أنواع حركة الصفائح التكتونية',`<table ${TB}><tr><td ${TH}>النوع</td><td ${TH}>الحركة</td><td ${TH}>أمثلة ونتائج</td></tr><tr><td ${TD}>تباعدية</td><td ${TD}>تتباعد الصفائح بفعل تيار حمل صاعد (حدود متباعدة)</td><td ${TD}>قشرة محيطية جديدة (البحر الأحمر)، قشرة قارية جديدة (الأخدود الأفريقى العظيم)</td></tr><tr><td ${TD}>تقاربية</td><td ${TD}>تتقارب الصفائح بفعل تيار حمل هابط (حدود متقاربة)</td><td ${TD}>محيطيتان: جزر بركانية (جزر اليابان) · قاريتان: سلاسل جبال الهيمالايا · محيطية مع قارية: تغوص الأكبر كثافة (جبال الأنديز)</td></tr><tr><td ${TD}>تحويلية</td><td ${TD}>تتحرك الصفائح متحاذية جنبًا إلى جنب (حدود تحويلية)</td><td ${TD}>صدوع طويلة مثل صدع سان أندرياس</td></tr></table><p style="font-size:12.5px;color:var(--ink-soft);">🔮 يتنبأ العلماء بأن البحر الأحمر سيتحول مستقبلًا إلى محيط، والبحر الأبيض المتوسط إلى منطقة قارية جبلية. ولاحظ: جبال الهيمالايا أكثر ارتفاعًا، وجبال الأنديز أكثر طولًا لامتدادها الجغرافى.</p>`],
+ ['دور الزلازل فى تغيير سطح الأرض',`<p><strong class="hl2">الزلازل</strong> هزات أرضية طبيعية سريعة متتالية تحدث للقشرة الأرضية. وتؤدى حركة الصفائح إلى اختزان قدر هائل من الطاقة فى الصخور، وعند انكسارها تتحرر الطاقة عند حدود الصفائح مكونة <strong>الزلازل التكتونية</strong> وهى الأكثر شيوعًا.</p><ul><li><strong>تأثير الزلازل القوية:</strong> ظهور أو غمر بعض الجزر والسواحل، انهيارات وانزلاقات أرضية، تشققات أرضية، وظاهرة <strong>تسونامى</strong> التى تغير شكل السواحل.</li><li><strong>خسائر بشرية:</strong> وفيات وإصابات. <strong>خسائر مادية:</strong> تدمير المنشآت والبنية التحتية كالمبانى والطرق والكبارى وخطوط المياه والكهرباء والغاز.</li></ul>`],
+ ['دور البراكين فى تغيير سطح الأرض',`<p><strong class="hl2">البركان</strong> فتحة فى القشرة الأرضية تسمح للصخور المنصهرة والغازات المحبوسة بالخروج إلى السطح. تنشأ البراكين عند حدود الصفائح: فى التباعدية تندفع الماجما فى الفراغ بين الصفيحتين، وفى التقاربية تنصهر الصخور فترتفع إلى السطح عبر الشقوق.</p><ul><li><strong>تأثيرها:</strong> تكوين جبال بركانية (كجبال حرة رهط بالسعودية)، وسهول منبسطة وهضاب، وتغطية الوديان والأنهار، وتغيير مسار مجارى الأنهار، وتكوين جزر بركانية (كجزر هاواى).</li><li><strong>خسائر بشرية:</strong> بسبب استنشاق الغازات السامة والرماد البركانى. <strong>خسائر بيئية:</strong> تغطية المدن بالرماد، وتلوث الهواء والماء، وتكوين الأمطار الحمضية.</li></ul>`],
+ ['دور النيازك فى تغيير سطح الأرض',`<p><strong class="hl2">النيازك</strong> كتل صخرية تخترق الغلاف الجوى للأرض وتسقط عليها، ويسبب بعضها حفرًا دائرية هائلة مثل حفرة أريزونا بالولايات المتحدة <strong>وحفرة جبل الكامل</strong> بالوادى الجديد فى مصر. ويفترض العلماء أن النيازك هى التى تسببت فى انقراض الديناصورات قديمًا قبل وجود الإنسان.</p><p>🛰️ طورت وكالة ناسا نظام رادار متقدمًا يعرف بالاختصار <strong>DART</strong> وظيفته تغيير مدار النيازك لحماية الأرض من اصطدامها بها.</p><p style="font-size:12.5px;color:var(--ink-soft);">🔎 تتشابه الزلازل مع البراكين فى أنها لا تحدث فى أماكن عشوائية، بل تتوزع فى نمط واضح على امتداد حدود الصفائح التكتونية. 💬 للمناقشة: العدالة الاجتماعية فى مواجهة الكوارث الطبيعية.</p>`]
+ ],
+ steps:{key:'pl',title:'🎞️ رحلة القارات عبر الزمن',items:[
+  ['🌍','قبل 200 مليون سنة','قارة واحدة: بانجايا','كانت اليابسة كلها قارة واحدة ضخمة.'],
+  ['↔️','قبل 135 مليون سنة','بداية الانفصال','بدأت قارتا أفريقيا وأمريكا الجنوبية فى الانفصال عن بعضهما، وأخذ المحيط الأطلنطى يتكون بينهما.'],
+  ['🗺️','الآن','شكل القارات الحالى','أصبح شكل القارات كما نعرفه، وما زالت الصفائح تتحرك ببطء وبشكل غير ملحوظ.'],
+  ['🔮','فى المستقبل','تنبؤ العلماء','يتوقع تحول البحر الأحمر إلى محيط، وتحول البحر الأبيض المتوسط إلى منطقة قارية جبلية.']]},
+ labs:['plates'],
+ cls:[['نوع حركة الصفائح','cls10a',['تباعدية','تقاربية','تحويلية'],[['نشأة البحر الأحمر','تباعدية'],['نشأة الأخدود الأفريقى العظيم','تباعدية'],['تكون جزر اليابان البركانية','تقاربية'],['تكون جبال الهيمالايا','تقاربية'],['تكون جبال الأنديز','تقاربية'],['صدع سان أندرياس','تحويلية']]],
+      ['زلزال أم بركان أم نيزك؟','cls10b',['زلزال','بركان','نيزك'],[['تسونامى يغير شكل السواحل','زلزال'],['تكوين جزر هاواى','بركان'],['حفرة جبل الكامل','نيزك'],['تشققات أرضية','زلزال'],['تغطية المدن بالرماد البركانى','بركان'],['يُعتقد أنه سبب انقراض الديناصورات','نيزك'],['نظام DART يغير مداره','نيزك'],['انهيار الكبارى والطرق','زلزال']]]],
+ rev:[
+  ['ما سبب حدوث صدع سان أندرياس بأمريكا؟','حركة الصفائح التحويلية: صفيحتان متحاذيتان تتحركان جنبًا إلى جنب.'],
+  ['كيف يُستدل على أن قارتى أفريقيا وأمريكا الجنوبية كانتا قارة واحدة قديمًا؟','وجود بقايا كائنات قديمة متماثلة فى صخور الجانب الغربى لأفريقيا والجانب الشرقى لأمريكا الجنوبية، وتشابه حواف القارتين.'],
+  ['ما الفرق بين الحركة التباعدية والحركة التقاربية؟','التباعدية: تتحرك الصفائح بعيدًا عن بعضها بفعل تيار حمل صاعد فتنشأ قشرة جديدة. التقاربية: تتحرك الصفائح نحو بعضها بفعل تيار حمل هابط فتتكون جزر بركانية أو جبال.'],
+  ['لماذا تتشابه الزلازل والبراكين فى أماكن حدوثها؟','لأن كليهما يتوزع فى نمط واضح على امتداد حدود الصفائح التكتونية وليس عشوائيًا.']],
+ flip:[
+  ['تعمل البراكين على تغيير مظاهر سطح الأرض.','لأنها تكوّن الجبال البركانية والسهول والهضاب والجزر، وتغطى الوديان والأنهار وتغير مسارها.'],
+  ['حدوث تسونامى فى السواحل.','بسبب الزلازل القوية التى تؤدى إلى ظاهرة تسونامى فتتغير شكل السواحل.'],
+  ['تكون سلاسل جديدة من الجزر البركانية كجزر اليابان.','لتقارب صفيحتين محيطيتين فتنشأ سلاسل جديدة من الجزر البركانية.'],
+  ['حدوث صدع سان أندرياس.','نتيجة الحركة التحويلية للصفائح المتحاذية.'],
+  ['تتعدد حركة الصفائح التكتونية (تباعدية وتقاربية وتحويلية).','بسبب تيارات الحمل فى الوشاح العلوى التى تحرك الصفائح بعيدًا عن بعضها أو نحو بعضها أو جنبًا إلى جنب.'],
+  ['سلاسل جبال الأنديز أكثر طولًا من سلاسل جبال الهيمالايا.','بسبب امتدادها الجغرافى الأكبر.'],
+  ['تسبب الزلازل والبراكين خسائر كبيرة.','خسائر بشرية (وفيات وإصابات) ومادية وبيئية: تدمير المنشآت والبنية التحتية، وتغطية المدن بالرماد وتلوث الهواء والماء.'],
+  ['انقراض الديناصورات قديمًا.','يفترض العلماء أن النيازك هى التى تسببت فى ذلك.']],
+ q:[
+  ['العالم الذى قدّم فرضية الانجراف القارى هو:',['ألفريد فيجنر','ڤان هيلمونت','لافوازييه','دالتون'],0],
+  ['كانت الأرض قبل 200 مليون سنة قارة واحدة ضخمة تسمى:',['بانجايا','الأنديز','أطلنطا','أفريقيا'],0],
+  ['الغلاف الصخرى للأرض (الليثوسفير) يتكون من:',['القشرة وجزء من الوشاح العلوى','اللب الداخلى فقط','الوشاح السفلى','اللب الخارجى'],0],
+  ['تتحرك الصفائح التكتونية فوق طبقة الصخور المنصهرة المسماة:',['الأسثينوسفير','الليثوسفير','اللب الداخلى','القشرة القارية'],0],
+  ['نشأة الأخدود الأفريقى العظيم نتيجة:',['الحركة التباعدية بين صفيحتين قاريتين','الحركة التقاربية بين صفيحتين محيطيتين','الحركة التحويلية','سقوط نيزك'],0]],
+ w:[
+  ['من الحركات الچيولوچية البطيئة فى باطن الأرض:',['هزات الزلازل','انفجار البراكين','تقارب الصفائح التكتونية','تجوية الصخور'],2],
+  ['كل ما يلى يُعد صحيحًا عن البحر الأحمر عدا:',['تكوّن من تقارب صفيحتين محيطيتين','تكوّن من تباعد صفيحتين قاريتين','يحتوى على وفرة من الطحالب الحمراء','يمكن أن يتحول مستقبلًا إلى محيط'],0],
+  ['تحتوى صخور غرب أفريقيا وشرق أمريكا الجنوبية على بقايا كائنات قديمة متماثلة، ويدل ذلك على أن القارتين كانتا:',['جزءًا من محيط قديم','كتلة واحدة فى الزمن السحيق','بالقرب من القطب الشمالى','منطقة غابات'],1],
+  ['كل ما يلى ظواهر طبيعية تغير سطح الأرض عدا:',['انفجار البراكين','الشفق القطبى','سقوط النيازك','حدوث الزلازل'],1],
+  ['الخط الثقيل فى خريطة أمريكا يوضح صدع سان أندرياس. ما سبب حدوثه؟',['حركة الصفائح التباعدية','تقارب صفيحتين قاريتين','تقارب صفيحتين محيطيتين','حركة الصفائح التحويلية'],3],
+  ['تكوّن سلاسل جبال الهيمالايا نتيجة:',['تقارب صفيحتين قاريتين','تباعد صفيحتين قاريتين','تقارب صفيحتين محيطيتين','حركة تحويلية'],0],
+  ['كل ما يلى من آثار البراكين عدا:',['تكوين جزر بركانية','تغيير مسار الأنهار','حدوث ظاهرة تسونامى مباشرة','تكوين الأمطار الحمضية'],2]]
+},
+{id:'lesson11',num:'11',icon:'💎',color:'linear-gradient(135deg,#6B3FA0,#B4531A)',title:'تكوين المعادن والتربة',desc:'الوحدة 4 · المعادن وخواصها ونشأتها، أنواع التربة، ومحدودية الموارد غير المتجددة.',
+ vids:[['6Xv2Ex9CU0A','🎬 اشرح بالفيديو','المعادن','شرح المعادن وكيفية تكوّنها وخواصها مع الأستاذ إيهاب.']],
+ intro:'تقوم العمليات الچيولوچية بتكوين المعادن، وتتكون الصخور التى تتعرض للتجوية والتعرية فتتكون التربة.',
+ secs:[
+ ['المعادن وخواصها',`<p><strong class="hl2">المعدن</strong> مادة صلبة طبيعية غير عضوية ذات نظام بللورى وتركيب كيميائى محدد. توجد المعادن فى صورة <strong>عناصر</strong> مثل الكبريت، أو فى صورة <strong>مركبات</strong> مثل الهيماتيت (أكسيد الحديد الأحمر) المنتشر فى الصحراء الشرقية بمصر.</p><ul><li><strong class="hl">اللون:</strong> بعضها ثابت اللون كالكبريت الأصفر، وبعضها متغير تبعًا لنوع الشوائب (كالكوارتز البنفسجى والوردى).</li><li><strong class="hl">اللمعان (البريق):</strong> بعضها له بريق يشبه الفلزات مثل الجالينا الذى استخدمه قدماء المصريين فى صناعة كُحل العين.</li><li><strong class="hl">الشفافية:</strong> معتم كالتلك، نصف شفاف كالميكا، شفاف كالكوارتز.</li></ul><p><strong>الهاليت</strong> (بللورات ملح الطعام) يوصف بالمعدن، بينما <strong>الأوبال</strong> شبه معدن رغم أن له بريقًا وتركيبًا كيميائيًا محددًا لأنه <strong>غير متبلر</strong>.</p>`],
+ ['نشأة المعادن',`<p>تنشأ المعادن فى الطبيعة من:</p><ul><li><strong class="hl2">تصلد صهير البراكين (الماجما):</strong> الصهارة الغنية بالسيليكا تكوّن عند تصلدها معادن مثل <strong>الميكا والكوارتز</strong>. أما إذا احتوت على نسبة مرتفعة من الماغنسيوم والحديد فتكوّن معادن مثل <strong>الأوليفين والبيروكسين</strong>.</li><li><strong class="hl2">تبلر محاليل الفوهات المائية الحارة:</strong> تتكون بالقرب من المناطق البركانية النشطة، حيث تتسرب مياه المحيط إلى شقوق أسفل السطح فيسخن الماء بفعل حرارة الصهارة وتذوب فيه بعض المعادن. يرتفع الماء الساخن (نحو 400°C) المحمّل بالمعادن إلى السطح، وعند ملامسته لماء المحيط البارد (نحو 2°C) تتبلر معادن مثل الأباتيت والكالسيت.</li></ul><p style="font-size:12.5px;color:var(--ink-soft);">🧪 المحلول خليط متجانس من مذيب ومذاب، وأشهر المذيبات الماء. وفى نشاط أسيتات الصوديوم يتجمع الملح الزائد فى المحلول فوق المشبع عند صبه على ملح بارد فيما يعرف بالتبلر.</p>`],
+ ['التربة',`<p><strong class="hl2">التربة</strong> هى الطبقة السطحية من القشرة الأرضية الناتجة من تفتت الصخور وتحلل المواد العضوية أو كليهما، وتحتوى التربة الناضجة على ماء وهواء ودبال (مواد عضوية متحللة) وطين وطمى وحصى ورمال.</p><ul><li><strong>التجوية:</strong> تفتت وكسر الصخور (ميكانيكية بالرياح والمياه الجارية واختلاف الحرارة ونمو الجذور، أو كيميائية).</li><li><strong>التعرية:</strong> نقل الفتات الصخرى الناتج بعيدًا عن مكانه.</li></ul><table ${TB}><tr><td ${TH}></td><td ${TH}>التربة المنقولة</td><td ${TH}>التربة المحلية</td></tr><tr><td ${TD}>نشأتها</td><td ${TD}>تفككت فى مكان ثم نُقلت إلى مكان آخر (بالأنهار مثلًا)</td><td ${TD}>تكونت بالتجوية البطيئة فى نفس مكانها</td></tr><tr><td ${TD}>تركيبها</td><td ${TD}>يختلف عن الصخر الذى تعلوه</td><td ${TD}>تشبه الصخر الأصلى الذى تعلوه</td></tr><tr><td ${TD}>أمثلة</td><td ${TD}>التربة النهرية كتربة دلتا النيل (من الفتات القادم من هضبة الحبشة)</td><td ${TD}>التربة المتبقية كتربة مريوط وتربة الواحات (من الصخور الرملية والجيرية)</td></tr></table><p style="font-size:12.5px;color:var(--ink-soft);">معظم التربة المصرية من النوع المنقول.</p>`],
+ ['محدودية الموارد غير المتجددة',`<p>الموارد غير المتجددة هى الموارد التى يمكن الحصول عليها من أغلفة الأرض غير الغلاف الحيوى ولا يمكن تعويضها عند استهلاكها، ومنها <strong>المعادن والوقود الحفرى</strong> (كالنفط). ومنذ الثورة الصناعية فى أواخر القرن الثامن عشر ازداد استهلاكها مع تزايد السكان وتقدم الصناعة، وهو ما ينذر بخطر نضوبها خاصة وأن تكونها يستغرق ملايين السنين.</p><ul><li>النشاط البشرى المتزايد فى <strong>التعدين</strong> (استخراج الموارد) وسيطرة شركات التعدين بالدول المتقدمة على موارد الدول النامية يؤديان إلى <strong>التوزيع غير العادل</strong> للثروات وربما إلى نضوبها.</li><li><strong>استدامة الموارد</strong> بالمحافظة عليها من الاستنزاف وإيجاد بدائل: التحول إلى المصادر المتجددة (الشمس والرياح والكهرومائية)، إعادة تدوير المعادن، استخدام تقنيات أقل استهلاكًا للطاقة (كالسيارات الكهربائية)، وابتكار بدائل صناعية (كالبطاريات القابلة للشحن).</li></ul><p style="font-size:12.5px;color:var(--ink-soft);">🔍 نشاط بحثى: ابحث عن استخدام رمال سيناء فى صناعة أفضل أنواع الزجاج. 💬 للمناقشة: الاستدامة وحماية الموارد غير المتجددة.</p>`]
+ ],
+ steps:{key:'sl',title:'🎞️ كيف تتكون التربة؟',items:[
+  ['⛰️','الصخور','صخور سطح الأرض','تتعرض الصخور للرياح والمياه الجارية واختلاف درجات الحرارة.'],
+  ['🔨','التجوية','تفتت الصخور','تتكسر الصخور إلى فتات (تجوية ميكانيكية) أو تتغير كيميائيًا.'],
+  ['🌊','التعرية','نقل الفتات','قد يُنقل الفتات بعيدًا عن مكانه بالأنهار والرياح (تربة منقولة) أو يبقى فى مكانه (تربة محلية متبقية).'],
+  ['🍂','المواد العضوية','تحلل المواد العضوية','تتحلل بقايا الكائنات الحية مكونة الدبال.'],
+  ['🌱','التربة الناضجة','تربة بها ماء وهواء ودبال','تتكون التربة التى تحتوى الفتات الصخرى والدبال والماء والهواء.']]},
+ labs:['minerals'],
+ cls:[['خاصية الشفافية','cls11a',['شفاف','نصف شفاف','معتم'],[['معدن الكوارتز','شفاف'],['معدن الميكا','نصف شفاف'],['معدن التلك','معتم']]],
+      ['تربة منقولة أم محلية؟','cls11b',['منقولة','محلية'],[['تربة دلتا النيل','منقولة'],['تربة مريوط','محلية'],['تربة الواحات','محلية'],['التربة النهرية','منقولة'],['التربة المتبقية','محلية']]],
+      ['مورد متجدد أم غير متجدد؟','cls11c',['متجدد','غير متجدد'],[['النفط','غير متجدد'],['المعادن','غير متجدد'],['طاقة الشمس','متجدد'],['طاقة الرياح','متجدد'],['الوقود الحفرى','غير متجدد'],['الطاقة الكهرومائية','متجدد']]]],
+ rev:[
+  ['لماذا لا يُعد النفط من المعادن؟','لأنه مادة سائلة عضوية الأصل، وليس مادة صلبة غير عضوية ذات نظام بللورى.'],
+  ['ما الفرق بين تربة دلتا النيل وتربة مريوط؟','دلتا النيل تربة منقولة (فتات نقله النهر من هضبة الحبشة) يختلف تركيبها عن الصخر الذى تعلوه، ومريوط تربة محلية متبقية تكونت بتجوية الصخور فى مكانها فتشبه الصخر الأصلى.'],
+  ['اذكر وسيلتين لضمان استدامة الموارد الطبيعية غير المتجددة.','التحول إلى المصادر المتجددة للطاقة، وإعادة تدوير المعادن (أو استخدام تقنيات تستهلك طاقة أقل، أو ابتكار بدائل صناعية).'],
+  ['اذكر مصدرين لنشأة المعادن فى الطبيعة.','تصلد صهير البراكين (الماجما)، وتبلر محاليل الفوهات المائية الحارة.'],
+  ['لماذا تُصنف بللورة الهاليت معدنًا بعكس الأوبال؟','لأن الهاليت متبلر له تركيب كيميائى محدد، أما الأوبال فرغم تركيبه المحدد وبريقه فهو غير متبلر.']],
+ flip:[
+  ['هناك صور عديدة من المعادن.','لأن المعدن قد يوجد فى صورة عنصر كالكبريت أو فى صورة مركب كالهيماتيت.'],
+  ['يختلف معدن الكبريت عن معدن الهيماتيت.','الكبريت عنصر أصفر اللون، أما الهيماتيت فمركب هو أكسيد الحديد الأحمر.'],
+  ['يُعتبر معدن التلك من المعادن المعتمة.','لأنه لا ينفذ الضوء خلاله.'],
+  ['لا يُعتبر الأوبال معدنًا رغم أن له بريقًا وتركيبًا كيميائيًا محددًا.','لأنه غير متبلر (ليس له نظام بللورى).'],
+  ['تختلف خصائص التربة المنقولة عن التربة المحلية.','لأن المنقولة تفككت فى مكان ثم نُقلت فيختلف تركيبها عن الصخر الذى تعلوه، أما المحلية فتكونت فى نفس مكان الصخر الأصلى فتشبهه.'],
+  ['زيادة استهلاك الموارد غير المتجددة.','بسبب تزايد أعداد السكان وتقدم الصناعة منذ الثورة الصناعية.'],
+  ['تُعد المعادن والوقود الحفرى من صور الموارد غير المتجددة.','لأنها لا يمكن تعويضها عند استهلاكها، ويستغرق تكونها ملايين السنين.']],
+ q:[
+  ['المعدن مادة صلبة طبيعية:',['غير عضوية ذات نظام بللورى وتركيب كيميائى محدد','عضوية بلا نظام بللورى','سائلة غير متبلرة','غازية'],0],
+  ['معدن الكوارتز من حيث الشفافية:',['شفاف','معتم','نصف شفاف','أسود دائمًا'],0],
+  ['من مصادر نشأة المعادن:',['تبلر محاليل الفوهات المائية الحارة','تجوية الأوراق','تبخر الأمطار','ذوبان الثلج'],0],
+  ['تربة دلتا النيل من النوع:',['المنقول النهرى','المحلى المتبقى','المحلى النهرى','لا شىء منها'],0],
+  ['من الموارد غير المتجددة:',['الطاقة الشمسية','طاقة الرياح','الوقود الحفرى والمعادن','الطاقة الكهرومائية'],2]],
+ w:[
+  ['أكثر مجموعات المعادن انتشارًا فى القشرة الأرضية هى مجموعة:',['الكربونات','الأكاسيد','الفوسفات','السيليكات'],3],
+  ['يحتوى معدن البيروكسين على نسبة مرتفعة نسبيًا من عنصرى:',['الماغنسيوم والحديد','الماغنسيوم والنحاس','النحاس والحديد','البوتاسيوم والصوديوم'],0],
+  ['الخاصية التى تصف المعدن بالمعتم هى:',['اللون','اللمعان','الشفافية','الخدش'],2],
+  ['الصهارة الغنية بالسيليكا تكوّن عند تصلدها معدن:',['الأوليفين','الكوارتز','البيروكسين','الهيماتيت'],1],
+  ['تربة الواحات من النوع:',['المحلى النهرى','المنقول النهرى','المحلى المتبقى','المنقول المتبقى'],2],
+  ['تتبلر معادن الأباتيت والكالسيت عند الفوهات المائية الحارة نتيجة:',['ملامسة الماء الساخن المحمّل بالمعادن لماء المحيط البارد','تصلد الصهارة تحت الأرض','تجوية الصخور','تبخر ماء البحر'],0],
+  ['لا يُعد النفط من المعادن لأنه:',['سائل عضوى الأصل وليس مادة صلبة بللورية','يتكون من السيليكات','يتصلد من الماجما','صلب ذو بريق'],0]]
+}];
+
+U4.forEach(l=>lessonsMeta.push({id:l.id,num:l.num,title:l.title,desc:l.desc,icon:l.icon,color:l.color}));
+U4.forEach(l=>{const n=l.id.slice(6);progress[l.id]=null;progress[l.id+'w']=null;
+ quizzes[n]=l.q.map(x=>({q:x[0],opts:x[1],correct:x[2]}));weeklyQuizzes[n]=l.w.map(x=>({q:x[0],opts:x[1],correct:x[2]}));
+ reasonCards[n]=l.flip.map(x=>({q:x[0],a:x[1]}));lessonLabels[l.id]='الدرس '+l.num+': '+l.title;});
+knowledgeBase.push(
+{kw:['الانجراف القارى','فرضية فيجنر','فيجنر','بانجايا'],a:'قدّم فيجنر عام 1912 فرضية الانجراف القارى: كانت الأرض قبل 200 مليون سنة قارة واحدة ضخمة اسمها بانجايا، وقبل 135 مليون سنة بدأت أفريقيا وأمريكا الجنوبية فى الانفصال. لم يفسر كيفية الحركة، فجاءت نظرية الصفائح التكتونية.'},
+{kw:['الصفائح التكتونية','نظرية الصفائح','الليثوسفير','الأسثينوسفير'],a:'الغلاف الصخرى (الليثوسفير) = القشرة + جزء من الوشاح العلوى، مقسم إلى صفائح محيطية (رقيقة عالية الكثافة) وقارية (سميكة). تتحرك ببطء فوق الأسثينوسفير (الصخور المنصهرة) بفعل تيارات الحمل فى الوشاح العلوى.'},
+{kw:['الحركة التباعدية','حركة تباعدية'],a:'الحركة التباعدية: تتباعد الصفائح بفعل تيار حمل صاعد (حدود متباعدة) فتنشأ قشرة جديدة، مثل البحر الأحمر (محيطية) والأخدود الأفريقى العظيم (قارية).'},
+{kw:['الحركة التقاربية','حركة تقاربية','جبال الهيمالايا','جبال الأنديز','جزر اليابان'],a:'الحركة التقاربية: تتقارب الصفائح بفعل تيار حمل هابط. محيطيتان: جزر بركانية (اليابان). قاريتان: جبال الهيمالايا. محيطية مع قارية: تغوص الأكبر كثافة فتنشأ جبال الأنديز.'},
+{kw:['الحركة التحويلية','صدع سان اندرياس','صدع'],a:'الحركة التحويلية: صفيحتان متحاذيتان تتحركان جنبًا إلى جنب (حدود تحويلية) وينتج عنها صدوع طويلة مثل صدع سان أندرياس.'},
+{kw:['الزلازل','الزلزال','تسونامى'],a:'الزلازل هزات أرضية طبيعية سريعة متتالية، وأكثرها شيوعًا الزلازل التكتونية الناتجة عن تحرر الطاقة المختزنة فى الصخور عند حدود الصفائح. تسبب انهيارات وتشققات وتسونامى وخسائر بشرية ومادية.'},
+{kw:['البراكين','البركان','جزر هاواى'],a:'البركان فتحة فى القشرة تسمح بخروج الصخور المنصهرة والغازات. يكوّن جبالًا وسهولًا وهضابًا وجزرًا ويغطى الوديان ويغير مسار الأنهار، وله خسائر بشرية (غازات سامة ورماد) وبيئية (أمطار حمضية وتلوث).'},
+{kw:['النيازك','حفرة جبل الكامل','DART','الديناصورات'],a:'النيازك كتل صخرية تخترق الغلاف الجوى وتسقط على الأرض مكونة حفرًا مثل حفرة جبل الكامل بالوادى الجديد. يعتقد أنها سبب انقراض الديناصورات، ونظام DART من ناسا يغير مدارها لحماية الأرض.'},
+{kw:['المعادن','خواص المعادن','المعدن','الشفافية','اللمعان'],a:'المعدن مادة صلبة طبيعية غير عضوية ذات نظام بللورى وتركيب كيميائى محدد. من خواصه اللون واللمعان (البريق) والشفافية (كوارتز شفاف، ميكا نصف شفاف، تلك معتم).'},
+{kw:['نشأة المعادن','تصلد الصهير','الفوهات المائية الحارة','التبلر'],a:'تنشأ المعادن من تصلد صهير البراكين (غنى بالسيليكا: ميكا وكوارتز، غنى بالماغنسيوم والحديد: أوليفين وبيروكسين) ومن تبلر محاليل الفوهات المائية الحارة (أباتيت وكالسيت).'},
+{kw:['التربة','تكوين التربة','التربة المنقولة','التربة المحلية','التجوية','التعرية'],a:'التربة الطبقة السطحية الناتجة من تفتت الصخور وتحلل المواد العضوية. المنقولة (كدلتا النيل) نقلت من مكان آخر، والمحلية المتبقية (كمريوط والواحات) تكونت فى مكانها. التجوية تفتت الصخور والتعرية تنقل الفتات.'},
+{kw:['الموارد غير المتجددة','استدامة الموارد','التعدين','النفط'],a:'الموارد غير المتجددة (المعادن والوقود الحفرى) لا تعوض عند استهلاكها. للحفاظ عليها: التحول للمصادر المتجددة، إعادة تدوير المعادن، تقنيات أقل استهلاكًا للطاقة، وابتكار بدائل صناعية.'}
+);
+U4.forEach(l=>{aiChipsByView[l.id]=['اشرح لى '+l.title,'ما أهم ما يجب حفظه فى هذا الدرس؟'];});
+aiChipsByView.unit4=['ما الفرق بين أنواع حركة الصفائح؟','كيف تتكون المعادن والتربة؟'];
+lessonLabels.unit4='الوحدة الرابعة: العمليات الچيولوچية';
+
+const main=document.querySelector('main');
+const sec=(h,b)=>`<div class="card"><h3><span class="dot"></span> ${h}</h3>${b}</div>`;
+
+const LAB={
+plates:`<div class="card lab-card"><span class="lab-tag">🔬 معمل تفاعلى</span><h3><span class="dot"></span> حركة الصفائح التكتونية</h3><p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">اختر نوع حركة الصفيحتين ولاحظ الاتجاه والنتائج.</p><div class="u3-row"><button class="u3-btn" data-p="div" onclick="u4Pl('div')">↔️ تباعدية</button><button class="u3-btn" data-p="con" onclick="u4Pl('con')">⇄ تقاربية</button><button class="u3-btn" data-p="trn" onclick="u4Pl('trn')">⇅ تحويلية</button></div><svg class="u3-svg" viewBox="0 0 400 190"><rect x="0" y="120" width="400" height="70" fill="#F0B27A"/><text x="200" y="182" text-anchor="middle" font-size="11" fill="#7A3E10">الأسثينوسفير (صخور منصهرة)</text><g id="u4PlSvg"></g></svg><div class="u3-res" id="u4PlRes">اختر نوع الحركة.</div></div>`,
+minerals:`<div class="card lab-card"><span class="lab-tag">🔬 معمل تفاعلى</span><h3><span class="dot"></span> بطاقات المعادن: اللون واللمعان والشفافية</h3><p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">اختر معدنًا لتعرف خصائصه واستخداماته.</p><div class="u3-row" id="u4MinRow"></div><div class="u3-res" id="u4MinRes">اختر معدنًا.</div></div>`
+};
+const PL={
+ div:{svg:`<rect x="30" y="85" width="150" height="40" rx="6" fill="#8D6E63"/><rect x="220" y="85" width="150" height="40" rx="6" fill="#8D6E63"/><rect x="180" y="95" width="40" height="30" fill="#E53935"/><path d="M175 70H110M110 70l12-9M110 70l12 9M225 70h65M290 70l-12-9M290 70l-12 9" stroke="#B4531A" stroke-width="4" fill="none" stroke-linecap="round"/>`,t:'↔️ <b>حركة تباعدية</b> (بفعل تيار حمل صاعد): تتباعد الصفيحتان فتندفع الماجما فى الفراغ بينهما وتنشأ <b>قشرة جديدة</b>: محيطية كالبحر الأحمر، أو قارية كالأخدود الأفريقى العظيم. وتسمى منطقة التباعد <b>الحدود المتباعدة</b>.'},
+ con:{svg:`<rect x="30" y="85" width="170" height="40" rx="6" fill="#8D6E63"/><path d="M200 85L370 85 370 125 200 125Z" fill="#6D4C41"/><path d="M285 85l25-45 25 45Z" fill="#5D4037"/><path d="M300 52l10-14 10 14" fill="#E53935"/><path d="M70 70h70M140 70l-12-9M140 70l-12 9M360 70h-60M300 70l12-9M300 70l12 9" stroke="#B4531A" stroke-width="4" fill="none" stroke-linecap="round"/>`,t:'⇄ <b>حركة تقاربية</b> (بفعل تيار حمل هابط): تتقارب الصفيحتان وتسمى <b>الحدود المتقاربة</b>. محيطيتان ← جزر بركانية (اليابان). قاريتان ← جبال الهيمالايا. محيطية مع قارية ← تغوص الأكبر كثافة فتنشأ جبال الأنديز.'},
+ trn:{svg:`<rect x="30" y="85" width="170" height="40" rx="6" fill="#8D6E63"/><rect x="200" y="85" width="170" height="40" rx="6" fill="#6D4C41"/><path d="M100 70h0M80 62v-15M80 47l-9 10M80 47l9 10" stroke="#B4531A" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M320 62v15M320 77l-9-10M320 77l9-10" stroke="#B4531A" stroke-width="4" fill="none" stroke-linecap="round"/><line x1="200" y1="85" x2="200" y2="125" stroke="#E53935" stroke-width="3" stroke-dasharray="4 3"/>`,t:'⇅ <b>حركة تحويلية</b>: تتحرك الصفيحتان متحاذيتين (جنبًا إلى جنب) وتسمى <b>الحدود التحويلية</b>، وينتج عنها <b>صدوع</b> طويلة مثل <b>صدع سان أندرياس</b>.'}
+};
+window.u4Pl=k=>{document.querySelectorAll('.u3-btn[data-p]').forEach(b=>b.classList.toggle('on',b.dataset.p===k));document.getElementById('u4PlSvg').innerHTML=PL[k].svg;document.getElementById('u4PlRes').innerHTML=PL[k].t;};
+const MIN=[
+ ['الكبريت','🟡','عنصر أصفر اللون ثابت اللون (مثال على معدن فى صورة عنصر).'],
+ ['الهيماتيت','🟥','مركب هو أكسيد الحديد الأحمر، ينتشر فى الصحراء الشرقية بمصر (معدن فى صورة مركب).'],
+ ['الكوارتز','🔮','معدن شفاف، يتغير لونه تبعًا للشوائب (بنفسجى أو وردى) ويتكون من تصلد الصهارة الغنية بالسيليكا.'],
+ ['الميكا','🪨','معدن نصف شفاف، يتكون من تصلد الصهارة الغنية بالسيليكا.'],
+ ['التلك','⚪','معدن معتم (غير شفاف) لا ينفذ الضوء.'],
+ ['الجالينا','✨','له بريق (لمعان) يشبه الفلزات، واستخدمه قدماء المصريين فى صناعة كحل العين.'],
+ ['الهاليت','🧂','بللورات ملح الطعام، متبلر فيوصف بأنه معدن.'],
+ ['الأوبال','🌈','له بريق وتركيب كيميائى محدد لكنه غير متبلر، لذا يوصف بأنه شبه معدن.']
+];
+window.u4Min=i=>{document.querySelectorAll('.u3-btn[data-m]').forEach(b=>b.classList.toggle('on',+b.dataset.m===i));document.getElementById('u4MinRes').innerHTML=`<div style="font-size:34px;">${MIN[i][1]}</div><b>${MIN[i][0]}:</b> ${MIN[i][2]}`;};
+
+const stepsCard=(s)=>`<div class="card lab-card"><span class="lab-tag">🎞️ خطوة بخطوة</span><h3><span class="dot"></span> ${s.title}</h3><div class="u3-dots" id="u4d-${s.key}"></div><div class="u3-step" id="u4s-${s.key}"></div><div class="u3-row" style="justify-content:space-between;"><button class="u3-btn" onclick="u4Step('${s.key}',-1)">→ السابق</button><button class="u3-btn" onclick="u4Step('${s.key}',1)">التالى ←</button></div></div>`;
+U4.forEach((l,i)=>{
+ const n=l.id.slice(6),prev=i?U4[i-1].id:'unit4',next=i<U4.length-1?U4[i+1].id:'unit4';
+ let h=`<div class="lesson-view" id="view-${l.id}"><button class="back-btn" onclick="showView('unit4')">→ رجوع للدروس</button><div class="lesson-banner" style="background:${l.color};"><div class="tag">الوحدة الرابعة · الدرس ${l.num}</div><h2>${l.icon} ${l.title}</h2><p>${l.intro}</p></div>`;
+ const yc=(v,c)=>`<a class="yt-card${c}" href="https://www.youtube.com/watch?v=${v[0]}" target="_blank" rel="noopener"><div class="yt-thumb" style="background-image:url('https://i.ytimg.com/vi/${v[0]}/maxresdefault.jpg'),url('https://i.ytimg.com/vi/${v[0]}/hqdefault.jpg');"><span class="yt-play">▶</span></div><div class="yt-info"><span class="yt-tag">${v[1]}</span><h4>${v[2]}</h4><p>${v[3]}</p></div></a>`;
+ if(l.vids)h+=l.vids.length>1?`<div class="yt-grid">${l.vids.map(v=>yc(v,'')).join('')}</div>`:yc(l.vids[0],' yt-solo');
+ h+=stepsCard(l.steps);
+ l.labs.forEach(k=>h+=LAB[k]);
+ l.secs.forEach(s=>h+=sec(s[0],s[1]));
+ l.cls.forEach(c=>h+=`<div class="card lab-card"><span class="lab-tag">🔬 نشاط تصنيف</span><h3><span class="dot"></span> ${c[0]}</h3><div class="classify-grid" id="${c[1]}"></div></div>`);
+ h+=`<div class="card lab-card"><span class="lab-tag">📘 قيّم فهمك</span>`+l.rev.map(r=>`<div class="reveal-q"><p>🤔 ${r[0]}</p><button class="reveal-btn" onclick="toggleReveal(this)">اعرض الإجابة</button><div class="reveal-ans">${r[1]}</div></div>`).join('')+`</div>`;
+ h+=sec('علّل لما يأتى',`<div class="flip-grid" id="flipGrid-${n}"></div>`);
+ h+=`<div class="card quiz-card" id="quizCard-${n}"></div><div class="card quiz-card"><span class="weekly-badge">📋 أسئلة تقييم الدرس والكراسة</span><div id="quizCard-${n}w"></div></div>`;
+ h+=`<div class="game-banner" onclick="gmOpen('${l.id}')"><span class="gb-ic">🎮</span><div><h3>تحدّى هذا الدرس</h3><p>مشكلات حياتية تغطى كل أفكار الدرس مع جولة «صيد الأخطاء»</p></div><span class="gb-cta">العب الآن ▶</span></div><div class="nav-buttons"><button class="nav-btn prev" onclick="showView('${i?prev:'unit4'}')">${i?'← الدرس السابق':'الوحدة الرابعة'}</button><button class="nav-btn next" onclick="showView('${next}')">${next==='unit4'?'إنهاء الوحدة 🎉':'الدرس التالى →'}</button></div></div>`;
+ main.insertAdjacentHTML('beforeend',h);
+});
+
+/* ---------- نشاط التصنيف ---------- */
+window.clsReg=window.clsReg||{};
+function rc(id,opts,data){clsReg[id]={opts,data};document.getElementById(id).innerHTML=data.map((d,i)=>`<div class="classify-card"><h4>${d[0]}</h4><div class="classify-opts" id="${id}-${i}">${opts.map(o=>`<button class="classify-opt" onclick="cls2('${id}',${i},'${o}')">${o}</button>`).join('')}</div></div>`).join('');}
+
+/* ---------- خطوة بخطوة ---------- */
+const STEPS={};U4.forEach(l=>STEPS[l.steps.key]={i:0,items:l.steps.items});
+function stepDraw(k){const s=STEPS[k],it=s.items[s.i];
+ document.getElementById('u4d-'+k).innerHTML=s.items.map((_,j)=>`<span class="${j===s.i?'on':(j<s.i?'done':'')}"></span>`).join('');
+ document.getElementById('u4s-'+k).innerHTML=`<div class="u3-step-ic">${it[0]}</div><div><span class="u3-chip">📍 ${it[1]}</span><h4>${s.i+1}. ${it[2]}</h4><p>${it[3]}</p></div>`;}
+window.u4Step=(k,d)=>{const s=STEPS[k];s.i=Math.max(0,Math.min(s.items.length-1,s.i+d));stepDraw(k);};
+
+
+window.addEventListener('load',()=>{
+ U4.forEach(l=>{const n=l.id.slice(6);renderQuiz(n,quizzes[n],{progressKey:l.id,title:'اختبر فهمك'});renderQuiz(n+'w',weeklyQuizzes[n],{progressKey:l.id+'w',title:'أسئلة تقييم الدرس والكراسة'});renderFlipCards(n);l.cls.forEach(c=>rc(c[1],c[2],c[3]));stepDraw(l.steps.key);});
+ document.getElementById('u4MinRow').innerHTML=MIN.map((m,i)=>`<button class="u3-btn" data-m="${i}" onclick="u4Min(${i})">${m[1]} ${m[0]}</button>`).join('');
+ u4Pl('div');renderLessonGrid();updateTopProgress();
+});
+})();
+</script>
+<script>
+/* ===== هيرو الوحدة 4: جمرات وصخور ===== */
+(function(){
+ const cv=document.getElementById('heroCanvas4'); if(!cv) return; const ctx=cv.getContext('2d'); let W=0,H=0,dpr=1,P=[];
+ function fit(){const r=cv.getBoundingClientRect();if(!r.width)return false;dpr=window.devicePixelRatio||1;const w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);if(w!==W||h!==H){W=cv.width=w;H=cv.height=h;P=[];for(let i=0;i<34;i++)P.push(mk(true));}return true;}
+ function mk(r){return{x:Math.random()*W,y:r?Math.random()*H:H+10,v:(.4+Math.random()*1.1)*dpr,s:(2+Math.random()*5)*dpr,e:Math.random()<.65,dx:(Math.random()-.5)*.6*dpr};}
+ function loop(){if(document.getElementById('view-unit4').classList.contains('active')&&!document.hidden&&fit()){ctx.clearRect(0,0,W,H);
+  for(const p of P){p.y-=p.v;p.x+=p.dx;if(p.y<-10){Object.assign(p,mk(false));}
+   ctx.beginPath();if(p.e){ctx.arc(p.x,p.y,p.s,0,6.283);ctx.fillStyle='rgba(255,170,60,.85)';}else{ctx.rect(p.x,p.y,p.s*1.6,p.s*1.2);ctx.fillStyle='rgba(255,255,255,.35)';}ctx.fill();}}
+  requestAnimationFrame(loop);}
+ requestAnimationFrame(loop);
+})();
+</script>
+<script>
 const unit1Questions = {
   a:[
     ["أى مما يلى لا يُعد مادة؟",["الهواء","عصير الليمون","الحرارة","ثانى أكسيد الكربون"],2],
@@ -3812,6 +4481,845 @@ window.addEventListener('load',()=>{
   renderQuiz('u1qb',unit1Questions.b.map(x=>({q:'هل العبارة التالية صحيحة؟ — '+x[0],opts:tf,correct:x[1]})),{progressKey:'u1qb',title:'ثانيًا: صح أم خطأ'});
   renderQuiz('u1qc',unit1Questions.c.map(x=>({q:x[0],opts:x[1],correct:x[2]})),{progressKey:'u1qc',title:'ثالثًا: أكمل واختر المصطلح العلمى'});
   updateUq1Badge();
+});
+/* ===== الاختبارات العامة ===== */
+const GEN_EXAMS = [{"id": "g1", "title": "الاختبار العام الأول", "desc": "20 سؤالًا تغطى الوحدات الأربع بمستويات متدرجة، منها 6 أسئلة للمتفوقين.", "qs": [{"t": "m", "lv": 1, "q": "الحالة التى يكون للمادة فيها شكل وحجم محددان هى:", "o": ["الصلبة", "السائلة", "الغازية", "البلازما"], "h": "فكّر فى قوى التجاذب بين الجسيمات: فى أى حالة تكون أقوى ما يمكن؟", "a": "الحالة <b>الصلبة</b>: <b>قوى التجاذب</b> بين جسيماتها كبيرة و<b>المسافات البينية</b> صغيرة، فلا يتغير شكلها بتغير الإناء."}, {"t": "m", "lv": 1, "q": "أى العمليات الآتية تكتسب فيها المادة طاقة حرارية؟", "o": ["الانصهار", "التجمد", "التكثف", "الترسيب"], "h": "العمليات التى تنتقل فيها المادة إلى حالة جسيماتها أكثر حرية تحتاج إلى طاقة.", "a": "<b>الانصهار</b> (صلب ← سائل) يكتسب فيه الجسم <b>طاقة حرارية</b> فتزداد <b>طاقة حركة الجسيمات</b> وتضعف <b>قوى التجاذب</b>."}, {"t": "f", "lv": 1, "q": "يتحول الثلج الجاف (CO₂ الصلب) مباشرة إلى غاز دون المرور بالحالة السائلة.", "v": true, "h": "ماذا نسمى تحول الصلب إلى غاز مباشرة؟", "a": "صحيحة؛ تسمى هذه العملية <b>التسامى</b>، وعكسها <b>الترسيب (التساقط)</b>."}, {"t": "m", "lv": 1, "q": "النظام الذى يحدث فيه تبادل للطاقة دون المادة مع الوسط المحيط هو النظام:", "o": ["المغلق", "المفتوح", "المعزول", "الحرارى"], "h": "قارن: مفتوح (طاقة + مادة)، معزول (لا شىء)، والباقى؟", "a": "<b>النظام المغلق</b> يتبادل <b>الطاقة</b> فقط مع <b>الوسط المحيط</b>، مثل عبوة مشروب محكمة الغلق فى الثلج."}, {"t": "m", "lv": 1, "q": "الغاز الذى يحصل عليه النبات من الهواء ليستخدمه فى صنع غذائه هو:", "o": ["ثانى أكسيد الكربون", "الأكسجين", "النيتروجين", "الهيدروجين"], "h": "المواد الخام للبناء الضوئى: ماء + ...؟", "a": "يمتص النبات <b>ثانى أكسيد الكربون</b> عبر <b>الثغور</b>، ويستخدمه مع الماء فى <b>البناء الضوئى</b> لتكوين <b>الجلوكوز</b>."}, {"t": "m", "lv": 1, "q": "الصيغة الكيميائية لمركب كلوريد الصوديوم (ملح الطعام) هى:", "o": ["NaCl", "NaOH", "NaHCO₃", "HCl"], "h": "الصوديوم رمزه Na، والكلور رمزه Cl.", "a": "<b>كلوريد الصوديوم</b> صيغته <b>NaCl</b>، أما NaOH فهو <b>هيدروكسيد الصوديوم</b> وNaHCO₃ هو <b>بيكربونات الصوديوم</b>."}, {"t": "m", "lv": 1, "q": "الحركة التى تبتعد فيها الصفيحتان التكتونيتان عن بعضهما تسمى:", "o": ["الحركة التباعدية", "الحركة التقاربية", "الحركة التحويلية", "الانجراف القارى"], "h": "التباعد = الابتعاد.", "a": "<b>الحركة التباعدية</b> تتباعد فيها <b>الصفائح التكتونية</b>، فيتكون صدع وتصعد <b>الماجما</b> (مثل نشأة البحر الأحمر)."}, {"t": "m", "lv": 2, "q": "تجف الملابس المبللة أسرع فى الأيام المشمسة لأن:", "o": ["ارتفاع درجة الحرارة يزيد معدل التبخر", "الضغط الجوى يزداد", "الماء يغلى عند 100°C", "الرطوبة ترتفع"], "h": "التبخر يحتاج جسيمات ذات طاقة كافية للتغلب على قوى التجاذب. ماذا تفعل الحرارة بالطاقة؟", "a": "<b>ارتفاع درجة الحرارة</b> يزيد <b>طاقة حركة جسيمات</b> الماء فتتغلب على <b>قوى التجاذب</b> وتتحول إلى بخار، فيزداد <b>معدل التبخر</b>."}, {"t": "m", "lv": 2, "q": "المعادلة الموزونة لتفاعل الحديد مع الأكسجين هى:", "o": ["4Fe + 3O₂ ← 2Fe₂O₃", "Fe + O₂ ← Fe₂O₃", "2Fe + O₂ ← Fe₂O₃", "Fe + 3O₂ ← 2Fe₂O₃"], "h": "ابدأ بالأكسجين: على اليسار عدد زوجى (O₂) وعلى اليمين 3 ذرات. اجعل العددين 6.", "a": "<b>4Fe + 3O₂ ← 2Fe₂O₃</b>؛ تتساوى عدد الذرات فى الطرفين تحقيقًا لـ<b>قانون بقاء الكتلة</b>."}, {"t": "m", "lv": 2, "q": "عند اكتساب مادتين متساويتين فى الكتلة نفس كمية الحرارة، ترتفع درجة حرارة المادة ذات:", "o": ["الحرارة النوعية الأقل أكثر", "الحرارة النوعية الأكبر أكثر", "الكثافة الأكبر أكثر", "الحجم الأكبر أكثر"], "h": "الحرارة اللازمة = الكتلة × الحرارة النوعية × التغير فى درجة الحرارة. ماذا يحدث للتغير لو صغرت الحرارة النوعية؟", "a": "المادة ذات <b>الحرارة النوعية</b> الأقل تحتاج كمية حرارة أقل لرفع درجة حرارتها، فترتفع <b>درجة حرارتها</b> بمقدار أكبر."}, {"t": "m", "lv": 2, "q": "يتغير لون محلول بندكت من الأزرق إلى البرتقالى عند تسخينه مع:", "o": ["سكر الجلوكوز", "النشا", "الدهون", "البروتين"], "h": "بندكت يكشف عن السكريات الأحادية.", "a": "<b>محلول بندكت</b> يكشف عن <b>السكريات الأحادية</b> مثل <b>الجلوكوز</b> فيتحول لونه من الأزرق إلى البرتقالى بعد <b>التسخين</b>."}, {"t": "f", "lv": 2, "q": "تحدث عملية التنفس الخلوى فى خلايا النبات ليلًا ونهارًا.", "v": true, "h": "هل يتوقف النبات عن الحصول على الطاقة ليلًا؟", "a": "صحيحة؛ <b>التنفس الخلوى</b> عملية <b>هدم</b> مستمرة لإنتاج <b>ATP</b>، أما <b>البناء الضوئى</b> فيحدث نهارًا فقط."}, {"t": "m", "lv": 2, "q": "تزيد أعراف الميتوكوندريا من:", "o": ["المساحة المتاحة لتفاعلات سلسلة نقل الإلكترون", "سمك الغشاء الخارجى", "حجم الحشوة السائلة", "عدد البلاستيدات"], "h": "الأعراف طيات متعرجة: ماذا يفعل التعرج بالمساحة؟", "a": "<b>الأعراف</b> هى طيات <b>الغشاء الداخلى</b> للميتوكوندريا، وتزيد المساحة المتاحة لتفاعلات <b>سلسلة نقل الإلكترون</b> فينتج قدر أكبر من <b>ATP</b>."}, {"t": "m", "lv": 2, "q": "أكثر أنواع الزلازل شيوعًا هى الزلازل:", "o": ["التركيبية (التكتونية)", "البركانية", "الانهيارية", "الصناعية"], "h": "ما الذى يسببها: حركة الصفائح أم شىء آخر؟", "a": "<b>الزلازل التركيبية</b> تنتج عن حركة <b>الصفائح التكتونية</b> وانكسار الصخور عند حدودها."}, {"t": "e", "lv": 3, "q": "وُضع 100 g و200 g من الماء عند نفس درجة الحرارة فى كأسين متماثلين، وسُخّنا بنفس اللهب لنفس المدة. أى الكأسين تكون درجة حرارته أعلى؟ فسّر إجابتك.", "h": "تلميح: اللهب ينقل نفس كمية الطاقة الحرارية للكأسين. ثم اسأل: على كم جسيم توزعت هذه الطاقة فى كل كأس؟ وفرّق بين الطاقة الداخلية ودرجة الحرارة.", "a": "الكأس الذى يحتوى على <b>100 g</b> تكون درجة حرارته أعلى. اكتسب الكأسان نفس <b>الطاقة الحرارية</b>، لكنها توزعت فى الكأس الأقل كتلة على <b>جسيمات</b> أقل، فيزداد <b>متوسط طاقة حركة الجسيمات</b> (أى <b>درجة الحرارة</b>) بمقدار أكبر. أما <b>الطاقة الداخلية</b> فهى أكبر فى الكأس الأكبر كتلة."}, {"t": "e", "lv": 3, "q": "عند الطهى فوق قمة جبل شاهق لا ينضج الطعام جيدًا. فسّر ذلك، واقترح حلًا مناسبًا.", "h": "تلميح: ما العلاقة بين الارتفاع والضغط الجوى؟ وبين الضغط الجوى ودرجة غليان الماء؟ وكيف نرفع الضغط داخل الإناء؟", "a": "كلما زاد الارتفاع <b>قل الضغط الجوى</b> فتقل <b>درجة غليان الماء</b> عن 100°C، فلا يصل الماء لدرجة حرارة كافية لإنضاج الطعام. الحل: استخدام <b>القدر الكاتم (حلة الضغط)</b> لأنه يحتبس <b>بخار الماء</b> فيزداد الضغط داخله فترتفع <b>درجة الغليان</b> ويسرع النضج."}, {"t": "e", "lv": 3, "q": "تفاعل 4 g من غاز الهيدروجين تمامًا مع 32 g من غاز الأكسجين لتكوين الماء. احسب كتلة الماء الناتج، وسمِّ القانون الذى استخدمته، ثم اكتب المعادلة الرمزية الموزونة مع الحالة الفيزيائية.", "h": "تلميح: ماذا تقول المعادلة الموزونة عن كتلة المتفاعلات مقارنة بكتلة النواتج؟", "a": "كتلة الماء = 4 + 32 = <b>36 g</b> طبقًا لـ<b>قانون بقاء الكتلة</b> (مجموع كتل المتفاعلات = مجموع كتل النواتج). المعادلة الموزونة: <b>2H₂(g) + O₂(g) ← 2H₂O(l)</b>."}, {"t": "e", "lv": 3, "q": "ماذا يحدث لكمية ATP الناتجة من التنفس الخلوى عند غياب الأكسجين؟ فسّر مستعينًا بمراحل التنفس الخلوى.", "h": "تلميح: أى مرحلتى التنفس تحتاج إلى الأكسجين؟ وأين تتم كل مرحلة؟ وكم ATP تنتج كل مرحلة؟", "a": "تقل كمية <b>ATP</b> كثيرًا. <b>المرحلة الأولى</b> تتم فى <b>السيتوبلازم</b> دون أكسجين وتنتج قدرًا قليلًا من ATP وجزيئين من <b>حمض البيروفيك</b>. أما <b>المرحلة الثانية</b> فتتم فى <b>الميتوكوندريا</b> (<b>دورة كربس</b> و<b>سلسلة نقل الإلكترون</b>) وتحتاج <b>الأكسجين</b>، فتتوقف وهى المنتجة لأكبر قدر من ATP."}, {"t": "m", "lv": 3, "q": "فى تجربة فان هيلمونت زادت كتلة شتلة الصفصاف من 2.2 kg إلى 75 kg بينما نقصت كتلة التربة 55 g فقط. أى استنتاج هو الأصح؟", "o": ["نمو النبات لا يعتمد أساسًا على مواد التربة، وللماء دور أساسى", "التربة هى المصدر الأساسى لكتلة النبات", "الماء لا علاقة له بنمو النبات", "الضوء هو المادة التى تكوّن النبات"], "h": "قارن بين مقدار الزيادة فى كتلة النبات ومقدار النقص فى كتلة التربة.", "a": "الزيادة الكبيرة فى كتلة النبات مقابل نقص بسيط جدًا فى <b>التربة</b> تدل على أن النمو لا يعتمد أساسًا على غذاء التربة، وأن <b>الماء</b> عنصر أساسى. وتبين لاحقًا دور <b>ثانى أكسيد الكربون</b> و<b>ضوء الشمس</b> فى <b>البناء الضوئى</b>."}, {"t": "e", "lv": 3, "q": "لماذا تتركز الزلازل والبراكين فى مناطق محددة من العالم تقع غالبًا عند حدود الصفائح التكتونية؟", "h": "تلميح: ماذا يحدث عند حدود الصفائح (تباعد/تقارب/انزلاق)؟ وماذا ينتج عن ذلك فى الصخور وفى الماجما؟", "a": "عند حدود <b>الصفائح التكتونية</b> تحدث <b>حركات تباعدية وتقاربية وتحويلية</b> فتتولد إجهادات تؤدى إلى انكسار الصخور وهزات أرضية تسمى <b>الزلازل</b>، كما تجد <b>الماجما</b> طريقها عبر الشقوق إلى السطح فتتكون <b>البراكين</b>."}]}, {"id": "g2", "title": "الاختبار العام الثانى", "desc": "20 سؤالًا تغطى الوحدات الأربع، مع أسئلة تحليلية وتطبيقية للمتفوقين.", "qs": [{"t": "m", "lv": 1, "q": "تحول المادة من الحالة الغازية إلى الحالة السائلة يسمى:", "o": ["التكثف", "التبخر", "الانصهار", "التسامى"], "h": "تذكر قطرات الندى على أوراق الشجر صباحًا.", "a": "<b>التكثف</b> عكس <b>التبخر</b>؛ يفقد بخار الماء طاقة حرارية فيتحول إلى سائل."}, {"t": "m", "lv": 1, "q": "درجة غليان الماء النقى عند الضغط الجوى المعتاد تساوى:", "o": ["100°C", "0°C", "50°C", "37°C"], "h": "هى نفس الرقم الذى تحفظه منذ الصغر.", "a": "<b>درجة الغليان</b> للماء النقى عند <b>الضغط الجوى المعتاد</b> = <b>100°C</b>، بينما <b>درجة الانصهار</b> = 0°C."}, {"t": "m", "lv": 1, "q": "الحالة الرابعة للمادة التى تتكون من أيونات موجبة وإلكترونات حرة سالبة هى:", "o": ["البلازما", "الصلبة", "السائلة", "الغازية"], "h": "توجد فى الشمس والنجوم والبرق.", "a": "<b>البلازما</b> تتكون عند <b>تأين الغازات</b>، وتُستخدم فى أنظمة تكييف الهواء لتنقية الهواء من الملوثات."}, {"t": "f", "lv": 1, "q": "المعدن مادة عضوية ذات نظام بللورى.", "v": false, "h": "هل المعدن من أصل حى؟", "a": "خاطئة؛ <b>المعدن</b> مادة صلبة طبيعية <b>غير عضوية</b> ذات <b>نظام بللورى</b> و<b>تركيب كيميائى</b> محدد."}, {"t": "m", "lv": 1, "q": "تصل حرارة الشمس إلينا عن طريق:", "o": ["الإشعاع", "التوصيل", "الحمل", "التبخر"], "h": "لا يوجد وسط مادى بين الشمس والأرض.", "a": "<b>الإشعاع الحرارى</b> ينتقل دون الحاجة إلى وسط مادى، لذلك تصل حرارة الشمس عبر الفراغ."}, {"t": "m", "lv": 1, "q": "الصيغة الكيميائية لحمض الهيدروكلوريك هى:", "o": ["HCl", "NaCl", "H₂SO₄", "NaOH"], "h": "هيدروجين + كلور.", "a": "<b>حمض الهيدروكلوريك</b> صيغته <b>HCl</b>، أما H₂SO₄ فهو <b>حمض الكبريتيك</b>."}, {"t": "m", "lv": 1, "q": "العضية التى تتم بها عملية البناء الضوئى هى:", "o": ["البلاستيدة الخضراء", "الميتوكوندريا", "النواة", "الريبوسوم"], "h": "العضية التى تحتوى على الكلوروفيل.", "a": "<b>البلاستيدات الخضراء</b> تحتوى <b>الكلوروفيل</b> فى <b>الجرانا</b> وإنزيمات التفاعلات اللاضوئية فى <b>الستروما</b>."}, {"t": "m", "lv": 2, "q": "يفضل صنع أوانى الطهى من النحاس لأنه:", "o": ["مادة موصلة للحرارة", "مادة عازلة للحرارة", "غير قابل للصدأ فقط", "خفيف الوزن فقط"], "h": "ابحث عن خاصية التوصيلية الحرارية.", "a": "<b>النحاس</b> من <b>المواد الموصلة حراريًا</b> (توصيليته الحرارية عالية) فينقل الحرارة بسرعة إلى الطعام."}, {"t": "m", "lv": 2, "q": "ينتج صدع سان أندرياس عن حركة:", "o": ["تحويلية", "تباعدية", "تقاربية", "رأسية"], "h": "تنزلق الصفيحتان جنبًا إلى جنب فى اتجاهين متضادين.", "a": "<b>الحركة التحويلية</b> تنزلق فيها الصفيحتان جنبًا إلى جنب فتحدث <b>الزلازل</b> (مثل صدع <b>سان أندرياس</b>)."}, {"t": "f", "lv": 2, "q": "عند إضافة محلول اليود إلى شريحة بطاطس يتحول لونه إلى الأزرق الداكن.", "v": true, "h": "اليود كاشف عن أى مادة غذائية؟", "a": "صحيحة؛ <b>محلول اليود</b> يكشف عن <b>النشا</b> الموجود فى البطاطس فيتحول لونه إلى <b>الأزرق الداكن</b>."}, {"t": "m", "lv": 2, "q": "يتحول لون محلول بيوريت الأزرق عند إضافته إلى بروتين إلى اللون:", "o": ["البنفسجى", "الأخضر", "الأحمر", "الأصفر"], "h": "كاشف البروتينات يعطى لونًا يشبه ألوان الأزهار البنفسجية.", "a": "<b>محلول بيوريت</b> يكشف عن <b>البروتينات</b> فيتحول من الأزرق إلى <b>البنفسجى</b>."}, {"t": "m", "lv": 2, "q": "معامل H₂SO₄ فى المعادلة الموزونة: Al + H₂SO₄ ← Al₂(SO₄)₃ + H₂ هو:", "o": ["3", "1", "2", "6"], "h": "عدد مجموعات SO₄ على اليمين = 3. يجب أن تتساوى على اليسار.", "a": "المعادلة الموزونة: <b>2Al + 3H₂SO₄ ← Al₂(SO₄)₃ + 3H₂</b>، فمعامل <b>H₂SO₄ = 3</b> تحقيقًا لـ<b>قانون بقاء الكتلة</b>."}, {"t": "m", "lv": 2, "q": "مصدر الأكسجين الناتج من عملية البناء الضوئى هو تحلل:", "o": ["الماء", "ثانى أكسيد الكربون", "الجلوكوز", "ATP"], "h": "أى المواد المتفاعلة تحتوى على الأكسجين وتتحلل بطاقة الكلوروفيل؟", "a": "يُستخدم جزء من طاقة <b>الكلوروفيل</b> النشط فى <b>تحليل الماء</b> إلى <b>أكسجين</b> وهيدروجين فى <b>التفاعلات الضوئية</b>."}, {"t": "m", "lv": 2, "q": "تتم تفاعلات دورة كربس فى:", "o": ["حشوة الميتوكوندريا", "السيتوبلازم", "الجرانا", "الستروما"], "h": "دورة كربس تنتمى للمرحلة الثانية من التنفس الخلوى.", "a": "تتم <b>دورة كربس</b> فى <b>حشوة الميتوكوندريا</b> وينتج عنها طاقة محدودة وثانى أكسيد الكربون."}, {"t": "e", "lv": 3, "q": "الجدول: المواد X وY وZ حرارتها النوعية 450 و900 و2000 J/kg.°C على الترتيب، وكتلها متساوية، سُخنت بنفس المصدر لنفس المدة. رتّبها تنازليًا حسب ارتفاع درجة حرارتها وفسّر.", "h": "تلميح: كلما قلت الحرارة النوعية احتاجت المادة لكمية حرارة أقل لرفع درجة حرارتها 1°C. فأيها ترتفع أكثر؟", "a": "الترتيب: <b>X ثم Y ثم Z</b>. المادة X لها أقل <b>حرارة نوعية</b> فتحتاج أقل كمية حرارة لرفع درجة حرارتها 1°C فترتفع درجة حرارتها بسرعة، وZ أكبرها حرارة نوعية فترتفع أبطأ."}, {"t": "e", "lv": 3, "q": "فسّر حدوث نسيم البحر نهارًا، مبينًا نوع انتقال الحرارة المسؤول عنه ودور الحرارة النوعية.", "h": "تلميح: أيهما تسخن أسرع نهارًا: اليابسة أم الماء؟ وماذا يحدث للهواء الساخن؟ وما الذى يملأ مكانه؟", "a": "اليابسة لها <b>حرارة نوعية</b> أقل من الماء فتسخن أسرع نهارًا، فيسخن الهواء فوقها ويقل ضغطه ويصعد (<b>تيارات الحمل الصاعدة</b>)، فيتحرك الهواء البارد من البحر ليحل محله، وهذا هو <b>نسيم البحر</b>، وانتقال الحرارة هنا بـ<b>الحمل</b>."}, {"t": "e", "lv": 3, "q": "اكتب المعادلة الرمزية الموزونة لتفاعل كلوريد الصوديوم مع نترات الفضة، وحدد الدليل الذى يستدل به على حدوث التفاعل الكيميائى.", "h": "تلميح: تبادل الأيونات يعطى كلوريد الفضة ونترات الصوديوم. أيهما يتكون كمادة غير ذائبة؟ ما الدليل؟", "a": "<b>NaCl(aq) + AgNO₃(aq) ← AgCl(s) + NaNO₃(aq)</b>. الدليل: <b>تكوّن راسب أبيض</b> من <b>كلوريد الفضة</b>."}, {"t": "e", "lv": 3, "q": "وضّح كيف تتكامل عمليتا البناء الضوئى والتنفس الخلوى، موضحًا المواد التى تتبادلانها.", "h": "تلميح: قارن بين معادلة كل منهما: ناتج إحداهما هو متفاعل فى الأخرى.", "a": "ناتجا <b>البناء الضوئى</b> (<b>الجلوكوز</b> و<b>الأكسجين</b>) هما متفاعلا <b>التنفس الخلوى</b>، وناتجا التنفس (<b>ثانى أكسيد الكربون</b> و<b>الماء</b>) هما متفاعلا البناء الضوئى. فالأولى <b>بناء</b> تختزن الطاقة، والثانية <b>هدم</b> تحرر الطاقة فى صورة <b>ATP</b>."}, {"t": "e", "lv": 3, "q": "أعطت عينة غذائية اللون البرتقالى مع محلول بندكت بعد التسخين، ولم يتغير لون محلول اليود عند إضافته لها. ما نوع الكربوهيدرات فى العينة؟ ولماذا؟", "h": "تلميح: بندكت يكشف عن السكريات الأحادية، واليود يكشف عن النشا. ماذا تستنتج من نتيجة كل كاشف؟", "a": "العينة تحتوى على <b>سكر أحادى</b> مثل <b>الجلوكوز</b> (ظهر اللون البرتقالى مع <b>بندكت</b>)، ولا تحتوى على <b>نشا</b> (لم يتغير <b>اليود</b>)."}, {"t": "e", "lv": 3, "q": "لماذا تُعد تربة دلتا النيل خصبة؟ وإلى أى نوع من التربة تنتمى؟ وبماذا تختلف عن التربة المحلية؟", "h": "تلميح: من أين جاءت رواسب الدلتا؟ وهل تكونت فى مكان صخورها الأصلية؟", "a": "تنتمى إلى <b>التربة المنقولة</b>: نقلها <b>نهر النيل</b> من هضبة الحبشة عبر ملايين السنين محملة بمعادن ومواد عضوية فترسبت فى الدلتا، فاختلف <b>تركيبها الكيميائى</b> عن الصخور التى تعلوها، بينما <b>التربة المحلية</b> تتكون من <b>التجوية</b> البطيئة للصخور فى نفس مكانها."}]}, {"id": "g3", "title": "الاختبار العام الثالث", "desc": "20 سؤالًا تربط بين الوحدات (حرارة، كيمياء، طاقة حيوية، جيولوجيا) بأسئلة تفكير عليا.", "qs": [{"t": "m", "lv": 1, "q": "درجة انصهار الجليد عند الضغط الجوى المعتاد تساوى:", "o": ["0°C", "100°C", "-10°C", "37°C"], "h": "هى نفسها درجة تجمد الماء.", "a": "<b>درجة الانصهار</b> للجليد = <b>0°C</b> عند <b>الضغط الجوى المعتاد</b>."}, {"t": "m", "lv": 1, "q": "مجموع طاقتى الحركة والوضع لجميع جسيمات النظام يسمى:", "o": ["الطاقة الداخلية", "درجة الحرارة", "الحرارة النوعية", "التوصيلية الحرارية"], "h": "هى طاقة 'داخل' النظام.", "a": "<b>الطاقة الداخلية</b> هى مجموع <b>طاقة الحركة وطاقة الوضع</b> لجميع جسيمات النظام، أما <b>درجة الحرارة</b> فتقيس متوسط طاقة الحركة."}, {"t": "m", "lv": 1, "q": "تحول الماء السائل إلى بخار عند سطحه فى أى درجة حرارة يسمى:", "o": ["التبخر", "الغليان", "التسامى", "التكثف"], "h": "هذه العملية تحدث عند السطح فقط ولا تتطلب درجة حرارة محددة.", "a": "<b>التبخر</b> يحدث لجزيئات <b>سطح السائل</b> عند أى درجة حرارة، بينما <b>الغليان</b> يحدث لجميع أجزاء السائل عند <b>درجة الغليان</b>."}, {"t": "f", "lv": 1, "q": "يحيط بالبلاستيدة الخضراء غشاء مزدوج.", "v": true, "h": "تذكر تركيب البلاستيدة: غشاء + ستروما + جرانا.", "a": "صحيحة؛ للبلاستيدة <b>غشاء مزدوج</b> و<b>ستروما</b> و<b>جرانا</b>."}, {"t": "m", "lv": 1, "q": "الكاشف المستخدم للكشف عن الدهون هو:", "o": ["سودان 4", "اليود", "بندكت", "بيوريت"], "h": "اسم الكاشف يحتوى رقمًا.", "a": "يستخدم محلول <b>سودان 4</b> للكشف عن <b>الدهون</b>، فيكوّن لونًا أحمر على السطح."}, {"t": "m", "lv": 1, "q": "تتكون الكربوهيدرات من العناصر:", "o": ["الكربون والهيدروجين والأكسجين", "الكربون والنيتروجين فقط", "الهيدروجين والكبريت", "الكالسيوم والأكسجين"], "h": "اسمها 'كربو' + 'هيدرات' (ماء).", "a": "<b>الكربوهيدرات</b> مركبات عضوية تتكون من <b>الكربون والهيدروجين والأكسجين</b>."}, {"t": "m", "lv": 1, "q": "تنتج أمواج تسونامى عادة عن:", "o": ["زلزال قوى فى قاع البحر", "الرياح الموسمية", "المد والجزر", "سقوط الأمطار"], "h": "ظاهرة مرتبطة بالمحيطات والزلازل.", "a": "<b>تسونامى</b> موجات بحرية عملاقة سببها <b>زلزال</b> قوى فى قاع المحيط."}, {"t": "m", "lv": 2, "q": "أى مما يأتى يعتبر نظامًا معزولًا؟", "o": ["الترمس المحكم", "كوب شاى مفتوح", "ترمومتر", "إناء ماء يغلى"], "h": "لا يتبادل مادة ولا طاقة مع الوسط.", "a": "<b>النظام المعزول</b> لا يتبادل <b>المادة ولا الطاقة</b> مع الوسط المحيط، مثل <b>الترمس</b> المحكم."}, {"t": "f", "lv": 2, "q": "عند زيادة الضغط الجوى تقل درجة غليان الماء.", "v": false, "h": "تذكر القدر الكاتم.", "a": "خاطئة؛ كلما <b>زاد الضغط الجوى</b> <b>ارتفعت درجة غليان</b> الماء عن 100°C."}, {"t": "m", "lv": 2, "q": "الصورة التى تنطلق بها الطاقة داخل الخلية ويستخدمها الكائن الحى فى عملياته الحيوية هى:", "o": ["ATP", "DNA", "النشا", "الكلوروفيل"], "h": "جزىء أدينوسين ثلاثى الفوسفات.", "a": "<b>ATP</b> (أدينوسين ثلاثى الفوسفات) هو جزىء الطاقة، وتنطلق الطاقة عند تحوله إلى <b>ADP</b>."}, {"t": "m", "lv": 2, "q": "الصيغة الكيميائية لبيكربونات الصوديوم (صودا الخبيز) هى:", "o": ["NaHCO₃", "NaOH", "NaCl", "Na₂SO₄"], "h": "صوديوم + هيدروجين + كربون + أكسجين.", "a": "<b>بيكربونات الصوديوم</b> صيغتها <b>NaHCO₃</b>، أما <b>NaOH</b> فهو <b>هيدروكسيد الصوديوم</b> (الصودا الكاوية)."}, {"t": "m", "lv": 2, "q": "أى العوامل الآتية يقلل معدل التبخر؟", "o": ["زيادة الرطوبة", "زيادة درجة الحرارة", "زيادة المساحة السطحية", "زيادة سرعة الرياح"], "h": "الهواء الرطب يحتوى بالفعل على بخار ماء كثير.", "a": "<b>زيادة الرطوبة</b> تقلل <b>معدل التبخر</b>، بينما تزيده الحرارة والمساحة السطحية وسرعة الهواء."}, {"t": "m", "lv": 2, "q": "عند تقارب صفيحة محيطية وصفيحة قارية فإن:", "o": ["الصفيحة المحيطية تغوص تحت القارية", "الصفيحتين تتباعدان", "تنفصل القارة", "لا يحدث شىء"], "h": "الصفيحة المحيطية أكثر كثافة.", "a": "تغوص <b>الصفيحة المحيطية</b> (الأعلى كثافة) تحت <b>القارية</b> فى <b>الحركة التقاربية</b>، فتتكون سلاسل جبلية وبراكين وزلازل."}, {"t": "m", "lv": 2, "q": "المعدن الشفاف من بين المعادن الآتية هو:", "o": ["الكوارتز", "الميكا", "التلك", "الهيماتيت"], "h": "المعادن تقسم حسب الشفافية: معتمة ونصف شفافة وشفافة.", "a": "<b>الكوارتز</b> معدن <b>شفاف</b>، و<b>الميكا</b> نصف شفاف، و<b>التلك</b> معتم."}, {"t": "e", "lv": 3, "q": "الشكل البيانى يوضح زمن وصول ثلاثة أوعية متماثلة (A) و(B) و(C) إلى درجة الغليان: A = 12 دقيقة، B = 6 دقائق، C = 8 دقائق، وكلها تسخن بنفس اللهب. أى الأوعية يحتوى على أكبر كمية ماء؟ وحدد المتغير المستقل والتابع وعاملين ضابطين.", "h": "تلميح: الوعاء الذى يحتاج زمنًا أطول يحتاج طاقة أكبر. والمتغير المستقل هو ما نغيره نحن، والتابع هو ما نقيسه.", "a": "الوعاء <b>A</b> لأنه يحتاج أطول زمن (طاقة حرارية أكبر). <b>المتغير المستقل</b>: كمية الماء، <b>المتغير التابع</b>: زمن الوصول لدرجة الغليان، <b>المتغيرات الضابطة</b>: نوع الإناء وحجم اللهب (مصدر الحرارة) ودرجة الحرارة الابتدائية."}, {"t": "e", "lv": 3, "q": "علّل: يرتدى رجال الإطفاء ملابس فضية لامعة.", "h": "تلميح: ما نوع انتقال الحرارة من النار إلى الجسم عبر الهواء؟ وماذا تفعل الأسطح اللامعة بالإشعاع؟", "a": "لأن الحرارة تنتقل من النار بـ<b>الإشعاع الحرارى</b>، والسطح <b>اللامع</b> يعكس معظمه ولا يمتصه فيقل <b>انتقال الحرارة</b> إلى جسم رجل الإطفاء."}, {"t": "e", "lv": 3, "q": "اكتب المعادلة الرمزية الموزونة لتفاعل غاز النيتروجين مع غاز الهيدروجين لتكوين غاز النشادر (NH₃) مع الحالة الفيزيائية، وبيّن مجموع معاملات النواتج والمتفاعلات.", "h": "تلميح: عدد ذرات النيتروجين فى N₂ يساوى 2، فاجعل NH₃ مضروبة فى 2 ثم وازن الهيدروجين.", "a": "<b>N₂(g) + 3H₂(g) ← 2NH₃(g)</b>. مجموع معاملات <b>المتفاعلات</b> = 1 + 3 = 4، ومعامل <b>النواتج</b> = 2، وذلك تحقيقًا لـ<b>قانون بقاء الكتلة</b>."}, {"t": "e", "lv": 3, "q": "وُضع نبات فى ضوء أخضر فقط. توقّع معدل البناء الضوئى وفسّر إجابتك.", "h": "تلميح: ما لونا الضوء اللذان يمتصهما الكلوروفيل؟ وماذا يفعل بالضوء الأخضر؟", "a": "يقل معدل <b>البناء الضوئى</b> كثيرًا؛ لأن <b>الكلوروفيل</b> يمتص الضوء <b>الأحمر والأزرق</b> ويعكس <b>الأخضر</b>، فتقل <b>التفاعلات الضوئية</b> وتقل كمية <b>ATP</b> و<b>الجلوكوز</b> المنتجة."}, {"t": "e", "lv": 3, "q": "لماذا يزداد عدد الميتوكوندريا فى خلايا العضلات لدى الرياضى؟ وما دور الأكسجين فى إنتاج الطاقة؟", "h": "تلميح: ما وظيفة الميتوكوندريا؟ وأى مرحلة من التنفس الخلوى تعتمد على الأكسجين وتنتج أكبر قدر من ATP؟", "a": "لأن العضلات تحتاج قدرًا كبيرًا من <b>الطاقة (ATP)</b>، و<b>الميتوكوندريا</b> هى محطات الطاقة. <b>الأكسجين</b> ضرورى لمرحلة <b>دورة كربس</b> و<b>سلسلة نقل الإلكترون</b> فى <b>التنفس الخلوى</b> وهى المنتجة لأكبر كمية من ATP."}, {"t": "e", "lv": 3, "q": "ما العلاقة بين تيارات الحمل الحرارى فى الوشاح العلوى وحركة الصفائح التكتونية؟ وماذا تتوقع لو توقفت هذه التيارات؟", "h": "تلميح: تذكر الحمل الحرارى فى الوحدة الأولى: الجزء الساخن يقل كثافة ويصعد والبارد يهبط. ماذا يحدث لو كان ذلك فى الوشاح؟", "a": "تسخن المواد فى <b>الوشاح العلوى</b> فتقل كثافتها وتصعد ثم تبرد وتهبط (<b>تيارات الحمل</b>)، فتحرك <b>الصفائح التكتونية</b> فوقها حركة بطيئة مستمرة. ولو توقفت لتوقفت حركة الصفائح وقلت الظواهر الناتجة عنها مثل <b>الزلازل والبراكين</b> وتكوّن الجبال."}]}, {"id": "g4", "title": "اختبار التفكير العليا (متفوقون)", "desc": "أسئلة تحليل وتفسير وتصميم تجارب وحسابات، بعضها يتضمن معلومات إثرائية من خارج المنهج وتحمل شارة 🌍.", "qs": [{"t": "e", "lv": 4, "q": "تتغير درجة حرارة الصحراء بين الليل والنهار بمقدار كبير، بينما تتغير درجة حرارة ماء البحر قليلًا. فسّر ذلك بالاعتماد على الحرارة النوعية، ثم استنتج أثر ذلك على اتجاه الرياح ليلًا.", "h": "تلميح: الرمال ذات حرارة نوعية منخفضة والماء ذو حرارة نوعية مرتفعة. ماذا يعنى ذلك لسرعة التسخين والتبريد؟ ثم تذكر نسيم البحر وارجع بالفكرة ليلًا.", "a": "<b>الرمال</b> ذات <b>حرارة نوعية</b> منخفضة فترتفع حرارتها بسرعة نهارًا وتنخفض بسرعة ليلًا، أما <b>الماء</b> فحرارته النوعية مرتفعة فيحتاج كمية كبيرة من الطاقة لتتغير درجة حرارته فتبقى ثابتة نسبيًا. ليلًا تصبح اليابسة أبرد من البحر فيصعد الهواء الدافئ فوق الماء بـ<b>تيارات الحمل</b> ويتحرك الهواء من اليابسة نحو البحر (عكس نسيم البحر) وهو <b>نسيم البر</b>."}, {"t": "e", "lv": 4, "q": "🌍 على سطح كوكب المريخ الضغط الجوى منخفض جدًا. توقّع ماذا يحدث لوعاء مكشوف به ماء سائل، وفسّر باستخدام العلاقة بين الضغط ودرجة الغليان.", "h": "تلميح: كلما قل الضغط الجوى ماذا يحدث لدرجة غليان الماء؟ وإذا أصبحت درجة الغليان قريبة من درجة حرارة الجو فماذا يحدث للماء؟", "a": "عند <b>الضغط المنخفض</b> تنخفض <b>درجة غليان الماء</b> كثيرًا (قد تقترب من درجة حرارة الجو)، فلا يستقر الماء سائلًا طويلًا: يغلى أو يتبخر بسرعة، وقد يتجمد جزء منه نتيجة فقد الحرارة بالتبخر. (معلومة إثرائية: لذلك يصعب وجود ماء سائل مستقر على سطح المريخ)", "x": true}, {"t": "m", "lv": 4, "q": "🌍 لا يمكن أن تنخفض درجة الحرارة عن الصفر المطلق (−273°C تقريبًا) لأن:", "o": ["جسيمات المادة عنده تصل لأقل طاقة حركة ممكنة", "الماء كله يتبخر عنده", "الجسيمات تتحول إلى بلازما", "قوى التجاذب تنعدم"], "h": "تلميح: درجة الحرارة تقيس متوسط طاقة حركة الجسيمات، فماذا يحدث عندما تقل الطاقة إلى أدنى حد؟", "a": "<b>درجة الحرارة</b> مقياس لـ<b>متوسط طاقة حركة الجسيمات</b>، وعند <b>الصفر المطلق</b> تبلغ طاقة حركتها أقل قيمة ممكنة، فلا يمكن خفضها أكثر. (معلومة إثرائية)", "x": true}, {"t": "e", "lv": 4, "q": "🌍 يسبب بخار الماء عند 100°C حروقًا أشد من الماء المغلى عند 100°C نفسها. فسّر ذلك مستعينًا بتغيّر الحالة وانتقال الطاقة.", "h": "تلميح: ماذا يحدث للبخار عند ملامسته الجلد البارد؟ وهل يفقد طاقة أم يكتسبها؟ ولمن تنتقل؟", "a": "عند ملامسة <b>البخار</b> للجلد يحدث <b>تكثف</b> فيفقد البخار <b>طاقة حرارية</b> كبيرة تنتقل إلى الجلد، علاوة على الطاقة التى يفقدها الماء الناتج عند تبرده، أما الماء المغلى فينقل الطاقة الناتجة عن تبرده فقط. (معلومة إثرائية: تسمى الحرارة الكامنة)", "x": true}, {"t": "e", "lv": 4, "q": "خُلط 50 g من الماء عند 80°C مع 50 g من الماء عند 20°C. ما درجة حرارة الاتزان المتوقعة؟ ثم إذا كانت كتلة الماء البارد 100 g فما درجة الاتزان؟ (أهمل الفقد إلى الوسط).", "h": "تلميح: الحرارة التى يفقدها الساخن = الحرارة التى يكتسبها البارد. الماء له نفس الحرارة النوعية فى الحالتين، فاستخدم متوسطًا مرجحًا بالكتلة.", "a": "الحالة الأولى: كتلتان متساويتان فتكون درجة <b>الاتزان الحرارى</b> = (80 + 20) ÷ 2 = <b>50°C</b>. الحالة الثانية: (50×80 + 100×20) ÷ 150 = <b>40°C</b>؛ تقترب الدرجة من درجة الماء الأكبر كتلة لأن <b>الطاقة الحرارية</b> المفقودة من الساخن = المكتسبة بالبارد."}, {"t": "e", "lv": 4, "q": "وازن المعادلة: C₆H₁₂O₆ + O₂ ← CO₂ + H₂O، وبيّن عدد ذرات الأكسجين على كل جانب، وسمِّ العملية الحيوية التى تعبر عنها وأين تحدث.", "h": "تلميح: ابدأ بالكربون (6 ذرات) ثم الهيدروجين (12 ذرة)، وأخيرًا وازن الأكسجين واحسب الذرات.", "a": "<b>C₆H₁₂O₆ + 6O₂ ← 6CO₂ + 6H₂O</b>؛ عدد ذرات الأكسجين = 6 + 12 = 18 يسارًا، و12 + 6 = 18 يمينًا (تحقيقًا لـ<b>قانون بقاء الكتلة</b>). تعبر عن <b>التنفس الخلوى</b> وتتم فى <b>الميتوكوندريا</b> (المرحلة الأولى فى السيتوبلازم)."}, {"t": "e", "lv": 4, "q": "لديك محلولان عديما اللون: أحدهما جلوكوز والآخر نشا. صمّم خطوات للتمييز بينهما بكاشفين، واذكر النتائج المتوقعة.", "h": "تلميح: كاشف يتفاعل مع النشا (يتغير لونه إلى الأزرق الداكن)، وكاشف يتفاعل مع السكر الأحادى بعد التسخين (يتغير من الأزرق إلى البرتقالى).", "a": "نضيف <b>محلول اليود</b> لعينة من كل محلول: المحلول الذى يتحول إلى <b>أزرق داكن</b> هو <b>النشا</b>. ونضيف <b>محلول بندكت</b> لعينة أخرى ونسخن: المحلول الذى يتحول من الأزرق إلى <b>البرتقالى</b> هو <b>الجلوكوز</b> (سكر أحادى)."}, {"t": "e", "lv": 4, "q": "🌍 فى الخريف تتحول أوراق بعض الأشجار من الأخضر إلى الأصفر والبرتقالى. فسّر ذلك بدلالة الأصباغ ودور الكلوروفيل.", "h": "تلميح: الورقة تحتوى أصباغ أخرى غير الكلوروفيل لكن لونها مغطى باللون الأخضر. ماذا يحدث إذا تحلل الكلوروفيل؟", "a": "يتحلل <b>الكلوروفيل</b> (الصبغة الخضراء) فى الخريف فيختفى اللون الأخضر، فتظهر أصباغ أخرى كانت موجودة فى الورقة مثل <b>الكاروتينات</b> ذات اللون الأصفر والبرتقالى. (معلومة إثرائية)", "x": true}, {"t": "m", "lv": 4, "q": "🌍 تقترح فرضية «التعايش الداخلى» أن الميتوكوندريا والبلاستيدات الخضراء كانت فى الأصل:", "o": ["كائنات دقيقة بدائية ابتلعتها خلايا أكبر وعاشت معها", "جزيئات ATP كبيرة", "أجزاء من النواة", "فيروسات لا تحتاج طاقة"], "h": "تلميح: لهاتين العضيتين غشاء مزدوج ومادة وراثية خاصة وتنقسمان مستقلتين نسبيًا، فأى كائن تشبهان؟", "a": "تفترض الفرضية أن <b>الميتوكوندريا</b> و<b>البلاستيدات الخضراء</b> أصلها <b>كائنات دقيقة بدائية</b> (شبيهة بالبكتيريا) دخلت خلايا أكبر وعاشت داخلها، ويدعم ذلك <b>الغشاء المزدوج</b> ووجود مادة وراثية خاصة بها. (معلومة إثرائية)", "x": true}, {"t": "e", "lv": 4, "q": "افترض أن عملية البناء الضوئى توقفت فجأة على كوكب الأرض. توقّع بالتفصيل تأثير ذلك على الأكسجين وعلى الغذاء وعلى إنتاج ATP للكائنات الحية.", "h": "تلميح: البناء الضوئى ينتج الأكسجين والجلوكوز. والتنفس الخلوى يستهلكهما لإنتاج ATP. ماذا يحدث لو لم يتجدد الاثنان؟", "a": "يتوقف إنتاج <b>الجلوكوز</b> (أساس الغذاء) و<b>الأكسجين</b>، فتتناقص كمياتهما تدريجيًا، فتقل المواد الغذائية وتعجز الكائنات عن <b>التنفس الخلوى</b> الهوائى وتنخفض كمية <b>ATP</b> الناتجة، فتتوقف العمليات الحيوية، وتتأثر السلاسل الغذائية كلها لأن النباتات هى المنتج الأول."}, {"t": "e", "lv": 4, "q": "🌍 تتحرك إحدى الصفائح التكتونية بمعدل 3 cm فى السنة. احسب المسافة التى تقطعها خلال 100 مليون سنة بالكيلومتر، ثم اربط الناتج بنظرية الانجراف القارى.", "h": "تلميح: 3 سم × 100,000,000 سنة = ؟ سم. ثم حوّل: كل 100,000 سم = 1 كم.", "a": "المسافة = 3 × 100,000,000 = 300,000,000 cm = <b>3000 km</b> تقريبًا. يوضح أن <b>الحركة البطيئة المستمرة للصفائح التكتونية</b> تؤدى عبر ملايين السنين إلى تباعد القارات (<b>الانجراف القارى</b>) كما افترض العالم فجنر. (الحساب إثرائى)", "x": true}, {"t": "e", "lv": 4, "q": "🌍 تتعرض اليابان لزلازل وبراكين كثيرة بينما يقل النشاط الزلزالى فى معظم أنحاء مصر. فسّر ذلك بدلالة موقع كل منهما بالنسبة لحدود الصفائح التكتونية.", "h": "تلميح: ابحث عن نوع الحركة الغالبة عند حدود الصفائح قرب اليابان، وعن مدى قرب مصر من تلك الحدود.", "a": "تقع اليابان قرب حدود صفائح تحدث عندها <b>حركة تقاربية</b> (غوص صفيحة تحت أخرى) فتنتج <b>زلازل وبراكين</b> كثيرة. أما معظم مصر فبعيد عن هذه الحدود النشطة، مع نشاط أقل قرب مناطق مثل <b>البحر الأحمر</b> الذى نشأ بـ<b>حركة تباعدية</b>. (معلومة إثرائية)", "x": true}, {"t": "m", "lv": 4, "q": "زيادة شدة الضوء من 0 إلى 60 وحدة رفعت معدل البناء الضوئى، لكن زيادتها من 60 إلى 100 وحدة لم تغيّر المعدل. أصح تفسير لذلك:", "o": ["عامل آخر (مثل CO₂ أو درجة الحرارة) أصبح هو العامل المحدد", "الضوء يضر بالكلوروفيل", "النبات توقف عن امتصاص الماء", "الميتوكوندريا تحللت"], "h": "تلميح: عندما يثبت المعدل رغم زيادة عامل، فهذا يعنى أن هذا العامل لم يعد هو الذى يحد من العملية. ما العوامل الأخرى المؤثرة؟", "a": "ثبات <b>معدل البناء الضوئى</b> يعنى أن <b>شدة الاستضاءة</b> لم تعد هى العامل المحدد، وأن عاملًا آخر مثل <b>تركيز ثانى أكسيد الكربون</b> أو <b>درجة الحرارة</b> أصبح هو الذى يحدد المعدل."}, {"t": "e", "lv": 4, "q": "صمّم تجربة تثبت أن الضوء ضرورى لعملية البناء الضوئى، محددًا المتغير المستقل والتابع والمتغيرات الضابطة وطريقة الكشف.", "h": "تلميح: غطِّ جزءًا من ورقة بورق ألومنيوم، ثم اكشف عن النشا. فى أى جزء تتوقع تكوّن النشا؟", "a": "نغطى جزءًا من ورقة نبات أخضر بورق ألومنيوم ونعرضها للضوء عدة ساعات ثم نغلى الورقة ونسخنها فى <b>الإيثانول</b> لإزالة <b>الكلوروفيل</b> ونضيف <b>محلول اليود</b>. النتيجة: يتحول الجزء المعرض للضوء إلى <b>أزرق داكن</b> (يوجد <b>نشا</b>) ولا يتغير الجزء المغطى. <b>المتغير المستقل</b>: وجود الضوء، <b>التابع</b>: تكوّن النشا، <b>الضابطة</b>: نفس الورقة ودرجة الحرارة والماء."}, {"t": "e", "lv": 4, "q": "🌍 ينصح بعدم فتح غطاء القدر الكاتم (حلة الضغط) فورًا بعد إطفاء النار. فسّر الخطر بدلالة الضغط ودرجة الغليان.", "h": "تلميح: الماء داخل القدر أعلى من 100°C لأن الضغط مرتفع. ماذا يحدث عندما ينخفض الضغط فجأة بفتح الغطاء؟", "a": "داخل القدر <b>الضغط مرتفع</b> فيغلى الماء عند <b>درجة أعلى من 100°C</b>، وعند فتح الغطاء فجأة ينخفض الضغط فتنخفض <b>درجة الغليان</b> فيحدث <b>غليان وتبخر مفاجئ</b> وتندفع كمية كبيرة من البخار الساخن مسببة حروقًا. (تطبيق إثرائى على الضغط والغليان)", "x": true}, {"t": "e", "lv": 4, "q": "بحيرة كبيرة درجة حرارتها 10°C وكوب شاى صغير درجة حرارته 80°C. أيهما طاقته الداخلية أكبر؟ وأيهما درجة حرارته أعلى؟ وفى أى اتجاه تنتقل الحرارة عند ملامستهما؟", "h": "تلميح: الطاقة الداخلية تعتمد على عدد الجسيمات ومتوسط طاقتها، أما درجة الحرارة فتعتمد على المتوسط فقط. واتجاه انتقال الحرارة تحدده درجة الحرارة.", "a": "<b>الطاقة الداخلية</b> للبحيرة أكبر لأن عدد جسيماتها أكبر بكثير، بينما <b>درجة حرارة</b> كوب الشاى أعلى لأن <b>متوسط طاقة حركة جسيماته</b> أكبر. تنتقل <b>الحرارة</b> من الشاى (الأعلى درجة) إلى البحيرة حتى <b>الاتزان الحرارى</b>، فاتجاه الانتقال تحدده درجة الحرارة وليس الطاقة الداخلية الكلية."}]}];
+const GEN_KEY='dalty-general-v1';
+let genRes={}; try{ genRes=JSON.parse(localStorage.getItem(GEN_KEY)||'{}'); }catch(e){}
+function genSave(){ try{ localStorage.setItem(GEN_KEY,JSON.stringify(genRes)); }catch(e){} }
+function genDoneCount(){ return GEN_EXAMS.filter(e=>genRes[e.id]).length; }
+const GEN_LV={1:['أساسى','#2E9B6B'],2:['متوسط','#E8A21C'],3:['⭐ متفوق','#C64A19'],4:['🧠 تفكير عليا','#7B4FA0']};
+let genCur=null;
+function genBack(){ if(genCur){ genCur=null; genHome(); window.scrollTo({top:0}); } else showView('units'); }
+function genHome(){
+  genCur=null; const r=document.getElementById('genRoot'); if(!r) return;
+  r.innerHTML=GEN_EXAMS.map((e,i)=>{
+    const rs=genRes[e.id];
+    return `<div class="lesson-card" style="margin-bottom:14px;">
+      <div class="num">${i+1}</div>
+      <h3>${e.title}</h3><p>${e.desc}</p>
+      <div class="lesson-foot"><button class="lesson-btn" onclick="genOpen('${e.id}')">${rs?'أعد الاختبار':'ابدأ الاختبار'}</button>
+      ${rs?`<span class="badge-done" style="display:flex">أفضل نتيجة ${rs.best}%</span>`:''}</div></div>`;
+  }).join('');
+}
+function genShuf(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+function genOpen(id){
+  const ex=GEN_EXAMS.find(e=>e.id===id); if(!ex) return;
+  genCur={ex,res:{},ord:ex.qs.map(q=>q.t==='m'?genShuf(q.o.map((_,k)=>k)):null)};
+  const r=document.getElementById('genRoot');
+  let h=`<div class="gx-bar"><span>${ex.title}</span><span id="gxProg">0 / ${ex.qs.length} تمت الإجابة</span></div>`;
+  ex.qs.forEach((q,i)=>{
+    const lv=GEN_LV[q.lv];
+    h+=`<div class="gx-q" id="gxq-${i}"><div class="gx-top"><span class="gx-n">سؤال ${i+1}</span><span class="gx-lv" style="background:${lv[1]}">${lv[0]}</span>${q.x?'<span class="gx-lv" style="background:#0E5C7A">🌍 إثراء</span>':''}</div><div class="gx-t">${q.q}</div>`;
+    if(q.t==='m') h+=genCur.ord[i].map(k=>`<button class="gx-opt" onclick="genPick(${i},${k})">${q.o[k]}</button>`).join('');
+    else if(q.t==='f') h+=`<button class="gx-opt" onclick="genTf(${i},true)">✔️ صحيحة</button><button class="gx-opt" onclick="genTf(${i},false)">✖️ خاطئة</button>`;
+    else h+=`<div style="font-size:12.5px;color:#667;margin-bottom:4px">فكّر وجاوب على ورقة، ثم اعرض الإجابة النموذجية وقيّم نفسك بصدق.</div>`;
+    h+=`<div><button class="gx-btn alt" onclick="genHint(${i})">💡 تلميح</button>`;
+    if(q.t==='e') h+=`<button class="gx-btn" onclick="genShow(${i})">اعرض الإجابة النموذجية</button>`;
+    h+=`</div><div class="gx-hint" id="gxh-${i}">${q.h}</div><div class="gx-ans" id="gxa-${i}">${q.a}</div><div id="gxr-${i}"></div></div>`;
+  });
+  h+=`<div style="text-align:center"><button class="gx-btn g" style="font-size:15px;padding:12px 22px" onclick="genFinish()">🏁 إنهاء وعرض النتيجة</button></div>`;
+  r.innerHTML=h; window.scrollTo({top:0,behavior:'smooth'});
+}
+function genHint(i){ const e=document.getElementById('gxh-'+i); e.style.display=e.style.display==='block'?'none':'block'; }
+function genProg(){ const n=Object.keys(genCur.res).length; const e=document.getElementById('gxProg'); if(e) e.textContent=n+' / '+genCur.ex.qs.length+' تمت الإجابة'; }
+function genMark(i,ok,html){
+  genCur.res[i]=ok; document.getElementById('gxa-'+i).style.display='block';
+  const r=document.getElementById('gxr-'+i); if(html!==undefined) r.innerHTML=html; genProg();
+}
+function genPick(i,k){
+  if(i in genCur.res) return; const q=genCur.ex.qs[i];
+  const bs=[...document.querySelectorAll('#gxq-'+i+' .gx-opt')];
+  bs.forEach((b,idx)=>{ b.disabled=true; const kk=genCur.ord[i][idx]; if(kk===0) b.classList.add('ok'); else if(kk===k) b.classList.add('no'); });
+  genMark(i,k===0,`<div style="margin-top:6px;font-weight:800;color:${k===0?'#2E9B6B':'#d64545'}">${k===0?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</div>`);
+}
+function genTf(i,v){
+  if(i in genCur.res) return; const q=genCur.ex.qs[i]; const ok=v===q.v;
+  const bs=[...document.querySelectorAll('#gxq-'+i+' .gx-opt')];
+  bs.forEach((b,idx)=>{ b.disabled=true; const val=idx===0; if(val===q.v) b.classList.add('ok'); else if(val===v) b.classList.add('no'); });
+  genMark(i,ok,`<div style="margin-top:6px;font-weight:800;color:${ok?'#2E9B6B':'#d64545'}">${ok?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</div>`);
+}
+function genShow(i){
+  document.getElementById('gxa-'+i).style.display='block';
+  if(!(i in genCur.res)) document.getElementById('gxr-'+i).innerHTML=`<div style="margin-top:6px;font-size:13px;font-weight:800">قارن إجابتك بالنموذجية: هل ذكرت المصطلحات المهمة؟</div><button class="gx-btn g" onclick="genRate(${i},true)">✅ إجابتى كاملة</button><button class="gx-btn r" onclick="genRate(${i},false)">🔁 أحتاج مراجعة</button>`;
+}
+function genRate(i,ok){
+  genCur.res[i]=ok; genProg();
+  document.getElementById('gxr-'+i).innerHTML=`<div style="margin-top:6px;font-weight:800;color:${ok?'#2E9B6B':'#d64545'}">${ok?'✅ أحسنت':'🔁 راجع المصطلحات المظللة ثم أعد المحاولة'}</div>`;
+}
+function genFinish(){
+  const ex=genCur.ex, n=ex.qs.length, done=Object.keys(genCur.res).length;
+  if(done<n && !confirm('بقى '+(n-done)+' سؤال بلا إجابة وسيُحسب خطأ. هل تريد الإنهاء؟')) return;
+  let ok=0; const by={1:[0,0],2:[0,0],3:[0,0],4:[0,0]};
+  ex.qs.forEach((q,i)=>{ by[q.lv][1]++; if(genCur.res[i]===true){ ok++; by[q.lv][0]++; } });
+  const p=Math.round(ok/n*100);
+  const old=genRes[ex.id]; genRes[ex.id]={best:Math.max(p,old?old.best:0),last:p}; genSave();
+  const weak=[1,2,3,4].filter(l=>by[l][1] && by[l][0]/by[l][1]<.6).map(l=>GEN_LV[l][0]);
+  const msg=p>=90?'🏆 مستوى ممتاز! أنت جاهز للاختبار الحقيقى':p>=70?'👏 أداء جيد، راجع الأسئلة التى أخطأت فيها':p>=50?'💪 تحتاج مراجعة، استعن بالتلميحات وأعد المحاولة':'📚 ارجع إلى شرح الدروس ثم حاول مرة أخرى';
+  document.getElementById('genRoot').innerHTML=`<div class="gx-q gx-res"><div style="font-size:48px">${p>=90?'🏆':p>=70?'👏':'💪'}</div><div class="sc">${ok} / ${n}</div><div style="font-weight:800;margin:4px 0 12px">${p}% — ${msg}</div>
+   ${[1,2,3,4].filter(l=>by[l][1]).map(l=>`<div class="gx-row"><span style="color:${GEN_LV[l][1]}">${GEN_LV[l][0]}</span><span>${by[l][0]} / ${by[l][1]}</span></div>`).join('')}
+   ${weak.length?`<p style="font-size:13.5px;margin-top:10px">نقطة الضعف: أسئلة مستوى <b>${weak.join(' و')}</b>. ركّز عليها بالتلميحات.</p>`:''}
+   <button class="gx-btn" onclick="genOpen('${ex.id}')">🔄 أعد الاختبار</button><button class="gx-btn alt" onclick="genBack()">كل الاختبارات</button></div>`;
+  window.scrollTo({top:0,behavior:'smooth'}); renderUnitGrid();
+}
+/* ===== أسئلة الوحدتين الثالثة والرابعة ===== */
+const unit3Questions = {
+ "a": [
+  [
+   "العضية التى تتم بها عملية البناء الضوئى هى:",
+   [
+    "النواة",
+    "الريبوسومات",
+    "الميتوكوندريا",
+    "البلاستيدات الخضراء"
+   ],
+   3
+  ],
+  [
+   "الصبغة التى تمتص الضوء الأحمر والأزرق وتعكس الأخضر هى:",
+   [
+    "الكلوروفيل",
+    "الأنثوسيانين",
+    "الهيموجلوبين",
+    "الكاروتين"
+   ],
+   0
+  ],
+  [
+   "تتم التفاعلات الضوئية فى:",
+   [
+    "أغشية الأقراص بالجرانا",
+    "الستروما",
+    "حشوة الميتوكوندريا",
+    "السيتوبلازم"
+   ],
+   0
+  ],
+  [
+   "الأكسجين الناتج من عملية البناء الضوئى مصدره تحلل:",
+   [
+    "ATP",
+    "الجلوكوز",
+    "الماء",
+    "ثانى أكسيد الكربون"
+   ],
+   2
+  ],
+  [
+   "تتم التفاعلات اللاضوئية فى:",
+   [
+    "الأعراف",
+    "السيتوبلازم",
+    "الجرانا",
+    "الستروما"
+   ],
+   3
+  ],
+  [
+   "أى مما يأتى لا يُعد من العوامل المؤثرة على معدل البناء الضوئى؟",
+   [
+    "تركيز ثانى أكسيد الكربون",
+    "شدة الاستضاءة",
+    "عدد الميتوكوندريا فى خلايا الكبد",
+    "درجة الحرارة"
+   ],
+   2
+  ],
+  [
+   "ينتج من المرحلة الأولى للتنفس الخلوى (فى السيتوبلازم):",
+   [
+    "الجلوكوز والأكسجين",
+    "ثانى أكسيد الكربون والماء فقط",
+    "جزيئان من حمض البيروفيك وقدر قليل من ATP",
+    "كمية كبيرة من ATP"
+   ],
+   2
+  ],
+  [
+   "تتم تفاعلات دورة كربس فى:",
+   [
+    "حشوة الميتوكوندريا",
+    "الستروما",
+    "السيتوبلازم",
+    "الجرانا"
+   ],
+   0
+  ],
+  [
+   "المرحلة التى ينتج عنها أكبر قدر من جزيئات ATP فى التنفس الخلوى هى:",
+   [
+    "دورة كربس",
+    "سلسلة نقل الإلكترون",
+    "تحلل الجلوكوز فى السيتوبلازم",
+    "التفاعلات اللاضوئية"
+   ],
+   1
+  ],
+  [
+   "يتركب جزىء ATP من:",
+   [
+    "أدنين وسكرين أحاديين",
+    "أدنين وسكر جلوكوز ومجموعتى فوسفات",
+    "أدنين وسكر ريبوز و3 مجموعات فوسفات",
+    "سكر ريبوز و3 مجموعات أمين"
+   ],
+   2
+  ],
+  [
+   "المعادلة C₆H₁₂O₆ + 6O₂ ← 6CO₂ + 6H₂O + طاقة تعبر عن عملية:",
+   [
+    "النتح",
+    "التنفس الخلوى",
+    "البناء الضوئى",
+    "الهضم"
+   ],
+   1
+  ],
+  [
+   "يزداد عدد الميتوكوندريا فى خلايا:",
+   [
+    "الأجزاء غير الخضراء فقط من النبات",
+    "الطبقة الخارجية الميتة للجلد",
+    "الكبد والعضلات",
+    "كرات الدم الحمراء"
+   ],
+   2
+  ],
+  [
+   "عند وضع نبات فى مكان مظلم عدة أيام ثم اختبار ورقته بمحلول اليود، يكون اللون:",
+   [
+    "بنيًا مصفرًا (لا يوجد نشا)",
+    "بنفسجيًا",
+    "أزرق داكن",
+    "أخضر"
+   ],
+   0
+  ],
+  [
+   "تقنية تحاكى ظروف البناء الضوئى داخل مبان متعددة الطوابق بإضاءة صناعية ومغذيات مائية:",
+   [
+    "الرى بالتنقيط",
+    "الزراعة التقليدية",
+    "الزراعة بالغمر",
+    "الزراعة العمودية"
+   ],
+   3
+  ],
+  [
+   "تحصل النباتات على الأكسجين اللازم لتنفسها عبر:",
+   [
+    "الكيوتين",
+    "اللحاء",
+    "الأوعية الخشبية",
+    "الثغور"
+   ],
+   3
+  ],
+  [
+   "تنقسم عملية البناء الضوئى إلى مرحلتين هما:",
+   [
+    "التفاعلات الضوئية والتفاعلات اللاضوئية",
+    "التنفس الهوائى واللاهوائى",
+    "الهدم والأيض",
+    "التبادل الغازى والنتح"
+   ],
+   0
+  ],
+  [
+   "الغاز الذى يحصل عليه النبات من الهواء ليستخدمه فى صنع غذائه هو:",
+   [
+    "ثانى أكسيد الكربون",
+    "الأكسجين",
+    "النيتروجين",
+    "الهيدروجين"
+   ],
+   0
+  ],
+  [
+   "تُصنَّف البلاستيدات حسب الأصباغ المكونة لها إلى:",
+   [
+    "خضراء وحمراء فقط",
+    "نباتية وحيوانية",
+    "هوائية ولاهوائية",
+    "خضراء وملونة وعديمة اللون"
+   ],
+   3
+  ],
+  [
+   "تعكُّر ماء الجير الرائق دليل على تكوُّن غاز:",
+   [
+    "النيتروجين",
+    "الهيدروجين",
+    "ثانى أكسيد الكربون",
+    "الأكسجين"
+   ],
+   2
+  ],
+  [
+   "زوال لون محلول أزرق الميثيلين دليل على استهلاك غاز:",
+   [
+    "النيتروجين",
+    "الأكسجين",
+    "ثانى أكسيد الكربون",
+    "الهيدروجين"
+   ],
+   1
+  ],
+  [
+   "يمتص الجير الصودى من الوسط المحيط غاز:",
+   [
+    "الأكسجين",
+    "بخار الماء فقط",
+    "ثانى أكسيد الكربون",
+    "الهيدروجين"
+   ],
+   2
+  ],
+  [
+   "ترتبط جزيئات الجلوكوز فى سلاسل طويلة مكونة:",
+   [
+    "حبيبات النشا",
+    "الأحماض الأمينية",
+    "الكلوروفيل",
+    "جزيئات ATP"
+   ],
+   0
+  ]
+ ],
+ "b": [
+  [
+   "عملية البناء الضوئى من عمليات الهدم التى تنطلق فيها الطاقة.",
+   1
+  ],
+  [
+   "يحدث التنفس الخلوى فى خلايا النبات ليلًا ونهارًا.",
+   0
+  ],
+  [
+   "تحتوى الستروما على إنزيمات التفاعلات اللاضوئية.",
+   0
+  ],
+  [
+   "تحتوى أغشية الأقراص فى الجرانا على الكلوروفيل.",
+   0
+  ],
+  [
+   "تنتج التفاعلات اللاضوئية غاز الأكسجين.",
+   1
+  ],
+  [
+   "استنتج فان هيلمونت من تجربته أن نمو الشجرة يعتمد أساسًا على كمية التربة.",
+   1
+  ],
+  [
+   "تنطلق طاقة عند تحول ATP إلى ADP.",
+   0
+  ],
+  [
+   "للنباتات جهاز تنفسى متخصص كالرئتين.",
+   1
+  ],
+  [
+   "الغشاء الداخلى للميتوكوندريا مستوٍ وأملس ولا يحتوى على أعراف.",
+   1
+  ],
+  [
+   "تبدو الأوراق خضراء لأن الكلوروفيل يمتص الضوء الأخضر بدرجة كبيرة.",
+   1
+  ],
+  [
+   "تنتج دورة كربس غاز ثانى أكسيد الكربون.",
+   0
+  ],
+  [
+   "يُخزَّن الجلوكوز الزائد فى أجزاء النبات على هيئة نشا.",
+   0
+  ],
+  [
+   "زيادة درجة الحرارة كثيرًا عن القيمة المثلى تزيد معدل البناء الضوئى باستمرار.",
+   1
+  ],
+  [
+   "التنفس الخلوى عملية هدم تُستهلك فيها جزيئات الغذاء.",
+   0
+  ],
+  [
+   "تحدث التفاعلات الضوئية داخل الستروما.",
+   1
+  ],
+  [
+   "عند إضافة محلول اليود إلى ورقة نبات أخضر تحتوى على نشا يصبح لونه أحمر.",
+   1
+  ],
+  [
+   "تُستخدم الزراعة العمودية فى حل مشكلة الفيضانات.",
+   1
+  ],
+  [
+   "بتلات الأزهار ملونة بسبب وجود بلاستيدات ملونة بها.",
+   0
+  ],
+  [
+   "يقوم النبات بعملية التنفس الخلوى نهارًا فقط.",
+   1
+  ],
+  [
+   "يتحد الهيدروجين مع ثانى أكسيد الكربون فى الستروما لتكوين سكر الجلوكوز.",
+   0
+  ]
+ ],
+ "c": [
+  [
+   "عملية يستخدم فيها النبات ضوء الشمس لصنع غذائه:",
+   [
+    "البناء الضوئى",
+    "التنفس الخلوى",
+    "التخمر",
+    "النتح"
+   ],
+   0
+  ],
+  [
+   "عضية تشبه حبة الفاصوليا وتعمل كمحطة لإنتاج الطاقة:",
+   [
+    "الميتوكوندريا",
+    "البلاستيدة الخضراء",
+    "النواة",
+    "الريبوسوم"
+   ],
+   0
+  ],
+  [
+   "أقراص متراصة فوق بعضها داخل البلاستيدة الخضراء:",
+   [
+    "الستروما",
+    "الجرانا",
+    "الأعراف",
+    "الثغور"
+   ],
+   1
+  ],
+  [
+   "الحشوة السائلة داخل البلاستيدة الخضراء:",
+   [
+    "الغشاء المزدوج",
+    "الستروما",
+    "الجرانا",
+    "السيتوبلازم"
+   ],
+   1
+  ],
+  [
+   "الطيات المتعرجة للغشاء الداخلى للميتوكوندريا:",
+   [
+    "الثغور",
+    "الأقراص",
+    "الجرانا",
+    "الأعراف"
+   ],
+   3
+  ],
+  [
+   "مجموع عمليتى البناء والهدم داخل الخلايا:",
+   [
+    "الانتشار",
+    "الأيض",
+    "التبادل الغازى",
+    "النتح"
+   ],
+   1
+  ],
+  [
+   "جزىء الطاقة الذى تستخدمه الخلايا فى أنشطتها الحيوية:",
+   [
+    "ATP",
+    "DNA",
+    "الكلوروفيل",
+    "النشا"
+   ],
+   0
+  ],
+  [
+   "فتحات فى أوراق النبات يتم عبرها التبادل الغازى:",
+   [
+    "الثغور",
+    "الأعراف",
+    "الجرانا",
+    "الأوعية"
+   ],
+   0
+  ],
+  [
+   "حمض ينتج من تحلل الجلوكوز فى المرحلة الأولى للتنفس الخلوى:",
+   [
+    "حمض الأمينى",
+    "حمض البيروفيك",
+    "حمض الكبريتيك",
+    "حمض الكربونيك"
+   ],
+   1
+  ],
+  [
+   "حصول الكائن الحى على الأكسجين وتخلصه من ثانى أكسيد الكربون:",
+   [
+    "التبادل الغازى",
+    "الإخراج",
+    "البناء الضوئى",
+    "الهضم"
+   ],
+   0
+  ],
+  [
+   "بلاستيدات تُعطى بتلات الأزهار ألوانها المختلفة:",
+   [
+    "الميتوكوندريا",
+    "البلاستيدات عديمة اللون",
+    "البلاستيدات الخضراء",
+    "البلاستيدات الملونة"
+   ],
+   3
+  ],
+  [
+   "أوعية تسمح بانتقال الماء والأملاح المعدنية من الجذور إلى باقى أجزاء النبات:",
+   [
+    "الجرانا",
+    "الثغور",
+    "الأوعية الخشبية",
+    "الأعراف"
+   ],
+   2
+  ]
+ ]
+};
+const unit4Questions = {
+ "a": [
+  [
+   "صاحب فرضية الانجراف القارى التى قدمها عام 1912 هو العالم:",
+   [
+    "داروين",
+    "نيوتن",
+    "ألفريد فجنر",
+    "مندليف"
+   ],
+   2
+  ],
+  [
+   "اسم القارة الواحدة التى افترض فجنر أنها كانت موجودة قبل نحو 200 مليون سنة:",
+   [
+    "جندوانا",
+    "بانجيا",
+    "لوراسيا",
+    "أفريقيا"
+   ],
+   1
+  ],
+  [
+   "يتكون الغلاف الصخرى للأرض من:",
+   [
+    "القشرة الأرضية وجزء من الوشاح العلوى",
+    "اللب الداخلى فقط",
+    "الوشاح كله",
+    "القشرة واللب الخارجى"
+   ],
+   0
+  ],
+  [
+   "تتميز الصفائح المحيطية بأنها:",
+   [
+    "من الماجما فقط",
+    "قشرة رقيقة مرتفعة الكثافة مع جزء من الوشاح العلوى",
+    "تخلو من الصخور",
+    "قشرة سميكة منخفضة الكثافة"
+   ],
+   1
+  ],
+  [
+   "تتحرك الصفائح التكتونية نتيجة:",
+   [
+    "المد والجزر",
+    "الرياح",
+    "سقوط الأمطار",
+    "حركة تيارات فى طبقة الوشاح العلوى"
+   ],
+   3
+  ],
+  [
+   "تتباعد الصفيحتان عن بعضهما فى الحركة:",
+   [
+    "التقاربية",
+    "الرأسية",
+    "التحويلية",
+    "التباعدية"
+   ],
+   3
+  ],
+  [
+   "من النتائج المتوقعة للحركة التقاربية:",
+   [
+    "تكون قشرة جديدة بلا زلازل",
+    "عدم حدوث أى نشاط",
+    "تكون سلاسل جبلية وبراكين وزلازل",
+    "اتساع المحيطات فقط"
+   ],
+   2
+  ],
+  [
+   "أكثر أنواع الزلازل شيوعًا هى الزلازل:",
+   [
+    "التركيبية (التكتونية)",
+    "الصناعية",
+    "الناتجة عن النيازك",
+    "الانهيارية"
+   ],
+   0
+  ],
+  [
+   "الموجات البحرية الضخمة التى تحدث على السواحل بعد زلزال قوى فى المحيط تسمى:",
+   [
+    "النيزك",
+    "التجوية",
+    "تسونامى",
+    "الصدع"
+   ],
+   2
+  ],
+  [
+   "حفرة جبل الكامل بالصحراء الغربية فى مصر ناتجة عن سقوط:",
+   [
+    "بركان",
+    "نيزك",
+    "زلزال",
+    "سيل"
+   ],
+   1
+  ],
+  [
+   "مادة صلبة طبيعية غير عضوية ذات نظام بللورى وتركيب كيميائى محدد هى:",
+   [
+    "النيزك",
+    "المعدن",
+    "الصهير",
+    "التربة"
+   ],
+   1
+  ],
+  [
+   "من المعادن النصف شفافة:",
+   [
+    "الكبريت",
+    "الكوارتز",
+    "الميكا",
+    "التلك"
+   ],
+   2
+  ],
+  [
+   "من أمثلة التربة المنقولة فى مصر:",
+   [
+    "الصخور المتصلدة",
+    "الرمال المحلية",
+    "تربة دلتا النيل",
+    "تربة تكونت فى مكان صخورها الأصلية"
+   ],
+   2
+  ],
+  [
+   "من الموارد غير المتجددة التى لا يمكن تعويضها عند استهلاكها بسرعة:",
+   [
+    "طاقة الشمس",
+    "المعادن والوقود الحفرى",
+    "الرياح",
+    "المياه المتجددة"
+   ],
+   1
+  ],
+  [
+   "المعدن الذى استخدمه قدماء المصريين فى صناعة كحل العين هو:",
+   [
+    "الميكا",
+    "الجالينا",
+    "الكبريت",
+    "الكوارتز"
+   ],
+   1
+  ]
+ ],
+ "b": [
+  [
+   "تتحرك الصفائح التكتونية حركة سريعة جدًا يشعر بها الإنسان يوميًا.",
+   1
+  ],
+  [
+   "قدم العالم فجنر فرضية الانجراف القارى عام 1912.",
+   0
+  ],
+  [
+   "يتكون الغلاف الصخرى من القشرة الأرضية وجزء من الوشاح العلوى.",
+   0
+  ],
+  [
+   "حركة الصفائح التكتونية أربعة أنواع.",
+   1
+  ],
+  [
+   "ينتج عن الحركة التباعدية تصادم الصفائح وتكوّن سلاسل الجبال.",
+   1
+  ],
+  [
+   "صدع سان أندرياس مثال على الحركة التحويلية.",
+   0
+  ],
+  [
+   "نشأة البحر الأحمر مثال على الحركة التباعدية للصفائح.",
+   0
+  ],
+  [
+   "الزلازل التركيبية أكثر الزلازل شيوعًا.",
+   0
+  ],
+  [
+   "ينتج البركان عن اندفاع الماجما من باطن الأرض إلى سطحها.",
+   0
+  ],
+  [
+   "يعتقد العلماء أن النيازك من أسباب انقراض الديناصورات قديمًا.",
+   0
+  ],
+  [
+   "الأوبال معدن لأن له نظامًا بللوريًا منتظمًا.",
+   1
+  ],
+  [
+   "لون معدن الكبريت ثابت.",
+   0
+  ],
+  [
+   "تتكون التربة المحلية من تجوية الصخور فى مكانها نفسه.",
+   0
+  ],
+  [
+   "يمكن تعويض المعادن والوقود الحفرى بسرعة عند استهلاكها.",
+   1
+  ]
+ ],
+ "c": [
+  [
+   "الحركة التى تتباعد فيها صفيحتان عن بعضهما:",
+   [
+    "الحركة التحويلية",
+    "الانجراف القارى",
+    "الحركة التقاربية",
+    "الحركة التباعدية"
+   ],
+   3
+  ],
+  [
+   "هزات أرضية طبيعية سريعة ومتتالية تحدث للقشرة الأرضية:",
+   [
+    "التجوية",
+    "النيازك",
+    "البراكين",
+    "الزلازل"
+   ],
+   3
+  ],
+  [
+   "فتحة فى القشرة الأرضية تسمح للصخور المنصهرة والغازات المحبوسة بالخروج على سطح الأرض:",
+   [
+    "الصدع",
+    "الزلزال",
+    "الأخدود",
+    "البركان"
+   ],
+   3
+  ],
+  [
+   "كتل صخرية تخترق الغلاف الجوى للأرض وتسقط عليها:",
+   [
+    "النيازك",
+    "البراكين",
+    "الأوبال",
+    "الرواسب"
+   ],
+   0
+  ],
+  [
+   "الصفائح المكونة من قشرة سميكة منخفضة الكثافة وجزء من الوشاح العلوى:",
+   [
+    "الصفائح الذائبة",
+    "الصفائح القارية",
+    "الصفائح المحيطية",
+    "الصفائح الأفقية"
+   ],
+   1
+  ],
+  [
+   "الطبقة السطحية من القشرة الأرضية الناتجة من تفتت الصخور وتحلل المواد العضوية:",
+   [
+    "الصهير",
+    "التربة",
+    "المعدن",
+    "الوشاح"
+   ],
+   1
+  ],
+  [
+   "الحركة التى تنزلق فيها الصفيحتان جنبًا إلى جنب فى اتجاهين متضادين:",
+   [
+    "الحركة الرأسية",
+    "الحركة التحويلية",
+    "الحركة التقاربية",
+    "الحركة التباعدية"
+   ],
+   1
+  ],
+  [
+   "موارد لا يمكن تعويضها عند استهلاكها مثل المعادن والوقود الحفرى:",
+   [
+    "الموارد غير المتجددة",
+    "الموارد المتجددة",
+    "موارد الطاقة الشمسية",
+    "موارد المياه الجارية"
+   ],
+   0
+  ],
+  [
+   "تربة تكونت من التجوية البطيئة للصخور فى نفس مكانها:",
+   [
+    "التربة المنقولة",
+    "التربة المحلية",
+    "تربة الدلتا",
+    "التربة الطينية المنقولة"
+   ],
+   1
+  ],
+  [
+   "معدن يسمح بمرور الضوء بوضوح كالكوارتز يوصف بأنه:",
+   [
+    "غير بللورى",
+    "معتم",
+    "نصف شفاف",
+    "شفاف"
+   ],
+   3
+  ]
+ ]
+};
+function updateUqBadge(n){
+  const el=document.getElementById('uq'+n+'Badge'); if(!el) return;
+  const ks=['u'+n+'qa','u'+n+'qb','u'+n+'qc'], d=ks.filter(k=>progress[k]!==null);
+  if(!d.length){ el.style.display='none'; return; }
+  const sc=d.reduce((a,k)=>a+progress[k].score,0), tt=d.reduce((a,k)=>a+progress[k].total,0);
+  el.style.display='flex'; el.textContent='✓ '+sc+'/'+tt+(d.length<3?' ('+d.length+'/3 أقسام)':'');
+}
+window.addEventListener('load',()=>{
+  const tf=['صحيحة','خاطئة'];
+  [[3,unit3Questions],[4,unit4Questions]].forEach(([n,Q])=>{
+    renderQuiz('u'+n+'qa',Q.a.map(x=>({q:x[0],opts:x[1],correct:x[2]})),{progressKey:'u'+n+'qa',title:'أولًا: اختر الإجابة الصحيحة'});
+    renderQuiz('u'+n+'qb',Q.b.map(x=>({q:'هل العبارة التالية صحيحة؟ — '+x[0],opts:tf,correct:x[1]})),{progressKey:'u'+n+'qb',title:'ثانيًا: صح أم خطأ'});
+    renderQuiz('u'+n+'qc',Q.c.map(x=>({q:x[0],opts:x[1],correct:x[2]})),{progressKey:'u'+n+'qc',title:'ثالثًا: أكمل واختر المصطلح العلمى'});
+    updateUqBadge(n);
+  });
 });
 </script>
 
@@ -3963,7 +5471,92 @@ const Q=[
 {l:7,e:'🌱',c:'البروتين النباتى',q:'نباتى يريد مصادر بروتين. ماذا يختار؟',o:['البقوليات والمكسرات وفول الصويا','الزبد والزيوت','الأرز والخبز','السكر والعسل'],w:'البروتين النباتى فى البقوليات والمكسرات وفول الصويا.',x:'الزبد والزيوت دهون، والأرز والخبز كربوهيدرات.'},
 {l:7,e:'📄',c:'السليلوز',q:'ما الكربوهيدرات التى تدخل فى جدر الخلايا النباتية وتصنع منها الورق؟',o:['السليلوز','الجلوكوز','السكروز','الچيلاتين'],w:'السليلوز سكر عديد يكوّن جدر الخلايا النباتية ويستخدم فى صناعة الورق.',x:'الجلوكوز سكر أحادى والچيلاتين بروتين.'},
 {l:7,e:'🧬',c:'عناصر الأحماض الأمينية',q:'ما العنصر الذى يميز الأحماض الأمينية بالإضافة إلى عناصر الكربوهيدرات؟',o:['النيتروجين','الحديد','الكلور','اليود'],w:'تتكون الأحماض الأمينية من C وH وO بالإضافة إلى النيتروجين وأحيانًا الفوسفور.',x:'الحديد والكلور ليسا من عناصر الأحماض الأمينية.'},
-{l:7,e:'🌾',c:'الوعى الغذائى',q:'تريد تقليل الكربوهيدرات المكررة فى وجباتك. ماذا تفعل؟',o:['الاعتماد على الحبوب الكاملة بدل السكر والدقيق الأبيض','زيادة السكر الأبيض','حذف كل الأغذية','الاعتماد على السكر فقط'],w:'ينصح بتقليل السكر الأبيض والدقيق الأبيض والاعتماد على الحبوب الكاملة.',x:'الحبوب الكاملة أفضل من المكررة.'}
+{l:7,e:'🌾',c:'الوعى الغذائى',q:'تريد تقليل الكربوهيدرات المكررة فى وجباتك. ماذا تفعل؟',o:['الاعتماد على الحبوب الكاملة بدل السكر والدقيق الأبيض','زيادة السكر الأبيض','حذف كل الأغذية','الاعتماد على السكر فقط'],w:'ينصح بتقليل السكر الأبيض والدقيق الأبيض والاعتماد على الحبوب الكاملة.',x:'الحبوب الكاملة أفضل من المكررة.'},
+{l:8,e:'🌳',c:'تجربة ڤان هيلمونت',q:'مزارع يظن أن الشجرة تنمو لأنها «تأكل» التربة. بعد سنوات زادت كتلة شجرته عشرات الكيلوجرامات بينما نقصت التربة جرامات قليلة. ما التفسير العلمى؟',o:['الشجرة لا تعتمد أساسًا على غذاء التربة، فالماء عنصر أساسى فى نموها','الشجرة تأكل التربة كلها وتحولها لخشب','التربة تتحول إلى ماء','كتلة التربة لا تتغير أبدًا'],w:'أثبتت تجربة ڤان هيلمونت أن نمو الشجرة لا يعتمد بشكل أساسى على امتصاص الغذاء من التربة، والنقص الطفيف يرجع لامتصاص كميات ضئيلة من عناصرها، أما الماء فهو العنصر الأساسى فى نموها.',x:'لو كانت الشجرة تأكل التربة لنقصت كتلة التربة بمقدار يقارب زيادة كتلة الشجرة، لكنها نقصت 55 جرامًا فقط.'},
+{l:8,e:'🥬',c:'مكان البناء الضوئى',q:'يسأل طالب: لماذا تصنع أوراق الملوخية الخضراء غذاءها بالضوء بينما لا يحدث ذلك فى الجذور البيضاء؟',o:['لأن الأوراق بها بلاستيدات خضراء تحتوى الكلوروفيل','لأن الأوراق أكبر حجمًا فقط','لأن الجذور تحت الأرض فلا تحتاج ماء','لأن الأوراق لا تحتوى خلايا'],w:'تتم عملية البناء الضوئى فى البلاستيدات الخضراء الموجودة فى خلايا الأجزاء الخضراء من النبات، وبها صبغة الكلوروفيل التى تمتص الضوء.',x:'حجم الورقة ليس هو السبب؛ السبب وجود البلاستيدات الخضراء بما فيها من كلوروفيل.'},
+{l:8,e:'🔬',c:'تركيب البلاستيدة',q:'ترى فى صورة مجهرية لبلاستيدة خضراء أرضية سائلة تحتوى معظم الإنزيمات، وحولها أقراص مكدسة. ما اسم الأرضية السائلة؟',o:['الستروما (الحشوة)','الجرانا','الغشاء المزدوج','الأعراف'],w:'الستروما هى أرضية البلاستيدة وتحتوى معظم الإنزيمات اللازمة للتفاعلات اللاضوئية، أما الجرانا فهى الأقراص المتراصة.',x:'الجرانا هى الأقراص نفسها، أما الأعراف فتخص الميتوكوندريا وليست البلاستيدة.'},
+{l:8,e:'🪙',c:'مساحة سطح الأقراص',q:'مهندس يصمم لوحًا يلتقط أكبر قدر من الضوء. أى فكرة فى البلاستيدة تحاكيها بتكديس أقراص مرتبطة بأغشية رقيقة؟',o:['زيادة مساحة سطح الأقراص المعرضة للضوء','تقليل كمية الكلوروفيل','حجب الضوء عن الأقراص','تقليل عدد الأقراص'],w:'تتصل حواف أقراص جرانا بجرانا مجاورة بأغشية رقيقة، فتزداد مساحة سطح الأقراص المعرضة للضوء وتزداد كفاءة امتصاصه.',x:'الهدف التقاط أكبر قدر من الضوء، فلا يصح حجبه أو تقليل مساحة الامتصاص.'},
+{l:8,e:'🟥',c:'امتصاص الضوء الأحمر',q:'وضعت شفافية حمراء بين مصباح وأنبوبة بها محلول كلوروفيل أخضر شفاف. ماذا تلاحظ؟',o:['لا ينفذ الضوء الأحمر لأن الكلوروفيل يمتصه','ينفذ الضوء الأحمر كله','يتحول المحلول إلى اللون الأحمر','يتوقف المصباح عن العمل'],w:'محلول الكلوروفيل ينفذ الضوء الأخضر فقط، ويمتص الضوء الأحمر والأزرق ويستخدم طاقتهما فى التفاعلات الضوئية.',x:'الكلوروفيل يمتص الأحمر والأزرق، لذلك لا ينفذ الضوء الأحمر خلاله.'},
+{l:8,e:'💡',c:'إضاءة النباتات الداخلية',q:'تضع مصابيح لنباتات داخل المنزل وتريد أن تستفيد النباتات من الضوء بأكبر قدر. أى لون ضوء أنسب للبناء الضوئى؟',o:['الأحمر والأزرق','الأخضر فقط','الأصفر الباهت فقط','لا يهم اللون إطلاقًا'],w:'يمتص الكلوروفيل الضوء الأحمر والأزرق ويستخدم طاقتهما فى البناء الضوئى، بينما يعكس الأخضر.',x:'الضوء الأخضر يعكسه الكلوروفيل فلا يستفيد منه النبات كثيرًا.'},
+{l:8,e:'🍃',c:'لون الأوراق',q:'لماذا تبدو أوراق معظم النباتات خضراء؟',o:['لأنها تعكس الضوء الأخضر وتمتص الأحمر والأزرق','لأنها تمتص الضوء الأخضر','لأنها تمتص كل الألوان فتبدو سوداء','لأنها لا تتفاعل مع الضوء'],w:'يظهر الجسم بلون الضوء الذى يعكسه، والكلوروفيل يمتص الأحمر والأزرق ويعكس الأخضر.',x:'لو امتصت الأوراق الأخضر لما ظهرت خضراء.'},
+{l:8,e:'⚡',c:'بداية المرحلة الضوئية',q:'عند سقوط الضوء على الجرانا، ما أول ما يحدث للكلوروفيل؟',o:['يمتص الطاقة فيصبح كلوروفيل نشط (مثار)','ينتقل إلى الستروما','يتحول إلى جلوكوز','يتحلل إلى ماء'],w:'يمتص الكلوروفيل طاقة الضوء الأزرق والأحمر فيصبح كلوروفيل نشطًا (مثارًا)، ثم تستخدم طاقته فى تحليل الماء وتكوين ATP.',x:'الجلوكوز يتكون لاحقًا فى المرحلة اللاضوئية داخل الستروما.'},
+{l:8,e:'💨',c:'مصدر الأكسچين',q:'تدخل غرفة بها نباتات كثيرة فى الضوء فتشعر بهواء منعش. من أين جاء الأكسچين الذى أطلقته النباتات؟',o:['من تحليل الماء فى المرحلة الضوئية','من تحلل الجلوكوز','من التربة','من تحلل ثانى أكسيد الكربون'],w:'فى المرحلة الضوئية تحلل طاقة الكلوروفيل الماء إلى أكسچين وهيدروچين، وينتقل الأكسچين إلى الهواء كناتج ثانوى.',x:'ثانى أكسيد الكربون يدخل فى تكوين الجلوكوز ولا يتحلل لينتج الأكسچين.'},
+{l:8,e:'🔋',c:'دور ATP',q:'تُشبّه ATP ببطارية صغيرة تنتجها المرحلة الضوئية. فيم تُستخدم هذه الطاقة؟',o:['فى المرحلة اللاضوئية لتكوين الجلوكوز','فى امتصاص الماء من التربة فقط','فى تحليل ثانى أكسيد الكربون إلى كربون وأكسچين','فى تحويل الجلوكوز إلى ماء'],w:'يتكون ATP من ADP والفوسفات بطاقة الكلوروفيل النشط، ويُستخدم فى المرحلة اللاضوئية مع الهيدروچين وثانى أكسيد الكربون لتكوين الجلوكوز.',x:'ATP مصدر طاقة للتفاعلات اللاضوئية، وليس لامتصاص الماء فقط.'},
+{l:8,e:'🍬',c:'مكان تكوين الجلوكوز',q:'أين يتحد الهيدروچين مع ثانى أكسيد الكربون لتكوين سكر الجلوكوز؟',o:['فى الستروما بوجود الإنزيمات وATP','على أغشية الأقراص فقط','فى الميتوكوندريا','فى الفجوة العصارية'],w:'تتم التفاعلات اللاضوئية فى الستروما، حيث يتحد الهيدروچين مع CO₂ فى وجود ATP والإنزيمات لتكوين الجلوكوز.',x:'أغشية الأقراص مكان التفاعلات الضوئية، أما الجلوكوز فيتكون فى الستروما.'},
+{l:8,e:'🥔',c:'تخزين النشا',q:'لماذا يخزّن النبات الجلوكوز فى درنة البطاطس على هيئة نشا وليس جلوكوزًا حرًّا؟',o:['لأن النشا شحيح الذوبان فى الماء البارد فلا يذوب فى العصارة','لأن النشا أحلى من الجلوكوز','لأن الجلوكوز يختفى فى الظلام','لأن النشا يمتص الضوء'],w:'يذوب الجلوكوز فى الماء، لذا ترتبط جزيئاته فى سلاسل طويلة مكونة حبيبات نشا شحيحة الذوبان فى الماء البارد، فتخزن بكفاءة عالية فى الأوراق والجذور والسيقان.',x:'لو ظل الجلوكوز حرًّا لذاب فى العصارة النباتية ولم يخزن بكفاءة.'},
+{l:8,e:'🧬',c:'الإنزيمات',q:'ما المواد التى تسرّع التفاعلات اللاضوئية فى الستروما دون حاجة إلى درجات حرارة مرتفعة؟',o:['الإنزيمات (بروتينات تعمل كعوامل حفز)','الدهون','الأملاح فقط','السكريات الأحادية'],w:'الإنزيمات جزيئات بروتين تعمل كعوامل حفز، فتزيد معدل التفاعلات دون درجات الحرارة المرتفعة المطلوبة فى معامل الأبحاث.',x:'الدهون لا تعمل كعوامل حفز؛ الإنزيمات بروتينات.'},
+{l:8,e:'⚖️',c:'معادلة البناء الضوئى',q:'أى معادلة تعبر عن البناء الضوئى موزونة؟',o:['<span dir="ltr">6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</span>','<span dir="ltr">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O</span>','<span dir="ltr">CO₂ + H₂O → C₆H₁₂O₆ + O₂</span>','<span dir="ltr">6CO₂ + 12H₂O → C₆H₁₂O₆ + 6O₂</span>'],w:'البناء الضوئى: 6CO₂ + 6H₂O ← C₆H₁₂O₆ + 6O₂ فى وجود الضوء والكلوروفيل، وتتساوى فيها أعداد ذرات كل عنصر فى الطرفين.',x:'المعادلة المعكوسة تمثل التنفس، وغير الموزونة لا تحقق قانون بقاء الكتلة.'},
+{l:8,e:'🥇',c:'عدد الجزيئات فى المعادلة',q:'كم جزىء ماء يلزم لتكوين جزىء جلوكوز واحد فى البناء الضوئى؟',o:['6 جزيئات','1 جزىء','12 جزيئًا','3 جزيئات'],w:'من المعادلة الموزونة: 6CO₂ + 6H₂O ← C₆H₁₂O₆ + 6O₂ يلزم 6 جزيئات ماء.',x:'عدد ذرات الهيدروچين فى الجلوكوز 12 وكل جزىء ماء يعطى ذرتين، فيلزم 6 جزيئات.'},
+{l:8,e:'♨️',c:'كسر جدران الخلايا',q:'فى تجربة اختبار النشا، تغلى الورقة فى الماء دقيقتين أولًا. ما الهدف؟',o:['كسر جدران الخلايا','تكوين النشا','زيادة الكلوروفيل','تلوين الورقة'],w:'يؤدى الغليان إلى كسر جدران الخلايا لتسهيل استخلاص الكلوروفيل ثم نفاذ اليود.',x:'النشا يتكون فى الضوء قبل التجربة، والغليان لا يكونه.'},
+{l:8,e:'🧪',c:'إزالة الكلوروفيل',q:'لماذا تسخّن الورقة فى الإيثانول قبل إضافة محلول اليود؟',o:['لإزالة اللون الأخضر حتى يظهر لون اليود الأزرق بوضوح','لتكوين نشا جديد','لحماية اليود من الضوء','لتحويل الورقة إلى حمض'],w:'يزيل الإيثانول الكلوروفيل الأخضر حتى لا يعيق لونه وضوح اللون الأزرق الداكن الذى سيتكون عند ظهور النشا.',x:'التسخين فى الإيثانول لا يكوّن نشا ولا يحمى اليود.'},
+{l:8,e:'🎞️',c:'أهمية الضوء',q:'غطى طالب جزءًا من ورقة نبات بشريط أسود وتركها فى الضوء ثم اختبرها باليود. ماذا يحدث للجزء المغطى؟',o:['لا يتلون باللون الأزرق الداكن لعدم تكوّن النشا','يتلون بالأزرق الداكن','يتلون بالأحمر','يتلون بالأخضر'],w:'الضوء ضرورى لتكوين النشا، فلا يتحول لون اليود فى المناطق التى حجب عنها الضوء.',x:'الجزء المغطى لم يصله الضوء فلم يتكون فيه جلوكوز ولا نشا.'},
+{l:8,e:'🏡',c:'تركيز ثانى أكسيد الكربون',q:'صاحب صوبة زراعية يريد رفع معدل البناء الضوئى وباقى العوامل مناسبة لكن تركيز CO₂ منخفض. ماذا يفعل؟',o:['يزيد تركيز CO₂ إلى القيمة المثلى','يخفض الضوء تمامًا','يرفع الحرارة لأعلى درجة','يمنع الماء عن النبات'],w:'يزداد معدل البناء الضوئى بزيادة تركيز CO₂ حتى يصل إلى قيمة مثلى ثم يثبت المعدل.',x:'خفض الضوء أو منع الماء يقلل المعدل ولا يرفعه.'},
+{l:8,e:'📈',c:'شدة الاستضاءة',q:'بعد أن وصل معدل البناء الضوئى إلى قيمة ثابتة فى الشكل البيانى، زادت شدة الاستضاءة أكثر. ماذا يحدث للمعدل؟',o:['يظل ثابتًا تقريبًا','يزداد بلا توقف','ينعدم فورًا','يتحول إلى تنفس'],w:'يزداد معدل البناء الضوئى بزيادة شدة الاستضاءة حتى النقطة المثلى ثم يثبت رغم الزيادة.',x:'بعد النقطة المثلى لا تزيد الاستضاءة المعدل؛ تصبح عوامل أخرى هى المحددة.'},
+{l:8,e:'🌡️',c:'درجة الحرارة المثلى',q:'حسب الشكل البيانى بكتابك، ماذا يحدث لمعدل البناء الضوئى عند رفع الحرارة كثيرًا فوق القيمة المثلى (20°C)؟',o:['يقل المعدل','يزداد المعدل دائمًا','يثبت دون تغيير مهما ارتفعت الحرارة','يتحول الأكسچين إلى جلوكوز'],w:'للمعدل قيمة مثلى لدرجة الحرارة، وبعدها يقل المعدل مع زيادة الحرارة.',x:'ارتفاع الحرارة ليس دائمًا فى صالح البناء الضوئى؛ للعامل قيمة مثلى.'},
+{l:8,e:'🏙️',c:'الزراعة العمودية',q:'مدينة مزدحمة تعانى نقص الأراضى الزراعية. أى تقنية تحاكى ظروف البناء الضوئى داخل مبان متعددة الطوابق لإنتاج الخضروات؟',o:['الزراعة العمودية بالإضاءة الصناعية والمغذيات المائية','زراعة الصحراء بلا ماء','تخزين الخضروات فى المبردات فقط','استيراد التربة فقط'],w:'الزراعة العمودية تكنولوجيا حديثة توفر الإضاءة الصناعية والمغذيات المائية لإتمام البناء الضوئى فى مبان متعددة الطوابق، وتقدم حلًّا مستدامًا لنقص الأراضى الصالحة.',x:'الزراعة تحتاج ضوءًا وماءً وثانى أكسيد الكربون، ولا تغنى عنها المبردات.'},
+{l:8,e:'🚰',c:'أوعية النقل',q:'أى أوعية النبات تنقل الغذاء المصنَّع فى الأوراق إلى باقى أجزاء النبات؟',o:['أوعية اللحاء','أوعية الخشب','الثغور','الجذور الشعرية'],w:'ينتقل الماء والأملاح من الجذور عبر أوعية الخشب، وينتقل الغذاء من الأوراق عبر أوعية اللحاء.',x:'الخشب ينقل الماء والأملاح لأعلى، واللحاء ينقل الغذاء.'},
+{l:9,e:'🏃',c:'التبادل الغازى',q:'لاعب يتنفس بسرعة بعد الجرى. ما وظيفة التبادل الغازى فى جسمه؟',o:['الحصول على الأكسچين والتخلص من ثانى أكسيد الكربون','تخزين الأكسچين فى الرئتين بلا استخدام','إنتاج الجلوكوز','تكوين البروتين'],w:'فى عملية التنفس (التبادل الغازى) يحصل الكائن الحى على الأكسچين من الهواء ويتخلص من ثانى أكسيد الكربون.',x:'التبادل الغازى لا ينتج الجلوكوز؛ إنتاج الطاقة يتم فى التنفس الخلوى.'},
+{l:9,e:'🔬',c:'مفهوم التنفس الخلوى',q:'ما التنفس الخلوى؟',o:['هدم جزيئات الغذاء كالجلوكوز داخل الخلايا فى وجود الأكسچين لإنتاج الطاقة','دخول الهواء إلى الرئتين فقط','بناء الجلوكوز من الماء وثانى أكسيد الكربون','انتقال الماء إلى الجذور'],w:'التنفس الخلوى عملية هدم تتم داخل الخلايا الحية لجزيئات الغذاء الكبيرة كالجلوكوز فى وجود الأكسچين، ينتج عنها ماء وثانى أكسيد الكربون وطاقة فى صورة ATP.',x:'دخول الهواء هو التبادل الغازى وليس التنفس الخلوى.'},
+{l:9,e:'🌿',c:'الثغور',q:'كيف يحصل النبات على الأكسچين اللازم لتنفسه وهو لا يمتلك جهازًا تنفسيًا متخصصًا؟',o:['من الهواء الجوى عبر فتحات طبيعية بالأوراق تسمى الثغور','من التربة فقط','من الماء وحده','لا يحتاج النبات إلى أكسچين'],w:'لا تمتلك النباتات جهازًا تنفسيًا متخصصًا، لكنها تحصل على الأكسچين من الهواء الجوى عبر فتحات طبيعية فى الأوراق تسمى الثغور.',x:'يحتاج النبات إلى الأكسچين لتنفسه مثل باقى الكائنات الحية.'},
+{l:9,e:'🌙',c:'التنفس ليلًا',q:'فى منتصف الليل، أى العمليتين تحدثان فى خلايا أوراق النبات؟',o:['التنفس فقط','البناء الضوئى فقط','البناء الضوئى والتنفس','لا شىء منهما'],w:'يحدث التنفس ليلًا ونهارًا، أما البناء الضوئى فيحدث نهارًا فقط لتوافر الضوء.',x:'البناء الضوئى يحتاج الضوء فيتوقف فى الظلام.'},
+{l:9,e:'☀️',c:'البناء الضوئى والتنفس نهارًا',q:'فى ظهيرة يوم مشمس، أى العمليتين تحدثان فى خلايا الورقة الخضراء؟',o:['البناء الضوئى والتنفس معًا','البناء الضوئى فقط','التنفس فقط','لا شىء منهما'],w:'يحدث التنفس باستمرار فى كل الخلايا الحية، وفى وجود الضوء يحدث معه البناء الضوئى فى الخلايا الخضراء.',x:'التنفس لا يتوقف فى وجود الضوء؛ العمليتان تحدثان معًا.'},
+{l:9,e:'🧊',c:'ماء الجير',q:'وضعت نباتًا فى ناقوس مظلم بجوار كأس به ماء جير رائق، وبعد ساعات تعكر. ماذا يدل؟',o:['تكوّن غاز ثانى أكسيد الكربون نتيجة التنفس','استهلاك غاز الأكسچين فقط','حدوث بناء ضوئى','تبخر الماء فقط'],w:'يتعكر ماء الجير عند إمرار ثانى أكسيد الكربون فيه، ويدل ذلك على تكوينه فى عملية التنفس.',x:'التعكر دليل على وجود CO₂ وليس على استهلاك الأكسچين.'},
+{l:9,e:'🔵',c:'أزرق الميثيلين',q:'زال لون أزرق الميثيلين فى ناقوس به نبات تُرك فى الظلام. ماذا يدل؟',o:['استهلاك الأكسچين فى عملية التنفس','تكوّن أكسچين جديد','حدوث بناء ضوئى','زيادة غاز CO₂ فقط'],w:'يزول لون أزرق الميثيلين عند غياب الأكسچين من الوسط، ويدل ذلك على استهلاك الأكسچين فى التنفس.',x:'لو تكوّن أكسچين جديد لبقى اللون الأزرق.'},
+{l:9,e:'🧴',c:'الجير الصودى',q:'وضعت نباتًا تحت ضوء الشمس فى ناقوس به جير صودى. لماذا يتوقف البناء الضوئى؟',o:['لأن الجير الصودى يمتص ثانى أكسيد الكربون اللازم','لأن الجير الصودى يمتص الأكسچين','لأن الضوء يزول','لأن الماء ينفد دائمًا'],w:'الجير الصودى (خليط من هيدروكسيد الصوديوم وأكسيد الكالسيوم) يمتص غاز CO₂ من الوسط، فيغيب أحد مواد البناء الضوئى.',x:'الجير الصودى لا يمتص الأكسچين، بل CO₂.'},
+{l:9,e:'🫘',c:'الميتوكوندريا',q:'ما العضية الشبيهة بحبة الفاصوليا التى تعمل كمحطة لإنتاج الطاقة من المواد الغذائية؟',o:['الميتوكوندريا','البلاستيدة الخضراء','النواة','الجرانا'],w:'الميتوكوندريا عضيات متخصصة تشبه حبة الفاصوليا، توجد فى معظم الخلايا وتعمل كمحطات لإنتاج الطاقة.',x:'البلاستيدة الخضراء تشبه حبة العدس وتتم فيها عملية البناء الضوئى.'},
+{l:9,e:'💪',c:'خلايا الطاقة',q:'لماذا تحتوى خلايا العضلات والكبد على عدد كبير من الميتوكوندريا؟',o:['لأنها تحتاج إلى قدر كبير من الطاقة','لأنها لا تحتاج إلى طاقة','لأنها تقوم بالبناء الضوئى','لأنها تفتقد الأكسچين'],w:'يزداد عدد الميتوكوندريا فى الخلايا التى تحتاج إلى قدر كبير من الطاقة، مثل خلايا الكبد والعضلات.',x:'خلايا الإنسان لا تقوم بالبناء الضوئى.'},
+{l:9,e:'🪢',c:'الأعراف',q:'ما فائدة الثنيات التى يشكلها الغشاء الداخلى للميتوكوندريا (الأعراف)؟',o:['زيادة مساحة السطح الداخلى فيزداد إنتاج الطاقة','حماية الخلية من الجراثيم','تخزين الجلوكوز','تكوين الماء فقط'],w:'يشكل الغشاء الداخلى المتعرج ثنيات تسمى الأعراف تزيد مساحة السطح الداخلى للميتوكوندريا، فتسمح بإنتاج المزيد من الطاقة.',x:'الأعراف ترتبط بزيادة مساحة سطح الغشاء الداخلى لإنتاج الطاقة.'},
+{l:9,e:'🛡️',c:'الغشاء الخارجى',q:'ما وظيفة الغشاء الخارجى المستوى للميتوكوندريا؟',o:['حماية مكوناتها وتنظيم دخول وخروج المواد','إنتاج معظم ATP','تحليل الماء','تخزين الدهون'],w:'وظيفة الغشاء الخارجى حماية مكونات الميتوكوندريا وتنظيم دخول وخروج المواد.',x:'إنتاج ATP الكبير يتم على الغشاء الداخلى وفى الحشوة.'},
+{l:9,e:'🧫',c:'المرحلة الأولى للتنفس الخلوى',q:'أين تتم المرحلة الأولى من التنفس الخلوى وهل تحتاج إلى أكسچين؟',o:['فى السيتوبلازم وفى غياب الأكسچين','فى الميتوكوندريا وبوجود الأكسچين','فى البلاستيدات وبوجود الضوء','فى النواة وبوجود الأكسچين'],w:'تتم المرحلة الأولى فى السيتوبلازم فى غياب أكسچين الهواء، ويتحلل فيها الجلوكوز إلى حمض بيروفيك مع طاقة محدودة.',x:'مرحلة الميتوكوندريا هى الثانية وتحتاج الأكسچين.'},
+{l:9,e:'🍬',c:'حمض البيروفيك',q:'كم جزىء حمض بيروفيك يتكون من جزىء جلوكوز واحد فى المرحلة الأولى؟',o:['2','1','3','6'],w:'يتحلل كل جزىء جلوكوز إلى جزيئين من حمض البيروفيك بالإضافة إلى طاقة محدودة فى صورة ATP.',x:'الجلوكوز سداسى الكربون ويتحلل إلى جزيئين كل منهما ثلاثى الكربون.'},
+{l:9,e:'🔄',c:'دورة كربس',q:'ما الغاز الذى ينتج عن هدم حمض البيروفيك فى دورة كربس وينتقل إلى الهواء الجوى؟',o:['ثانى أكسيد الكربون','الأكسچين','الهيدروچين','النيتروچين'],w:'فى دورة كربس يُهدم حمض البيروفيك فتنتج طاقة محدودة وغاز ثانى أكسيد الكربون الذى ينتقل إلى الهواء.',x:'الأكسچين يُستهلك فى هذه المرحلة ولا ينتج.'},
+{l:9,e:'🔗',c:'سلسلة نقل الإلكترون',q:'ما نواتج سلسلة نقل الإلكترون على الغشاء الداخلى للميتوكوندريا؟',o:['كمية كبيرة من ATP والماء','ثانى أكسيد الكربون فقط','الجلوكوز','الأكسچين'],w:'تشارك الإلكترونات الناتجة من دورة كربس فى سلسلة نقل الإلكترون لتكوين كمية كبيرة من ATP والماء.',x:'ثانى أكسيد الكربون ينتج فى دورة كربس.'},
+{l:9,e:'⚖️',c:'معادلة التنفس الخلوى',q:'أى معادلة تعبر عن التنفس الخلوى؟',o:['<span dir="ltr">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + طاقة</span>','<span dir="ltr">6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</span>','<span dir="ltr">C₆H₁₂O₆ → 6O₂ + 6H₂O</span>','<span dir="ltr">CO₂ + O₂ → C₆H₁₂O₆</span>'],w:'التنفس الخلوى: C₆H₁₂O₆ + 6O₂ ← 6CO₂ + 6H₂O + طاقة (ATP).',x:'المعادلة المعكوسة هى البناء الضوئى.'},
+{l:9,e:'🩹',c:'عمليات البناء',q:'التأم جرح فى يدك وتكونت خلايا جديدة وبروتينات من الأحماض الأمينية. أى نوع من عمليات الأيض هذا؟',o:['بناء تستهلك فيه الطاقة','هدم تنطلق فيه الطاقة','لا يعتبر أيضًا','تبخر'],w:'عمليات البناء تستهلك طاقة جزيئات ATP فى بناء جزىء كبير معقد من جزيئات عديدة بسيطة، مثل تكوين البروتينات من الأحماض الأمينية.',x:'الهدم عكس ذلك؛ يفكك الجزىء الكبير ويطلق الطاقة.'},
+{l:9,e:'🥩',c:'عمليات الهدم',q:'عند هضم البروتين فى المعدة يتفكك إلى جزيئات أبسط. ما نوع هذه العملية؟',o:['هدم تنطلق فيه الطاقة','بناء تستهلك فيه الطاقة','تبادل غازى','بناء ضوئى'],w:'عمليات الهدم تنطلق فيها طاقة ATP من هدم جزىء كبير سبق بناؤه إلى جزيئات أبسط، مثل هضم البروتين والچليكوچين وهدم الجلوكوز.',x:'الهضم يفكك الجزيئات الكبيرة، فهو هدم وليس بناءً.'},
+{l:9,e:'📊',c:'محلل معدل الأيض',q:'يريد رياضى تنظيم غذائه وتمارينه بدقة لإدارة وزنه. ما فائدة جهاز محلل معدل الأيض؟',o:['يوفر بيانات دقيقة عن معدل الأيض أثناء الراحة للتخطيط الفعال','يزيد عدد الميتوكوندريا فورًا','يقيس كمية الماء فى الجسم فقط','يحول الدهون إلى جلوكوز'],w:'يوفر الجهاز بيانات دقيقة عن معدل الأيض أثناء الراحة، تساعد فى التخطيط الفعال للنظام الغذائى والتمارين الرياضية لإدارة وزن الجسم بنجاح واستدامة.',x:'الجهاز يقيس ويحلل ولا يغير تركيب الخلايا.'},
+{l:9,e:'🔋',c:'ATP فى التنفس',q:'فى أى صورة تنطلق الطاقة الناتجة عن هدم الجلوكوز فى التنفس الخلوى؟',o:['جزيئات ATP','جزيئات الماء فقط','جزيئات النشا','أشعة تحت حمراء فقط'],w:'تنطلق الطاقة فى صورة جزيئات ATP، والتى يستخدمها الكائن الحى فى عملياته الحيوية كالنمو والحركة.',x:'الماء ناتج من نواتج التنفس لكنه ليس صورة تخزين الطاقة.'},
+{l:9,e:'🌍',c:'مقارنة ناتجى العمليتين',q:'ما الغاز الذى ينتقل إلى الهواء الجوى من مرحلة التفاعلات الضوئية فى البناء الضوئى، وما الغاز المنتقل من التنفس الخلوى؟',o:['الأكسچين من البناء الضوئى، وثانى أكسيد الكربون من التنفس','ثانى أكسيد الكربون فى الحالتين','الأكسچين فى الحالتين','ثانى أكسيد الكربون من البناء الضوئى، والأكسچين من التنفس'],w:'تطلق التفاعلات الضوئية الأكسچين الناتج من تحليل الماء، أما التنفس الخلوى فتنتج دورة كربس غاز ثانى أكسيد الكربون الذى ينتقل إلى الهواء.',x:'العمليتان متكاملتان: ما تنتجه إحداهما يستخدم فى الأخرى.'},
+{l:9,e:'📍',c:'مواضع الحدوث',q:'أين تحدث التفاعلات الضوئية، وأين تحدث دورة كربس؟',o:['الضوئية فى جرانا البلاستيدة، ودورة كربس فى حشوة الميتوكوندريا','كلتاهما فى الميتوكوندريا','كلتاهما فى البلاستيدة','الضوئية فى الميتوكوندريا، ودورة كربس فى الجرانا'],w:'التفاعلات الضوئية تتم على أغشية الأقراص فى الجرانا بالبلاستيدة الخضراء، ودورة كربس تحدث فى حشوة الميتوكوندريا.',x:'البلاستيدة للبناء الضوئى والميتوكوندريا للتنفس.'},
+{l:10,e:'🌍',c:'الانجراف القارى',q:'طالب لاحظ أن حافة غرب أفريقيا تتطابق تقريبًا مع حافة شرق أمريكا الجنوبية على الخريطة. أى فرضية تفسر ذلك؟',o:['فرضية الانجراف القارى لفيجنر','قانون بقاء الكتلة','تجربة ڤان هيلمونت','نظرية الأكسدة'],w:'افترض فيجنر عام 1912 أن الأرض كانت قارة واحدة (بانجايا) انجرفت أجزاؤها بمرور الزمن، ومنها أفريقيا وأمريكا الجنوبية.',x:'القوانين والتجارب الأخرى لا تتعلق بشكل القارات.'},
+{l:10,e:'🦴',c:'دليل اتصال القارات',q:'عثر علماء على بقايا كائنات قديمة متماثلة فى صخور غرب أفريقيا وشرق أمريكا الجنوبية. ماذا يدل ذلك؟',o:['أن القارتين كانتا كتلة واحدة فى الزمن السحيق','أنهما كانتا جزءًا من محيط قديم','أنهما كانتا بالقرب من القطب الشمالى','أن الكائنات سبحت بينهما'],w:'تماثل بقايا الكائنات القديمة على جانبى المحيط الأطلنطى يدل على أن القارتين كانتا متصلتين.',x:'لو كانتا منفصلتين منذ الأزل لما تماثلت الكائنات القديمة بهذا الشكل.'},
+{l:10,e:'⏳',c:'عمر بانجايا',q:'قبل كم سنة تقريبًا كانت الأرض قارة واحدة ضخمة تسمى بانجايا؟',o:['200 مليون سنة','2 مليون سنة','20 ألف سنة','135 مليون سنة فقط'],w:'كانت بانجايا قبل نحو 200 مليون سنة، وبدأت أفريقيا وأمريكا الجنوبية تنفصلان قبل 135 مليون سنة.',x:'135 مليون سنة هى بداية انفصال أفريقيا وأمريكا الجنوبية وليست عمر بانجايا.'},
+{l:10,e:'🧱',c:'الليثوسفير',q:'أى طبقتين يتكون منهما الغلاف الصخرى للأرض (الليثوسفير)؟',o:['القشرة الأرضية وجزء من الوشاح العلوى','اللب الداخلى والخارجى','الوشاح السفلى واللب','الأسثينوسفير فقط'],w:'الغلاف الصخرى يتكون من القشرة الأرضية وجزء من الوشاح العلوى، ومقسم إلى صفائح تكتونية.',x:'اللب أعمق بكثير ولا يدخل فى الغلاف الصخرى.'},
+{l:10,e:'🌊',c:'القشرة المحيطية',q:'أى صفة تميز الصفيحة المحيطية؟',o:['قشرة رقيقة مرتفعة الكثافة','قشرة سميكة منخفضة الكثافة','لا توجد بها قشرة','تعلوها يابس فقط'],w:'الصفائح المحيطية قشرتها رقيقة مرتفعة الكثافة وتعلوها مياه، أما القارية فسميكة وأقل كثافة.',x:'القشرة السميكة هى القارية.'},
+{l:10,e:'🔥',c:'سبب حركة الصفائح',q:'ما الذى يحرك الصفائح التكتونية ببطء فوق الأسثينوسفير؟',o:['تيارات الحمل فى الوشاح العلوى','الرياح السطحية','الجاذبية القمرية فقط','المد والجزر'],w:'تتحرك الصفائح حركة بطيئة مستمرة غير ملحوظة نتيجة حركة تيارات الحمل فى طبقة الوشاح العلوى.',x:'الرياح السطحية لا تحرك صفائح بهذا الحجم.'},
+{l:10,e:'🏜️',c:'البحر الأحمر',q:'سُمى البحر الأحمر بهذا الاسم لوفرة الطحالب الحمراء. ما الحركة التى تكون بها؟',o:['تباعد صفيحتين قاريتين','تقارب صفيحتين محيطيتين','حركة تحويلية','سقوط نيزك'],w:'تكوّن البحر الأحمر نتيجة الحركة التباعدية بين صفيحتين قاريتين، ويتوقع تحوله مستقبلًا إلى محيط.',x:'التقارب بين صفيحتين محيطيتين يكوّن سلاسل جزر بركانية وليس بحرًا جديدًا.'},
+{l:10,e:'🗻',c:'الهيمالايا',q:'كيف نشأت سلاسل جبال الهيمالايا؟',o:['تقارب صفيحتين قاريتين','تباعد صفيحتين محيطيتين','حركة تحويلية','انفجار بركان واحد'],w:'تتصادم صفيحتان قاريتان فى الحركة التقاربية فتتكون سلاسل جبال الهيمالايا.',x:'التباعد يكوّن قشرة جديدة لا جبالًا بهذا الارتفاع.'},
+{l:10,e:'🇯🇵',c:'جزر اليابان',q:'نشأت جزر اليابان من تقارب أى نوعين من الصفائح؟',o:['صفيحتين محيطيتين','صفيحتين قاريتين','قارية مع حركة تحويلية','لا شىء مما سبق'],w:'يؤدى تقارب صفيحتين محيطيتين إلى سلاسل جديدة من الجزر البركانية كجزر اليابان.',x:'تقارب قاريتين يكوّن جبالًا مثل الهيمالايا.'},
+{l:10,e:'⛰️',c:'الأنديز',q:'عند تقارب صفيحة محيطية مع صفيحة قارية، أيهما تغوص أسفل الأخرى؟',o:['المحيطية الأكبر كثافة','القارية الأقل كثافة','لا تتحرك أى منهما','كلتاهما تطفو'],w:'تغوص الصفيحة المحيطية الأكبر كثافة أسفل القارية الأقل كثافة، فتنشأ جبال الأنديز.',x:'الصفيحة الأقل كثافة تعلو ولا تغوص.'},
+{l:10,e:'🇺🇸',c:'صدع سان أندرياس',q:'ما الحركة المسؤولة عن صدع سان أندرياس فى أمريكا؟',o:['الحركة التحويلية','الحركة التباعدية','الحركة التقاربية للمحيطيتين','سقوط نيزك'],w:'فى الحركة التحويلية تتحرك صفيحتان متحاذيتان جنبًا إلى جنب فتنشأ صدوع طويلة كصدع سان أندرياس.',x:'التباعد والتقارب لا يفسران حركة جنبًا إلى جنب.'},
+{l:10,e:'📳',c:'الزلازل التكتونية',q:'لماذا تحدث الزلازل التكتونية عند حدود الصفائح؟',o:['تتحرر الطاقة المختزنة فى الصخور عند انكسارها','لأن الرياح قوية هناك','لأن المياه كثيرة هناك','لأن الجو بارد'],w:'تختزن الصخور طاقة هائلة بفعل حركة الصفائح، وعند انكسارها تتحرر هذه الطاقة مكونة الزلازل.',x:'ليس للرياح أو الطقس دور فى الزلازل التكتونية.'},
+{l:10,e:'🌊',c:'تسونامى',q:'بعد زلزال قوى قرب الساحل ضربت أمواج ضخمة الشاطئ وغيّرت شكله. ما هذه الظاهرة؟',o:['تسونامى','نسيم البحر','تيار حمل','الانجراف القارى'],w:'ظاهرة تسونامى من آثار الزلازل القوية وتغير شكل السواحل.',x:'نسيم البحر ظاهرة حرارية هادئة لا علاقة لها بالزلازل.'},
+{l:10,e:'🏚️',c:'خسائر الزلازل',q:'أى مما يلى يُعد خسارة مادية للزلازل؟',o:['انهيار المبانى والكبارى وخطوط المياه والكهرباء','الوفيات والإصابات','استنشاق الغازات السامة','تكوين الأمطار الحمضية'],w:'الخسائر المادية تتمثل فى تدمير المنشآت والبنية التحتية، أما الوفيات والإصابات فخسائر بشرية.',x:'الغازات السامة والأمطار الحمضية ترتبط بالبراكين.'},
+{l:10,e:'🌋',c:'مفهوم البركان',q:'ما البركان؟',o:['فتحة فى القشرة تسمح بخروج الصخور المنصهرة والغازات','هزة أرضية سريعة','كتلة صخرية من الفضاء','صدع بين صفيحتين'],w:'البركان فتحة فى القشرة الأرضية تسمح للصخور المنصهرة والغازات المحبوسة بالخروج إلى سطح الأرض.',x:'الهزة الأرضية هى الزلزال، والكتلة الفضائية هى النيزك.'},
+{l:10,e:'🏝️',c:'الجزر البركانية',q:'جزر هاواى نشأت نتيجة:',o:['البراكين','الزلازل فقط','النيازك','التجوية الكيميائية'],w:'تكوّن البراكين جبالًا وجزرًا بركانية مثل جزر هاواى.',x:'النيازك تكوّن حفرًا لا جزرًا.'},
+{l:10,e:'🌫️',c:'خسائر البراكين',q:'بعد ثوران بركان غطى الرماد مدينة وتلوث الهواء والماء. أى نوع من الخسائر؟',o:['خسائر بيئية','خسائر بشرية فقط','لا توجد خسائر','فوائد فقط'],w:'تتمثل الخسائر البيئية فى تغطية المدن بالرماد وتلوث الهواء والماء وتكوين الأمطار الحمضية.',x:'الخسائر البشرية هى الوفيات والإصابات.'},
+{l:10,e:'☄️',c:'حفرة جبل الكامل',q:'حفرة دائرية هائلة فى الصحراء الغربية بالوادى الجديد، ما سببها؟',o:['سقوط نيزك','ثوران بركان','انزلاق صدع','تيار حمل'],w:'حفرة جبل الكامل نتجت عن سقوط نيزك، مثل حفرة أريزونا فى أمريكا.',x:'البراكين تكوّن جبالًا وفوهات لكن حفرة جبل الكامل نيزكية.'},
+{l:10,e:'🛰️',c:'نظام DART',q:'ما وظيفة نظام DART الذى طورته ناسا؟',o:['تغيير مدار النيازك لحماية الأرض','التنبؤ بالزلازل','تبريد البراكين','قياس درجة الحرارة'],w:'DART نظام رادار متقدم وظيفته تغيير مدار النيازك لحماية الأرض من اصطدامها بها.',x:'النظام يتعامل مع النيازك لا مع الزلازل.'},
+{l:10,e:'🗺️',c:'نمط توزيع الزلازل والبراكين',q:'عند رسم أماكن الزلازل والبراكين على الخريطة تظهر فى شكل خطوط واضحة. ماذا تستنتج؟',o:['تتوزع على امتداد حدود الصفائح التكتونية','تحدث بشكل عشوائى تمامًا','تحدث فى الصحارى فقط','تحدث فى القطبين فقط'],w:'تتشابه الزلازل والبراكين فى أنها تتوزع فى نمط واضح على امتداد حدود الصفائح.',x:'ظهور نمط واضح يعنى أنها ليست عشوائية.'},
+{l:11,e:'💎',c:'تعريف المعدن',q:'أى مما يلى ينطبق عليه تعريف المعدن؟',o:['مادة صلبة طبيعية غير عضوية ذات نظام بللورى وتركيب محدد','سائل عضوى','غاز','مادة عضوية متحللة'],w:'المعدن مادة صلبة طبيعية غير عضوية ذات نظام بللورى وتركيب كيميائى محدد.',x:'المواد العضوية والسوائل والغازات لا تعد معادن.'},
+{l:11,e:'🛢️',c:'النفط ليس معدنًا',q:'لماذا لا يُعد النفط معدنًا؟',o:['لأنه سائل عضوى الأصل وليس مادة صلبة بللورية','لأنه يتكون من السيليكات','لأنه يتصلد من الماجما','لأنه مادة فلزية صلبة'],w:'النفط مادة سائلة عضوية الأصل (وقود حفرى) وليس مادة صلبة غير عضوية بللورية.',x:'خصائص المعدن لا تنطبق على النفط.'},
+{l:11,e:'🟡',c:'عنصر أم مركب',q:'الكبريت والهيماتيت معدنان؛ ما الفرق فى صورة وجودهما؟',o:['الكبريت عنصر والهيماتيت مركب','كلاهما عنصر','كلاهما مركب','الكبريت مركب والهيماتيت عنصر'],w:'الكبريت يوجد فى صورة عنصر، والهيماتيت مركب هو أكسيد الحديد الأحمر.',x:'الهيماتيت أكسيد (مركب) والكبريت عنصر.'},
+{l:11,e:'✨',c:'بريق الجالينا',q:'استخدم قدماء المصريين معدنًا ذا بريق فلزى فى صناعة كحل العين. ما هذا المعدن؟',o:['الجالينا','التلك','الميكا','الهاليت'],w:'الجالينا معدن له بريق يشبه الفلزات واستخدمه القدماء فى صناعة الكحل.',x:'التلك معتم والهاليت ملح الطعام.'},
+{l:11,e:'🪟',c:'الشفافية',q:'رتب المعادن من الشفاف إلى المعتم: كوارتز، ميكا، تلك.',o:['كوارتز ثم ميكا ثم تلك','تلك ثم ميكا ثم كوارتز','ميكا ثم تلك ثم كوارتز','كلها شفافة'],w:'الكوارتز شفاف، الميكا نصف شفاف، والتلك معتم.',x:'التلك هو المعتم وليس الشفاف.'},
+{l:11,e:'🌈',c:'الأوبال',q:'لماذا يوصف الأوبال بشبه معدن رغم تركيبه الكيميائى المحدد وبريقه؟',o:['لأنه غير متبلر','لأنه عضوى','لأنه سائل','لأنه عديم اللون'],w:'الأوبال غير متبلر، على عكس الهاليت المتبلر الذى يوصف بالمعدن.',x:'ليس عضويًا ولا سائلًا؛ السبب أنه غير متبلر.'},
+{l:11,e:'🧂',c:'الهاليت',q:'بللورات ملح الطعام فى الطبيعة تسمى:',o:['الهاليت','الأوبال','التلك','الكوارتز'],w:'الهاليت هو معدن ملح الطعام ويوصف بالمعدن لأنه متبلر.',x:'الأوبال شبه معدن غير متبلر.'},
+{l:11,e:'🌋',c:'تصلد الصهارة',q:'صهارة غنية بالسيليكا تصلدت. أى معدنين يتكونان؟',o:['الميكا والكوارتز','الأوليفين والبيروكسين','الأباتيت والكالسيت','الهيماتيت والكبريت'],w:'الصهارة الغنية بالسيليكا تكوّن عند تصلدها الميكا والكوارتز، أما الغنية بالماغنسيوم والحديد فتكوّن الأوليفين والبيروكسين.',x:'الأباتيت والكالسيت يتبلران من محاليل الفوهات المائية.'},
+{l:11,e:'♨️',c:'الفوهات المائية',q:'كيف تتكون معادن الأباتيت والكالسيت عند الفوهات المائية الحارة؟',o:['يلامس الماء الساخن المحمّل بالمعادن ماء المحيط البارد فتتبلر','تتصلد الصهارة تحت الجبال','تتفتت الصخور بالرياح','تتبخر الأمطار'],w:'يرتفع الماء الساخن (نحو 400°C) المحمّل بالمعادن عبر الصخور المسامية، وعند ملامسته لماء المحيط البارد (نحو 2°C) تتبلر المعادن.',x:'التبلر يحدث بالتبريد المفاجئ للمحلول لا بالرياح.'},
+{l:11,e:'🌱',c:'تعريف التربة',q:'ما التربة؟',o:['الطبقة السطحية الناتجة من تفتت الصخور وتحلل المواد العضوية','طبقة اللب','ماء الأنهار','الصخور المنصهرة'],w:'التربة الطبقة السطحية من القشرة الناتجة من تفتت الصخور وتحلل المواد العضوية أو كليهما.',x:'اللب والصخور المنصهرة فى باطن الأرض.'},
+{l:11,e:'🔨',c:'التجوية',q:'تفتت صخرة بسبب تغير درجات الحرارة ونمو جذور نبات فى شقوقها. ما العملية؟',o:['التجوية','التعرية','الترسيب فقط','التبلر'],w:'التجوية عملية تفتت وكسر الصخور، قد تكون ميكانيكية بالرياح والمياه واختلاف الحرارة ونمو الجذور أو كيميائية.',x:'التعرية هى نقل الفتات بعيدًا عن مكانه.'},
+{l:11,e:'🚚',c:'التعرية',q:'نقل نهر الفتات الصخرى من مكان لآخر. ما اسم العملية؟',o:['التعرية','التجوية','التبلر','التصلد'],w:'التعرية عملية نقل الفتات الصخرى الناتج عن التجوية بعيدًا عن المناطق التى نُقل منها.',x:'التجوية تفتت الصخور فقط ولا تنقلها.'},
+{l:11,e:'🌾',c:'تربة دلتا النيل',q:'تربة دلتا النيل نقلها النهر من هضبة الحبشة. ما نوعها؟',o:['منقولة نهرية','محلية متبقية','محلية نهرية','لا تعتبر تربة'],w:'تربة دلتا النيل منقولة نهرية، ويختلف تركيبها عن الصخر الذى تعلوه.',x:'المحلية المتبقية تتكون فى نفس مكان الصخر الأصلى.'},
+{l:11,e:'🏜️',c:'تربة الواحات',q:'تكونت تربة الواحات من تفتت الصخور الرملية والجيرية فى مكانها. ما نوعها؟',o:['محلية متبقية','منقولة نهرية','منقولة متبقية','لا توجد'],w:'تربة الواحات ومريوط محلية متبقية تشبه الصخر الأصلى، علمًا بأن معظم التربة المصرية منقولة.',x:'لم تُنقل من مكان آخر فهى ليست منقولة.'},
+{l:11,e:'⛽',c:'الموارد غير المتجددة',q:'أى مما يلى من الموارد غير المتجددة؟',o:['الوقود الحفرى والمعادن','طاقة الشمس','طاقة الرياح','الطاقة الكهرومائية'],w:'الموارد غير المتجددة لا تُعوّض عند استهلاكها، ومنها المعادن والوقود الحفرى، ويستغرق تكونها ملايين السنين.',x:'الشمس والرياح والمياه مصادر متجددة.'},
+{l:11,e:'📉',c:'نضوب النفط',q:'يُظهر الشكل البيانى أن إنتاج النفط يرتفع ثم ينخفض بعد عام 2010. ماذا يدل ذلك؟',o:['محدودية الموارد غير المتجددة ونضوبها','أن النفط متجدد','أن النفط لا ينفد','أن الطلب انعدم'],w:'يدل على محدودية الموارد غير المتجددة وضرورة تقليل معدل استنزافها.',x:'النفط غير متجدد فلا يعوض عند استهلاكه.'},
+{l:11,e:'♻️',c:'إعادة التدوير',q:'ما فائدة إعادة تدوير المعادن؟',o:['تقليل التعدين الجديد والحفاظ على الموارد','زيادة استنزاف المعادن','تكوين معادن جديدة بالبراكين','زيادة الوقود الحفرى'],w:'إعادة تدوير المعادن بدلًا من التعدين الجديد من وسائل استدامة الموارد غير المتجددة.',x:'التدوير يقلل الاستنزاف ولا يزيده.'},
+{l:11,e:'🌍',c:'التوزيع غير العادل',q:'سيطرة شركات التعدين فى دول متقدمة على موارد دول نامية قد تؤدى إلى:',o:['توزيع غير عادل للثروات وربما نضوبها','توزيع عادل للثروات','زيادة الموارد','تجدد المعادن'],w:'النشاط البشرى المتزايد فى التعدين وسيطرة الشركات الكبرى على موارد الدول النامية يؤدى إلى التوزيع غير العادل للثروات وربما نضوبها.',x:'المعادن لا تتجدد، فيؤدى الاستنزاف إلى نضوبها.'},
+{l:11,e:'🔋',c:'بدائل صناعية',q:'أى ابتكار يُعد بديلًا صناعيًا يقلل استنزاف الموارد؟',o:['البطاريات القابلة لإعادة الشحن','تكسير المزيد من الصخور','حرق مزيد من الوقود','التعدين الجائر'],w:'ابتكار بدائل صناعية للموارد كالبطاريات القابلة لإعادة الشحن من وسائل الاستدامة.',x:'الحرق والتعدين الجائر يزيدان الاستنزاف.'}
 ];const X=[
 'زيادة اللهب لا ترفع درجة الغليان؛ الذى يرفعها هو زيادة الضغط فوق الماء.',
 'التوصيل الجيد مفيد لجسم المقلاة، أما المقبض فيجب أن يكون عازلًا حتى لا تحترق اليد.',
@@ -4059,10 +5652,14 @@ window.gmHunt=function(){ const pl=pool(); const ids=shuffle(Object.keys(wrongGe
 const SC={u1:['🛠️','مهندس الحلول الذكية','مدينتك الصغيرة تواجه مشكلات حياتية حقيقية! استخدم ما تعلمته عن حالات المادة والحرارة لاختيار أفضل حل لكل موقف قبل أن ينتهى الوقت.'],
  u2:['⚗️','كيميائى المستقبل','مشكلات من المطبخ والمعمل والصحة: استخدم دلائل التفاعل ووزن المعادلات وكيمياء الغذاء لتختار الحل الصحيح.'],
  lesson1:['❄️','تحدّى حالات المادة'],lesson2:['🌡️','تحدّى تغيُّر حالات المادة'],lesson3:['⚙️','تحدّى الطاقة الداخلية ودرجة الحرارة'],lesson4:['🔥','تحدّى طرق انتقال الحرارة'],
- lesson5:['⚗️','تحدّى التفاعلات الكيميائية'],lesson6:['⚖️','تحدّى المعادلة الكيميائية'],lesson7:['🍎','تحدّى كيمياء التغذية']};
+ lesson5:['⚗️','تحدّى التفاعلات الكيميائية'],lesson6:['⚖️','تحدّى المعادلة الكيميائية'],lesson7:['🍎','تحدّى كيمياء التغذية'],
+ u3:['🌿','مهندس الطاقة الحيوية','مشكلات من المزرعة والمعمل والجسم: استخدم ما تعلمته عن البناء الضوئى والتنفس الخلوى وتدفق الطاقة لاختيار الحل الصحيح.'],
+ u4:['🌋','خبير الچيولوچيا','مواقف من الجبال والزلازل والبراكين والمعادن والتربة: استخدم ما تعلمته عن العمليات الچيولوچية لاختيار الحل الصحيح.'],
+ lesson10:['🌋','تحدّى تغيير سطح الأرض'],lesson11:['💎','تحدّى المعادن والتربة'],
+ lesson8:['🌿','تحدّى البناء الضوئى'],lesson9:['🔋','تحدّى التنفس الخلوى']};
 function setTitles(){ const t=SC[gmScope]||SC.u1; $('gmBig').textContent=t[0]; $('gmTitle').textContent=t[1]; $('gmDesc').textContent=t[2]||'مشكلات حياتية تغطى جميع أفكار هذا الدرس: اختر الحل الأنسب قبل انتهاء الوقت، وراجع أخطاءك بجولة «صيد الأخطاء».'; }
 window.gmOpen=function(sc){ gmScope=sc; showView('game'); };
-window.gmBack=function(){ showView(/^lesson/.test(gmScope)?gmScope:(gmScope==='u2'?'unit2':'home')); };
+window.gmBack=function(){ showView(/^lesson/.test(gmScope)?gmScope:(gmScope==='u2'?'unit2':gmScope==='u3'?'unit3':gmScope==='u4'?'unit4':'home')); };
 function info(){ const pl=pool(); setTitles(); $('gmBank').textContent='🧩 '+Math.min(ROUNDS,pl.length)+' مشكلات من بنك '+pl.length+' موقفًا'; $('gmSeen').textContent='🗺️ جربت '+seenGet().filter(i=>pl.includes(i)).length+' من '+pl.length; const nw=Object.keys(wrongGet()).filter(i=>pl.includes(+i)).length; $('gmFixed').textContent='🎖️ أتقنت '+fixedGet(); ['gmHuntBtn','gmHuntBtn2'].forEach(id=>{const b=$(id); if(b){b.style.display=nw?'inline-block':'none'; b.textContent='🎯 صيد الأخطاء ('+nw+')';}}); }
 window.gmToggleSound=function(){ sndOn=!sndOn; $('gmMuteBtn').textContent=sndOn?'🔊 الصوت: يعمل':'🔇 الصوت: متوقف'; if(sndOn){A();sfx.click();} };
 
@@ -4078,7 +5675,7 @@ const GOOD=['#FFD54F','#E8622C','#3FAFC0','#2E9B6B','#fff','#C79BFF'];
 /* game flow */
 function screen(id){ ['gmStart','gmPlay','gmEnd'].forEach(s=>$(s).classList.toggle('on',s===id)); }
 function bk(){ return gmScope==='u1'?'gm-best':'gm-best-'+gmScope; }
-function pool(){ const sc=gmScope; return Q.map((q,i)=>i).filter(i=>{const l=Q[i].l; return sc==='u1'?l<=4:sc==='u2'?l>=5:('lesson'+l)===sc;}); }
+function pool(){ const sc=gmScope; return Q.map((q,i)=>i).filter(i=>{const l=Q[i].l; return sc==='u1'?l<=4:sc==='u2'?(l>=5&&l<=7):sc==='u3'?(l>=8&&l<=9):sc==='u4'?(l>=10&&l<=11):('lesson'+l)===sc;}); }
 function bestGet(){ try{return +localStorage.getItem(bk())||0;}catch(e){return 0;} }
 function bestSet(v){ try{localStorage.setItem(bk(),v);}catch(e){} }
 function shuffle(a){ return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
@@ -4114,7 +5711,7 @@ function finish(quit){ clearInterval(tm); musicStop(); screen('gmEnd'); const to
   if(G.fixed) $('gmFinalSub').textContent+=' • 🎖️ أتقنت '+G.fixed+(G.fixed>2?' مفاهيم':' مفهومًا'); const uniq=[...new Set(G.miss)]; $('gmWeak').innerHTML=uniq.length?'📌 <b>راجع هذه المفاهيم:</b><br>• '+uniq.join('<br>• '):'🌟 لم تخطئ فى أى مفهوم، أداء مبهر!';
   info(); if(won&&pct>=.4){sfx.win();burst(160,GOOD);} else sfx.lose(); }
 /* إيقاف الموسيقى عند مغادرة اللعبة */
-const _sv=window.showView; window.showView=function(id){ if(id!=='game'){clearInterval(tm);musicStop();} _sv(id); if(id==='game'){ $('gmBest').textContent='🏆 أفضل نتيجة: '+bestGet(); info(); screen('gmStart'); document.body.classList.toggle('unit-2',['u2','lesson5','lesson6','lesson7'].includes(gmScope)); } };
+const _sv=window.showView; window.showView=function(id){ if(id!=='game'){clearInterval(tm);musicStop();} _sv(id); if(id==='game'){ $('gmBest').textContent='🏆 أفضل نتيجة: '+bestGet(); info(); screen('gmStart'); document.body.classList.toggle('unit-2',['u2','lesson5','lesson6','lesson7'].includes(gmScope)); document.body.classList.toggle('unit-3',['u3','lesson8','lesson9'].includes(gmScope)); document.body.classList.toggle('unit-4',['u4','lesson10','lesson11'].includes(gmScope)); } };
 })();
 </script>
 <script>
